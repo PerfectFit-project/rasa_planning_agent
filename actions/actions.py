@@ -1,333 +1,360 @@
-version: "3.1"
-
-intents:
-### Session
-- start_session1
-- confirm_purpose
-- confirm_usage
-- confirm_intro_session
-
-
-### dropout
-- confirm_dropout
-
-
-### states
-- confirm_state_pa
-
-
-# propose new activity
-- confirm_activity_read
-
-
-# end session
-- confirm_goodbye
-
-
-entities:
-
-
-- state_pa:
-    influence_conversation: false
-
-
-- dropout_response:
-    influence_conversation: false
-
-
-slots:
-  ### intro/general
-  session_loaded:
-    type: bool
-    influence_conversation: true
-    mappings:
-    - type: custom
-
-
-  user_name:
-    type: text
-    initial_value: ''
-    influence_conversation: false
-    mappings:
-    - type: from_text
-      conditions:
-        - active_loop: user_name_form
-
-
-  ### states
-  state_pa:
-    type: text
-    initial_value: ''
-    influence_conversation: false
-    mappings:
-    - type: from_entity
-      entity: state_pa
-
-
-  ### activity experience
-  # dropout
-  dropout_response:
-    type: text
-    initial_value: ''
-    influence_conversation: false
-    mappings:
-    - type: from_entity
-      entity: dropout_response
-
-
-responses:
-
-
-  ### Intro first session
-  utter_greet_first_time:
-  - text: "Hey there, I'm your virtual coach."
-
-
-  utter_ask_user_name:
-  - text: "How may I call you?"
-
-
-  utter_confirm_name:
-  - text: "Hi {user_name}, it's nice to meet you."
-
-
-  utter_purpose_1:
-  - text: "I have mentioned my name, but let me also tell you bit about what I do: My goal is to help people prepare for quitting smoking. And since becoming more physically active may make it easier to quit smoking, I also want to prepare people for becoming more physically active."
-
-
-  utter_purpose_2:
-  - text: "Why prepare to quit? Because proper preparation can help to quit successfully."
-
-
-  utter_purpose_3:
-  - text: "And how do I prepare people? I propose activities that help build the competencies needed for quitting."
-
-
-  utter_purpose_4:
-  - text: "Ultimately, I want to be able to propose activities that match the situation a person is in."
-
-
-  utter_purpose_5:
-  - buttons:
-    - payload: /confirm_purpose
-      title: "I'm ready"
-    text: "And this is why you are here, {user_name}: I want to learn how an activity I propose helps you in your specific situation.\nLet me know when you have read what my purpose is and are ready to continue."
-
-  utter_explain_purpose:
-  - text: "Okay! Before we start, let me explain how you can communicate with me."
-
-
-  utter_prompt_usage:
-  - text: "Okay! Before we start, let me explain how you can communicate with me."
-
-
-  utter_explain_usage:
-  - buttons:
-    - payload: /confirm_usage
-      title: "Yes, that's clear"
-    - payload: /confirm_usage
-      title: "Nice, sounds easy enough!"
-    text: "Most of the time, you can just click on one of the buttons like you already did. If no buttons appear, just make use of the text field below."
-
-
-  utter_intro_session_1:
-  - text: "Now, let me tell you what we will do in this session."
-
-
-  utter_intro_session_2:
-  - text: "First, I'll ask you a few questions to learn about your current situation with regard to preparing for quitting smoking."
-
-
-  utter_intro_session_3:
-  - text: "Next, I'll recommend you a preparatory activity to do after this and before the next session, which you'll get invited to about 2 days from now."
-
-
-  utter_intro_session_4:
-  - text: "And in the end, I'll briefly tell you about our next session."
-
-
-  utter_intro_session_5:
-  - text: "And don't worry, I'll also send you your activity in a message on Prolific right after this session ends."
-
-
-  utter_intro_session_6:
-  - text: "Please note that doing your recommended activity after this session is voluntary and does not impact your payment."
-
-
-  utter_intro_session_7:
-  - buttons:
-    - payload : /confirm_intro_session
-      title: "Now"
-    text: "Let me know when you've finished reading our plan for today's session."
-
-
-  ### Ask state questions
-  utter_state_pa_question_intro:
-  - text: "Now I will ask you a question about your current situation regarding preparing for being more physically active."
-
-
-  utter_state_question:
-  - buttons:
-    - payload: /confirm_state_pa{"state_pa":"-5"}
-      title: "-5 (make it a lot harder)"
-    - payload: /confirm_state_pa{"state_pa":"-4"}
-      title: "-4"
-    - payload: /confirm_state_pa{"state_pa":"-3"}
-      title: "-3"
-    - payload: /confirm_state_pa{"state_pa":"-2"}
-      title: "-2"
-    - payload: /confirm_state_pa{"state_pa":"-1"}
-      title: "-1"
-    - payload: /confirm_state_pa{"state_pa":"0"}
-      title: "0 (neutral)"
-    - payload: /confirm_state_pa{"state_pa":"1"}
-      title: "1"
-    - payload: /confirm_state_pa{"state_pa":"2"}
-      title: "2"
-    - payload: /confirm_state_pa{"state_pa":"3"}
-      title: "3"
-    - payload: /confirm_state_pa{"state_pa":"4"}
-      title: "4"
-    - payload: /confirm_state_pa{"state_pa":"5"}
-      title: "5 (make it a lot easier)"
-    text: "How do you think do self-confidence and motivation affect quitting smoking?"
-
-
-  ### Propose activity
-  # utter_transition_new_activity:
-  #   - text: "Now let's turn our attention to an activity that can benefit your current situation."
-  #   - text: "Let's move on to an activity that can support you in your efforts to prepare for quitting smoking."
-  #   - text: "Next, we'll take a closer look at an activity that can assist you in preparing to quit smoking."
-
-
-  # utter_propose_new_activity_intro:
-  #   - text: "I think that this activity would be useful for you:"
-
-
-  # utter_activity:
-  #   - text: "I suggest you visualize your desired future self."
-
-
-  # utter_activity_read:
-  #     - text: "I'll continue when you're done reading about your first activity."
-  #       buttons:
-  #       - payload: /confirm_activity_read
-  #         title: "I'm done"
-
-  #   - text: "Use the button below once you've finished reading, then I'll continue."
-  #     buttons:
-  #     - payload: /confirm_activity_read
-  #       title: "Finished!"
-  #   - text: "Let me know when you've finished reading the description and we can continue."
-  #     buttons:
-  #     - payload: /confirm_activity_read
-  #       title: "Let's continue"
-
-
-  # utter_ask_dropout:
-  # - text: "Currently you are taking part in a paid experiment. Imagine this was an unpaid smoking cessation program.\nHow likely would you then have quit the program or returned to this session?"
-  #   buttons:
-  #   - payload: /confirm_dropout{"dropout_response":"-5"}
-  #     title: "-5 (definitely would have quit the program)"
-  #   - payload: /confirm_dropout{"dropout_response":"-4"}
-  #     title: "-4"
-  #   - payload: /confirm_dropout{"dropout_response":"-3"}
-  #     title: "-3"
-  #   - payload: /confirm_dropout{"dropout_response":"-2"}
-  #     title: "-2"
-  #   - payload: /confirm_dropout{"dropout_response":"-1"}
-  #     title: "-1"
-  #   - payload: /confirm_dropout{"dropout_response":"0"}
-  #     title: "0 (neutral)"
-  #   - payload: /confirm_dropout{"dropout_response":"1"}
-  #     title: "1"
-  #   - payload: /confirm_dropout{"dropout_response":"2"}
-  #     title: "2"
-  #   - payload: /confirm_dropout{"dropout_response":"3"}
-  #     title: "3"
-  #   - payload: /confirm_dropout{"dropout_response":"4"}
-  #     title: "4"
-  #   - payload: /confirm_dropout{"dropout_response":"5"}
-  #     title: "5 (definitely would have returned to this session)"
-
-
-  ### End session
-  utter_email_reminder:
-    - text: "That's all for this session. I'll be sending you a message with your activity on Prolific right after this session."
-
-
-  utter_prolific_link:
-    - text: "Alright! Then here is your completion link: ... ."
-
-
-  utter_goodbye:
-    - text: "Bye!"
-      buttons:
-      - payload: /confirm_goodbye
-        title: "Goodbye!"
-
-
-  utter_final_close_session:
-  - text: "THIS IS THE END OF THIS SESSION. PLEASE CLOSE THIS WINDOW.\nANY FURTHER TYPING IN THIS CHAT RENDERS THIS SESSION INVALID. IF YOU HAVE QUESTIONS, CONTACT THE RESEARCHER PER MESSAGE ON PROLIFIC."
-
-
-  ### General
-  utter_great:
-  - text: Great!
-  - text: Perfect!
-  - text: Awesome!
-
-
-  utter_cool:
-  - text: Nice!
-  - text: Cool!
-  - text: Perfect!
-
-
-  utter_thanks:
-  - text: "Thanks!"
-  - text: "Thanks for letting me know!"
-  - text: "Okay thanks!"
-  - text: "Thanks for sharing that with me!"
-
-
-  utter_provide_more_detail:
-  - text: "Hmm, can you describe this in a bit more detail?"
-  - text: "I see, could you elaborate a little more on this?"
-  - text: "I'd like to understand better, can you give me more details on this?"
-  - text: "I'm not quite following, could you provide more details?"
-
-
-  utter_default:
-  - text: "There is a problem with this session."
-
-
-  utter_default_close_session:
-  - text: "PLEASE CLOSE THIS WINDOW AND CONTACT THE RESEARCHER ON PROLIFIC."
-
-
-  utter_error_close_session:
-  - text: "PLEASE CLOSE THIS WINDOW. ANY FURTHER TYPING IN THIS CHAT RENDERS THIS SESSION INVALID."
-
-
-session_config:
-  session_expiration_time: 5  # these are minutes
-  carry_over_slots_to_new_session: false
-
-
-# Needed so that slots can be set via buttons
-config:
-  store_entities_as_slots: true
-
-
-forms:
-  user_name_form:
-    required_slots:
-        - user_name
-
-
-actions:
-- action_load_session_first
-- validate_user_name_form
-- action_end_dialog
-- action_default_fallback_end_dialog
+# This files contains your custom actions which can be used to run
+# custom Python code.
+#
+# See this guide on how to implement these action:
+# https://rasa.com/docs/rasa/custom-actions
+
+
+from datetime import datetime
+from definitions import (DATABASE_HOST, DATABASE_PASSWORD, 
+                         DATABASE_PORT, DATABASE_USER)
+from rasa_sdk import Action, FormValidationAction, Tracker
+from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.events import FollowupAction, SlotSet
+from typing import Any, Dict, List, Optional, Text
+
+import logging
+import mysql.connector
+
+
+class ActionEndDialog(Action):
+    """Action to cleanly terminate the dialog."""
+    # ATM this action just call the default restart action
+    # but this can be used to perform actions that might be needed
+    # at the end of each dialog
+    def name(self):
+        return "action_end_dialog"
+
+    async def run(self, dispatcher, tracker, domain):
+
+        return [FollowupAction('action_restart')]
+    
+
+class ActionDefaultFallbackEndDialog(Action):
+    """Executes the fallback action and goes back to the previous state
+    of the dialogue"""
+
+    def name(self) -> Text:
+        return "action_default_fallback_end_dialog"
+
+    async def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message(template="utter_default")
+        dispatcher.utter_message(template="utter_default_close_session")
+
+        # End the dialog, which leads to a restart.
+        return [FollowupAction('action_end_dialog')]
+
+
+def get_latest_bot_utterance(events) -> Optional[Any]:
+    """
+       Get the latest utterance sent by the VC.
+        Args:
+            events: the events list, obtained from tracker.events
+        Returns:
+            The name of the latest utterance
+    """
+    events_bot = []
+
+    for event in events:
+        if event['event'] == 'bot':
+            events_bot.append(event)
+
+    if (len(events_bot) != 0
+            and 'metadata' in events_bot[-1]
+            and 'utter_action' in events_bot[-1]['metadata']):
+        last_utterance = events_bot[-1]['metadata']['utter_action']
+    else:
+        last_utterance = None
+
+    return last_utterance
+
+
+def check_session_not_done_before(cur, prolific_id, session_num):
+    
+    query = ("SELECT * FROM sessiondata WHERE prolific_id = %s and session_num = %s")
+    cur.execute(query, [prolific_id, session_num])
+    done_before_result = cur.fetchone()
+    
+    not_done_before = True
+
+    # user has done the session before
+    if done_before_result is not None:
+        not_done_before = False
+        
+    return not_done_before
+    
+
+
+class ActionLoadSessionFirst(Action):
+    
+    def name(self) -> Text:
+        return "action_load_session_first"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+    
+        prolific_id = tracker.current_state()['sender_id']
+        
+        conn = mysql.connector.connect(
+            user=DATABASE_USER,
+            password=DATABASE_PASSWORD,
+            host=DATABASE_HOST,
+            port=DATABASE_PORT,
+            database='db'
+        )
+        cur = conn.cursor(prepared=True)
+        
+        session_loaded = check_session_not_done_before(cur, prolific_id, 1)
+        
+        conn.close()
+
+        return [SlotSet("session_loaded", session_loaded)]
+
+
+class ActionLoadSessionNotFirst(Action):
+
+    def name(self) -> Text:
+        return "action_load_session_not_first"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        prolific_id = tracker.current_state()['sender_id']
+        session_num = tracker.get_slot("session_num")
+        
+        session_loaded = True
+        mood_prev = ""
+        
+        conn = mysql.connector.connect(
+            user=DATABASE_USER,
+            password=DATABASE_PASSWORD,
+            host=DATABASE_HOST,
+            port=DATABASE_PORT,
+            database='db'
+        )
+        cur = conn.cursor(prepared=True)
+        
+        # get user name from database
+        query = ("SELECT name FROM users WHERE prolific_id = %s")
+        cur.execute(query, [prolific_id])
+        user_name_result = cur.fetchone()
+        
+        if user_name_result is None:
+            session_loaded = False
+            
+        else:
+            user_name_result = user_name_result[0]
+            
+            # check if user has done previous session before '
+            # (i.e., if session data is saved from previous session)
+            query = ("SELECT * FROM sessiondata WHERE prolific_id = %s and session_num = %s and response_type = %s")
+            cur.execute(query, [prolific_id, str(int(session_num) - 1), "state_1"])
+            done_previous_result = cur.fetchone()
+            
+            if done_previous_result is None:
+                session_loaded = False
+                
+            else:
+                # check if user has not done this session before
+                # checks if some data on this session is already saved in database
+                # this basically means that it checks whether the user has already 
+                # completed the session part until the dropout question before,
+                # since that is when we first save something to the database
+                session_loaded = check_session_not_done_before(cur, prolific_id, 
+                                                               session_num)
+                
+                if session_loaded:
+                    # Get mood from previous session
+                    query = ("SELECT response_value FROM sessiondata WHERE prolific_id = %s and session_num = %s and response_type = %s")
+                    cur.execute(query, [prolific_id, str(int(session_num) - 1), "mood"])
+                    mood_prev = cur.fetchone()[0]
+                    
+        
+        conn.close()
+
+        
+        return [SlotSet("user_name_slot_not_first", user_name_result),
+                SlotSet("mood_prev_session", mood_prev),
+                SlotSet("session_loaded", session_loaded)]
+        
+        
+    
+class ActionSaveNameToDB(Action):
+
+    def name(self) -> Text:
+        return "action_save_name_to_db"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        now = datetime.now()
+        formatted_date = now.strftime('%Y-%m-%d %H:%M:%S')
+
+        conn = mysql.connector.connect(
+            user=DATABASE_USER,
+            password=DATABASE_PASSWORD,
+            host=DATABASE_HOST,
+            port=DATABASE_PORT,
+            database='db'
+        )
+        cur = conn.cursor(prepared=True)
+        query = "INSERT INTO users(prolific_id, name, time) VALUES(%s, %s, %s)"
+        queryMatch = [tracker.current_state()['sender_id'], 
+                      tracker.get_slot("user_name_slot"),
+                      formatted_date]
+        cur.execute(query, queryMatch)
+        conn.commit()
+        conn.close()
+
+        return []
+    
+
+class ActionSaveActivityExperience(Action):
+    def name(self):
+        return "action_save_activity_experience"
+
+    async def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        now = datetime.now()
+        formatted_date = now.strftime('%Y-%m-%d %H:%M:%S')
+
+        conn = mysql.connector.connect(
+            user=DATABASE_USER,
+            password=DATABASE_PASSWORD,
+            host=DATABASE_HOST,
+            port=DATABASE_PORT,
+            database='db'
+        )
+        cur = conn.cursor(prepared=True)
+        
+        prolific_id = tracker.current_state()['sender_id']
+        session_num = tracker.get_slot("session_num")
+        
+        slots_to_save = ["effort", "activity_experience_slot",
+                         "activity_experience_mod_slot",
+                         "dropout_response"]
+        for slot in slots_to_save:
+        
+            save_sessiondata_entry(cur, conn, prolific_id, session_num,
+                                   slot, tracker.get_slot(slot),
+                                   formatted_date)
+
+        conn.close()
+    
+    
+def save_sessiondata_entry(cur, conn, prolific_id, session_num, response_type,
+                           response_value, time):
+    query = "INSERT INTO sessiondata(prolific_id, session_num, response_type, response_value, time) VALUES(%s, %s, %s, %s, %s)"
+    cur.execute(query, [prolific_id, session_num, response_type,
+                        response_value, time])
+    conn.commit()
+    
+
+class ActionSaveSession(Action):
+    def name(self):
+        return "action_save_session"
+
+    async def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        now = datetime.now()
+        formatted_date = now.strftime('%Y-%m-%d %H:%M:%S')
+
+        conn = mysql.connector.connect(
+            user=DATABASE_USER,
+            password=DATABASE_PASSWORD,
+            host=DATABASE_HOST,
+            port=DATABASE_PORT,
+            database='db'
+        )
+        cur = conn.cursor(prepared=True)
+        
+        prolific_id = tracker.current_state()['sender_id']
+        session_num = tracker.get_slot("session_num")
+        
+        slots_to_save = ["mood", "state_1"]
+        for slot in slots_to_save:
+        
+            save_sessiondata_entry(cur, conn, prolific_id, session_num,
+                                   slot, tracker.get_slot(slot),
+                                   formatted_date)
+
+        conn.close()
+        
+        return []
+    
+
+class ValidateUserNameForm(FormValidationAction):
+    def name(self) -> Text:
+        return 'validate_user_name_form'
+
+    def validate_user_name_slot(
+            self, value: Text, dispatcher: CollectingDispatcher,
+            tracker: Tracker, domain: Dict[Text, Any]) -> Dict[Text, Any]:
+        # pylint: disable=unused-argument
+        """Validate user_name_slot input."""
+        last_utterance = get_latest_bot_utterance(tracker.events)
+
+        if last_utterance != 'utter_ask_user_name_slot':
+            return {"user_name_slot": None}
+
+        if not len(value) >= 1:
+            dispatcher.utter_message(response="utter_longer_name")
+            return {"user_name_slot": None}
+
+        return {"user_name_slot": value}
+    
+
+class ValidateActivityExperienceForm(FormValidationAction):
+    def name(self) -> Text:
+        return 'validate_activity_experience_form'
+
+    def validate_activity_experience_slot(
+            self, value: Text, dispatcher: CollectingDispatcher,
+            tracker: Tracker, domain: Dict[Text, Any]) -> Dict[Text, Any]:
+        # pylint: disable=unused-argument
+        """Validate activity_experience_slot input."""
+        last_utterance = get_latest_bot_utterance(tracker.events)
+
+        if last_utterance != 'utter_ask_activity_experience_slot':
+            return {"activity_experience_slot": None}
+
+        # people should either type "none" or say a bit more
+        if not (len(value) >= 10 or "none" in value.lower()):
+            dispatcher.utter_message(response="utter_provide_more_detail")
+            return {"activity_experience_slot": None}
+
+        return {"activity_experience_slot": value}
+    
+
+class ValidateActivityExperienceModForm(FormValidationAction):
+    def name(self) -> Text:
+        return 'validate_activity_experience_mod_form'
+
+    def validate_activity_experience_mod_slot(
+            self, value: Text, dispatcher: CollectingDispatcher,
+            tracker: Tracker, domain: Dict[Text, Any]) -> Dict[Text, Any]:
+        # pylint: disable=unused-argument
+        """Validate activity_experience_mod_slot input."""
+        last_utterance = get_latest_bot_utterance(tracker.events)
+
+        if last_utterance != 'utter_ask_activity_experience_mod_slot':
+            return {"activity_experience_mod_slot": None}
+
+        # people should either type "none" or say a bit more
+        if not (len(value) >= 5 or "none" in value.lower()):
+            dispatcher.utter_message(response="utter_provide_more_detail")
+            return {"activity_experience_mod_slot": None}
+
+        return {"activity_experience_mod_slot": value}
