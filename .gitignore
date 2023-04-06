@@ -4,3 +4,5 @@
 .spyproject
 actions/__pycache__
 backend/.rasa
+/data/
+/data_mysql/
