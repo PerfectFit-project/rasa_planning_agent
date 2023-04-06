@@ -7,21 +7,10 @@ $(document).ready(function () {
     const userid = urlParams.get('userid');
 	user_id = userid;
 	//get session number
-	const session_num = urlParams.get('n');
+	const session_num = 1;
 	
 	
-	//start a session
-	if (session_num == "1"){
-		send('/start_session1{"session_num":"1"}');
-	} else if (session_num == "2"){
-		send('/start_session_mid{"session_num":"2"}');
-    } else if (session_num == "3"){
-		send('/start_session_mid{"session_num":"3"}');
-    } else if (session_num == "4"){
-		send('/start_session_mid{"session_num":"4"}');
-    } else if (session_num == "5"){
-		send('/start_session_last{"session_num":"5"}');
-	}
+	send('/start_session1{"session_num":"1"}');
 	
 })
 
