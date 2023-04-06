@@ -294,26 +294,6 @@ class ActionSaveSession(Action):
         
         return []
     
-
-class ValidateUserNameForm(FormValidationAction):
-    def name(self) -> Text:
-        return 'validate_user_name_form'
-
-    def validate_user_name_slot(
-            self, value: Text, dispatcher: CollectingDispatcher,
-            tracker: Tracker, domain: Dict[Text, Any]) -> Dict[Text, Any]:
-        # pylint: disable=unused-argument
-        """Validate user_name_slot input."""
-        last_utterance = get_latest_bot_utterance(tracker.events)
-
-        if last_utterance != 'utter_ask_user_name_slot':
-            return {"user_name_slot": None}
-
-        if not len(value) >= 1:
-            dispatcher.utter_message(response="utter_longer_name")
-            return {"user_name_slot": None}
-
-        return {"user_name_slot": value}
     
 
 class ValidateActivityExperienceForm(FormValidationAction):

@@ -18,9 +18,7 @@ rules:
   - slot_was_set:
     - session_loaded: true
   - action: utter_greet_first_time
-  - action: user_name_form
-  - active_loop: user_name_form
-  wait_for_user_input: false
+  - action: utter_confirm_ready
 
 
 - rule: start session and unsuccessful session load
@@ -33,13 +31,9 @@ rules:
   - action: action_end_dialog
 
 
-- rule: name and explain puepose
-  condition:
-    - active_loop: user_name_form
+- rule: explain purpose 
   steps:
-  - action: user_name_form
-  - active_loop: null
-  - action: utter_confirm_name
+  - intent: confirm_ready
   - action: utter_purpose_1
   - action: utter_purpose_2
   - action: utter_purpose_3

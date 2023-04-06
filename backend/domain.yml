@@ -4,6 +4,7 @@ intents:
 ### Session
 - start_session1
 - confirm_purpose
+- confirm_ready
 - confirm_usage
 - confirm_intro_session
 
@@ -44,16 +45,6 @@ slots:
     - type: custom
 
 
-  user_name:
-    type: text
-    initial_value: ''
-    influence_conversation: false
-    mappings:
-    - type: from_text
-      conditions:
-        - active_loop: user_name_form
-
-
   ### states
   state_pa:
     type: text
@@ -80,15 +71,18 @@ responses:
 
   ### Intro first session
   utter_greet_first_time:
-  - text: "Hey there, I'm your virtual coach."
+  - text: "Hey there, I'm your virtual coach. It's nice to meet you."
 
 
-  utter_ask_user_name:
-  - text: "How may I call you?"
+  # utter_ask_user_name:
+  # - text: "How may I call you?"
 
 
-  utter_confirm_name:
-  - text: "Hi {user_name}, it's nice to meet you."
+  utter_confirm_ready:
+  - buttons:
+    - payload: /confirm_ready
+      title: "Yes"
+    text: "Are you ready to start?"
 
 
   utter_purpose_1:
@@ -111,7 +105,7 @@ responses:
   - buttons:
     - payload: /confirm_purpose
       title: "I'm ready"
-    text: "And this is why you are here, {user_name}: I want to learn how an activity I propose helps you in your specific situation.\nLet me know when you have read what my purpose is and are ready to continue."
+    text: "And this is why you are here: I want to learn how an activity I propose helps you in your specific situation.\nLet me know when you have read what my purpose is and are ready to continue."
 
   utter_explain_purpose:
   - text: "Okay! Before we start, let me explain how you can communicate with me."
@@ -320,14 +314,7 @@ config:
   store_entities_as_slots: true
 
 
-forms:
-  user_name_form:
-    required_slots:
-        - user_name
-
-
 actions:
 - action_load_session_first
-- validate_user_name_form
 - action_end_dialog
 - action_default_fallback_end_dialog
