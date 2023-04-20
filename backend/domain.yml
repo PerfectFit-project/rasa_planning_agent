@@ -406,7 +406,7 @@ slots:
       entity: sunday_evening
 
   weekdays_morning:
-    type: text
+    type: categorical
     influence_conversation: false
     values:
       - low
