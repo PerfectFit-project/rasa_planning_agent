@@ -137,7 +137,7 @@ responses:
   - buttons:
     - payload: /confirm_purpose
       title: "Sure!"
-  - text: "Ultimately, my goal is to help you create a plan that works best for your situation, so let's make sure that our effort is worth it and make a great plan, okay?"
+   text: "Ultimately, my goal is to help you create a plan that works best for your situation, so let's make sure that our effort is worth it and make a great plan, okay?"
 
 
   utter_prompt_usage:
