@@ -193,9 +193,9 @@ class ActionCreateInitialPlan(Action):
 
         number_of_timeslots = sum(sanitised)
 
-        preference_weekdays = sorted(energy_levels_weekdays, reverse = True)
+        preference_weekdays = energy_levels_weekdays.index(min(energy_levels_weekdays))
 
-        preference_weekends = sorted(energy_levels_weekends, reverse = True)
+        preference_weekends = energy_levels_weekends.index(min(energy_levels_weekends))
 
 
 
