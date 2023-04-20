@@ -891,7 +891,7 @@ responses:
       title: "A moderate amount."
     - payload: /confirm_weekendss_morning{"weekends_morning":"high"}
       title: "A lot."   
-    text: "That is, how much energy for physical activity do you have on weekends in the morning (6:00 - 10:00)?"
+    text: "Now, let's move on to the weekends. How much energy for physical activity do you have on weekends in the morning (6:00 - 10:00)?"
 
   utter_energy_levels_weekends_day:
   - buttons:
