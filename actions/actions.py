@@ -15,6 +15,7 @@ from typing import Any, Dict, List, Optional, Text
 
 import logging
 import mysql.connector
+import random
 
 
 class ActionEndDialog(Action):
@@ -232,50 +233,71 @@ class ActionCreateInitialPlan(Action):
         "sunday_evening" : [sunday_evening, weekends_evening]
         }
 
+        available_timeslots = [[day, days[day][1]] for day in days if days[day][0] == True]
 
+        number_of_timeslots = len(available_timeslots) 
 
+        high_energy_timeslots = [[available, energy] for [available, energy] in available_timeslots if energy == '3']
 
-        # energy_levels_weekdays = [weekdays_morning, weekdays_day, weekdays_evening]
-        # energy_levels_weekends = [weekends_morning, weekends_day, weekends_evening]
+        medium_energy_timeslots = [[available, energy] for [available, energy] in available_timeslots if energy == '2']
 
-        # sanitised = [bool(day) for day in free_times]
+        low_energy_timeslots = [[available, energy] for [available, energy] in available_timeslots if energy == '1']
 
-        # number_of_timeslots = sum(sanitised)
+        number_of_high_energy_timeslots = len(high_energy_timeslots)
 
-        # true_indices = [i for i, a in enumerate(sanitised) if a == True]
+        number_of_medium_energy_timeslots = len(medium_energy_timeslots)
 
-        # minutes_week_1 = 120
+        number_of_low_energy_timeslots = len(low_energy_timeslots)
 
-        # if goal == "low":
-        #     minutes_week_2 = 140
-        # elif goal == "medium":
-        #     minutes_week_2 = 142
-        # elif goal == "high":
-        #     minutes_week_2 = 145
+        minutes_week_1 = 120
 
-        # if number_of_timeslots < 2:
+        if goal == "low":
+            weekly_increase = 20
+        elif goal == "medium":
+            weekly_increase = 22
+        elif goal == "high":
+            weekly_increase = 25
+
+        if number_of_timeslots < 4:
             
-        #     dispatcher.utter_message(text=f"I'm afraid you would have to do a bit too much activity all at once if we were to plan with your current schedule in mind… Let's think again about the times when you are available. Even if you're free for only 30 minutes or so at that time, that should still be enough to take a short walk.  [Handle this case later by going back to selecting time slots].")
+            dispatcher.utter_message(text=f"I'm afraid you would have to do a bit too much activity all at once if we were to plan with your current schedule in mind… Let's think again about the times when you are available. Even if you're free for only 30 minutes or so at that time, that should still be enough to take a short walk.  [Handle this case later by going back to selecting time slots].")
             
-        #     return []
+            return []
 
-        # elif number_of_timeslots in [2,3,4]:
+        elif number_of_timeslots == 4:
 
-        #     selected = [i for i,a in enumerate(sanitised) if a == True]
+            selected =  available_timeslots
 
-        # else:
+        else: 
 
-        #     select_slots = 4
+            select_slots = 4
 
-        # selected = random.sample(true_indices, select_slots)
+            if number_of_high_energy_timeslots > select_slots:
+
+                selected = random.sample(high_energy_timeslots, select_slots)
+
+            else: 
+
+                selected = high_energy_timeslots
+
+                select_slots -= number_of_high_energy_timeslots
+
+                if number_of_medium_energy_timeslots > select_slots:
+
+                    selected += random.sample(medium_energy_timeslots, select_slots)
+
+                else:
+
+                    selected += medium_energy_timeslots
+
+                    select_slots -= number_of_medium_energy_timeslots
+
+                    if select_slots not 0:
+                        
+                        selected += random.sample(low_energy_timeslots, select_slots)
 
 
-
-
-
-        # dispatcher.utter_message(text=f"Free slots: {number_of_timeslots}")
-
-        # dispatcher.utter_message(text=f"Preference on weekdays: {preference_weekdays}")
+        dispatcher.utter_message(text=f"Available slots: {available_timeslots},  Selected slots: {selected}")
 
         return []
 
