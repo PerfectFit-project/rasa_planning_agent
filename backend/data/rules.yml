@@ -78,38 +78,18 @@ rules:
   - action: utter_explain_usage
 
 
-- rule: intro session 1
+- rule: internal motivation
   steps:
   - intent: confirm_usage
-  - action: utter_intro_session_1
-  - action: utter_intro_session_2
-  - action: utter_intro_session_3
-  - action: utter_intro_session_4
-  - action: utter_intro_session_5
-  - action: utter_intro_session_6
-  - action: utter_intro_session_7
+  - action: utter_internal_moivation_1
+  - action: utter_internal_moivation_2
+  - action: utter_internal_moivation_question
 
-- rule: state questions session
+- rule: explain why planning is useful
   steps:
-  - intent: confirm_intro_session
-  - action: utter_state_pa_question_intro
-  - action: utter_state_question
+  - intent: confirm_motivation
+  - action: utter_explain_usefulness_planning_1
 
-
-# - rule: end state answering
-#   steps:
-#   - intent: confirm_state_pa
-#   - action: utter_transition_new_activity
-#   - action: utter_propose_new_activity_intro
-#   - action: utter_activity
-#   - action: utter_activity_read
-
-# - rule: read activity
-#   steps:
-#   - intent: confirm_activity_read
-#   - action: utter_cool
-#   - action: utter_email_reminder
-#   - action: utter_remind_next_part
 
 - rule: goodbye
   steps:

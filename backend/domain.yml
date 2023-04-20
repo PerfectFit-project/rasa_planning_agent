@@ -3,25 +3,23 @@ version: "3.1"
 intents:
 ### Session
 - start_session1
-- confirm_purpose
-- confirm_ready
-- confirm_usage
-- confirm_intro_session
+
+
+# mood
 - confirm_mood_good
 - confirm_mood_neutral
 - confirm_mood_bad
 
+# purpose
+- confirm_purpose
 
-### dropout
-- confirm_dropout
+# usage
+- confirm_usage
 
+# usefulness planning intro
 
-### states
-- confirm_state_pa
+- confirm_usefulnes_planning_intro
 
-
-# propose new activity
-- confirm_activity_read
 
 
 # end session
@@ -34,9 +32,6 @@ entities:
 - state_pa:
     influence_conversation: false
 
-
-- dropout_response:
-    influence_conversation: false
 
 
 slots:
@@ -56,17 +51,6 @@ slots:
     mappings:
     - type: from_entity
       entity: state_pa
-
-
-  ### activity experience
-  # dropout
-  dropout_response:
-    type: text
-    initial_value: ''
-    influence_conversation: false
-    mappings:
-    - type: from_entity
-      entity: dropout_response
 
 
 responses:
@@ -147,35 +131,30 @@ responses:
     text: "Most of the time, you can just click on one of the buttons like you already did. If no buttons appear, just make use of the text field below."
 
 
-  utter_intro_session_1:
-  - text: "Now, let me tell you what we will do in this session."
+  utter_internal_moivation_1:
+  - text: "The researchers already told me that you're quite motivated to do physical activity. "
 
 
-  utter_intro_session_2:
-  - text: "First, I'll ask you a few questions to learn about your current situation with regard to preparing for quitting smoking."
+  utter_internal_moivation_2:
+  - text: "So, I wanted to ask: what motivates you to be more physically active?"
 
-
-  utter_intro_session_3:
-  - text: "Next, I'll recommend you a preparatory activity to do after this and before the next session, which you'll get invited to about 2 days from now."
-
-
-  utter_intro_session_4:
-  - text: "And in the end, I'll briefly tell you about our next session."
-
-
-  utter_intro_session_5:
-  - text: "And don't worry, I'll also send you your activity in a message on Prolific right after this session ends."
-
-
-  utter_intro_session_6:
-  - text: "Please note that doing your recommended activity after this session is voluntary and does not impact your payment."
-
-
-  utter_intro_session_7:
+  utter_internal_moivation_question:
   - buttons:
-    - payload : /confirm_intro_session
-      title: "Now"
-    text: "Let me know when you've finished reading our plan for today's session."
+    - payload: /confirm_motivation
+      title: "I want to be more healthy."
+    - payload: /confirm_motivation
+      title: "I want to be fit. I want to get in shape."
+    - payload: /confirm_motivation
+      title: "I want to lose some weight."
+    - payload: /confirm_motivation
+      title: "I want to relax by doing exercise."
+    - payload: /confirm_motivation
+      title: "I have a different reason."
+    - text: "I'll show you a few common reasons, but if you have a different one, feel free to pick \"I have a different reason\"."
+
+  
+  utter_explain_usefulness_planning_1:
+  - text: "So, I wanted to ask: what motivates you to be more physically active?"
 
 
   ### Ask state questions
