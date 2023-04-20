@@ -126,9 +126,72 @@ class ActionCreateInitialPlan(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        slot_value = tracker.get_slot('monday_morning')
+        # goal
 
-        dispatcher.utter_message(text=f"Monday morning slot is {slot_value}")
+        goal = tracker.get_slot('goal')
+
+        # free times
+
+        monday_morning = tracker.get_slot('monday_morning')
+        monday_midday = tracker.get_slot('monday_midday')
+        monday_afternoon = tracker.get_slot('monday_afternoon')
+        monday_evening = tracker.get_slot('monday_evening')
+
+        tuesday_morning = tracker.get_slot('tuesday_morning')
+        tuesday_midday = tracker.get_slot('tuesday_midday')
+        tuesday_afternoon = tracker.get_slot('tuesday_afternoon')
+        tuesday_evening = tracker.get_slot('tuesday_evening')
+
+        wednesday_morning = tracker.get_slot('wednesday_morning')
+        wednesday_midday = tracker.get_slot('wednesday_midday')
+        wednesday_afternoon = tracker.get_slot('wednesday_afternoon')
+        wednesday_evening = tracker.get_slot('wednesday_evening')
+
+        thursday_morning = tracker.get_slot('thursday_morning')
+        thursday_midday = tracker.get_slot('thursday_midday')
+        thursday_afternoon = tracker.get_slot('thursday_afternoon')
+        thursday_evening = tracker.get_slot('thursday_evening')
+
+        friday_morning = tracker.get_slot('friday_morning')
+        friday_midday = tracker.get_slot('friday_midday')
+        friday_afternoon = tracker.get_slot('friday_afternoon')
+        friday_evening = tracker.get_slot('friday_evening')
+
+        saturday_morning = tracker.get_slot('saturday_morning')
+        saturday_midday = tracker.get_slot('saturday_midday')
+        saturday_afternoon = tracker.get_slot('saturday_afternoon')
+        saturday_evening = tracker.get_slot('saturday_evening')
+
+        sunday_morning = tracker.get_slot('sunday_morning')
+        sunday_midday = tracker.get_slot('sunday_midday')
+        sunday_afternoon = tracker.get_slot('sunday_afternoon')
+        sunday_evening = tracker.get_slot('sunday_evening')
+
+        free_times = [monday_morning, monday_midday, monday_afternoon, monday_evening,
+        tuesday_morning, tuesday_midday, tuesday_afternoon, tuesday_evening,
+        wednesday_morning, wednesday_midday, wednesday_afternoon, wednesday_evening,
+        thursday_morning, thursday_midday, thursday_afternoon, thursday_evening,
+        friday_morning, friday_midday, friday_afternoon, friday_evening,
+        saturday_morning, saturday_midday, saturday_afternoon, saturday_evening,
+        sunday_morning, sunday_midday, sunday_afternoon, sunday_evening]
+
+        # energy levels
+
+        weekdays_morning = tracker.get_slot('weekdays_morning')
+        weekdays_day = tracker.get_slot('weekdays_day')
+        weekdays_evening = tracker.get_slot('weekdays_evening')
+
+        
+        weekends_morning = tracker.get_slot('weekends_morning')
+        weekends_day = tracker.get_slot('weekends_day')
+        weekends_evening = tracker.get_slot('weekends_evening')
+
+        energy_levels = [weekdays_morning, weekdays_day, weekdays_evening
+        weekends_morning, weekends_day, weekends_evening]
+
+
+
+        dispatcher.utter_message(text=f"Free slots: {free_times}")
 
         return []
 
