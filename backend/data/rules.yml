@@ -17,9 +17,9 @@ rules:
   - action: action_load_session_first
   - slot_was_set:
     - session_loaded: true
-  - action: utter_greet_first_time
-  - action: utter_confirm_ready
-
+  - action: utter_greet_1
+  - action: utter_greet_2
+  - action: utter_confirm_mood
 
 - rule: start session and unsuccessful session load
   steps:
@@ -29,6 +29,22 @@ rules:
     - session_loaded: false
   - action: utter_default_close_session
   - action: action_end_dialog
+
+
+- rule: mood good
+  steps:
+  - intent: confirm_mood_good
+  - action: utter_mood_good_response
+
+- rule: mood neutral
+  steps:
+  - intent: confirm_mood_neutral
+  - action: utter_mood_neutral_response
+
+- rule: mood bad
+  steps:
+  - intent: confirm_mood_bad
+  - action: utter_mood_bad_response
 
 
 - rule: explain purpose 

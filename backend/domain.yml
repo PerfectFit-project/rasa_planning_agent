@@ -7,6 +7,9 @@ intents:
 - confirm_ready
 - confirm_usage
 - confirm_intro_session
+- confirm_mood_good
+- confirm_mood_neutral
+- confirm_mood_bad
 
 
 ### dropout
@@ -69,20 +72,32 @@ slots:
 responses:
 
 
-  ### Intro first session
-  utter_greet_first_time:
-  - text: "Hey there, I'm your virtual coach. It's nice to meet you."
+  ### Intro 
+  utter_greet_1:
+  - text: "Hey there! I'm Jamie, your virtual coach."
+
+  utter_greeet_2:
+  - text: "I'm happy to meet you."
 
 
-  # utter_ask_user_name:
-  # - text: "How may I call you?"
-
-
-  utter_confirm_ready:
+  utter_confirm_mood:
   - buttons:
-    - payload: /confirm_ready
-      title: "Yes"
-    text: "Are you ready to start?"
+    - payload: /confirm_mood_good
+      title: "I'm doing great!"
+    - payload: /confirm_mood_neutral
+      title: "I'm alright."
+    - payload: /confirm_mood_bad
+      title: "Not so good…"
+    text: "How are you doing today?"
+
+  utter_mood_good_response:
+  - text: "That's good to hear!"
+
+  utter_mood_neutral_response:
+  - text: "Okay. That's good."
+
+  utter_mood_bad_response:
+  - text: "I'm sorry to hear that. I hope our conversation might cheer you up a bit."
 
 
   utter_purpose_1:
