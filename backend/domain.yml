@@ -435,8 +435,8 @@ responses:
     - payload: /confirm_wednesday{"wednesday_evening":"true"}
       title: "Evening (18:00 - 22:00)"    
     - payload: /confirm_wednesday_continue
-      title: "I'm never free on wednesday."
-    text: "Use the buttons to let me know when you are usually free on wednesdays."
+      title: "I'm never free on Wednesday."
+    text: "Use the buttons to let me know when you are usually free on Wednesdays."
 
   utter_routines_wednesday_repeat:
   - buttons:
@@ -467,8 +467,8 @@ responses:
     - payload: /confirm_thursday{"thursday_evening":"true"}
       title: "Evening (18:00 - 22:00)"    
     - payload: /confirm_thursday_continue
-      title: "I'm never free on thursday."
-    text: "Use the buttons to let me know when you are usually free on thursdays."
+      title: "I'm never free on Thursday."
+    text: "Use the buttons to let me know when you are usually free on Thursdays."
 
   utter_routines_thursday_repeat:
   - buttons:
@@ -481,11 +481,11 @@ responses:
     - payload: /confirm_thursday{"thursday_evening":"True"}
       title: "Evening (18:00 - 22:00)"    
     - payload: /confirm_thursday_continue
-      title: "I have no other times when I am free on thursdays."
-    text: "Is there any other time when you are free on thursdays?"
+      title: "I have no other times when I am free on Thursdays."
+    text: "Is there any other time when you are free on Thursdays?"
 
   utter_confirm_thursday_slots:
-  - text: "So those are all the times when you are free on thursdays:\n Morning: {thursday_morning},\n Midday: {thursday_midday},\n Afternoon: {thursday_afternoon},\n Evening: {thursday_evening}."
+  - text: "So those are all the times when you are free on Thursdays:\n Morning: {thursday_morning},\n Midday: {thursday_midday},\n Afternoon: {thursday_afternoon},\n Evening: {thursday_evening}."
 
 
 
