@@ -89,6 +89,15 @@ rules:
   steps:
   - intent: confirm_motivation
   - action: utter_explain_usefulness_planning_1
+  - action: utter_explain_usefulness_planning_2
+  - action: utter_explain_usefulness_planning_3
+  - action: utter_explain_usefulness_planning_4
+  - action: utter_explain_usefulness_planning_question
+
+- rule: ask about routines
+  steps:
+  - intent: confirm_usefulnes_planning_intro
+  - action: utter_routines_1
 
 
 - rule: goodbye
