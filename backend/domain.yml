@@ -271,7 +271,7 @@ responses:
   - text: "So you are never free on Mondays."
 
   utter_no_more_monday:
-  - text: "So those are all the times when you are free on Mondays."
+  - text: "So those are all the times when you are free on Mondays. Morning: {monday_morning}, Midday: {monday_midday}, Afternoon: {monday_afternoon}, Evening: {monday_evening}."
 
 
   ### Ask state questions
