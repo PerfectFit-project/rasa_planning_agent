@@ -19,7 +19,6 @@ rules:
     - session_loaded: true
   - action: utter_greet_1
   - action: utter_greet_2
-  - action: action_create_initial_plan
   - action: utter_confirm_mood
 
 - rule: start session and unsuccessful session load
