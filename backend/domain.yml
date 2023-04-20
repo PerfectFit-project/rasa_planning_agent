@@ -84,9 +84,9 @@ responses:
   - buttons:
     - payload: /confirm_mood_good
       title: "I'm doing great!"
-    - payload: /confirm_mood_good
+    - payload: /confirm_mood_neutral
       title: "I'm alright."
-    - payload: /confirm_mood_good
+    - payload: /confirm_mood_bad
       title: "Not so good…"
     text: "How are you doing today?"
 
@@ -109,7 +109,7 @@ responses:
 
 
   utter_purpose_3:
-  - text: "Well, we will create a plan together for when you will be exercising.Keep in mind that I won't ask you to do the exercises. We are only creating a plan."
+  - text: "Well, we will create a plan together for when you will be exercising. Keep in mind that I won't ask you to do the exercises. We are only creating a plan."
 
 
   utter_purpose_4:
@@ -119,12 +119,10 @@ responses:
   - text: "And don't worry, we'll start off easy with planning some walks throughout the week."
 
   utter_purpose_6:
-  - text: "Unlike leisurely walks though, you'll have to do them at moderate intensity."
+  - text: "Unlike leisurely walks though, you'll have to do them at moderate intensity. What that means is that you'll have to walk about 100 steps per minute."
+
 
   utter_purpose_7:
-  - text: "What that means is that you'll have to walk about 100 steps per minute."
-
-  utter_purpose_8:
   - text: "Don't be alarmed if that seems a bit much right now. It will get easier after the first few times."
 
   utter_confirm_purpose:
