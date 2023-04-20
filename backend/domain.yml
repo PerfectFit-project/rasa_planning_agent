@@ -424,9 +424,9 @@ slots:
     type: categorical
     influence_conversation: false
     values:
-      - low
-      - medium
-      - high
+      - 1
+      - 2
+      - 3
     mappings:
     - type: from_entity
       entity: weekdays_morning
@@ -435,9 +435,9 @@ slots:
     type: categorical
     influence_conversation: false
     values:
-      - low
-      - medium
-      - high
+      - 1
+      - 2
+      - 3
     mappings:
     - type: from_entity
       entity: weekdays_day
@@ -446,9 +446,9 @@ slots:
     type: categorical
     influence_conversation: false
     values:
-      - low
-      - medium
-      - high
+      - 1
+      - 2
+      - 3
     mappings:
     - type: from_entity
       entity: weekdays_evening
@@ -457,9 +457,9 @@ slots:
     type: categorical
     influence_conversation: false
     values:
-      - low
-      - medium
-      - high
+      - 1
+      - 2
+      - 3
     mappings:
     - type: from_entity
       entity: weekends_morning
@@ -468,9 +468,9 @@ slots:
     type: categorical
     influence_conversation: false
     values:
-      - low
-      - medium
-      - high
+      - 1
+      - 2
+      - 3
     mappings:
     - type: from_entity
       entity: weekends_day
@@ -479,9 +479,9 @@ slots:
     type: categorical
     influence_conversation: false
     values:
-      - low
-      - medium
-      - high
+      - 1
+      - 2
+      - 3
     mappings:
     - type: from_entity
       entity: weekends_evening

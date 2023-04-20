@@ -186,12 +186,24 @@ class ActionCreateInitialPlan(Action):
         weekends_day = tracker.get_slot('weekends_day')
         weekends_evening = tracker.get_slot('weekends_evening')
 
-        energy_levels = [weekdays_morning, weekdays_day, weekdays_evening,
-        weekends_morning, weekends_day, weekends_evening]
+        energy_levels_weekdays = [weekdays_morning, weekdays_day, weekdays_evening]
+        energy_levels_weekends = [weekends_morning, weekends_day, weekends_evening]
+
+        sanitised = [bool(a) for a in ar]
+
+        number_of_timeslots = sum(sanitised)
+
+        preference_weekdays = sorted(energy_levels_weekdays, reverse = True)
+
+        preference_weekends = sorted(energy_levels_weekends, reverse = True)
 
 
 
-        dispatcher.utter_message(text=f"Free slots: {free_times}")
+
+
+        dispatcher.utter_message(text=f"Free slots: {number_of_timeslots}")
+
+        dispatcher.utter_message(text=f"Preference on weekdays: {preference_weekdays}")
 
         return []
 
