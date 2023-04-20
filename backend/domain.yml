@@ -24,6 +24,13 @@ intents:
 
 - confirm_usefulnes_planning_intro
 
+## free time
+
+#monday
+
+- confirm_monday
+- confirm_monday_never
+- confirm_monday_continue
 
 
 # end session
@@ -45,6 +52,36 @@ slots:
     influence_conversation: true
     mappings:
     - type: custom
+
+
+  ### free time
+  monday_morning:
+    type: bool
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: monday_morning
+
+  monday_midday:
+    type: bool
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: monday_midday
+
+  monday_afternoon:
+    type: bool
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: monday_afternoon
+
+  monday_evening:
+    type: bool
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: monday_evening
 
 
   ### states
@@ -179,6 +216,47 @@ responses:
 
   utter_routines_1:
   - text: "Nice! Before we can get started, let's see when you have free time."
+
+  utter_routines_2:
+  - text: "You don't have to provide me with your exact daily schedule, but let me know if you have any routines in place."
+
+  utter_routines_3:
+  - text: "For example, most people work a day job. But maybe you have things planned on some evenings as well."
+
+  utter_routines_monday:
+  - buttons:
+    - payload: /confirm_monday{"monday_morning":"true"}
+      title: "Morning (6:00 - 10:00)"
+    - payload: /confirm_monday{"monday_midday":"true"}
+      title: "Midday (10:00 - 14:00)"
+    - payload: /confirm_monday{"monday_afternoon":"true"}
+      title: "Afternoon (14:00 - 18:00)"
+    - payload: /confirm_monday{"monday_evening":"true"}
+      title: "Evening (18:00 - 22:00)"    
+    - payload: /confirm_monday_never{"monday_never":"true"}
+      title: "I'm never free on Mondays."
+    text: "Use the buttons to let me know when you are usually free on Mondays."
+   
+
+  utter_routines_monday_repeat:
+  - buttons:
+    - payload: /confirm_monday{"monday_morning":"true"}
+      title: "Morning (6:00 - 10:00)"
+    - payload: /confirm_monday{"monday_midday":"true"}
+      title: "Midday (10:00 - 14:00)"
+    - payload: /confirm_monday{"monday_afternoon":"true"}
+      title: "Afternoon (14:00 - 18:00)"
+    - payload: /confirm_monday{"monday_evening":"true"}
+      title: "Evening (18:00 - 22:00)"    
+    - payload: /confirm_monday_continue
+      title: "I have no other times when I am free on Mondays."
+    text: "Is there any other time when you are free on Mondays?"
+
+  utter_never_monday:
+  - text: "So you are never free on Mondays."
+
+  utter_no_more_monday:
+  - text: "So those are all the times when you are free on Mondays."
 
 
   ### Ask state questions

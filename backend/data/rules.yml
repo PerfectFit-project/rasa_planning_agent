@@ -94,10 +94,28 @@ rules:
   - action: utter_explain_usefulness_planning_4
   - action: utter_explain_usefulness_planning_question
 
-- rule: ask about routines
+- rule: ask about routines monday
   steps:
   - intent: confirm_usefulnes_planning_intro
   - action: utter_routines_1
+  - action: utter_routines_2
+  - action: utter_routines_3
+  - action: utter_routines_monday
+
+- rule: ask about routines monday repeat
+  steps:
+  - intent: confirm_monday
+  - action: utter_routines_monday_repeat
+
+- rule: never free on mondays
+  steps: 
+  - intent: confirm_monday_never
+  - action: utter_never_monday
+
+- rule: no more free on mondays
+  steps: 
+  - intent: confirm_monday_continue
+  - action: utter_no_more_monday
 
 
 - rule: goodbye
