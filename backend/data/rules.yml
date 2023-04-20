@@ -74,7 +74,7 @@ rules:
   - action: utter_confirm_purpose
 
 
-- rule: confirm purpose, explain usage
+- rule: confirm purpose explain usage
   steps:
   - intent: confirm_purpose
   - action: utter_prompt_usage
