@@ -84,9 +84,9 @@ responses:
   - buttons:
     - payload: /confirm_mood_good
       title: "I'm doing great!"
-    - payload: /confirm_mood_neutral
+    - payload: /confirm_mood_good
       title: "I'm alright."
-    - payload: /confirm_mood_bad
+    - payload: /confirm_mood_good
       title: "Not so good…"
     text: "How are you doing today?"
 

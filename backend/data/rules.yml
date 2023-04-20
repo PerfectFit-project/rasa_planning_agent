@@ -45,34 +45,6 @@ rules:
   - action: utter_purpose_8
   - action: utter_confirm_purpose
 
-- rule: mood neutral explain purpose 
-  steps:
-  - intent: confirm_mood_neutral
-  - action: utter_mood_neutral_response
-  - action: utter_purpose_1
-  - action: utter_purpose_2
-  - action: utter_purpose_3
-  - action: utter_purpose_4
-  - action: utter_purpose_5
-  - action: utter_purpose_6
-  - action: utter_purpose_7
-  - action: utter_purpose_8
-  - action: utter_confirm_purpose
-
-- rule: mood bad explain purpose
-  steps:
-  - intent: confirm_mood_bad
-  - action: utter_mood_bad_response
-  - action: utter_purpose_1
-  - action: utter_purpose_2
-  - action: utter_purpose_3
-  - action: utter_purpose_4
-  - action: utter_purpose_5
-  - action: utter_purpose_6
-  - action: utter_purpose_7
-  - action: utter_purpose_8
-  - action: utter_confirm_purpose
-
 
 - rule: confirm purpose explain usage
   steps:
