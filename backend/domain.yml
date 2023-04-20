@@ -70,6 +70,11 @@ intents:
 - confirm_weekdays_day
 - confirm_weekdays_evening
 
+# weekends
+
+- confirm_weekends_morning
+- confirm_weekends_day
+- confirm_weekends_evening
 
 # end session
 - confirm_goodbye
@@ -173,11 +178,15 @@ entities:
 - weekdays_evening:
     influence_conversation: false
 
-# - weekdays_day:
-#     influence_conversation: false
 
-# - weekdays_evening:
-#     influence_conversation: false
+- weekends_morning:
+    influence_conversation: false
+
+- weekends_day:
+    influence_conversation: false
+
+- weekends_evening:
+    influence_conversation: false
 
 slots:
   ### intro/general
@@ -445,6 +454,39 @@ slots:
     mappings:
     - type: from_entity
       entity: weekdays_evening
+
+  weekends_morning:
+    type: categorical
+    influence_conversation: false
+    values:
+      - low
+      - medium
+      - high
+    mappings:
+    - type: from_entity
+      entity: weekends_morning
+
+  weekends_day:
+    type: categorical
+    influence_conversation: false
+    values:
+      - low
+      - medium
+      - high
+    mappings:
+    - type: from_entity
+      entity: weekends_day
+
+  weekends_evening:
+    type: categorical
+    influence_conversation: false
+    values:
+      - low
+      - medium
+      - high
+    mappings:
+    - type: from_entity
+      entity: weekends_evening
 
 
 responses:
@@ -840,6 +882,40 @@ responses:
 
   utter_energy_levels_weekdays_confirm:
   - text: "So those are your energy levels on weekdays:\n Morning: {weekdays_morning}, Day: {weekdays_day}, Evening: {weekdays_evening}."
+
+  utter_energy_levels_weekends_morning:
+  - buttons:
+    - payload: /confirm_weekends_morning{"weekends_morning":"low"}
+      title: "A little."
+    - payload: /confirm_weekends_morning{"weekends_morning":"medium"}
+      title: "A moderate amount."
+    - payload: /confirm_weekendss_morning{"weekends_morning":"high"}
+      title: "A lot."   
+    text: "That is, how much energy for physical activity do you have on weekends in the morning (6:00 - 10:00)?"
+
+  utter_energy_levels_weekends_day:
+  - buttons:
+    - payload: /confirm_weekends_day{"weekends_day":"low"}
+      title: "A little."
+    - payload: /confirm_weekends_day{"weekends_day":"medium"}
+      title: "A moderate amount."
+    - payload: /confirm_weekends_day{"weekends_day":"high"}
+      title: "A lot."   
+    text: "What about your energy during the day (10:00 - 18:00) on weekends?"
+
+  utter_energy_levels_weekends_evening:
+  - buttons:
+    - payload: /confirm_weekends_evening{"weekends_evening":"low"}
+      title: "A little."
+    - payload: /confirm_weekends_evening{"weekends_evening":"medium"}
+      title: "A moderate amount."
+    - payload: /confirm_weekends_evening{"weekends_evening":"high"}
+      title: "A lot."   
+    text: "How about in the evening (18:00 - 22:00) on weekends?"
+
+  utter_energy_levels_weekends_confirm:
+  - text: "So those are your energy levels on weekends:\n Morning: {weekends_morning}, Day: {weekends_day}, Evening: {weekends_evening}."
+
 
 
   # utter_energy_levels_weekdays_day:

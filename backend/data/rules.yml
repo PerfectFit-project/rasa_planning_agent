@@ -194,10 +194,29 @@ rules:
   - action: utter_energy_levels_weekdays_evening
 
 
-- rule: confirm energy levels morning ask for day
+- rule: confirm energy levels evening ask for weekend morning
   steps: 
   - intent: confirm_weekdays_evening
   - action: utter_energy_levels_weekdays_confirm
+  - action: utter_energy_levels_weekends_morning
+
+
+- rule: confirm energy levels weekend morning ask for weekend day
+  steps: 
+  - intent: confirm_weekends_morning
+  - action: utter_energy_levels_weekends_day
+  
+
+- rule: confirm energy levels weekend day ask for weekend evening
+  steps: 
+  - intent: confirm_weekends_day
+  - action: utter_energy_levels_weekends_evening
+
+
+- rule: confirm energy levels weekend evening
+  steps: 
+  - intent: confirm_weekends_evening
+  - action: utter_energy_levels_weekends_confirm
 
 
 
