@@ -16,6 +16,10 @@ intents:
 # usage
 - confirm_usage
 
+# internal motivation
+
+- confirm_motivation
+
 # usefulness planning intro
 
 - confirm_usefulnes_planning_intro
