@@ -949,7 +949,7 @@ responses:
       title: "10000 steps (or 100 minutes) per day."   
     text: "Please pick one of these options as your goal. Try to imagine yourself doing that many steps in a day and pick a goal that you feel like you can accomplish."
 
-utter_confirm_goal:
+  utter_confirm_goal:
   - buttons:
     - payload: /confirm_initial_plan
       title: "Let's do that."
