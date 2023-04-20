@@ -31,30 +31,50 @@ rules:
   - action: action_end_dialog
 
 
-- rule: mood good
+- rule: mood good explain purpose
   steps:
   - intent: confirm_mood_good
-  - action: utter_mood_good_response
-
-- rule: mood neutral
-  steps:
-  - intent: confirm_mood_neutral
-  - action: utter_mood_neutral_response
-
-- rule: mood bad
-  steps:
-  - intent: confirm_mood_bad
-  - action: utter_mood_bad_response
-
-
-- rule: explain purpose 
-  steps:
-  - intent: confirm_ready
+  - action: utter_mood_good_response  
   - action: utter_purpose_1
   - action: utter_purpose_2
   - action: utter_purpose_3
   - action: utter_purpose_4
   - action: utter_purpose_5
+  - action: utter_purpose_6
+  - action: utter_purpose_7
+  - action: utter_purpose_8
+  - action: utter_purpose_9
+  - action: utter_purpose_10
+
+- rule: mood neutral explain purpose 
+  steps:
+  - intent: confirm_mood_neutral
+  - action: utter_mood_neutral_response
+  - action: utter_purpose_1
+  - action: utter_purpose_2
+  - action: utter_purpose_3
+  - action: utter_purpose_4
+  - action: utter_purpose_5
+  - action: utter_purpose_6
+  - action: utter_purpose_7
+  - action: utter_purpose_8
+  - action: utter_purpose_9
+  - action: utter_purpose_10
+
+- rule: mood bad explain purpose
+  steps:
+  - intent: confirm_mood_bad
+  - action: utter_mood_bad_response
+  - action: utter_purpose_1
+  - action: utter_purpose_2
+  - action: utter_purpose_3
+  - action: utter_purpose_4
+  - action: utter_purpose_5
+  - action: utter_purpose_6
+  - action: utter_purpose_7
+  - action: utter_purpose_8
+  - action: utter_purpose_9
+  - action: utter_purpose_10
 
 
 - rule: confirm purpose, explain usage

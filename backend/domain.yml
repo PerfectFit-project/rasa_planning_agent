@@ -92,6 +92,7 @@ responses:
 
   utter_mood_good_response:
   - text: "That's good to hear!"
+  - payload: /confirm_purpose
 
   utter_mood_neutral_response:
   - text: "Okay. That's good."
@@ -101,41 +102,55 @@ responses:
 
 
   utter_purpose_1:
-  - text: "I have mentioned my name, but let me also tell you bit about what I do: My goal is to help people prepare for quitting smoking. And since becoming more physically active may make it easier to quit smoking, I also want to prepare people for becoming more physically active."
+  - text: "Let me tell you a bit about myself next. My goal is to help people prepare for becoming more physically active."
 
 
   utter_purpose_2:
-  - text: "Why prepare to quit? Because proper preparation can help to quit successfully."
+  - text: "Being more physically active is generally regarded as beneficial for both health and mood."
 
 
   utter_purpose_3:
-  - text: "And how do I prepare people? I propose activities that help build the competencies needed for quitting."
+  - text: Well, we will create a plan together for when you will be exercising. "
 
 
   utter_purpose_4:
-  - text: "Ultimately, I want to be able to propose activities that match the situation a person is in."
+  - text: "Keep in mind that I won't ask you to do the exercises. We are only creating a plan."
 
+    utter_purpose_5:
+  - text: "I will, however, ask you to behave as if you really had to follow this plan to do physical activity."
 
-  utter_purpose_5:
+    utter_purpose_6:
+  - text: "And don't worry, we'll start off easy with planning some walks throughout the week."
+
+    utter_purpose_7:
+  - text: "Unlike leisurely walks though, you'll have to do them at moderate intensity."
+
+    utter_purpose_8:
+  - text: "What that means is that you'll have to walk about 100 steps per minute."
+
+    utter_purpose_9:
+  - text: "Don't be alarmed if that seems a bit much right now. It will get easier after the first few times."
+
+  utter_purpose_10:
   - buttons:
     - payload: /confirm_purpose
-      title: "I'm ready"
-    text: "And this is why you are here: I want to learn how an activity I propose helps you in your specific situation.\nLet me know when you have read what my purpose is and are ready to continue."
-
-  utter_explain_purpose:
-  - text: "Okay! Before we start, let me explain how you can communicate with me."
+      title: "Okay!"
+  - buttons:
+    - payload: /confirm_purpose
+      title: "Sure!"
+    text: "Ultimately, my goal is to help you create a plan that works best for your situation, so let's make sure that our effort is worth it and make a great plan, okay?"
 
 
   utter_prompt_usage:
-  - text: "Okay! Before we start, let me explain how you can communicate with me."
+  - text: "Nice! Before we start, let me explain how you can communicate with me."
 
 
   utter_explain_usage:
   - buttons:
     - payload: /confirm_usage
-      title: "Yes, that's clear"
+      title: "Okay, that makes sense!"
     - payload: /confirm_usage
-      title: "Nice, sounds easy enough!"
+      title: "I understand."
     text: "Most of the time, you can just click on one of the buttons like you already did. If no buttons appear, just make use of the text field below."
 
 
