@@ -189,13 +189,15 @@ class ActionCreateInitialPlan(Action):
         energy_levels_weekdays = [weekdays_morning, weekdays_day, weekdays_evening]
         energy_levels_weekends = [weekends_morning, weekends_day, weekends_evening]
 
-        sanitised = [bool(a) for a in ar]
+        sanitised = [bool(day) for a in free_times]
 
         number_of_timeslots = sum(sanitised)
 
-        preference_weekdays = energy_levels_weekdays.index(min(energy_levels_weekdays))
 
-        preference_weekends = energy_levels_weekends.index(min(energy_levels_weekends))
+
+        preference_weekdays = energy_levels_weekdays.index(max(energy_levels_weekdays))
+
+        preference_weekends = energy_levels_weekends.index(max(energy_levels_weekends))
 
 
 
