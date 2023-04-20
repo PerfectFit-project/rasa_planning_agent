@@ -217,6 +217,7 @@ rules:
   steps: 
   - intent: confirm_weekends_evening
   - action: utter_energy_levels_weekends_confirm
+  - action: create_iniial_plan
 
 
 

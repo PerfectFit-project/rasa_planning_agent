@@ -117,6 +117,22 @@ class ActionLoadSessionFirst(Action):
         return [SlotSet("session_loaded", session_loaded)]
 
 
+ class ActionCreateInitialPlan(Action):
+
+ def name(self) -> Text:
+     return "action_create_initial_plan"
+
+ def run(self, dispatcher: CollectingDispatcher,
+         tracker: Tracker,
+         domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+     slot_value = tracker.get_slot('monday_morning')
+
+     dispatcher.utter_message(text=f"Monday morning slot is {slot_value}")
+
+     return []
+
+
 # class ActionLoadSessionNotFirst(Action):
 
 #     def name(self) -> Text:
