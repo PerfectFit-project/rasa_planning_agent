@@ -113,6 +113,17 @@ rules:
   - action: utter_confirm_monday_slots
   - action: utter_routines_tuesday
 
+- rule: ask about routines tuesday repeat
+  steps:
+  - intent: confirm_tuesday
+  - action: utter_routines_tuesday_repeat
+
+- rule: no more free on tuesdays
+  steps: 
+  - intent: confirm_tuesday_continue
+  - action: utter_confirm_tuesday_slots
+  - action: utter_routines_tuesday
+
 
 
 - rule: goodbye

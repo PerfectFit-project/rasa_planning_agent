@@ -26,11 +26,15 @@ intents:
 
 ## free time
 
-#monday
+# monday
 
 - confirm_monday
-- confirm_monday_never
 - confirm_monday_continue
+
+# tuesday
+
+- confirm_tuesday
+- confirm_tuesday_continue
 
 
 # end session
@@ -61,9 +65,6 @@ entities:
     influence_conversation: false
 
 - tuesday_evening:
-    influence_conversation: false
-
-- state_pa:
     influence_conversation: false
 
 
@@ -141,16 +142,6 @@ slots:
     mappings:
     - type: from_entity
       entity: tuesday_evening
-
-
-  ### states
-  state_pa:
-    type: text
-    initial_value: ''
-    influence_conversation: false
-    mappings:
-    - type: from_entity
-      entity: state_pa
 
 
 responses:
@@ -328,94 +319,23 @@ responses:
       title: "I'm never free on Tuesdays."
     text: "Use the buttons to let me know when you are usually free on Tuesdays."
 
-  ### Ask state questions
-  utter_state_pa_question_intro:
-  - text: "Now I will ask you a question about your current situation regarding preparing for being more physically active."
-
-
-  utter_state_question:
+  utter_routines_monday_repeat:
   - buttons:
-    - payload: /confirm_state_pa{"state_pa":"-5"}
-      title: "-5 (make it a lot harder)"
-    - payload: /confirm_state_pa{"state_pa":"-4"}
-      title: "-4"
-    - payload: /confirm_state_pa{"state_pa":"-3"}
-      title: "-3"
-    - payload: /confirm_state_pa{"state_pa":"-2"}
-      title: "-2"
-    - payload: /confirm_state_pa{"state_pa":"-1"}
-      title: "-1"
-    - payload: /confirm_state_pa{"state_pa":"0"}
-      title: "0 (neutral)"
-    - payload: /confirm_state_pa{"state_pa":"1"}
-      title: "1"
-    - payload: /confirm_state_pa{"state_pa":"2"}
-      title: "2"
-    - payload: /confirm_state_pa{"state_pa":"3"}
-      title: "3"
-    - payload: /confirm_state_pa{"state_pa":"4"}
-      title: "4"
-    - payload: /confirm_state_pa{"state_pa":"5"}
-      title: "5 (make it a lot easier)"
-    text: "How do you think do self-confidence and motivation affect quitting smoking?"
+    - payload: /confirm_tuesday{"tuesday_morning":"True"}
+      title: "Morning (6:00 - 10:00)"
+    - payload: /confirm_tuesday{"tuesday_midday":"True"}
+      title: "Midday (10:00 - 14:00)"
+    - payload: /confirm_tuesday{"tuesday_afternoon":"True"}
+      title: "Afternoon (14:00 - 18:00)"
+    - payload: /confirm_tuesday{"tuesday_evening":"True"}
+      title: "Evening (18:00 - 22:00)"    
+    - payload: /confirm_tuesday_continue
+      title: "I have no other times when I am free on Tuesdays."
+    text: "Is there any other time when you are free on Tuesdays?"
 
+  utter_confirm_monday_slots:
+  - text: "So those are all the times when you are free on Tuesdays:\n Morning: {monday_morning},\n Midday: {monday_midday},\n Afternoon: {monday_afternoon},\n Evening: {monday_evening}."
 
-  ### Propose activity
-  # utter_transition_new_activity:
-  #   - text: "Now let's turn our attention to an activity that can benefit your current situation."
-  #   - text: "Let's move on to an activity that can support you in your efforts to prepare for quitting smoking."
-  #   - text: "Next, we'll take a closer look at an activity that can assist you in preparing to quit smoking."
-
-
-  # utter_propose_new_activity_intro:
-  #   - text: "I think that this activity would be useful for you:"
-
-
-  # utter_activity:
-  #   - text: "I suggest you visualize your desired future self."
-
-
-  # utter_activity_read:
-  #     - text: "I'll continue when you're done reading about your first activity."
-  #       buttons:
-  #       - payload: /confirm_activity_read
-  #         title: "I'm done"
-
-  #   - text: "Use the button below once you've finished reading, then I'll continue."
-  #     buttons:
-  #     - payload: /confirm_activity_read
-  #       title: "Finished!"
-  #   - text: "Let me know when you've finished reading the description and we can continue."
-  #     buttons:
-  #     - payload: /confirm_activity_read
-  #       title: "Let's continue"
-
-
-  # utter_ask_dropout:
-  # - text: "Currently you are taking part in a paid experiment. Imagine this was an unpaid smoking cessation program.\nHow likely would you then have quit the program or returned to this session?"
-  #   buttons:
-  #   - payload: /confirm_dropout{"dropout_response":"-5"}
-  #     title: "-5 (definitely would have quit the program)"
-  #   - payload: /confirm_dropout{"dropout_response":"-4"}
-  #     title: "-4"
-  #   - payload: /confirm_dropout{"dropout_response":"-3"}
-  #     title: "-3"
-  #   - payload: /confirm_dropout{"dropout_response":"-2"}
-  #     title: "-2"
-  #   - payload: /confirm_dropout{"dropout_response":"-1"}
-  #     title: "-1"
-  #   - payload: /confirm_dropout{"dropout_response":"0"}
-  #     title: "0 (neutral)"
-  #   - payload: /confirm_dropout{"dropout_response":"1"}
-  #     title: "1"
-  #   - payload: /confirm_dropout{"dropout_response":"2"}
-  #     title: "2"
-  #   - payload: /confirm_dropout{"dropout_response":"3"}
-  #     title: "3"
-  #   - payload: /confirm_dropout{"dropout_response":"4"}
-  #     title: "4"
-  #   - payload: /confirm_dropout{"dropout_response":"5"}
-  #     title: "5 (definitely would have returned to this session)"
 
 
   ### End session
