@@ -62,6 +62,13 @@ intents:
 - confirm_sunday_continue
 
 
+## energy levels
+
+# weekdays morning
+
+- confirm_weekdays_morning
+
+
 # end session
 - confirm_goodbye
 
@@ -152,6 +159,17 @@ entities:
 
 - sunday_evening:
     influence_conversation: false
+
+
+
+- weekdays_morning:
+    influence_conversation: false
+
+# - weekdays_day:
+#     influence_conversation: false
+
+# - weekdays_evening:
+#     influence_conversation: false
 
 slots:
   ### intro/general
@@ -386,6 +404,33 @@ slots:
     mappings:
     - type: from_entity
       entity: sunday_evening
+
+  weekdays_morning:
+    type: text
+    influence_conversation: false
+    values:
+      - low
+      - medium
+      - high
+    mappings:
+    - type: from_entity
+      entity: weekdays_morning
+
+  # weekdays_day:
+  #   type: bool
+  #   initial_value: false
+  #   influence_conversation: false
+  #   mappings:
+  #   - type: from_entity
+  #     entity: weekdays_day
+
+  # weekdays_evening:
+  #   type: bool
+  #   initial_value: false
+  #   influence_conversation: false
+  #   mappings:
+  #   - type: from_entity
+  #     entity: weekdays_evening
 
 responses:
 
@@ -744,6 +789,35 @@ responses:
 
   utter_thank_for_times:
   - text: "Thank you for letting me know when you are available."
+
+  utter_energy_levels:
+  - text: "Now, I want to ask when you are usually energetic."
+
+  utter_energy_levels_weekdays_morning:
+  - buttons:
+    - payload: /confirm_weekdays_morning{"weekdays_morning":"low"}
+      title: "A little."
+    - payload: /confirm_weekdays_morning{"weekdays_morning":"medium"}
+      title: "A moderate amount."
+    - payload: /confirm_weekdays_morning{"weekdays_morning":"high"}
+      title: "A lot."   
+    text: "That is, how much energy for physical activity do you have on weekdays in the morning (6:00 - 10:00)?"
+
+  utter_energy_levels_weekdays_morning_confirm:
+  - text: "So those are your energy levels on weekdays:\n Morning: {weekdays_morning}."
+
+
+  # utter_energy_levels_weekdays_day:
+  # - buttons:
+  #   - payload: /confirm_weekdays{"weekdays_morning":"True"}
+  #     title: "In the morning (6:00 - 10:00)"
+  #   - payload: /confirm_weekdays{"weekdays_midday":"True"}
+  #     title: "During the day (10:00 - 18:00)"
+  #   - payload: /confirm_weekdays{"weekdays_afternoon":"True"}
+  #     title: "In the evening (18:00 - 22:00)"   
+  #   text: "What about your energy on weekdays during the day (6:00 - 10:00)?"
+
+
 
 
   ### End session

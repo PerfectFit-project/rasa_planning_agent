@@ -179,6 +179,8 @@ rules:
   - intent: confirm_sunday_continue
   - action: utter_confirm_sunday_slots
   - action: utter_thank_for_times
+  - action: utter_energy_levels
+  - action: utter_energy_levels_weekdays_morning
 
 
 
