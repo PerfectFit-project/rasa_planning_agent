@@ -116,19 +116,19 @@ responses:
   utter_purpose_4:
   - text: "Keep in mind that I won't ask you to do the exercises. We are only creating a plan."
 
-    utter_purpose_5:
+  utter_purpose_5:
   - text: "I will, however, ask you to behave as if you really had to follow this plan to do physical activity."
 
-    utter_purpose_6:
+  utter_purpose_6:
   - text: "And don't worry, we'll start off easy with planning some walks throughout the week."
 
-    utter_purpose_7:
+  utter_purpose_7:
   - text: "Unlike leisurely walks though, you'll have to do them at moderate intensity."
 
-    utter_purpose_8:
+  utter_purpose_8:
   - text: "What that means is that you'll have to walk about 100 steps per minute."
 
-    utter_purpose_9:
+  utter_purpose_9:
   - text: "Don't be alarmed if that seems a bit much right now. It will get easier after the first few times."
 
   utter_purpose_10:
