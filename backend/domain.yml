@@ -861,31 +861,31 @@ responses:
 
   utter_energy_levels_weekdays_morning:
   - buttons:
-    - payload: /confirm_weekdays_morning{"weekdays_morning":"low"}
+    - payload: /confirm_weekdays_morning{"weekdays_morning":"1"}
       title: "A little."
-    - payload: /confirm_weekdays_morning{"weekdays_morning":"medium"}
+    - payload: /confirm_weekdays_morning{"weekdays_morning":"2"}
       title: "A moderate amount."
-    - payload: /confirm_weekdays_morning{"weekdays_morning":"high"}
+    - payload: /confirm_weekdays_morning{"weekdays_morning":"3"}
       title: "A lot."   
     text: "That is, how much energy for physical activity do you have on weekdays in the morning (6:00 - 10:00)?"
 
   utter_energy_levels_weekdays_day:
   - buttons:
-    - payload: /confirm_weekdays_day{"weekdays_day":"low"}
+    - payload: /confirm_weekdays_day{"weekdays_day":"1"}
       title: "A little."
-    - payload: /confirm_weekdays_day{"weekdays_day":"medium"}
+    - payload: /confirm_weekdays_day{"weekdays_day":"2"}
       title: "A moderate amount."
-    - payload: /confirm_weekdays_day{"weekdays_day":"high"}
+    - payload: /confirm_weekdays_day{"weekdays_day":"3"}
       title: "A lot."   
     text: "What about your energy during the day (10:00 - 18:00) on weekdays?"
 
   utter_energy_levels_weekdays_evening:
   - buttons:
-    - payload: /confirm_weekdays_evening{"weekdays_evening":"low"}
+    - payload: /confirm_weekdays_evening{"weekdays_evening":"1"}
       title: "A little."
-    - payload: /confirm_weekdays_evening{"weekdays_evening":"medium"}
+    - payload: /confirm_weekdays_evening{"weekdays_evening":"2"}
       title: "A moderate amount."
-    - payload: /confirm_weekdays_evening{"weekdays_evening":"high"}
+    - payload: /confirm_weekdays_evening{"weekdays_evening":"3"}
       title: "A lot."   
     text: "How about in the evening (18:00 - 22:00) on weekdays?"
 
@@ -894,31 +894,31 @@ responses:
 
   utter_energy_levels_weekends_morning:
   - buttons:
-    - payload: /confirm_weekends_morning{"weekends_morning":"low"}
+    - payload: /confirm_weekends_morning{"weekends_morning":"1"}
       title: "A little."
-    - payload: /confirm_weekends_morning{"weekends_morning":"medium"}
+    - payload: /confirm_weekends_morning{"weekends_morning":"2"}
       title: "A moderate amount."
-    - payload: /confirm_weekends_morning{"weekends_morning":"high"}
+    - payload: /confirm_weekends_morning{"weekends_morning":"3"}
       title: "A lot."   
     text: "Now, let's move on to the weekends. How much energy for physical activity do you have on weekends in the morning (6:00 - 10:00)?"
 
   utter_energy_levels_weekends_day:
   - buttons:
-    - payload: /confirm_weekends_day{"weekends_day":"low"}
+    - payload: /confirm_weekends_day{"weekends_day":"1"}
       title: "A little."
-    - payload: /confirm_weekends_day{"weekends_day":"medium"}
+    - payload: /confirm_weekends_day{"weekends_day":"2"}
       title: "A moderate amount."
-    - payload: /confirm_weekends_day{"weekends_day":"high"}
+    - payload: /confirm_weekends_day{"weekends_day":"3"}
       title: "A lot."   
     text: "What about your energy during the day (10:00 - 18:00) on weekends?"
 
   utter_energy_levels_weekends_evening:
   - buttons:
-    - payload: /confirm_weekends_evening{"weekends_evening":"low"}
+    - payload: /confirm_weekends_evening{"weekends_evening":"1"}
       title: "A little."
-    - payload: /confirm_weekends_evening{"weekends_evening":"medium"}
+    - payload: /confirm_weekends_evening{"weekends_evening":"2"}
       title: "A moderate amount."
-    - payload: /confirm_weekends_evening{"weekends_evening":"high"}
+    - payload: /confirm_weekends_evening{"weekends_evening":"3"}
       title: "A lot."   
     text: "How about in the evening (18:00 - 22:00) on weekends?"
 
