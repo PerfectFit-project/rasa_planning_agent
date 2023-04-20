@@ -68,6 +68,7 @@ slots:
   ### free time
   monday_morning:
     type: bool
+    initial_value: false
     influence_conversation: false
     mappings:
     - type: from_entity
@@ -75,6 +76,7 @@ slots:
 
   monday_midday:
     type: bool
+    initial_value: false
     influence_conversation: false
     mappings:
     - type: from_entity
@@ -82,6 +84,7 @@ slots:
 
   monday_afternoon:
     type: bool
+    initial_value: false
     influence_conversation: false
     mappings:
     - type: from_entity
@@ -89,6 +92,7 @@ slots:
 
   monday_evening:
     type: bool
+    initial_value: false
     influence_conversation: false
     mappings:
     - type: from_entity
