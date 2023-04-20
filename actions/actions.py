@@ -186,7 +186,7 @@ class ActionCreateInitialPlan(Action):
         weekends_day = tracker.get_slot('weekends_day')
         weekends_evening = tracker.get_slot('weekends_evening')
 
-        energy_levels = [weekdays_morning, weekdays_day, weekdays_evening
+        energy_levels = [weekdays_morning, weekdays_day, weekdays_evening,
         weekends_morning, weekends_day, weekends_evening]
 
 
