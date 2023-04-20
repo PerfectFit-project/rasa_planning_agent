@@ -319,7 +319,7 @@ responses:
       title: "I'm never free on Tuesdays."
     text: "Use the buttons to let me know when you are usually free on Tuesdays."
 
-  utter_routines_monday_repeat:
+  utter_routines_tuesday_repeat:
   - buttons:
     - payload: /confirm_tuesday{"tuesday_morning":"True"}
       title: "Morning (6:00 - 10:00)"
@@ -333,7 +333,7 @@ responses:
       title: "I have no other times when I am free on Tuesdays."
     text: "Is there any other time when you are free on Tuesdays?"
 
-  utter_confirm_monday_slots:
+  utter_confirm_tuesday_slots:
   - text: "So those are all the times when you are free on Tuesdays:\n Morning: {monday_morning},\n Midday: {monday_midday},\n Afternoon: {monday_afternoon},\n Evening: {monday_evening}."
 
 
