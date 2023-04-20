@@ -122,7 +122,29 @@ rules:
   steps: 
   - intent: confirm_tuesday_continue
   - action: utter_confirm_tuesday_slots
-  - action: utter_routines_tuesday
+  - action: utter_routines_wednesday
+
+- rule: ask about routines wednesday repeat
+  steps:
+  - intent: confirm_wednesday
+  - action: utter_routines_wednesday_repeat
+
+- rule: no more free on wednesdays
+  steps: 
+  - intent: confirm_wednesday_continue
+  - action: utter_confirm_wednesday_slots
+  - action: utter_routines_thursday
+
+- rule: ask about routines thursday repeat
+  steps:
+  - intent: confirm_thursday
+  - action: utter_routines_thursday_repeat
+
+- rule: no more free on thursdays
+  steps: 
+  - intent: confirm_thursday_continue
+  - action: utter_confirm_thursday_slots
+  - action: utter_routines_thursday
 
 
 
