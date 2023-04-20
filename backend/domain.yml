@@ -46,6 +46,21 @@ intents:
 - confirm_thursday
 - confirm_thursday_continue
 
+# friday
+
+- confirm_friday
+- confirm_friday_continue
+
+# saturday
+
+- confirm_saturday
+- confirm_saturday_continue
+
+# sunday
+
+- confirm_sunday
+- confirm_sunday_continue
+
 
 # end session
 - confirm_goodbye
@@ -102,6 +117,41 @@ entities:
 - thursday_evening:
     influence_conversation: false
 
+- friday_morning:
+    influence_conversation: false
+
+- friday_midday:
+    influence_conversation: false
+
+- friday_afternoon:
+    influence_conversation: false
+
+- friday_evening:
+    influence_conversation: false
+
+- saturday_morning:
+    influence_conversation: false
+
+- saturday_midday:
+    influence_conversation: false
+
+- saturday_afternoon:
+    influence_conversation: false
+
+- saturday_evening:
+    influence_conversation: false
+
+- sunday_morning:
+    influence_conversation: false
+
+- sunday_midday:
+    influence_conversation: false
+
+- sunday_afternoon:
+    influence_conversation: false
+
+- sunday_evening:
+    influence_conversation: false
 
 slots:
   ### intro/general
@@ -240,6 +290,102 @@ slots:
     mappings:
     - type: from_entity
       entity: thursday_evening
+
+  friday_morning:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: friday_morning
+
+  friday_midday:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: friday_midday
+
+  friday_afternoon:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: friday_afternoon
+
+  friday_evening:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: friday_evening
+
+  saturday_morning:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: saturday_morning
+
+  saturday_midday:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: saturday_midday
+
+  saturday_afternoon:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: saturday_afternoon
+
+  saturday_evening:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: saturday_evening
+
+  sunday_morning:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: sunday_morning
+
+  sunday_midday:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: sunday_midday
+
+  sunday_afternoon:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: sunday_afternoon
+
+  sunday_evening:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: sunday_evening
 
 responses:
 
@@ -445,7 +591,7 @@ responses:
     - payload: /confirm_wednesday{"wednesday_evening":"True"}
       title: "Evening (18:00 - 22:00)"    
     - payload: /confirm_wednesday_continue
-      title: "I'm never free on Wednesday."
+      title: "I'm never free on Wednesdays."
     text: "Use the buttons to let me know when you are usually free on Wednesdays."
 
   utter_routines_wednesday_repeat:
@@ -477,7 +623,7 @@ responses:
     - payload: /confirm_thursday{"thursday_evening":"True"}
       title: "Evening (18:00 - 22:00)"    
     - payload: /confirm_thursday_continue
-      title: "I'm never free on Thursday."
+      title: "I'm never free on Thursdays."
     text: "Use the buttons to let me know when you are usually free on Thursdays."
 
   utter_routines_thursday_repeat:
@@ -497,6 +643,104 @@ responses:
   utter_confirm_thursday_slots:
   - text: "So those are all the times when you are free on Thursdays:\n Morning: {thursday_morning},\n Midday: {thursday_midday},\n Afternoon: {thursday_afternoon},\n Evening: {thursday_evening}."
 
+  utter_routines_friday:
+  - buttons:
+    - payload: /confirm_friday{"friday_morning":"True"}
+      title: "Morning (6:00 - 10:00)"
+    - payload: /confirm_friday{"friday_midday":"True"}
+      title: "Midday (10:00 - 14:00)"
+    - payload: /confirm_friday{"friday_afternoon":"True"}
+      title: "Afternoon (14:00 - 18:00)"
+    - payload: /confirm_friday{"friday_evening":"True"}
+      title: "Evening (18:00 - 22:00)"    
+    - payload: /confirm_friday_continue
+      title: "I'm never free on Fridays."
+    text: "Use the buttons to let me know when you are usually free on Fridays."
+
+  utter_routines_friday_repeat:
+  - buttons:
+    - payload: /confirm_friday{"friday_morning":"True"}
+      title: "Morning (6:00 - 10:00)"
+    - payload: /confirm_friday{"friday_midday":"True"}
+      title: "Midday (10:00 - 14:00)"
+    - payload: /confirm_friday{"friday_afternoon":"True"}
+      title: "Afternoon (14:00 - 18:00)"
+    - payload: /confirm_friday{"friday_evening":"True"}
+      title: "Evening (18:00 - 22:00)"    
+    - payload: /confirm_friday_continue
+      title: "I have no other times when I am free on Fridays."
+    text: "Is there any other time when you are free on Fridays?"
+
+  utter_confirm_friday_slots:
+  - text: "So those are all the times when you are free on fridays:\n Morning: {friday_morning},\n Midday: {friday_midday},\n Afternoon: {friday_afternoon},\n Evening: {friday_evening}."
+
+
+  utter_routines_saturday:
+  - buttons:
+    - payload: /confirm_saturday{"saturday_morning":"True"}
+      title: "Morning (6:00 - 10:00)"
+    - payload: /confirm_saturday{"saturday_midday":"True"}
+      title: "Midday (10:00 - 14:00)"
+    - payload: /confirm_saturday{"saturday_afternoon":"True"}
+      title: "Afternoon (14:00 - 18:00)"
+    - payload: /confirm_saturday{"saturday_evening":"True"}
+      title: "Evening (18:00 - 22:00)"    
+    - payload: /confirm_saturday_continue
+      title: "I'm never free on Saturdays."
+    text: "Use the buttons to let me know when you are usually free on Saturdays."
+
+  utter_routines_saturday_repeat:
+  - buttons:
+    - payload: /confirm_saturday{"saturday_morning":"True"}
+      title: "Morning (6:00 - 10:00)"
+    - payload: /confirm_saturday{"saturday_midday":"True"}
+      title: "Midday (10:00 - 14:00)"
+    - payload: /confirm_saturday{"saturday_afternoon":"True"}
+      title: "Afternoon (14:00 - 18:00)"
+    - payload: /confirm_saturday{"saturday_evening":"True"}
+      title: "Evening (18:00 - 22:00)"    
+    - payload: /confirm_saturday_continue
+      title: "I have no other times when I am free on Saturdays."
+    text: "Is there any other time when you are free on Saturdays?"
+
+  utter_confirm_saturday_slots:
+  - text: "So those are all the times when you are free on Saturdays:\n Morning: {saturday_morning},\n Midday: {saturday_midday},\n Afternoon: {saturday_afternoon},\n Evening: {saturday_evening}."
+
+
+  utter_routines_sunday:
+  - buttons:
+    - payload: /confirm_sunday{"sunday_morning":"True"}
+      title: "Morning (6:00 - 10:00)"
+    - payload: /confirm_sunday{"sunday_midday":"True"}
+      title: "Midday (10:00 - 14:00)"
+    - payload: /confirm_sunday{"sunday_afternoon":"True"}
+      title: "Afternoon (14:00 - 18:00)"
+    - payload: /confirm_sunday{"sunday_evening":"True"}
+      title: "Evening (18:00 - 22:00)"    
+    - payload: /confirm_sunday_continue
+      title: "I'm never free on Sundays."
+    text: "Use the buttons to let me know when you are usually free on Sundays."
+
+  utter_routines_sunday_repeat:
+  - buttons:
+    - payload: /confirm_sunday{"sunday_morning":"True"}
+      title: "Morning (6:00 - 10:00)"
+    - payload: /confirm_sunday{"sunday_midday":"True"}
+      title: "Midday (10:00 - 14:00)"
+    - payload: /confirm_sunday{"sunday_afternoon":"True"}
+      title: "Afternoon (14:00 - 18:00)"
+    - payload: /confirm_sunday{"sunday_evening":"True"}
+      title: "Evening (18:00 - 22:00)"    
+    - payload: /confirm_sunday_continue
+      title: "I have no other times when I am free on Sundays."
+    text: "Is there any other time when you are free on Sundays?"
+
+  utter_confirm_sunday_slots:
+  - text: "So those are all the times when you are free on Sundays:\n Morning: {sunday_morning},\n Midday: {sunday_midday},\n Afternoon: {sunday_afternoon},\n Evening: {sunday_evening}."
+
+
+  utter_thank_for_times:
+  - text: "Thank you for letting me know when you are available."
 
 
   ### End session

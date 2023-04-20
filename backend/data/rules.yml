@@ -144,7 +144,41 @@ rules:
   steps: 
   - intent: confirm_thursday_continue
   - action: utter_confirm_thursday_slots
-  - action: utter_routines_thursday
+  - action: utter_routines_friday
+
+- rule: ask about routines friday repeat
+  steps:
+  - intent: confirm_friday
+  - action: utter_routines_friday_repeat
+
+- rule: no more free on fridays
+  steps: 
+  - intent: confirm_friday_continue
+  - action: utter_confirm_friday_slots
+  - action: utter_routines_saturday
+
+- rule: ask about routines saturday repeat
+  steps:
+  - intent: confirm_saturday
+  - action: utter_routines_saturday_repeat
+
+- rule: no more free on saturdays
+  steps: 
+  - intent: confirm_saturday_continue
+  - action: utter_confirm_saturday_slots
+  - action: utter_routines_sunday
+
+- rule: ask about routines sunday repeat
+  steps:
+  - intent: confirm_sunday
+  - action: utter_routines_sunday_repeat
+
+- rule: no more free on sundays
+  steps: 
+  - intent: confirm_sunday_continue
+  - action: utter_confirm_sunday_slots
+  - action: utter_thank_for_times
+
 
 
 
