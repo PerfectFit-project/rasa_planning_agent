@@ -160,10 +160,10 @@ responses:
   utter_explain_usefulness_planning_1:
   - text: "Now, I told you we'll make a plan together, but I forgot to mention why this is important to begin with."
 
-  utter_explain_usefulness_planning_1:
+  utter_explain_usefulness_planning_2:
   - text: "If you have a clear indication of when you should do an activity, it will be much easier for you to actually do it."
 
-  utter_explain_usefulness_planning_1:
+  utter_explain_usefulness_planning_3:
   - text: "You'll have a clear schedule set in place, which will make it a bit difficult to avoid doing exercise or to postpone it."
 
   utter_explain_usefulness_planning_4:
