@@ -217,8 +217,21 @@ rules:
   steps: 
   - intent: confirm_weekends_evening
   - action: utter_energy_levels_weekends_confirm
-  - action: action_create_initial_plan
+  - action: utter_thank_for_energy_levels
+  - action: utter_goal_1
+  - action: utter_goal_2
+  - action: utter_goal_3
+  - action: utter_set_goal
 
+- rule: confirm goal
+  steps: 
+  - intent: confirm_goal
+  - action: utter_confirm_goal
+  
+- rule: create initial plan
+  steps:
+  - intent: confirm_initial_plan
+  - action: action_create_initial_plan
 
 
 - rule: goodbye
