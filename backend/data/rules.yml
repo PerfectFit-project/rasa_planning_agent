@@ -44,7 +44,7 @@ rules:
   - action: utter_purpose_7
   - action: utter_purpose_8
   - action: utter_purpose_9
-  - action: utter_purpose_10
+  - action: utter_confirm_purpose
 
 - rule: mood neutral explain purpose 
   steps:
@@ -59,7 +59,7 @@ rules:
   - action: utter_purpose_7
   - action: utter_purpose_8
   - action: utter_purpose_9
-  - action: utter_purpose_10
+  - action: utter_confirm_purpose
 
 - rule: mood bad explain purpose
   steps:
@@ -74,7 +74,7 @@ rules:
   - action: utter_purpose_7
   - action: utter_purpose_8
   - action: utter_purpose_9
-  - action: utter_purpose_10
+  - action: utter_confirm_purpose
 
 
 - rule: confirm purpose, explain usage

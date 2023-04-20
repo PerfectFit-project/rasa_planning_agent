@@ -130,7 +130,7 @@ responses:
   utter_purpose_9:
   - text: "Don't be alarmed if that seems a bit much right now. It will get easier after the first few times."
 
-  utter_purpose_10:
+  utter_confirm_purpose:
   - buttons:
     - payload: /confirm_purpose
       title: "Okay!"
