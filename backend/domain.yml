@@ -40,19 +40,19 @@ intents:
 entities:
 
 - monday_morning:
-  influence_conversation: false
+    influence_conversation: false
 
 - monday_midday:
-  influence_conversation: false
+    influence_conversation: false
 
 - monday_afternoon:
-  influence_conversation: false
+    influence_conversation: false
 
 - monday_evening:
-  influence_conversation: false
+    influence_conversation: false
 
 - state_pa:
-  influence_conversation: false
+    influence_conversation: false
 
 
 
