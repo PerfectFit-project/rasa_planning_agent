@@ -69,7 +69,7 @@ intents:
 - confirm_goal
 
 ## initial plan
-- confirm_initial plan
+- confirm_initial_plan
 
 ## end session
 - confirm_goodbye
