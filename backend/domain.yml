@@ -92,7 +92,6 @@ responses:
 
   utter_mood_good_response:
   - text: "That's good to hear!"
-  - payload: /confirm_purpose
 
   utter_mood_neutral_response:
   - text: "Okay. That's good."
