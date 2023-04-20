@@ -132,40 +132,40 @@ class ActionCreateInitialPlan(Action):
 
         # free times
 
-        monday_morning = tracker.get_slot('monday_morning')
-        monday_midday = tracker.get_slot('monday_midday')
-        monday_afternoon = tracker.get_slot('monday_afternoon')
-        monday_evening = tracker.get_slot('monday_evening')
+        monday_morning = bool(tracker.get_slot('monday_morning'))
+        monday_midday = bool(tracker.get_slot('monday_midday'))
+        monday_afternoon = bool(tracker.get_slot('monday_afternoon'))
+        monday_evening = bool(tracker.get_slot('monday_evening'))
 
-        tuesday_morning = tracker.get_slot('tuesday_morning')
-        tuesday_midday = tracker.get_slot('tuesday_midday')
-        tuesday_afternoon = tracker.get_slot('tuesday_afternoon')
-        tuesday_evening = tracker.get_slot('tuesday_evening')
+        tuesday_morning = bool(tracker.get_slot('tuesday_morning'))
+        tuesday_midday = bool(tracker.get_slot('tuesday_midday'))
+        tuesday_afternoon = bool(tracker.get_slot('tuesday_afternoon'))
+        tuesday_evening = bool(tracker.get_slot('tuesday_evening'))
 
-        wednesday_morning = tracker.get_slot('wednesday_morning')
-        wednesday_midday = tracker.get_slot('wednesday_midday')
-        wednesday_afternoon = tracker.get_slot('wednesday_afternoon')
-        wednesday_evening = tracker.get_slot('wednesday_evening')
+        wednesday_morning = bool(tracker.get_slot('wednesday_morning'))
+        wednesday_midday = bool(tracker.get_slot('wednesday_midday'))
+        wednesday_afternoon = bool(tracker.get_slot('wednesday_afternoon'))
+        wednesday_evening = bool(tracker.get_slot('wednesday_evening'))
 
-        thursday_morning = tracker.get_slot('thursday_morning')
-        thursday_midday = tracker.get_slot('thursday_midday')
-        thursday_afternoon = tracker.get_slot('thursday_afternoon')
-        thursday_evening = tracker.get_slot('thursday_evening')
+        thursday_morning = bool(tracker.get_slot('thursday_morning'))
+        thursday_midday = bool(tracker.get_slot('thursday_midday'))
+        thursday_afternoon = bool(tracker.get_slot('thursday_afternoon'))
+        thursday_evening = bool(tracker.get_slot('thursday_evening'))
 
-        friday_morning = tracker.get_slot('friday_morning')
-        friday_midday = tracker.get_slot('friday_midday')
-        friday_afternoon = tracker.get_slot('friday_afternoon')
-        friday_evening = tracker.get_slot('friday_evening')
+        friday_morning = bool(tracker.get_slot('friday_morning'))
+        friday_midday = bool(tracker.get_slot('friday_midday'))
+        friday_afternoon = bool(tracker.get_slot('friday_afternoon'))
+        friday_evening = bool(tracker.get_slot('friday_evening'))
 
-        saturday_morning = tracker.get_slot('saturday_morning')
-        saturday_midday = tracker.get_slot('saturday_midday')
-        saturday_afternoon = tracker.get_slot('saturday_afternoon')
-        saturday_evening = tracker.get_slot('saturday_evening')
+        saturday_morning = bool(tracker.get_slot('saturday_morning'))
+        saturday_midday = bool(tracker.get_slot('saturday_midday'))
+        saturday_afternoon = bool(tracker.get_slot('saturday_afternoon'))
+        saturday_evening = bool(tracker.get_slot('saturday_evening'))
 
-        sunday_morning = tracker.get_slot('sunday_morning')
-        sunday_midday = tracker.get_slot('sunday_midday')
-        sunday_afternoon = tracker.get_slot('sunday_afternoon')
-        sunday_evening = tracker.get_slot('sunday_evening')
+        sunday_morning = bool(tracker.get_slot('sunday_morning'))
+        sunday_midday = bool(tracker.get_slot('sunday_midday'))
+        sunday_afternoon = bool(tracker.get_slot('sunday_afternoon'))
+        sunday_evening = bool(tracker.get_slot('sunday_evening'))
 
         # # indices:
         # # monday 0 - 3
@@ -231,6 +231,8 @@ class ActionCreateInitialPlan(Action):
         "sunday_afternoon" : [sunday_afetrnoon, weekends_day],
         "sunday_evening" : [sunday_evening, weekends_evening]
         }
+
+
 
 
         # energy_levels_weekdays = [weekdays_morning, weekdays_day, weekdays_evening]
