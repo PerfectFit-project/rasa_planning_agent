@@ -36,6 +36,16 @@ intents:
 - confirm_tuesday
 - confirm_tuesday_continue
 
+# wednesday
+
+- confirm_wednesday
+- confirm_wednesday_continue
+
+# thursday
+
+- confirm_thursday
+- confirm_thursday_continue
+
 
 # end session
 - confirm_goodbye
