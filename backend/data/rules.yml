@@ -107,15 +107,12 @@ rules:
   - intent: confirm_monday
   - action: utter_routines_monday_repeat
 
-- rule: never free on mondays
-  steps: 
-  - intent: confirm_monday_never
-  - action: utter_never_monday
-
 - rule: no more free on mondays
   steps: 
   - intent: confirm_monday_continue
-  - action: utter_no_more_monday
+  - action: utter_confirm_monday_slots
+  - action: utter_routines_tuesday
+
 
 
 - rule: goodbye

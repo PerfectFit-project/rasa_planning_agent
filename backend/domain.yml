@@ -51,6 +51,18 @@ entities:
 - monday_evening:
     influence_conversation: false
 
+- tuesday_morning:
+    influence_conversation: false
+
+- tuesday_midday:
+    influence_conversation: false
+
+- tuesday_afternoon:
+    influence_conversation: false
+
+- tuesday_evening:
+    influence_conversation: false
+
 - state_pa:
     influence_conversation: false
 
@@ -97,6 +109,38 @@ slots:
     mappings:
     - type: from_entity
       entity: monday_evening
+
+  tuesday_morning:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: tuesday_morning
+
+  tuesday_midday:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: tuesday_midday
+
+  tuesday_afternoon:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: tuesday_afternoon
+
+  tuesday_evening:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: tuesday_evening
 
 
   ### states
@@ -248,7 +292,7 @@ responses:
       title: "Afternoon (14:00 - 18:00)"
     - payload: /confirm_monday{"monday_evening":"true"}
       title: "Evening (18:00 - 22:00)"    
-    - payload: /confirm_monday_never{"monday_never":"true"}
+    - payload: /confirm_monday_continue
       title: "I'm never free on Mondays."
     text: "Use the buttons to let me know when you are usually free on Mondays."
    
@@ -267,12 +311,22 @@ responses:
       title: "I have no other times when I am free on Mondays."
     text: "Is there any other time when you are free on Mondays?"
 
-  utter_never_monday:
-  - text: "So you are never free on Mondays."
+  utter_confirm_monday_slots:
+  - text: "So those are all the times when you are free on Mondays:\n Morning: {monday_morning},\n Midday: {monday_midday},\n Afternoon: {monday_afternoon},\n Evening: {monday_evening}."
 
-  utter_no_more_monday:
-  - text: "So those are all the times when you are free on Mondays. Morning: {monday_morning}, Midday: {monday_midday}, Afternoon: {monday_afternoon}, Evening: {monday_evening}."
-
+  utter_routines_tuesday:
+  - buttons:
+    - payload: /confirm_tuesday{"tuesday_morning":"true"}
+      title: "Morning (6:00 - 10:00)"
+    - payload: /confirm_tuesday{"tuesday_midday":"true"}
+      title: "Midday (10:00 - 14:00)"
+    - payload: /confirm_tuesday{"tuesday_afternoon":"true"}
+      title: "Afternoon (14:00 - 18:00)"
+    - payload: /confirm_tuesday{"tuesday_evening":"true"}
+      title: "Evening (18:00 - 22:00)"    
+    - payload: /confirm_tuesday_continue
+      title: "I'm never free on Tuesdays."
+    text: "Use the buttons to let me know when you are usually free on Tuesdays."
 
   ### Ask state questions
   utter_state_pa_question_intro:
