@@ -189,7 +189,7 @@ class ActionCreateInitialPlan(Action):
         energy_levels_weekdays = [weekdays_morning, weekdays_day, weekdays_evening]
         energy_levels_weekends = [weekends_morning, weekends_day, weekends_evening]
 
-        sanitised = [bool(day) for a in free_times]
+        sanitised = [bool(day) for day in free_times]
 
         number_of_timeslots = sum(sanitised)
 
