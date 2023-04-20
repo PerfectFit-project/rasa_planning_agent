@@ -167,13 +167,21 @@ class ActionCreateInitialPlan(Action):
         sunday_afternoon = tracker.get_slot('sunday_afternoon')
         sunday_evening = tracker.get_slot('sunday_evening')
 
-        free_times = [monday_morning, monday_midday, monday_afternoon, monday_evening,
-        tuesday_morning, tuesday_midday, tuesday_afternoon, tuesday_evening,
-        wednesday_morning, wednesday_midday, wednesday_afternoon, wednesday_evening,
-        thursday_morning, thursday_midday, thursday_afternoon, thursday_evening,
-        friday_morning, friday_midday, friday_afternoon, friday_evening,
-        saturday_morning, saturday_midday, saturday_afternoon, saturday_evening,
-        sunday_morning, sunday_midday, sunday_afternoon, sunday_evening]
+        # # indices:
+        # # monday 0 - 3
+        # # tuesday 4 - 7
+        # # wednesday 8 - 11
+        # # thursday 12 - 15
+        # # friday 16 - 19
+        # # saturday 20 - 23
+        # # sunday 24 - 27
+        # free_times = [monday_morning, monday_midday, monday_afternoon, monday_evening,
+        # tuesday_morning, tuesday_midday, tuesday_afternoon, tuesday_evening,
+        # wednesday_morning, wednesday_midday, wednesday_afternoon, wednesday_evening,
+        # thursday_morning, thursday_midday, thursday_afternoon, thursday_evening,
+        # friday_morning, friday_midday, friday_afternoon, friday_evening,
+        # saturday_morning, saturday_midday, saturday_afternoon, saturday_evening,
+        # sunday_morning, sunday_midday, sunday_afternoon, sunday_evening]
 
         # energy levels
 
@@ -186,26 +194,86 @@ class ActionCreateInitialPlan(Action):
         weekends_day = tracker.get_slot('weekends_day')
         weekends_evening = tracker.get_slot('weekends_evening')
 
-        energy_levels_weekdays = [weekdays_morning, weekdays_day, weekdays_evening]
-        energy_levels_weekends = [weekends_morning, weekends_day, weekends_evening]
+        # "day_time" : [free_at_time, energetic_at_time]
+        days = {
+        "monday_morning" : [monday_morning, weekdays_morning],
+        "monday_midday" : [monday_midday, weekdays_day],
+        "monday_afternoon" : [monday_afetrnoon, weekdays_day],
+        "monday_evening" : [monday_evening, weekdays_evening],
 
-        sanitised = [bool(day) for day in free_times]
+        "tuesday_morning" : [tuesday_morning, weekdays_morning],
+        "tuesday_midday" : [tuesday_midday, weekdays_day],
+        "tuesday_afternoon" : [tuesday_afetrnoon, weekdays_day],
+        "tuesday_evening" : [tuesday_evening, weekdays_evening],
 
-        number_of_timeslots = sum(sanitised)
+        "wednesday_morning" : [wednesday_morning, weekdays_morning],
+        "wednesday_midday" : [wednesday_midday, weekdays_day],
+        "wednesday_afternoon" : [wednesday_afetrnoon, weekdays_day],
+        "wednesday_evening" : [wednesday_evening, weekdays_evening],
+
+        "thursday_morning" : [thursday_morning, weekdays_morning],
+        "thursday_midday" : [thursday_midday, weekdays_day],
+        "thursday_afternoon" : [thursday_afetrnoon, weekdays_day],
+        "thursday_evening" : [thursday_evening, weekdays_evening],
+
+        "friday_morning" : [friday_morning, weekdays_morning],
+        "friday_midday" : [friday_midday, weekdays_day],
+        "friday_afternoon" : [friday_afetrnoon, weekdays_day],
+        "friday_evening" : [friday_evening, weekdays_evening],
+
+        "saturday_morning" : [saturday_morning, weekends_morning],
+        "saturday_midday" : [saturday_midday, weekends_day],
+        "saturday_afternoon" : [saturday_afetrnoon, weekends_day],
+        "saturday_evening" : [saturday_evening, weekends_evening],
+
+        "sunday_morning" : [sunday_morning, weekends_morning],
+        "sunday_midday" : [sunday_midday, weekends_day],
+        "sunday_afternoon" : [sunday_afetrnoon, weekends_day],
+        "sunday_evening" : [sunday_evening, weekends_evening]
+        }
+
+
+        # energy_levels_weekdays = [weekdays_morning, weekdays_day, weekdays_evening]
+        # energy_levels_weekends = [weekends_morning, weekends_day, weekends_evening]
+
+        # sanitised = [bool(day) for day in free_times]
+
+        # number_of_timeslots = sum(sanitised)
+
+        # true_indices = [i for i, a in enumerate(sanitised) if a == True]
+
+        # minutes_week_1 = 120
+
+        # if goal == "low":
+        #     minutes_week_2 = 140
+        # elif goal == "medium":
+        #     minutes_week_2 = 142
+        # elif goal == "high":
+        #     minutes_week_2 = 145
+
+        # if number_of_timeslots < 2:
+            
+        #     dispatcher.utter_message(text=f"I'm afraid you would have to do a bit too much activity all at once if we were to plan with your current schedule in mind… Let's think again about the times when you are available. Even if you're free for only 30 minutes or so at that time, that should still be enough to take a short walk.  [Handle this case later by going back to selecting time slots].")
+            
+        #     return []
+
+        # elif number_of_timeslots in [2,3,4]:
+
+        #     selected = [i for i,a in enumerate(sanitised) if a == True]
+
+        # else:
+
+        #     select_slots = 4
+
+        # selected = random.sample(true_indices, select_slots)
 
 
 
-        preference_weekdays = energy_levels_weekdays.index(max(energy_levels_weekdays))
-
-        preference_weekends = energy_levels_weekends.index(max(energy_levels_weekends))
 
 
+        # dispatcher.utter_message(text=f"Free slots: {number_of_timeslots}")
 
-
-
-        dispatcher.utter_message(text=f"Free slots: {number_of_timeslots}")
-
-        dispatcher.utter_message(text=f"Preference on weekdays: {preference_weekdays}")
+        # dispatcher.utter_message(text=f"Preference on weekdays: {preference_weekdays}")
 
         return []
 
