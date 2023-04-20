@@ -516,6 +516,9 @@ responses:
   utter_routines_3:
   - text: "For example, most people work a day job. But maybe you have things planned on some evenings as well."
 
+  utter_routines_4:
+  - text: "Ideally, we're looking for at least four different times during the week when you have at least 30 minutes to take a walk."
+
   utter_routines_monday:
   - buttons:
     - payload: /confirm_monday{"monday_morning":"True"}
