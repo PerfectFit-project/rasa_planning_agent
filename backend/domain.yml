@@ -76,7 +76,7 @@ responses:
   utter_greet_1:
   - text: "Hey there! I'm Jamie, your virtual coach."
 
-  utter_greeet_2:
+  utter_greet_2:
   - text: "I'm happy to meet you."
 
 
