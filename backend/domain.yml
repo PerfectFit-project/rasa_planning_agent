@@ -362,13 +362,13 @@ responses:
 
   utter_routines_monday:
   - buttons:
-    - payload: /confirm_monday{"monday_morning":"true"}
+    - payload: /confirm_monday{"monday_morning":"True"}
       title: "Morning (6:00 - 10:00)"
-    - payload: /confirm_monday{"monday_midday":"true"}
+    - payload: /confirm_monday{"monday_midday":"True"}
       title: "Midday (10:00 - 14:00)"
-    - payload: /confirm_monday{"monday_afternoon":"true"}
+    - payload: /confirm_monday{"monday_afternoon":"True"}
       title: "Afternoon (14:00 - 18:00)"
-    - payload: /confirm_monday{"monday_evening":"true"}
+    - payload: /confirm_monday{"monday_evening":"True"}
       title: "Evening (18:00 - 22:00)"    
     - payload: /confirm_monday_continue
       title: "I'm never free on Mondays."
@@ -394,13 +394,13 @@ responses:
 
   utter_routines_tuesday:
   - buttons:
-    - payload: /confirm_tuesday{"tuesday_morning":"true"}
+    - payload: /confirm_tuesday{"tuesday_morning":"True"}
       title: "Morning (6:00 - 10:00)"
-    - payload: /confirm_tuesday{"tuesday_midday":"true"}
+    - payload: /confirm_tuesday{"tuesday_midday":"True"}
       title: "Midday (10:00 - 14:00)"
-    - payload: /confirm_tuesday{"tuesday_afternoon":"true"}
+    - payload: /confirm_tuesday{"tuesday_afternoon":"True"}
       title: "Afternoon (14:00 - 18:00)"
-    - payload: /confirm_tuesday{"tuesday_evening":"true"}
+    - payload: /confirm_tuesday{"tuesday_evening":"True"}
       title: "Evening (18:00 - 22:00)"    
     - payload: /confirm_tuesday_continue
       title: "I'm never free on Tuesdays."
