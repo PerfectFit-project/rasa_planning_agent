@@ -124,20 +124,20 @@ function setBotResponse(response) {
 				var response_text = response[0].text.split("\n")
 				for (j = 0; j < response_text.length; j++){
 					// display the plan when it is available
-					if(response_text[j].includes("Plan: Week 1 -")){
-						const week_1 = response_text.split("Plan: Week 1 - ")[1].split(" ")[0];
+					if(response_text[j].includes("Plan: Week 1 - ")){
+						const week_1 = response_text[j].split("Plan: Week 1 - ")[1].split(" ")[0];
 
-						const week_2 = response_text.split(" Week 2 - ")[1].split(" ")[0];
+						const week_2 = response_text[j].split(" Week 2 - ")[1].split(" ")[0];
 						
-						const week_3 = response_text.split(" Week 3 - Walking for ")[1].split(" ")[0];
+						const week_3 = response_text[j].split(" Week 3 - Walking for ")[1].split(" ")[0];
 						
-						const week_4 = response_text.split(" Week 4 - Walking for ")[1].split(" ")[0];
+						const week_4 = response_text[j].split(" Week 4 - Walking for ")[1].split(" ")[0];
 						
-						const month_2 = response_text.split(" Month 2 - Walking for up to ")[1].split(" ")[0];
+						const month_2 = response_text[j].split(" Month 2 - Walking for up to ")[1].split(" ")[0];
 					
-						const month_3 = response_text.split(" Month 3 - Walking for up to ")[1].split(" ")[0];
+						const month_3 = response_text[j].split(" Month 3 - Walking for up to ")[1].split(" ")[0];
 
-						const slots = response_text.split(" minutes at these time slots: [")[1].split("]")[0].split(", ");
+						const slots = response_text[j].split(" minutes at these time slots: [")[1].split("]")[0].split(", ");
     
 						var clean_slots = slots.map(function(e) { 
 							e = e.replace(/^'(.*)'$/, '$1'); 
