@@ -123,14 +123,16 @@ function setBotResponse(response) {
 			if (response[0].hasOwnProperty("text")) {
 				var response_text = response[0].text.split("\n")
 				for (j = 0; j < response_text.length; j++){
-					var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
-					$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
-
-
 					// display the plan when it is available
-					if(response_text[j] === "Here is the plan!"){
+					if(response_text[j].includes("Plan")){
+						const week_1 = response_text[j].split("Plan\n: week 1 - ").join("").split(" ")[0];
+						document.getElementById("monday_morning").innerHTML = "Walk " + week_1 + " minutes";
 						$(".plan_table").toggle();
-						document.getElementById("monday_morning").innerHTML = "I changed the text.";
+					}
+					// otherwise, display the message
+					else{
+						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
+						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
 					}
 				}
 			}
