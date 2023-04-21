@@ -125,6 +125,12 @@ function setBotResponse(response) {
 				for (j = 0; j < response_text.length; j++){
 					var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
 					$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
+
+
+					// display the plan when it is available
+					if(response_text[j] === "Here is the plan!"){
+						$(".plan_table").toggle();
+					}
 				}
 			}
 
@@ -244,3 +250,5 @@ function hideBotTyping() {
 	$('#botAvatar').remove();
 	$('.botTyping').remove();
 }
+
+

@@ -243,6 +243,7 @@ rules:
   steps:
   - intent: confirm_initial_plan
   - action: action_create_initial_plan
+  - action: utter_present_plan
 
 
 - rule: goodbye

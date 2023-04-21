@@ -1006,6 +1006,8 @@ responses:
       title: "Let's do that."
     text: "Great! Now, let's create an initial plan and we'll see if we need to modify it later."
 
+  utter_present_plan:
+  - text: "Here is the plan!"
 
   ### End session
   utter_email_reminder:
