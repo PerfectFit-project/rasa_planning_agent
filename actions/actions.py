@@ -284,7 +284,7 @@ class ActionCreateInitialPlan(Action):
 
         dispatcher.utter_message(text=f"Available slots: {available_timeslots},  Selected slots: {selected}")
 
-        duration_per_timeslot_week_1 = minutes_week_1/4
+        duration_per_timeslot_week_1 = math.ceil(minutes_week_1/4)
 
         selected_times = [time_energy[0] for time_energy in selected]
 
