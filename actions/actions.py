@@ -14,6 +14,7 @@ from rasa_sdk.events import FollowupAction, SlotSet
 from typing import Any, Dict, List, Optional, Text
 
 import logging
+import math
 import mysql.connector
 import random
 
@@ -131,8 +132,6 @@ class ActionCreateInitialPlan(Action):
 
         goal = tracker.get_slot('goal')
 
-        dispatcher.utter_message(text=f"Goal: {goal}")
-
         # free times
 
         monday_morning = bool(tracker.get_slot('monday_morning'))
@@ -170,24 +169,6 @@ class ActionCreateInitialPlan(Action):
         sunday_afternoon = bool(tracker.get_slot('sunday_afternoon'))
         sunday_evening = bool(tracker.get_slot('sunday_evening'))
 
-        dispatcher.utter_message(text=f"Got free times")
-
-        # # indices:
-        # # monday 0 - 3
-        # # tuesday 4 - 7
-        # # wednesday 8 - 11
-        # # thursday 12 - 15
-        # # friday 16 - 19
-        # # saturday 20 - 23
-        # # sunday 24 - 27
-        # free_times = [monday_morning, monday_midday, monday_afternoon, monday_evening,
-        # tuesday_morning, tuesday_midday, tuesday_afternoon, tuesday_evening,
-        # wednesday_morning, wednesday_midday, wednesday_afternoon, wednesday_evening,
-        # thursday_morning, thursday_midday, thursday_afternoon, thursday_evening,
-        # friday_morning, friday_midday, friday_afternoon, friday_evening,
-        # saturday_morning, saturday_midday, saturday_afternoon, saturday_evening,
-        # sunday_morning, sunday_midday, sunday_afternoon, sunday_evening]
-
         # energy levels
 
         weekdays_morning = tracker.get_slot('weekdays_morning')
@@ -198,8 +179,6 @@ class ActionCreateInitialPlan(Action):
         weekends_morning = tracker.get_slot('weekends_morning')
         weekends_day = tracker.get_slot('weekends_day')
         weekends_evening = tracker.get_slot('weekends_evening')
-
-        dispatcher.utter_message(text=f"Got energy levels.")
 
         # "day_time" : [free_at_time, energetic_at_time]
         days = {
@@ -239,11 +218,7 @@ class ActionCreateInitialPlan(Action):
         "sunday_evening" : [sunday_evening, weekends_evening]
         }
 
-        dispatcher.utter_message(text=f"Created the dict")
-
         available_timeslots = [[day, days[day][1]] for day in days if days[day][0] == True]
-
-        dispatcher.utter_message(text=f"Available slots: {available_timeslots}")
 
         number_of_timeslots = len(available_timeslots) 
 
@@ -259,8 +234,6 @@ class ActionCreateInitialPlan(Action):
 
         number_of_low_energy_timeslots = len(low_energy_timeslots)
 
-        dispatcher.utter_message(text=f"High energy slots: {high_energy_timeslots}")
-
         minutes_week_1 = 120
 
         if goal == "low":
@@ -269,8 +242,6 @@ class ActionCreateInitialPlan(Action):
             weekly_increase = 22
         elif goal == "high":
             weekly_increase = 25
-
-        dispatcher.utter_message(text=f"Minutes increase: {weekly_increase}")
 
         if number_of_timeslots < 4:
             
@@ -312,6 +283,15 @@ class ActionCreateInitialPlan(Action):
 
 
         dispatcher.utter_message(text=f"Available slots: {available_timeslots},  Selected slots: {selected}")
+
+        duration_per_timeslot_week_1 = minutes_week_1/4
+
+        selected_times = [time_energy[0] for time_energy in selected]
+
+
+        dispatcher.utter_message(text=f"Plan: week 1 - {duration_per_timeslot_week_1} at these time slots: {selected_times} \n week 2 - {math.ceil((minutes_week_1 + weekly_increase)/4)} at these time slots: {selected_times} 
+        \n week 3 - Walking for {math.ceil((minutes_week_1 + 2* weekly_increase)/4)} minutes across 4 days. \n week 4 - Walking for {math.ceil((minutes_week_1 + 3* weekly_increase)/4)} minutes across 4 days. 
+        \n Month 2 - Walking for up to {math.ceil((minutes_week_1 + 6* weekly_increase)/4)} minutes per week across 5 days. \n Month 3 - Walking for up to {math.ceil((minutes_week_1 + 10* weekly_increase)/4)} minutes per week across 6 days.")
 
         return []
 
