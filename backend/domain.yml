@@ -72,6 +72,10 @@ intents:
 
 ## initial plan
 - confirm_initial_plan
+- confirm_checked_plan
+
+## state variables
+- confirm_confidence
 
 ## end session
 - confirm_goodbye
@@ -193,6 +197,9 @@ entities:
 
 - goal:
     influence_conversation: false
+
+- confidence:
+    influence_conversation: false 
 
 slots:
   ### intro/general
@@ -428,6 +435,8 @@ slots:
     - type: from_entity
       entity: sunday_evening
 
+  ### energy levels
+
   weekdays_morning:
     type: categorical
     influence_conversation: false
@@ -516,6 +525,8 @@ slots:
     - type: from_entity
       entity: weekends_evening
 
+  ### goal
+
   goal:
     type: categorical
     influence_conversation: false
@@ -526,6 +537,17 @@ slots:
     mappings:
     - type: from_entity
       entity: goal
+
+  confidence:
+    type: categorical
+    influence_conversation: false
+    values:
+      - low
+      - medium
+      - high
+    mappings:
+    - type: from_entity
+      entity: confidence
 
 
 responses:
@@ -1006,8 +1028,56 @@ responses:
       title: "Let's do that."
     text: "Great! Now, let's create an initial plan and we'll see if we need to modify it later."
 
-  utter_present_plan:
-  - text: "Here is the plan!"
+  utter_present_plan_1:
+  - text: "Nice! Now we have a starting point."
+
+  utter_present_plan_2:
+  - buttons:
+    - payload: /confirm_checked_plan
+      title: "Okay."
+    text: "I'll leave the plan there so you can take a look at it later."
+
+  utter_state_variables_intro_1:
+  - text: "Throughout the dialogue, I will ask you some questions to better understand your situation. Some of these questions might repeat, so do not be alarmed if you see a question you have already seen."
+
+  utter_state_variables_intro_2:
+  - text: "That being said, I wanted to ask the following:"
+
+  utter_state_confidence:
+  - buttons:
+    - payload: /confirm_confidence{"confidence":"low"}
+      title: "0 (Not confident at all)"
+    - payload: /confirm_confidence{"confidence":"low"}
+      title: "1"
+    - payload: /confirm_confidence{"confidence":"low"}
+      title: "2"
+    - payload: /confirm_confidence{"confidence":"low"}
+      title: "3"
+    - payload: /confirm_confidence{"confidence":"medium"}
+      title: "4"
+    - payload: /confirm_confidence{"confidence":"medium"}
+      title: "5"
+    - payload: /confirm_confidence{"confidence":"medium"}
+      title: "6"
+    - payload: /confirm_confidence{"confidence":"high"}
+      title: "7"
+    - payload: /confirm_confidence{"confidence":"high"}
+      title: "8"
+    - payload: /confirm_confidence{"confidence":"high"}
+      title: "9"
+    - payload: /confirm_confidence{""confidence":"high"}
+      title: "10 (Very confident)"
+    text: "How confident do you feel with regards to following the plan as it is currently?"
+
+
+
+
+
+
+
+
+
+
 
   ### End session
   utter_email_reminder:

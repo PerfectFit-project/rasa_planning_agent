@@ -243,7 +243,14 @@ rules:
   steps:
   - intent: confirm_initial_plan
   - action: action_create_initial_plan
-  # - action: utter_present_plan
+  - action: utter_present_plan_1
+  - action: utter_present_plan_2
+
+- rule: intro state variables
+  steps:
+  - intent: confirm_checked_plan
+  - action: utter_state_variables_intro_1
+  - action: utter_state_variables_intro_2
 
 
 - rule: goodbye
