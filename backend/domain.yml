@@ -439,7 +439,7 @@ slots:
     - type: from_entity
       entity: weekdays_morning
 
-  weekdays_day:
+  weekdays_midday:
     type: categorical
     influence_conversation: false
     values:
@@ -448,7 +448,18 @@ slots:
       - 3
     mappings:
     - type: from_entity
-      entity: weekdays_day
+      entity: weekdays_midday
+
+  weekdays_afternoon:
+    type: categorical
+    influence_conversation: false
+    values:
+      - 1
+      - 2
+      - 3
+    mappings:
+    - type: from_entity
+      entity: weekdays_afternoon
 
   weekdays_evening:
     type: categorical
@@ -472,7 +483,7 @@ slots:
     - type: from_entity
       entity: weekends_morning
 
-  weekends_day:
+  weekends_midday:
     type: categorical
     influence_conversation: false
     values:
@@ -481,7 +492,18 @@ slots:
       - 3
     mappings:
     - type: from_entity
-      entity: weekends_day
+      entity: weekends_midday
+
+  weekends_afternoon:
+    type: categorical
+    influence_conversation: false
+    values:
+      - 1
+      - 2
+      - 3
+    mappings:
+    - type: from_entity
+      entity: weekends_afternoon
 
   weekends_evening:
     type: categorical
