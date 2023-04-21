@@ -124,7 +124,7 @@ function setBotResponse(response) {
 				var response_text = response[0].text.split("\n")
 				for (j = 0; j < response_text.length; j++){
 					// display the plan when it is available
-					if(response_text[j].includes("Plan")){
+					if(response_text[j].includes("Plan: week 1 -")){
 						const week_1 = response_text[j].split("Plan\n: week 1 - ").join("").split(" ")[0];
 						document.getElementById("monday_morning").innerHTML = "Walk " + week_1 + " minutes";
 						$(".plan_table").toggle();
