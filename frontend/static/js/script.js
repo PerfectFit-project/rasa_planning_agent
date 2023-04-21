@@ -130,6 +130,7 @@ function setBotResponse(response) {
 					// display the plan when it is available
 					if(response_text[j] === "Here is the plan!"){
 						$(".plan_table").toggle();
+						document.getElementById("monday_morning").innerHTML = "I changed the text.";
 					}
 				}
 			}
