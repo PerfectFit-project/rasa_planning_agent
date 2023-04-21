@@ -205,37 +205,37 @@ class ActionCreateInitialPlan(Action):
         days = {
         "monday_morning" : [monday_morning, weekdays_morning],
         "monday_midday" : [monday_midday, weekdays_day],
-        "monday_afternoon" : [monday_afetrnoon, weekdays_day],
+        "monday_afternoon" : [monday_afternoon, weekdays_day],
         "monday_evening" : [monday_evening, weekdays_evening],
 
         "tuesday_morning" : [tuesday_morning, weekdays_morning],
         "tuesday_midday" : [tuesday_midday, weekdays_day],
-        "tuesday_afternoon" : [tuesday_afetrnoon, weekdays_day],
+        "tuesday_afternoon" : [tuesday_afternoon, weekdays_day],
         "tuesday_evening" : [tuesday_evening, weekdays_evening],
 
         "wednesday_morning" : [wednesday_morning, weekdays_morning],
         "wednesday_midday" : [wednesday_midday, weekdays_day],
-        "wednesday_afternoon" : [wednesday_afetrnoon, weekdays_day],
+        "wednesday_afternoon" : [wednesday_afternoon, weekdays_day],
         "wednesday_evening" : [wednesday_evening, weekdays_evening],
 
         "thursday_morning" : [thursday_morning, weekdays_morning],
         "thursday_midday" : [thursday_midday, weekdays_day],
-        "thursday_afternoon" : [thursday_afetrnoon, weekdays_day],
+        "thursday_afternoon" : [thursday_afternoon, weekdays_day],
         "thursday_evening" : [thursday_evening, weekdays_evening],
 
         "friday_morning" : [friday_morning, weekdays_morning],
         "friday_midday" : [friday_midday, weekdays_day],
-        "friday_afternoon" : [friday_afetrnoon, weekdays_day],
+        "friday_afternoon" : [friday_afternoon, weekdays_day],
         "friday_evening" : [friday_evening, weekdays_evening],
 
         "saturday_morning" : [saturday_morning, weekends_morning],
         "saturday_midday" : [saturday_midday, weekends_day],
-        "saturday_afternoon" : [saturday_afetrnoon, weekends_day],
+        "saturday_afternoon" : [saturday_afternoon, weekends_day],
         "saturday_evening" : [saturday_evening, weekends_evening],
 
         "sunday_morning" : [sunday_morning, weekends_morning],
         "sunday_midday" : [sunday_midday, weekends_day],
-        "sunday_afternoon" : [sunday_afetrnoon, weekends_day],
+        "sunday_afternoon" : [sunday_afternoon, weekends_day],
         "sunday_evening" : [sunday_evening, weekends_evening]
         }
 
