@@ -172,49 +172,51 @@ class ActionCreateInitialPlan(Action):
         # energy levels
 
         weekdays_morning = tracker.get_slot('weekdays_morning')
-        weekdays_day = tracker.get_slot('weekdays_day')
+        weekdays_midday = tracker.get_slot('weekdays_midday')
+        weekdays_afternoon = tracker.get_slot('weekdays_afternoon')
         weekdays_evening = tracker.get_slot('weekdays_evening')
 
         
         weekends_morning = tracker.get_slot('weekends_morning')
-        weekends_day = tracker.get_slot('weekends_day')
+        weekends_midday = tracker.get_slot('weekends_midday')
+        weekends_afternoon = tracker.get_slot('weekends_afternoon')
         weekends_evening = tracker.get_slot('weekends_evening')
 
         # "day_time" : [free_at_time, energetic_at_time]
         days = {
         "monday_morning" : [monday_morning, weekdays_morning],
-        "monday_midday" : [monday_midday, weekdays_day],
-        "monday_afternoon" : [monday_afternoon, weekdays_day],
+        "monday_midday" : [monday_midday, weekdays_midday],
+        "monday_afternoon" : [monday_afternoon, weekdays_afternoon],
         "monday_evening" : [monday_evening, weekdays_evening],
 
         "tuesday_morning" : [tuesday_morning, weekdays_morning],
-        "tuesday_midday" : [tuesday_midday, weekdays_day],
-        "tuesday_afternoon" : [tuesday_afternoon, weekdays_day],
+        "tuesday_midday" : [tuesday_midday, weekdays_midday],
+        "tuesday_afternoon" : [tuesday_afternoon, weekdays_afternoon],
         "tuesday_evening" : [tuesday_evening, weekdays_evening],
 
         "wednesday_morning" : [wednesday_morning, weekdays_morning],
-        "wednesday_midday" : [wednesday_midday, weekdays_day],
-        "wednesday_afternoon" : [wednesday_afternoon, weekdays_day],
+        "wednesday_midday" : [wednesday_midday, weekdays_midday],
+        "wednesday_afternoon" : [wednesday_afternoon, weekdays_afternoon],
         "wednesday_evening" : [wednesday_evening, weekdays_evening],
 
         "thursday_morning" : [thursday_morning, weekdays_morning],
-        "thursday_midday" : [thursday_midday, weekdays_day],
-        "thursday_afternoon" : [thursday_afternoon, weekdays_day],
+        "thursday_midday" : [thursday_midday, weekdays_midday],
+        "thursday_afternoon" : [thursday_afternoon, weekdays_afternoon],
         "thursday_evening" : [thursday_evening, weekdays_evening],
 
         "friday_morning" : [friday_morning, weekdays_morning],
-        "friday_midday" : [friday_midday, weekdays_day],
-        "friday_afternoon" : [friday_afternoon, weekdays_day],
+        "friday_midday" : [friday_midday, weekdays_midday],
+        "friday_afternoon" : [friday_afternoon, weekdays_afternoon],
         "friday_evening" : [friday_evening, weekdays_evening],
 
         "saturday_morning" : [saturday_morning, weekends_morning],
-        "saturday_midday" : [saturday_midday, weekends_day],
-        "saturday_afternoon" : [saturday_afternoon, weekends_day],
+        "saturday_midday" : [saturday_midday, weekends_midday],
+        "saturday_afternoon" : [saturday_afternoon, weekends_afternoon],
         "saturday_evening" : [saturday_evening, weekends_evening],
 
         "sunday_morning" : [sunday_morning, weekends_morning],
-        "sunday_midday" : [sunday_midday, weekends_day],
-        "sunday_afternoon" : [sunday_afternoon, weekends_day],
+        "sunday_midday" : [sunday_midday, weekends_midday],
+        "sunday_afternoon" : [sunday_afternoon, weekends_afternoon],
         "sunday_evening" : [sunday_evening, weekends_evening]
         }
 
