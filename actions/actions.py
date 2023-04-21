@@ -292,7 +292,7 @@ class ActionCreateInitialPlan(Action):
 
                     select_slots -= number_of_medium_energy_timeslots
 
-                    if select_slots not 0:
+                    if select_slots is not 0:
                         
                         selected += random.sample(low_energy_timeslots, select_slots)
 
