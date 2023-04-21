@@ -182,15 +182,20 @@ rules:
   - action: utter_energy_levels
   - action: utter_energy_levels_weekdays_morning
 
-- rule: confirm energy levels morning ask for day
+- rule: confirm energy levels morning ask for midday
   steps: 
   - intent: confirm_weekdays_morning
-  - action: utter_energy_levels_weekdays_day
+  - action: utter_energy_levels_weekdays_midday
+
+- rule: confirm energy levels midday ask for afternoon
+  steps: 
+  - intent: confirm_weekdays_midday
+  - action: utter_energy_levels_weekdays_afternoon
   
 
-- rule: confirm energy levels day ask for evening
+- rule: confirm energy levels afternoon ask for evening
   steps: 
-  - intent: confirm_weekdays_day
+  - intent: confirm_weekdays_afternoon
   - action: utter_energy_levels_weekdays_evening
 
 
@@ -201,15 +206,21 @@ rules:
   - action: utter_energy_levels_weekends_morning
 
 
-- rule: confirm energy levels weekend morning ask for weekend day
+- rule: confirm energy levels weekend morning ask for weekend midday
   steps: 
   - intent: confirm_weekends_morning
-  - action: utter_energy_levels_weekends_day
+  - action: utter_energy_levels_weekends_midday
+
+  
+- rule: confirm energy levels weekend midday ask for weekend afternoon
+  steps: 
+  - intent: confirm_weekends_midday
+  - action: utter_energy_levels_weekends_afternoon
   
 
-- rule: confirm energy levels weekend day ask for weekend evening
+- rule: confirm energy levels weekend afternoon ask for weekend evening
   steps: 
-  - intent: confirm_weekends_day
+  - intent: confirm_weekends_afternoon
   - action: utter_energy_levels_weekends_evening
 
 
