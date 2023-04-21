@@ -131,6 +131,8 @@ class ActionCreateInitialPlan(Action):
 
         goal = tracker.get_slot('goal')
 
+        dispatcher.utter_message(text=f"Goal: {goal}")
+
         # free times
 
         monday_morning = bool(tracker.get_slot('monday_morning'))
@@ -168,6 +170,8 @@ class ActionCreateInitialPlan(Action):
         sunday_afternoon = bool(tracker.get_slot('sunday_afternoon'))
         sunday_evening = bool(tracker.get_slot('sunday_evening'))
 
+        dispatcher.utter_message(text=f"Got free times")
+
         # # indices:
         # # monday 0 - 3
         # # tuesday 4 - 7
@@ -194,6 +198,8 @@ class ActionCreateInitialPlan(Action):
         weekends_morning = tracker.get_slot('weekends_morning')
         weekends_day = tracker.get_slot('weekends_day')
         weekends_evening = tracker.get_slot('weekends_evening')
+
+        dispatcher.utter_message(text=f"Got energy levels.")
 
         # "day_time" : [free_at_time, energetic_at_time]
         days = {
@@ -232,6 +238,8 @@ class ActionCreateInitialPlan(Action):
         "sunday_afternoon" : [sunday_afetrnoon, weekends_day],
         "sunday_evening" : [sunday_evening, weekends_evening]
         }
+
+        dispatcher.utter_message(text=f"Created the dict")
 
         available_timeslots = [[day, days[day][1]] for day in days if days[day][0] == True]
 
