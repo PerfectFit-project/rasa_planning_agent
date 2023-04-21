@@ -425,20 +425,21 @@ div.content_data::-webkit-scrollbar {
 }
 
 .menu {
-	padding: 5px;
+	padding: 10px;
 	display: flex;
 	flex-wrap: wrap;
 }
 
 .menuChips {
 	display: inline-block;
-	background: #2c53af;
+	background: #2ed59f;
 	color: #fff;
 	padding: 5px;
-	margin-bottom: 5px;
+	margin-bottom: 1px;
 	cursor: pointer;
-	border-radius: 15px;
+	border-radius: 50px;
 	font-size: 14px;
+	margin: 5px;
 }
 
 
