@@ -251,6 +251,15 @@ rules:
   - intent: confirm_checked_plan
   - action: utter_state_variables_intro_1
   - action: utter_state_variables_intro_2
+  - action: utter_state_confidence
+
+- rule: confirm confidence ask perceived usefulness
+  steps:
+  - intent: confirm_confidence
+  - action: utter_state_perceived_usefulness
+
+
+
 
 
 - rule: goodbye

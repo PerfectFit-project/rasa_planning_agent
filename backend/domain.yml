@@ -76,6 +76,7 @@ intents:
 
 ## state variables
 - confirm_confidence
+- confirm_perceived_usefulness
 
 ## end session
 - confirm_goodbye
@@ -199,6 +200,9 @@ entities:
     influence_conversation: false
 
 - confidence:
+    influence_conversation: false 
+
+- perceived_usefulness:
     influence_conversation: false 
 
 slots:
@@ -548,6 +552,17 @@ slots:
     mappings:
     - type: from_entity
       entity: confidence
+  
+  perceived_usefulness:
+    type: categorical
+    influence_conversation: false
+    values:
+      - low
+      - medium
+      - high
+    mappings:
+    - type: from_entity
+      entity: perceived_usefulness
 
 
 responses:
@@ -1065,9 +1080,35 @@ responses:
       title: "8"
     - payload: /confirm_confidence{"confidence":"high"}
       title: "9"
-    - payload: /confirm_confidence{""confidence":"high"}
+    - payload: /confirm_confidence{"confidence":"high"}
       title: "10 (Very confident)"
     text: "How confident do you feel with regards to following the plan as it is currently?"
+
+  utter_state_perceived_usefulness:
+  - buttons:
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"low"}
+      title: "0 (I don't feel like it is worth the effort)"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"low"}
+      title: "1"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"low"}
+      title: "2"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"low"}
+      title: "3"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"medium"}
+      title: "4"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"medium"}
+      title: "5"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"medium"}
+      title: "6"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"high"}
+      title: "7"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"high"}
+      title: "8"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"high"}
+      title: "9"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"high"}
+      title: "10 (I feel like it can help me do physical activity)"
+    text: "How do you feel about planning for physical activity?"
 
 
 
