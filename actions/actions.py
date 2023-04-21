@@ -235,6 +235,8 @@ class ActionCreateInitialPlan(Action):
 
         available_timeslots = [[day, days[day][1]] for day in days if days[day][0] == True]
 
+        dispatcher.utter_message(text=f"Available slots: {available_timeslots}")
+
         number_of_timeslots = len(available_timeslots) 
 
         high_energy_timeslots = [[available, energy] for [available, energy] in available_timeslots if energy == '3']
@@ -249,6 +251,8 @@ class ActionCreateInitialPlan(Action):
 
         number_of_low_energy_timeslots = len(low_energy_timeslots)
 
+        dispatcher.utter_message(text=f"High energy slots: {high_energy_timeslots}")
+
         minutes_week_1 = 120
 
         if goal == "low":
@@ -257,6 +261,8 @@ class ActionCreateInitialPlan(Action):
             weekly_increase = 22
         elif goal == "high":
             weekly_increase = 25
+
+        dispatcher.utter_message(text=f"Minutes increase: {weekly_increase}")
 
         if number_of_timeslots < 4:
             
