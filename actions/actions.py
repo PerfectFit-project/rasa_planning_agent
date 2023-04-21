@@ -289,9 +289,9 @@ class ActionCreateInitialPlan(Action):
         selected_times = [time_energy[0] for time_energy in selected]
 
 
-        dispatcher.utter_message(text=f"Plan: week 1 - {duration_per_timeslot_week_1} at these time slots: {selected_times} \n week 2 - {math.ceil((minutes_week_1 + weekly_increase)/4)} at these time slots: {selected_times} 
+        dispatcher.utter_message(text=f"""Plan: week 1 - {duration_per_timeslot_week_1} minutes at these time slots: {selected_times} \n week 2 - {math.ceil((minutes_week_1 + weekly_increase)/4)} minutes at these time slots: {selected_times} 
         \n week 3 - Walking for {math.ceil((minutes_week_1 + 2* weekly_increase)/4)} minutes across 4 days. \n week 4 - Walking for {math.ceil((minutes_week_1 + 3* weekly_increase)/4)} minutes across 4 days. 
-        \n Month 2 - Walking for up to {math.ceil((minutes_week_1 + 6* weekly_increase)/4)} minutes per week across 5 days. \n Month 3 - Walking for up to {math.ceil((minutes_week_1 + 10* weekly_increase)/4)} minutes per week across 6 days.")
+        \n Month 2 - Walking for up to {math.ceil((minutes_week_1 + 6* weekly_increase)/4)} minutes per week across 5 days. \n Month 3 - Walking for up to {math.ceil((minutes_week_1 + 10* weekly_increase)/4)} minutes per week across 6 days.""")
 
         return []
 
