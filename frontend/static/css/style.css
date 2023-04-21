@@ -19,7 +19,7 @@ body {
 
 .chat_header {
 	height: 40px;
-	background: rgb(69,222,225);
+	background: rgb(46 213 159);
 	border-radius: 10px 10px 0px 0px;
 	padding: 5px;
 	font-size: 20px;
@@ -126,7 +126,7 @@ textarea-webkit-scrollbar {
 	padding: 10px;
 	float: right;
 	margin-right: 0.5em;
-	background: #45dee1;
+	background: #2ed59f;
 	color: white;
 	margin-bottom: 0.15em;
 	font-size: 13px;
@@ -426,20 +426,20 @@ div.content_data::-webkit-scrollbar {
 
 .menu {
 	padding: 10px;
-	display: flex;
-	flex-wrap: wrap;
 }
 
 .menuChips {
-	display: inline-block;
+	display: block;
 	background: #2ed59f;
 	color: #fff;
 	padding: 5px;
+	text-align: center;
 	margin-bottom: 1px;
 	cursor: pointer;
 	border-radius: 50px;
 	font-size: 14px;
 	margin: 5px;
+	word-wrap: break-word;
 }
 
 
