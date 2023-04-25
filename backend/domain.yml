@@ -77,6 +77,7 @@ intents:
 ## state variables
 - confirm_confidence
 - confirm_perceived_usefulness
+- confirm_attitude
 
 ## end session
 - confirm_goodbye
@@ -204,6 +205,10 @@ entities:
 
 - perceived_usefulness:
     influence_conversation: false 
+
+- attitude:
+    influence_conversation: false 
+
 
 slots:
   ### intro/general
@@ -558,11 +563,20 @@ slots:
     influence_conversation: false
     values:
       - low
-      - medium
       - high
     mappings:
     - type: from_entity
       entity: perceived_usefulness
+
+  attitude:
+    type: categorical
+    influence_conversation: false
+    values:
+      - low
+      - high
+    mappings:
+    - type: from_entity
+      entity: attitude
 
 
 responses:
@@ -1090,18 +1104,18 @@ responses:
   utter_state_perceived_usefulness:
   - buttons:
     - payload: /confirm_perceived_usefulness{"perceived_usefulness":"low"}
-      title: "0 (I don't feel like it is worth the effort)"
+      title: "0 (I think it's useless to plan physical activity)"
     - payload: /confirm_perceived_usefulness{"perceived_usefulness":"low"}
       title: "1"
     - payload: /confirm_perceived_usefulness{"perceived_usefulness":"low"}
       title: "2"
     - payload: /confirm_perceived_usefulness{"perceived_usefulness":"low"}
       title: "3"
-    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"medium"}
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"low"}
       title: "4"
-    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"medium"}
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"high"}
       title: "5"
-    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"medium"}
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"high"}
       title: "6"
     - payload: /confirm_perceived_usefulness{"perceived_usefulness":"high"}
       title: "7"
@@ -1110,16 +1124,40 @@ responses:
     - payload: /confirm_perceived_usefulness{"perceived_usefulness":"high"}
       title: "9"
     - payload: /confirm_perceived_usefulness{"perceived_usefulness":"high"}
-      title: "10 (I feel like it can help me do physical activity)"
-    text: "How do you feel about planning for physical activity?"
+      title: "10 (I think it's very useful to plan physical activity)"
+    text: "How useful do you think planning for physical activity can be?"
 
   utter_perceived_usefulness_repeat:
   - text: "So your perceived usefulness is {perceived_usefulness}."
 
+  utter_state_attitude:
+  - buttons:
+    - payload: /confirm_attitude{"perceived_usefulness":"low"}
+      title: "0 (I don't feel like it is worth the effort)"
+    - payload: /confirm_attitude{"perceived_usefulness":"low"}
+      title: "1"
+    - payload: /confirm_attitude{"attitude":"low"}
+      title: "2"
+    - payload: /confirm_attitude{"attitude":"low"}
+      title: "3"
+    - payload: /confirm_attitude{"attitude":"low"}
+      title: "4"
+    - payload: /confirm_attitude{"attitude":"high"}
+      title: "5"
+    - payload: /confirm_attitude{"attitude":"high"}
+      title: "6"
+    - payload: /confirm_attitude{"attitude":"high"}
+      title: "7"
+    - payload: /confirm_attitude{"attitude":"high"}
+      title: "8"
+    - payload: /confirm_attitude{attitude":"high"}
+      title: "9"
+    - payload: /confirm_attitude{"attitude":"high"}
+      title: "10 (I feel like it can help me do physical activity)"
+    text: "How do you feel about planning for physical activity?"
 
-
-
-
+  utter_attitude_repeat:
+  - text: "So your attitude is {attitude}."
 
 
 
