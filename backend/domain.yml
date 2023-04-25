@@ -1113,7 +1113,7 @@ responses:
       title: "10 (I feel like it can help me do physical activity)"
     text: "How do you feel about planning for physical activity?"
 
-  utter_preceived_usefulness_repeat:
+  utter_perceived_usefulness_repeat:
   - text: "So your perceived usefulness is {perceived_usefulness}."
 
 
