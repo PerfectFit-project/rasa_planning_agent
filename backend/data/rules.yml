@@ -281,6 +281,10 @@ rules:
   steps:
   - intent: confirm_perceived_usefulness_2
   - action: utter_state_attitude_2
+  
+- rule: confirm attitude after save to db
+  steps:
+  - intent: confirm_attitude_2
   - action: utter_state_after
   - action: action_save_state_action_next_state
 
