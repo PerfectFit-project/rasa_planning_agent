@@ -251,24 +251,38 @@ rules:
   - intent: confirm_checked_plan
   - action: utter_state_variables_intro_1
   - action: utter_state_variables_intro_2
-  - action: utter_state_confidence
+  - action: utter_state_confidence_1
 
 - rule: confirm confidence ask perceived usefulness
   steps:
-  - intent: confirm_confidence
+  - intent: confirm_confidence_1
   - action: utter_confidence_repeat
-  - action: utter_state_perceived_usefulness
+  - action: utter_state_perceived_usefulness_1
 
 - rule: confirm perceived usefulness ask for attitude
   steps:
-  - intent: confirm_perceived_usefulness
+  - intent: confirm_perceived_usefulness_1
   - action: utter_perceived_usefulness_repeat
-  - action: utter_state_attitude
+  - action: utter_state_attitude_1
 
-- rule: confirm attitude
+- rule: confirm attitude do new action ask for confidence after
   steps:
-  - intent: confirm_attitude
+  - intent: confirm_attitude_1
   - action: utter_attitude_repeat
+  - action: utter_placeholder_action
+  - action: utter_state_confidence_2
+
+- rule: confirm confidence after ask for perceived usefulness after
+  steps:
+  - intent: confirm_confidence_2
+  - action: utter_state_perceived_usefulness_2
+
+- rule: confirm perceived usefulness after ask for attitude after
+  steps:
+  - intent: confirm_perceived_usefulness_2
+  - action: utter_state_attitude_2
+  - action: utter_state_after
+  - action: action_save_state_action_next_state
 
 
 
