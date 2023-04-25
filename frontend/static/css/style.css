@@ -199,6 +199,11 @@ textarea-webkit-scrollbar {
 	cursor: pointer;
 }
 
+.chat_button_text{
+
+	display: table;
+	margin: 0 auto;
+}
 
 /* css for dropdown menu of the bot */
 
