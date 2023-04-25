@@ -592,7 +592,7 @@ slots:
     - type: from_entity
       entity: attitude_1
   
-    confidence_2:
+  confidence_2:
     type: categorical
     influence_conversation: false
     values:
