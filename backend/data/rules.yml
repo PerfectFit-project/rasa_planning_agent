@@ -264,7 +264,10 @@ rules:
   - intent: confirm_perceived_usefulness
   - action: utter_perceived_usefulness_repeat
 
-
+- rule: confirm attitude
+  steps:
+  - intent: confirm_attitude
+  - action: utter_attitude_repeat
 
 
 
