@@ -1132,9 +1132,9 @@ responses:
 
   utter_state_attitude:
   - buttons:
-    - payload: /confirm_attitude{"perceived_usefulness":"low"}
+    - payload: /confirm_attitude{"attitude":"low"}
       title: "0 (I don't feel like it is worth the effort)"
-    - payload: /confirm_attitude{"perceived_usefulness":"low"}
+    - payload: /confirm_attitude{"attitude":"low"}
       title: "1"
     - payload: /confirm_attitude{"attitude":"low"}
       title: "2"
