@@ -256,7 +256,13 @@ rules:
 - rule: confirm confidence ask perceived usefulness
   steps:
   - intent: confirm_confidence
+  - action: utter_confidence_repeat
   - action: utter_state_perceived_usefulness
+
+- rule: confirm perceived usefulness
+  steps:
+  - intent: confirm_perceived_usefulness
+  - action: utter_perceived_usefulness_repeat
 
 
 

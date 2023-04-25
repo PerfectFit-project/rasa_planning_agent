@@ -1084,6 +1084,9 @@ responses:
       title: "10 (Very confident)"
     text: "How confident do you feel with regards to following the plan as it is currently?"
 
+  utter_confidence_repeat:
+  - text: "So your confidence is {confidence}."
+
   utter_state_perceived_usefulness:
   - buttons:
     - payload: /confirm_perceived_usefulness{"perceived_usefulness":"low"}
@@ -1110,7 +1113,8 @@ responses:
       title: "10 (I feel like it can help me do physical activity)"
     text: "How do you feel about planning for physical activity?"
 
-
+  utter_preceived_usefulness_repeat:
+  - text: "So your perceived usefulness is {perceived_usefulness}."
 
 
 
