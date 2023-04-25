@@ -184,18 +184,18 @@ textarea-webkit-scrollbar {
 .imgProfile {
 	box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.16), 0 0px 10px 0 rgba(0, 0, 0, 0.12);
 	background: white;
-	border-radius: 50px;
-	width: 60%;
+	border-radius: 65px;
+	width: 100%;
 	padding: 2%;
 }
 
 .profile_div {
-	/* display: none; */
+/* 	display: none; */
 	position: fixed;
 	padding: 5px;
 	width: 10%;
-	bottom: 0;
-	right: 0;
+	bottom: 50%;
+	right: 20%;
 	cursor: pointer;
 }
 
