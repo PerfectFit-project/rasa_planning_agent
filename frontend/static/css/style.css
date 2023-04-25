@@ -78,7 +78,7 @@ div.chats::-webkit-scrollbar {
 }
 
 .botAvatar {
-	border-radius: 50%;
+/* 	border-radius: 50%; */
 	width: 1.5em;
 	height: 1.5em;
 	float: left;
@@ -184,7 +184,7 @@ textarea-webkit-scrollbar {
 .imgProfile {
 	box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.16), 0 0px 10px 0 rgba(0, 0, 0, 0.12);
 	background: white;
-	border-radius: 65px;
+	border-radius: 15px;
 	width: 100%;
 	padding: 2%;
 }
