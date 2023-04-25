@@ -328,12 +328,20 @@ class ActionSaveStateActionNextState(Action):
         
         prolific_id = tracker.current_state()['sender_id']
 
-        state_before = [tracker.get_slot("confidence_1"), tracker.get_slot("perceived_usefulness_1"), tracker.get_slot("attitude_1")]
+        c_1 = tracker.get_slot("confidence_1")
+        c_2 = tracker.get_slot("confidence_2")
+
+        pu_1 = tracker.get_slot("perceived_usefulness_1")
+        pu_2 = tracker.get_slot("perceived_usefulness_2")
+
+        a_1 = tracker.get_slot("attitude_1")
+        a_2 = tracker.get_slot("attitude_2")
+
+        state_before = f"{c_1}, {pu_1}, {a_1}"
         
         action = "placeholder"
 
-        state_after = [tracker.get_slot("confidence_2"), tracker.get_slot("perceived_usefulness_2"), tracker.get_slot("attitude_2")]
-
+        state_after = f"{c_2}, {pu_2}, {a_2}"
 
         save_sessiondata_entry(cur, conn, prolific_id, formatted_date, state_before, action, state_after, 1)
 
