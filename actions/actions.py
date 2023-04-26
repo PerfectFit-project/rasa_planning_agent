@@ -111,12 +111,16 @@ class ActionLoadSessionFirst(Action):
             database='db'
         )
         cur = conn.cursor(prepared=True)
+
+        ## commented out for debugging
         
-        session_loaded = check_session_not_done_before(cur, prolific_id, 1)
+        # session_loaded = check_session_not_done_before(cur, prolific_id, 1)
         
         conn.close()
 
-        return [SlotSet("session_loaded", session_loaded)]
+        ## changd to True for debugging
+
+        return [SlotSet("session_loaded", True)]
 
 def round_to_nearest_5(n):
     return 5 * round(n / 5)
