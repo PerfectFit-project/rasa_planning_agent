@@ -1308,5 +1308,4 @@ actions:
 - action_default_fallback_end_dialog
 - action_create_initial_plan
 - action_save_event_state
-- action_save_event_action
-- action_select_action
+- action_select_action_and_save

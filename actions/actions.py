@@ -349,15 +349,21 @@ class ActionSaveEventState(Action):
         conn.close()
         
         return []
-    
-class ActionSaveEventAction(Action):
+
+class ActionSelectActionSaveToDB(Action):
     def name(self):
-        return "action_save_event_action"
+        return "action_select_action_and_save"
 
     async def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
+        actions = ["changes_to_plan", "explain_planning", "identify_barriers", "deal_with_barriers", "show_testimonials"]
+
+        picked = random.choice(actions)
+
+        dispatcher.utter_message(text=f"I am going to do the action {picked}.")
+
         now = datetime.now()
         formatted_date = now.strftime('%Y-%m-%d %H:%M:%S')
 
@@ -372,7 +378,7 @@ class ActionSaveEventAction(Action):
         
         prolific_id = tracker.current_state()['sender_id']
 
-        action = "placeholder"
+        action = picked
 
         dispatcher.utter_message(text="I am going to save the action to the database.")
 
@@ -381,22 +387,6 @@ class ActionSaveEventAction(Action):
         dispatcher.utter_message(text="I have saved the action to the database.")
 
         conn.close()
-        
-        return []
-
-class ActionSelectAction(Action):
-    def name(self):
-        return "action_select_action"
-
-    async def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
-        actions = ["changes_to_plan", "explain_planning", "identify_barriers", "deal_with_barriers", "show_testimonials"]
-
-        picked = random.choice(actions)
-
-        dispatcher.utter_message(text=f"I am going to do the action {picked}.")
 
         if action is "changes_to_plan":
             changes_to_plan = int(tracker.get_slot("changes_to_plan"))
@@ -407,46 +397,3 @@ class ActionSelectAction(Action):
         else:
 
             return [SlotSet(picked, True)]
-
-# class ValidateActivityExperienceForm(FormValidationAction):
-#     def name(self) -> Text:
-#         return 'validate_activity_experience_form'
-
-#     def validate_activity_experience_slot(
-#             self, value: Text, dispatcher: CollectingDispatcher,
-#             tracker: Tracker, domain: Dict[Text, Any]) -> Dict[Text, Any]:
-#         # pylint: disable=unused-argument
-#         """Validate activity_experience_slot input."""
-#         last_utterance = get_latest_bot_utterance(tracker.events)
-
-#         if last_utterance != 'utter_ask_activity_experience_slot':
-#             return {"activity_experience_slot": None}
-
-#         # people should either type "none" or say a bit more
-#         if not (len(value) >= 10 or "none" in value.lower()):
-#             dispatcher.utter_message(response="utter_provide_more_detail")
-#             return {"activity_experience_slot": None}
-
-#         return {"activity_experience_slot": value}
-    
-
-# class ValidateActivityExperienceModForm(FormValidationAction):
-#     def name(self) -> Text:
-#         return 'validate_activity_experience_mod_form'
-
-#     def validate_activity_experience_mod_slot(
-#             self, value: Text, dispatcher: CollectingDispatcher,
-#             tracker: Tracker, domain: Dict[Text, Any]) -> Dict[Text, Any]:
-#         # pylint: disable=unused-argument
-#         """Validate activity_experience_mod_slot input."""
-#         last_utterance = get_latest_bot_utterance(tracker.events)
-
-#         if last_utterance != 'utter_ask_activity_experience_mod_slot':
-#             return {"activity_experience_mod_slot": None}
-
-#         # people should either type "none" or say a bit more
-#         if not (len(value) >= 5 or "none" in value.lower()):
-#             dispatcher.utter_message(response="utter_provide_more_detail")
-#             return {"activity_experience_mod_slot": None}
-
-#         return {"activity_experience_mod_slot": value}
