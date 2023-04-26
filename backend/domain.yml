@@ -1042,7 +1042,7 @@ responses:
   - text: "One last thing before we move on to making the plan. Let's set goal for you."
 
   utter_goal_2:
-  - text: "One last thing before we move on to making the plan. Let's set goal for you."
+  - text: "Having a clear goal to work towards is also helpful in keeping you motivated."
 
   utter_goal_3:
   - text: "We'll set this goal for half a year from now, so you have plenty of time to work on reaching it."
