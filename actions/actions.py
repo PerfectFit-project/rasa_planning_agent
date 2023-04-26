@@ -376,7 +376,7 @@ class ActionSelectActionSaveToDB(Action):
         if number_actions == 3 and changes_to_plan == 0:
             possible_actions = ["changes_to_plan"]
         else:
-            if last_action != "changes_to_plan":
+            if last_action != "changes_to_plan" and changes_to_plan<=1:
                 possible_actions.append("changes_to_plan")
             if explain_planning == False:
                 possible_actions.append("explain_planning")
