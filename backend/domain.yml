@@ -204,6 +204,15 @@ entities:
 - weekends_evening:
     influence_conversation: false
 
+- plan_1:
+    influence_conversation: false
+
+- plan_2:
+    influence_conversation: false
+
+- plan_3:
+    influence_conversation: false
+
 - goal:
     influence_conversation: false
 
@@ -561,6 +570,32 @@ slots:
     mappings:
     - type: from_entity
       entity: weekends_evening
+
+  ### plans
+
+  plan_1:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: plan_1
+
+
+  plan_2:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: plan_2
+
+
+  plan_3:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: plan_3
+  
 
   ### goal
 

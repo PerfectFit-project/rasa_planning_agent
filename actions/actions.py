@@ -76,10 +76,10 @@ def get_latest_bot_utterance(events) -> Optional[Any]:
     return last_utterance
 
 
-def check_session_not_done_before(cur, prolific_id, session_num):
+def check_session_not_done_before(cur, prolific_id):
     
-    query = ("SELECT * FROM sessiondata WHERE prolific_id = %s and session_num = %s")
-    cur.execute(query, [prolific_id, session_num])
+    query = ("SELECT * FROM sessiondata WHERE prolific_id = %s)
+    cur.execute(query, [prolific_id])
     done_before_result = cur.fetchone()
     
     not_done_before = True
@@ -114,7 +114,7 @@ class ActionLoadSessionFirst(Action):
 
         ## commented out for debugging
         
-        # session_loaded = check_session_not_done_before(cur, prolific_id, 1)
+        # session_loaded = check_session_not_done_before(cur, prolific_id)
         
         conn.close()
 
@@ -125,6 +125,11 @@ class ActionLoadSessionFirst(Action):
 def round_to_nearest_5(n):
     return 5 * round(n / 5)
 
+
+def save_goal_and_plans_to_db(cur, conn, prolific_id, time, goal, plan_1, plan_2, plan_3):
+    query = "INSERT INTO users(prolific_id, time, goal, plan_1, plan_2, plan_3) VALUES(%s, %s, %s, %s, %s, %s)"
+    cur.execute(query, [prolific_id, time, goal, plan_1, plan_2, plan_3])
+    conn.commit()
 
 class ActionCreateInitialPlan(Action):
 
@@ -297,16 +302,17 @@ class ActionCreateInitialPlan(Action):
 
         selected_times = [time_energy[0] for time_energy in selected]
 
+        message = f"""Plan: Week 1 - {round_to_nearest_5(duration_per_timeslot_week_1)} minutes at these time slots: {selected_times}. Week 2 - {round_to_nearest_5(math.ceil((minutes_week_1 + weekly_increase)/4))} minutes at these time slots: {selected_times}. Week 3 - Walking for {round_to_nearest_5(minutes_week_1 + 2* weekly_increase)} minutes across 4 days. Week 4 - Walking for {round_to_nearest_5(minutes_week_1 + 3* weekly_increase)} minutes across 4 days. Month 2 - Walking for up to {round_to_nearest_5(minutes_week_1 + 7* weekly_increase)} minutes per week across 5 days. Month 3 - Walking for up to {round_to_nearest_5(minutes_week_1 + 11* weekly_increase)} minutes per week across 6 days."""
 
-        dispatcher.utter_message(text=f"""Plan: Week 1 - {round_to_nearest_5(duration_per_timeslot_week_1)} minutes at these time slots: {selected_times}. Week 2 - {round_to_nearest_5(math.ceil((minutes_week_1 + weekly_increase)/4))} minutes at these time slots: {selected_times}. Week 3 - Walking for {round_to_nearest_5(minutes_week_1 + 2* weekly_increase)} minutes across 4 days. Week 4 - Walking for {round_to_nearest_5(minutes_week_1 + 3* weekly_increase)} minutes across 4 days. Month 2 - Walking for up to {round_to_nearest_5(minutes_week_1 + 7* weekly_increase)} minutes per week across 5 days. Month 3 - Walking for up to {round_to_nearest_5(minutes_week_1 + 11* weekly_increase)} minutes per week across 6 days.""")
+        dispatcher.utter_message(text=message)
 
         return []
 
     
     
-def save_sessiondata_entry(cur, conn, prolific_id, time, event, session_num):
-    query = "INSERT INTO sessiondata(prolific_id, time, event, session_num) VALUES(%s, %s, %s, %s)"
-    cur.execute(query, [prolific_id, time, event, session_num])
+def save_sessiondata_entry(cur, conn, prolific_id, time, event):
+    query = "INSERT INTO sessiondata(prolific_id, time, event) VALUES(%s, %s, %s)"
+    cur.execute(query, [prolific_id, time, event])
     conn.commit()
     
 
@@ -350,7 +356,7 @@ class ActionSaveEventState(Action):
 
         state = f"{ch}, {c}, {pu}, {a}, {explain_planning}, {identify_barriers}, {deal_with_barriers}, {show_testimonials}"
 
-        save_sessiondata_entry(cur, conn, prolific_id, formatted_date, f"state: {state}", 1)
+        save_sessiondata_entry(cur, conn, prolific_id, formatted_date, f"state: {state}")
 
         conn.close()
         
@@ -427,6 +433,10 @@ class ActionSelectActionSaveToDB(Action):
 
         action = picked
 
+        # TODO: do the action that was picked
+
+        # 
+
         save_sessiondata_entry(cur, conn, prolific_id, formatted_date, f"action: {action} ", 1)
 
         conn.close()
@@ -434,9 +444,50 @@ class ActionSelectActionSaveToDB(Action):
         if action == "changes_to_plan":
             
             changes_to_plan += 1
+
+            if changes_to_plan == 1:
         
-            return [SlotSet("changes_to_plan", f"{changes_to_plan}"), SlotSet("last_action", "changes_to_plan")]
-        
+                return [SlotSet("changes_to_plan", f"{changes_to_plan}"), SlotSet("last_action", "changes_to_plan"), SlotSet("plan_2", "placeholder2")]
+
+            if changes_to_plan == 2:
+
+                return [SlotSet("changes_to_plan", f"{changes_to_plan}"), SlotSet("last_action", "changes_to_plan"), SlotSet("plan_3", "placeholder3")]
+
         else:
 
             return [SlotSet(picked, True), SlotSet("last_action", picked)]
+
+
+class ActionSaveGoalAndPlans(Action):
+    def name(self):
+        return "action_save_goal_and_plans"
+
+    async def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        now = datetime.now()
+        formatted_date = now.strftime('%Y-%m-%d %H:%M:%S')
+
+        conn = mysql.connector.connect(
+            user=DATABASE_USER,
+            password=DATABASE_PASSWORD,
+            host=DATABASE_HOST,
+            port=DATABASE_PORT,
+            database='db'
+        )
+        cur = conn.cursor(prepared=True)
+        
+        prolific_id = tracker.current_state()['sender_id']
+
+        goal = tracker.get_slot("goal")
+
+        plan_1 = tracker.get_slot("plan_1")
+
+        plan_2 = tracker.get_slot("plan_2")
+
+        plan_3 = tracker.get_slot("plan_3")
+
+        save_goal_and_plans_to_db(cur, conn, prolific_id, formatted_date, goal, plan_1, plan_2, plan_3)
+
+        return []
