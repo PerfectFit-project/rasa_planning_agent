@@ -1309,3 +1309,4 @@ actions:
 - action_create_initial_plan
 - action_save_event_state
 - action_save_event_action
+- action_select_action
