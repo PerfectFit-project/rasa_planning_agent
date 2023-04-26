@@ -330,7 +330,7 @@ class ActionSaveEventState(Action):
 
         c = tracker.get_slot("confidence")
 
-        pu_1 = tracker.get_slot("perceived")
+        pu_1 = tracker.get_slot("perceived_usefulness")
 
         a = tracker.get_slot("attitude")
 
