@@ -214,6 +214,9 @@ entities:
 - attitude:
     influence_conversation: false 
 
+- last_action:
+    influence_conversation: false 
+
 - changes_to_plan:
     influence_conversation: false
 
@@ -599,11 +602,19 @@ slots:
     mappings:
     - type: from_entity
       entity: attitude
+
+  last_action:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: last_action
   
   changes_to_plan:
     type: categorical
     influence_conversation: false
     values:
+      - 0
       - 1
       - 2
     mappings:
@@ -1127,7 +1138,7 @@ responses:
 
   utter_present_plan_2:
   - buttons:
-    - payload: /confirm_checked_plan
+    - payload: /confirm_checked_plan{"changes_to_plan":"0"}
       title: "Okay."
     text: "I'll leave the plan there so you can take a look at it later."
 

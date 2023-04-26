@@ -353,10 +353,45 @@ class ActionSelectActionSaveToDB(Action):
     async def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
-        actions = ["changes_to_plan", "explain_planning", "identify_barriers", "deal_with_barriers", "show_testimonials"]
 
-        picked = random.choice(actions)
+        changes_to_plan = int(tracker.get_slot("changes_to_plan"))
+
+        explain_planning = tracker.get_slot("explain_planning")
+
+        identify_barriers = tracker.get_slot("identify_barriers")
+
+        deal_with_barriers = tracker.get_slot("deal_with_barriers")
+
+        show_testimonials = tracker.get_slot("show_testimonials")
+
+        last_action = tracker.get_slot("last_action")
+
+        number_actions = changes_to_plan + explain_planning + identify_barriers + deal_with_barriers + show_testimonials
+
+        possible_actions = []
+
+        # this corresponds to having done 3 actions, none of which were changes to the plan
+        # if we do the 4th action that is not a change to the plan, then we have to do changes to plans in turns 5 and 6
+        # that shouldn't happen, since we don't want to make changes to plans twice in a row
+        if number_actions == 3 and changes_to_plan == 0:
+            possible_actions = ["changes_to_plan"]
+        else:
+            if last_action != "changes_to_plan":
+                possible_actions.append("changes_to_plan")
+            if explain_planning == False:
+                possible_actions.append("explain_planning")
+            if identify_barriers == False:
+                possible_actions.append("identify_barriers")
+            # we can only deal with barriers after we have identified them
+            if deal_with_barriers == False and identify_barriers == True:
+                possible_actions.append("deal_with_barriers")
+            if show_testimonials == False:
+                possible_actions.append("show_testimonials")
+
+
+        # actions = ["changes_to_plan", "explain_planning", "identify_barriers", "deal_with_barriers", "show_testimonials"]
+
+        picked = random.choice(possible_actions)
 
         dispatcher.utter_message(text=f"I am going to do the action {picked}.")
 
@@ -380,12 +415,12 @@ class ActionSelectActionSaveToDB(Action):
 
         conn.close()
 
-        if action is "changes_to_plan":
-            changes_to_plan = int(tracker.get_slot("changes_to_plan"))
+        if action == "changes_to_plan":
+            
             changes_to_plan += 1
         
-            return [SlotSet("changes_to_plan", f"{changes_to_plan}")]
+            return [SlotSet("changes_to_plan", f"{changes_to_plan}"), SlotSet("last_action", "changes_to_plan")]
         
         else:
 
-            return [SlotSet(picked, True)]
+            return [SlotSet(picked, True), SlotSet("last_action", picked)]
