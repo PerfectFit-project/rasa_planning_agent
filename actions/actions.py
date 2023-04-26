@@ -78,7 +78,7 @@ def get_latest_bot_utterance(events) -> Optional[Any]:
 
 def check_session_not_done_before(cur, prolific_id):
     
-    query = ("SELECT * FROM sessiondata WHERE prolific_id = %s)
+    query = ("SELECT * FROM sessiondata WHERE prolific_id = %s")
     cur.execute(query, [prolific_id])
     done_before_result = cur.fetchone()
     
