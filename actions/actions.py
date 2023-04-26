@@ -301,7 +301,7 @@ class ActionCreateInitialPlan(Action):
     
     
 def save_sessiondata_entry(cur, conn, prolific_id, time, event, session_num):
-    query = "INSERT INTO sessiondata(prolific_id, time, event, session_num) VALUES(%s, %s, %s, %s, %s, %s)"
+    query = "INSERT INTO sessiondata(prolific_id, time, event, session_num) VALUES(%s, %s, %s, %s)"
     cur.execute(query, [prolific_id, time, event, session_num])
     conn.commit()
     
