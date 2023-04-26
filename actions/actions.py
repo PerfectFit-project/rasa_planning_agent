@@ -137,7 +137,7 @@ class ActionCreateInitialPlan(Action):
 
         # goal
 
-        goal = tracker.get_slot('goal')
+        goal = f"{tracker.get_slot('goal')}"
 
         # free times
 
@@ -245,11 +245,11 @@ class ActionCreateInitialPlan(Action):
 
         minutes_week_1 = 120
 
-        if goal == "low":
+        if goal == "8000":
             weekly_increase = 20
-        elif goal == "medium":
+        elif goal == "9000":
             weekly_increase = 22
-        elif goal == "high":
+        elif goal == "10000":
             weekly_increase = 25
 
         if number_of_timeslots < 4:
