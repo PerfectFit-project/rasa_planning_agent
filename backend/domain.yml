@@ -83,6 +83,8 @@ intents:
 - confirm_perceived_usefulness
 - confirm_attitude
 
+- confirm_actions_done
+
 
 ## end session
 - confirm_goodbye
@@ -230,6 +232,9 @@ entities:
     influence_conversation: false 
 
 - show_testimonials:
+    influence_conversation: false 
+
+- actions_done:
     influence_conversation: false 
 
 
@@ -652,6 +657,14 @@ slots:
     mappings:
     - type: from_entity
       entity: show_testimonials
+
+  actions_done:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: actions_done
 
 
 
@@ -1239,10 +1252,25 @@ responses:
   - text: "So your attitude is {attitude}."
 
   utter_action_finished_loop_back:
-  - buttons:
-    - payload: /confirm_state
-      title: "Yeah."
+  - condition:
+      - type: slot
+        name: actions_done
+        value: false
+    buttons:
+      - payload: /confirm_state
+        title: "Yeah."
     text: "Are you ready to continue?"
+  - buttons:
+    - payload: /confirm_actions_done
+      title: "Okay!"
+    - payload: /confirm_actions_done
+      title: "Nice!"
+    text: "We're almost done with the dialogue! I just have a few more questions for you."
+
+  utter_satisfaction:
+  - text: "placeholder"
+
+
 
   ### End session
   utter_email_reminder:

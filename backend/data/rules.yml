@@ -277,6 +277,12 @@ rules:
   - action: action_select_action_and_save
   - action: utter_action_finished_loop_back
 
+- rule: confirm actions done
+  steps:
+  - intent: confirm_actions_done
+  - action: utter_satisfaction
+
+
 
 
 - rule: goodbye

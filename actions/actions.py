@@ -376,20 +376,26 @@ class ActionSelectActionSaveToDB(Action):
         if number_actions == 3 and changes_to_plan == 0:
             possible_actions = ["changes_to_plan"]
         else:
+            # we want to make at most 2 changes to the initial plan and to not change the plan twice in a row
             if last_action != "changes_to_plan" and changes_to_plan<=1:
                 possible_actions.append("changes_to_plan")
+            # we want to explain planning only once
             if explain_planning == False:
                 possible_actions.append("explain_planning")
+            # we want to identify barriers only once
             if identify_barriers == False:
                 possible_actions.append("identify_barriers")
-            # we can only deal with barriers after we have identified them
+            # we can only deal with barriers after we have identified them and we want to do this only once
             if deal_with_barriers == False and identify_barriers == True:
                 possible_actions.append("deal_with_barriers")
+            # we want to show testimonials only once
             if show_testimonials == False:
                 possible_actions.append("show_testimonials")
 
-
-        # actions = ["changes_to_plan", "explain_planning", "identify_barriers", "deal_with_barriers", "show_testimonials"]
+        # there are no actions that we cannot do
+        # this means we have already done all the 6 possible actions
+        if len(possible_actions) == 0:
+            return [SlotSet("actions_done", True)]
 
         picked = random.choice(possible_actions)
 
