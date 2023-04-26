@@ -370,6 +370,8 @@ class ActionSelectActionSaveToDB(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
+        dispatcher.utter_message(text="Starting pick action")
+
         changes_to_plan = int(tracker.get_slot("changes_to_plan"))
 
         explain_planning = tracker.get_slot("explain_planning")
@@ -381,6 +383,8 @@ class ActionSelectActionSaveToDB(Action):
         show_testimonials = tracker.get_slot("show_testimonials")
 
         last_action = tracker.get_slot("last_action")
+
+        dispatcher.utter_message(text="GOt all slots")
 
         number_actions = changes_to_plan + explain_planning + identify_barriers + deal_with_barriers + show_testimonials
 
@@ -407,6 +411,8 @@ class ActionSelectActionSaveToDB(Action):
             # we want to show testimonials only once
             if show_testimonials == False:
                 possible_actions.append("show_testimonials")
+
+        dispatcher.utter_message(text="Determined possible actions")
 
         # there are no actions that we cannot do
         # this means we have already done all the 6 possible actions
@@ -435,7 +441,7 @@ class ActionSelectActionSaveToDB(Action):
 
         # TODO: do the action that was picked
 
-        # 
+        dispatcher.utter_message(text="Saving to db")
 
         save_sessiondata_entry(cur, conn, prolific_id, formatted_date, f"action: {action} ", 1)
 

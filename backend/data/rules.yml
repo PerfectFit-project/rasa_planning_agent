@@ -246,7 +246,7 @@ rules:
   - action: utter_present_plan_1
   - action: utter_present_plan_2
 
-- rule: intro state variables ask confidence 1
+- rule: intro state variables ask confidence
   steps:
   - intent: confirm_checked_plan
   - action: utter_state_variables_intro_1
