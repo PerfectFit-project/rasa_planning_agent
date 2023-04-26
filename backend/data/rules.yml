@@ -281,6 +281,7 @@ rules:
   steps:
   - intent: confirm_actions_done
   - action: utter_satisfaction
+  - action: action_save_goal_and_plans
 
 
 
