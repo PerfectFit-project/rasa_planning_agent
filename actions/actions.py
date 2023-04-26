@@ -306,7 +306,7 @@ class ActionCreateInitialPlan(Action):
 
         dispatcher.utter_message(text=message)
 
-        return []
+        return [SlotSet("plan_1", message)]
 
     
     
