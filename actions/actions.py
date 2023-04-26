@@ -332,15 +332,25 @@ class ActionSaveEventState(Action):
         
         prolific_id = tracker.current_state()['sender_id']
 
+        ch = tracker.get_slot("changes_to_plan")
+
         c = tracker.get_slot("confidence")
 
         pu = tracker.get_slot("perceived_usefulness")
 
         a = tracker.get_slot("attitude")
 
-        state = f"{c}, {pu}, {a}"
+        explain_planning = tracker.get_slot("explain_planning")
 
-        save_sessiondata_entry(cur, conn, prolific_id, formatted_date, state, 1)
+        identify_barriers = tracker.get_slot("identify_barriers")
+
+        deal_with_barriers = tracker.get_slot("deal_with_barriers")
+
+        show_testimonials = tracker.get_slot("show_testimonials")
+
+        state = f"{ch}, {c}, {pu}, {a}, {explain_planning}, {identify_barriers}, {deal_with_barriers}, {show_testimonials}"
+
+        save_sessiondata_entry(cur, conn, prolific_id, formatted_date, f"state: {state}", 1)
 
         conn.close()
         
@@ -417,7 +427,7 @@ class ActionSelectActionSaveToDB(Action):
 
         action = picked
 
-        save_sessiondata_entry(cur, conn, prolific_id, formatted_date, action, 1)
+        save_sessiondata_entry(cur, conn, prolific_id, formatted_date, f"action: {action} ", 1)
 
         conn.close()
 
