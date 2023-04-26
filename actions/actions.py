@@ -340,11 +340,7 @@ class ActionSaveEventState(Action):
 
         state = f"{c}, {pu}, {a}"
 
-        dispatcher.utter_message(text="I am going to save the state to the database.")
-
         save_sessiondata_entry(cur, conn, prolific_id, formatted_date, state, 1)
-
-        dispatcher.utter_message(text="I have saved the state to the database.")
 
         conn.close()
         
@@ -380,11 +376,7 @@ class ActionSelectActionSaveToDB(Action):
 
         action = picked
 
-        dispatcher.utter_message(text="I am going to save the action to the database.")
-
         save_sessiondata_entry(cur, conn, prolific_id, formatted_date, action, 1)
-
-        dispatcher.utter_message(text="I have saved the action to the database.")
 
         conn.close()
 

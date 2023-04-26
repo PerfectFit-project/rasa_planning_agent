@@ -111,7 +111,7 @@ rules:
 - rule: no more free on mondays
   steps: 
   - intent: confirm_monday_continue
-  - action: utter_confirm_monday_slots
+  # - action: utter_confirm_monday_slots
   - action: utter_routines_tuesday
 
 - rule: ask about routines tuesday repeat
@@ -122,7 +122,7 @@ rules:
 - rule: no more free on tuesdays
   steps: 
   - intent: confirm_tuesday_continue
-  - action: utter_confirm_tuesday_slots
+  # - action: utter_confirm_tuesday_slots
   - action: utter_routines_wednesday
 
 - rule: ask about routines wednesday repeat
@@ -133,7 +133,7 @@ rules:
 - rule: no more free on wednesdays
   steps: 
   - intent: confirm_wednesday_continue
-  - action: utter_confirm_wednesday_slots
+  # - action: utter_confirm_wednesday_slots
   - action: utter_routines_thursday
 
 - rule: ask about routines thursday repeat
@@ -144,7 +144,7 @@ rules:
 - rule: no more free on thursdays
   steps: 
   - intent: confirm_thursday_continue
-  - action: utter_confirm_thursday_slots
+  # - action: utter_confirm_thursday_slots
   - action: utter_routines_friday
 
 - rule: ask about routines friday repeat
@@ -155,7 +155,7 @@ rules:
 - rule: no more free on fridays
   steps: 
   - intent: confirm_friday_continue
-  - action: utter_confirm_friday_slots
+  # - action: utter_confirm_friday_slots
   - action: utter_routines_saturday
 
 - rule: ask about routines saturday repeat
@@ -166,7 +166,7 @@ rules:
 - rule: no more free on saturdays
   steps: 
   - intent: confirm_saturday_continue
-  - action: utter_confirm_saturday_slots
+  # - action: utter_confirm_saturday_slots
   - action: utter_routines_sunday
 
 - rule: ask about routines sunday repeat
@@ -177,7 +177,7 @@ rules:
 - rule: no more free on sundays
   steps: 
   - intent: confirm_sunday_continue
-  - action: utter_confirm_sunday_slots
+  # - action: utter_confirm_sunday_slots
   - action: utter_thank_for_times
   - action: utter_energy_levels
   - action: utter_energy_levels_weekdays_morning
@@ -202,7 +202,7 @@ rules:
 - rule: confirm energy levels evening ask for weekend morning
   steps: 
   - intent: confirm_weekdays_evening
-  - action: utter_energy_levels_weekdays_confirm
+  # - action: utter_energy_levels_weekdays_confirm
   - action: utter_energy_levels_weekends_morning
 
 
@@ -227,7 +227,7 @@ rules:
 - rule: confirm energy levels weekend evening
   steps: 
   - intent: confirm_weekends_evening
-  - action: utter_energy_levels_weekends_confirm
+  # - action: utter_energy_levels_weekends_confirm
   - action: utter_thank_for_energy_levels
   - action: utter_goal_1
   - action: utter_goal_2
@@ -260,19 +260,19 @@ rules:
 - rule: confirm confidence ask perceived usefulness
   steps:
   - intent: confirm_confidence
-  - action: utter_confidence_repeat
+  # - action: utter_confidence_repeat
   - action: utter_state_perceived_usefulness
 
 - rule: confirm perceived usefulness ask attitude
   steps:
   - intent: confirm_perceived_usefulness
-  - action: utter_perceived_usefulness_repeat
+  # - action: utter_perceived_usefulness_repeat
   - action: utter_state_attitude
 
 - rule: confirm attitude do action ask confidence
   steps:
   - intent: confirm_attitude
-  - action: utter_attitude_repeat
+  # - action: utter_attitude_repeat
   - action: action_save_event_state
   - action: action_select_action_and_save
   - action: utter_action_finished_loop_back
