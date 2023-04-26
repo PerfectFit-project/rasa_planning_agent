@@ -443,7 +443,7 @@ class ActionSelectActionSaveToDB(Action):
 
         dispatcher.utter_message(text="Saving to db")
 
-        save_sessiondata_entry(cur, conn, prolific_id, formatted_date, f"action: {action} ", 1)
+        save_sessiondata_entry(cur, conn, prolific_id, formatted_date, f"action: {action} ")
 
         conn.close()
 
