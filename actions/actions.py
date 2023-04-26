@@ -384,6 +384,30 @@ class ActionSaveEventAction(Action):
         
         return []
 
+class ActionSelectAction(Action):
+    def name(self):
+        return "action_select_action"
+
+    async def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        actions = ["changes_to_plan", "explain_planning", "identify_barriers", "deal_with_barriers", "show_testimonials"]
+
+        picked = random.choice(actions)
+
+        dispatcher.utter_message(text=f"I am going to do the action {picked}.")
+
+        if action is "changes_to_plan":
+            changes_to_plan = int(tracker.get_slot("changes_to_plan"))
+            changes_to_plan += 1
+        
+            return [SlotSet("changes_to_plan", f"{changes_to_plan}")]
+        
+        else:
+
+            return [SlotSet(picked, True)]
+
 # class ValidateActivityExperienceForm(FormValidationAction):
 #     def name(self) -> Text:
 #         return 'validate_activity_experience_form'

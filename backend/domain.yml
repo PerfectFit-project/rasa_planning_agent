@@ -214,6 +214,21 @@ entities:
 - attitude:
     influence_conversation: false 
 
+- changes_to_plan:
+    influence_conversation: false
+
+- explain_planning:
+    influence_conversation: false 
+
+- identify_barriers:
+    influence_conversation: false 
+
+- deal_with_barriers:
+    influence_conversation: false 
+
+- show_testimonials:
+    influence_conversation: false 
+
 
 slots:
   ### intro/general
@@ -552,6 +567,8 @@ slots:
     - type: from_entity
       entity: goal
 
+  ### state
+
   confidence:
     type: categorical
     influence_conversation: false
@@ -582,6 +599,48 @@ slots:
     mappings:
     - type: from_entity
       entity: attitude
+  
+  changes_to_plan:
+    type: categorical
+    influence_conversation: false
+    values:
+      - 1
+      - 2
+    mappings:
+    - type: from_entity
+      entity: changes_to_plan
+
+  explain_planning:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: explain_planning
+
+  identify_barriers:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: identify_barriers
+
+  deal_with_barriers:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: deal_with_barriers
+
+  show_testimonials:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: show_testimonials
 
 
 
@@ -1167,9 +1226,6 @@ responses:
 
   utter_attitude_repeat:
   - text: "So your attitude is {attitude}."
-
-  utter_placeholder_action:
-  - text: "This is where the chatbot would do an action."
 
   utter_action_finished_loop_back:
   - buttons:

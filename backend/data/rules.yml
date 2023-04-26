@@ -274,7 +274,7 @@ rules:
   - intent: confirm_attitude
   - action: utter_attitude_repeat
   - action: action_save_event_state
-  - action: utter_placeholder_action
+  - action: action_select_action
   - action: action_save_event_action
   - action: utter_action_finished_loop_back
 
