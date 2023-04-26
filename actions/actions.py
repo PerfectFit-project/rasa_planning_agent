@@ -300,15 +300,15 @@ class ActionCreateInitialPlan(Action):
 
     
     
-def save_sessiondata_entry(cur, conn, prolific_id, time, state_before, action, state_after, session_num):
-    query = "INSERT INTO sessiondata(prolific_id, time, state_before, action, state_after, session_num) VALUES(%s, %s, %s, %s, %s, %s)"
-    cur.execute(query, [prolific_id, time, state_before, action, state_after, session_num])
+def save_sessiondata_entry(cur, conn, prolific_id, time, event, session_num):
+    query = "INSERT INTO sessiondata(prolific_id, time, event, session_num) VALUES(%s, %s, %s, %s, %s, %s)"
+    cur.execute(query, [prolific_id, time, event, session_num])
     conn.commit()
     
 
-class ActionSaveStateActionNextState(Action):
+class ActionSaveEventState(Action):
     def name(self):
-        return "action_save_state_action_next_state"
+        return "action_save_event_state"
 
     async def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -328,28 +328,49 @@ class ActionSaveStateActionNextState(Action):
         
         prolific_id = tracker.current_state()['sender_id']
 
-        c_1 = tracker.get_slot("confidence_1")
-        c_2 = tracker.get_slot("confidence_2")
+        c = tracker.get_slot("confidence")
 
-        pu_1 = tracker.get_slot("perceived_usefulness_1")
-        pu_2 = tracker.get_slot("perceived_usefulness_2")
+        pu_1 = tracker.get_slot("perceived")
 
-        a_1 = tracker.get_slot("attitude_1")
-        a_2 = tracker.get_slot("attitude_2")
+        a = tracker.get_slot("attitude")
 
-        state_before = f"{c_1}, {pu_1}, {a_1}"
-        
-        action = "placeholder"
+        state = f"{c}, {pu}, {a}"
 
-        state_after = f"{c_2}, {pu_2}, {a_2}"
-
-        save_sessiondata_entry(cur, conn, prolific_id, formatted_date, state_before, action, state_after, 1)
+        save_sessiondata_entry(cur, conn, prolific_id, formatted_date, state, 1)
 
         conn.close()
         
         return []
     
-    
+class ActionSaveEventAction(Action):
+    def name(self):
+        return "action_save_event_action"
+
+    async def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        now = datetime.now()
+        formatted_date = now.strftime('%Y-%m-%d %H:%M:%S')
+
+        conn = mysql.connector.connect(
+            user=DATABASE_USER,
+            password=DATABASE_PASSWORD,
+            host=DATABASE_HOST,
+            port=DATABASE_PORT,
+            database='db'
+        )
+        cur = conn.cursor(prepared=True)
+        
+        prolific_id = tracker.current_state()['sender_id']
+
+        action = "placeholder"
+
+        save_sessiondata_entry(cur, conn, prolific_id, formatted_date, action, 1)
+
+        conn.close()
+        
+        return []
 
 # class ValidateActivityExperienceForm(FormValidationAction):
 #     def name(self) -> Text:
