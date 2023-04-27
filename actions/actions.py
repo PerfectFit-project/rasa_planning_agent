@@ -421,12 +421,9 @@ class ActionSelectAction(Action):
             if show_testimonials == False:
                 possible_actions.append("show_testimonials")
 
-        dispatcher.utter_message(text=f"possible {possible_actions}")
-
         # there are no actions that we cannot do
         # this means we have already done all the 6 possible actions
         if len(possible_actions) == 0:
-            dispatcher.utter_message(text=f"actions done")
             return [ActionExecuted("action_listen"), UserUttered(text="/confirm_actions_done", parse_data={"intent": {"name": "confirm_actions_done", "confidence": 1.0}}), SlotSet("actions_done", True)]
 
         # pick the action that was done the least for this state
@@ -478,8 +475,6 @@ class ActionSelectAction(Action):
 
         picked = random.choice(pick_from)
 
-        dispatcher.utter_message(text=f"I am going to do {picked}")
-        
         if picked == "explain_planning":
 
             return[ActionExecuted("action_listen"), UserUttered(text="/do_explain_planning", parse_data={"intent": {"name": "do_explain_planning", "confidence": 1.0}}), SlotSet("action", picked)]
