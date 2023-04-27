@@ -126,11 +126,6 @@ def round_to_nearest_5(n):
     return 5 * round(n / 5)
 
 
-def save_goal_and_plans_to_db(cur, conn, prolific_id, time, goal, plan_1, plan_2, plan_3):
-    query = "INSERT INTO users(prolific_id, time, goal, plan_1, plan_2, plan_3) VALUES(%s, %s, %s, %s, %s, %s)"
-    cur.execute(query, [prolific_id, time, goal, plan_1, plan_2, plan_3])
-    conn.commit()
-
 class ActionCreateInitialPlan(Action):
 
     def name(self) -> Text:
@@ -456,39 +451,10 @@ class ActionSelectActionSaveToDB(Action):
             return [SlotSet(picked, True), SlotSet("last_action", picked)]
 
 
-class ActionSaveGoalAndPlans(Action):
-    def name(self):
-        return "action_save_goal_and_plans"
-
-    async def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        now = datetime.now()
-        formatted_date = now.strftime('%Y-%m-%d %H:%M:%S')
-
-        conn = mysql.connector.connect(
-            user=DATABASE_USER,
-            password=DATABASE_PASSWORD,
-            host=DATABASE_HOST,
-            port=DATABASE_PORT,
-            database='db'
-        )
-        cur = conn.cursor(prepared=True)
-        
-        prolific_id = tracker.current_state()['sender_id']
-
-        goal = tracker.get_slot("goal")
-
-        plan_1 = tracker.get_slot("plan_1")
-
-        plan_2 = tracker.get_slot("plan_2")
-
-        plan_3 = tracker.get_slot("plan_3")
-
-        save_goal_and_plans_to_db(cur, conn, prolific_id, formatted_date, goal, plan_1, plan_2, plan_3)
-
-        return []
+def save_goal_plans_and_reward_to_db(cur, conn, prolific_id, time, goal, plan_1, plan_2, plan_3, reward):
+    query = "INSERT INTO users(prolific_id, time, goal, plan_1, plan_2, plan_3, reward) VALUES(%s, %s, %s, %s, %s, %s, %s)"
+    cur.execute(query, [prolific_id, time, goal, plan_1, plan_2, plan_3, reward])
+    conn.commit()
 
 class ActionSaveGoalPlansAndReward(Action):
     def name(self):
@@ -530,6 +496,6 @@ class ActionSaveGoalPlansAndReward(Action):
 
         reward = f"Reward: satifaction = {satisfaction}, commitment_1 = {commitment_1}, commitment_f = {commitment_f}, confidence_goal = {confidence_goal}"
 
-        save_goal_and_plans_to_db(cur, conn, prolific_id, formatted_date, goal, plan_1, plan_2, plan_3, reward)
+        save_goal_plans_and_reward_to_db(cur, conn, prolific_id, formatted_date, goal, plan_1, plan_2, plan_3, reward)
 
         return []
