@@ -433,28 +433,48 @@ class ActionSelectActionSaveToDB(Action):
 
         a = tracker.get_slot("attitude")
 
+        # build current state
         state = f"state: {ch}, {c}, {pu}, {a}, {explain_planning}, {identify_barriers}, {deal_with_barriers}, {show_testimonials}"
 
         query = ("SELECT * FROM state_action_state WHERE state_before = %s")
         
         cur.execute(query, [state])
         
+        # retrieve all database entries which have an action taken from this state
         result = cur.fetchall()
 
         dispatcher.utter_message(text=f"I found {len(result)} states that match this one")
 
+        # select only the actions in the database results
         actions = [action for (userid,date,state,action,next_state) in result]
 
-        count = collections.Counter(actions)
+        # count how many times each action was done
+        count = collections.Counter(a)
 
         dispatcher.utter_message(text=f"The count is {count}")
 
-        # TODO: check that least common is in the list of possible actions. If it is, pick it, if not, repeat for second least common
+        # order the count such that the most frequently done action is first
+        ordered = list(count.most_common())
 
-        if len(count) > 0:
-            picked = count.most_common()[-1][0]
-        else: picked = random.choice(possible_actions)
+        cleaned = []
 
+        # remove actions that cannot be done from this state (should never happen, but it's safer this way)
+        for (ordered_action, frequency) in ordered:
+            if ordered_action in possible_actions:
+                cleaned.append((ordered_action, frequency))      
+
+        # if there are possible actions for this state that have never been done, add them to the list with them being done 0 times
+        for possible_action in possible_actions:
+            if not possible_action in [action for (action,frequency) in cleaned]:
+                cleaned.append((possible_action, 0))
+        
+        # figure out how many times he least frequent action was done
+        least_frequent = min(cleaned, key = lambda x: x[1])[1]
+
+        # pick a random action from the ones that have been done the least
+        pick_from = [action for (action,frequency) in cleaned if frequency == least_frequent]
+
+        picked = random.choice(pick_from)
         
         dispatcher.utter_message(text=f"I am going to do the action {picked}.")
 
@@ -561,11 +581,11 @@ class ActionConvertDBToStateActionNextState(Action):
     
             i = result.index(row)
             
-            state_before = row[2]
+            state_before = row[2].split("state: ")[1]
             
-            action = result[i+1][2]
+            action = result[i+1][2].split("action: ")[1]
             
-            state_after = result[i+2][2]
+            state_after = result[i+2][2].split("state: ")[1]
 
             time = result[i+2][1]
 
