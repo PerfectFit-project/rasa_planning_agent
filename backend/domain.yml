@@ -1520,7 +1520,7 @@ responses:
 
 
   utter_final_close_session:
-  - text: "This is the end of the session. Please close this window.\nAny further typing in this chat renders this session invalid. Ff you have questions, contact the researcher by message on Prolific."
+  - text: "This is the end of the session. Please close this window.\nAny further typing in this chat renders this session invalid. If you have questions, contact the researcher by message on Prolific."
 
 
   utter_default:
