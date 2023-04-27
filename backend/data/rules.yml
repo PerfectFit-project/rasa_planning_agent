@@ -311,7 +311,6 @@ rules:
   - action: utter_identify_barriers_8
   - action: utter_identify_barriers_9
   - action: utter_identify_barriers_10
-  - action: utter_identify_barriers_11
   - action: action_save_action
   - action: utter_action_finished_loop_back
 

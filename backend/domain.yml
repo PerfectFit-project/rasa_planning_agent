@@ -1471,13 +1471,11 @@ responses:
   - text: "It could also be that you have young children to take care of and that leaves you with little time."
 
   utter_identify_barriers_9:
-  - text: "All of these are barriers which could prevent you from doing more physical activity."
+  - text: "All of these are barriers which could prevent you from doing more physical activity.Think if these apply to you specifically."
 
   utter_identify_barriers_10:
-  - text: "Think if these apply to you specifically.  "
-
-  utter_identify_barriers_11:
   - text: "You can also try to come up with some things that you know have been barriers in the past. Write down all the barriers for yourself and let me know when you are ready to proceed."
+
 
 
   utter_deal_with_barriers_1:
