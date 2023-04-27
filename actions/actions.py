@@ -13,6 +13,8 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import FollowupAction, SlotSet
 from typing import Any, Dict, List, Optional, Text
 
+from rasa.core.events import UserUttered
+
 import collections
 import logging
 import math
