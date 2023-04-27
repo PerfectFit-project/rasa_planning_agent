@@ -422,6 +422,8 @@ class ActionSelectActionSaveToDB(Action):
         if len(possible_actions) == 0:
             return [SlotSet("actions_done", True)]
 
+        dispatcher.utter_message(text=f"I am done checking for possilbe actions")
+
         # pick the action that was done the least for this state
 
         ch = tracker.get_slot("changes_to_plan")
@@ -434,6 +436,8 @@ class ActionSelectActionSaveToDB(Action):
 
         state = f"{ch}, {c}, {pu}, {a}, {explain_planning}, {identify_barriers}, {deal_with_barriers}, {show_testimonials}"
 
+        dispatcher.utter_message(text=f"I built the state")
+
         query = ("SELECT * FROM state_action_state WHERE state = %s")
         
         cur.execute(query, [state])
@@ -445,6 +449,8 @@ class ActionSelectActionSaveToDB(Action):
         actions = [action for (userid,date,state,action,next_state) in result]
 
         count = collections.Counter(actions)
+
+        # TODO: check that least common is in the list of possible actions. If it is, pick it, if not, repeat for second least common
 
         picked = count.most_common()[-1][0]
         
