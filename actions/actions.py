@@ -521,6 +521,8 @@ class ActionSelectAction(Action):
 
         prolific_id = tracker.current_state()['sender_id']
 
+        changes_to_plan = int(tracker.get_slot("changes_to_plan"))
+
         action = tracker.get_slot("action")
 
         save_sessiondata_entry(cur, conn, prolific_id, formatted_date, f"action: {action}")
