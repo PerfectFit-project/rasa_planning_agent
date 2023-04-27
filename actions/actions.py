@@ -10,10 +10,8 @@ from definitions import (DATABASE_HOST, DATABASE_PASSWORD,
                          DATABASE_PORT, DATABASE_USER)
 from rasa_sdk import Action, FormValidationAction, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.events import FollowupAction, SlotSet
+from rasa_sdk.events import FollowupAction, SlotSet, UserUttered
 from typing import Any, Dict, List, Optional, Text
-
-from rasa.core.events import UserUttered
 
 import collections
 import logging
