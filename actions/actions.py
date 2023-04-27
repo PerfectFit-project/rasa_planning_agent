@@ -462,12 +462,16 @@ class ActionSelectActionSaveToDB(Action):
 
         dispatcher.utter_message(text=f"Possible actions {possible_actions}")
 
-        # remove actions that cannot be done from this state (should never happen, but it's safer this way)
-        for (ordered_action, frequency) in ordered:
-            dispatcher.utter_message(text=f"Ordered action {ordered_action}, frequency {frequency}")
-            if ordered_action in possible_actions:
-                dispatcher.utter_message(text=f"Added")
-                cleaned.append((ordered_action, frequency))      
+        # # remove actions that cannot be done from this state (should never happen, but it's safer this way)
+        # for (ordered_action, frequency) in ordered:
+        #     dispatcher.utter_message(text=f"Ordered action {ordered_action}, frequency {frequency}")
+        #     if ordered_action in possible_actions:
+        #         dispatcher.utter_message(text=f"Added")
+        #         cleaned.append((ordered_action, frequency))      
+
+        for possible_action in possible_actions:
+            if possible_action in possible_actions:
+                dispatcher.utter_message(text=f"Good")
 
         dispatcher.utter_message(text=f"Possible actions after removing impossible ones {cleaned}")
 
