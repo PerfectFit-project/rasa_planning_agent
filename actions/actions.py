@@ -462,7 +462,8 @@ class ActionSelectActionSaveToDB(Action):
 
         # TODO: check that least common is in the list of possible actions. If it is, pick it, if not, repeat for second least common
 
-        picked = count.most_common()[-1][0]
+        if len(count) > 0:
+            picked = count.most_common()[-1][0]
         
         dispatcher.utter_message(text=f"I am going to do the action {picked}.")
 
