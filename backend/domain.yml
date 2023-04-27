@@ -93,6 +93,8 @@ intents:
 
 - confirm_continue_explain_planning
 - confirm_continue_identify_barriers
+- confirm_continue_deal_with_barriers_1
+- confirm_continue_deal_with_barriers_2
 
 - confirm_actions_done
 
@@ -1406,13 +1408,13 @@ responses:
   utter_explain_planning_2:
   - buttons:
     - payload: /confirm_continue_explain_planning
-      title: "Motivation"
+      title: "Motivation."
     - payload: /confirm_continue_explain_planning
-      title: "Routine"
+      title: "Routine."
     - payload: /confirm_continue_explain_planning
-      title: "Visualising the road towards the goal"
+      title: "Visualising the road towards the goal."
     - payload: /confirm_continue_explain_planning
-      title: "Realistic expectations"
+      title: "Realistic expectations."
     text: "First off, why do you think planning can help you do more physical activity?"
 
   utter_explain_planning_3:
@@ -1442,15 +1444,15 @@ responses:
   utter_identify_barriers_3:
   - buttons:
     - payload: /confirm_continue_identify_barriers
-      title: "Lack of time"
+      title: "Lack of time."
     - payload: /confirm_continue_identify_barriers
-      title: "Lack of energy"
+      title: "Lack of energy."
     - payload: /confirm_continue_identify_barriers
-      title: "Disliking being in the presence of others when exercising"
+      title: "Disliking being in the presence of others when exercising."
     - payload: /confirm_continue_identify_barriers
-      title: "Lack of equipment"
+      title: "Lack of equipment."
     - payload: /confirm_continue_identify_barriers
-      title: "Family obligations"
+      title: "Family obligations."
     text: "Which of these do you think might be a common barrier?"
 
   utter_identify_barriers_4:
@@ -1481,8 +1483,60 @@ responses:
   - text: "Write down all the barriers for yourself and let me know when you are ready to proceed."
 
 
-  utter_deal_with_barriers:
-  - text: "placeholder deal with barriers"
+  utter_deal_with_barriers_1:
+  - text: "We've previously thought of barriers which might prevent you from being physically active."
+
+  utter_deal_with_barriers_2:
+  - text: "Now, let's try to think how you could overcome those barriers."
+
+  utter_deal_with_barriers_3:
+  - text: "Keep in mind that, while I can provide suggestions, it's really up to you to come up with the solution that works best for you."
+
+  utter_deal_with_barriers_4:
+  - text: "Let's first see what you think would be a good way of dealing with a certain barrier."
+
+  utter_deal_with_barriers_5:
+  - buttons:
+    - payload: /confirm_continue_deal_with_barriers_1
+      title: "Lack of time."
+    - payload: /confirm_continue_deal_with_barriers_1
+      title: "Lack of energy."
+    - payload: /confirm_continue_deal_with_barriers_1
+      title: "Disliking being in the presence of others when exercising."
+    - payload: /confirm_continue_deal_with_barriers_1
+      title: "Lack of equipment."
+    - payload: /confirm_continue_deal_with_barriers_1
+      title: "Family obligations."
+    text: "Pick one of the barriers that we've talked about before and let me know how you would deal with it."
+
+  utter_deal_with_barriers_6:
+  - text: "How would you overcome this barrier? Think for yourself and write it down next to the barrier you previously wrote down."
+
+  utter_deal_with_barriers_7:
+  - buttons:
+    - payload: /confirm_continue_deal_with_barriers_2
+      title: "Let's move further."
+    - payload: /confirm_continue_deal_with_barriers_2
+      title: "Let's proceed."
+    text: "Like before, let me know when you are ready to go on." 
+
+  utter_deal_with_barriers_8:
+  - text: "Okay. Now, you have your approach to this barrier. Here are strategies for common barriers that I thought about."
+
+  utter_deal_with_barriers_9:
+  - text: "If you lack the time to do physical activity, you could try taking a short walk when you have some free time (during your lunch break, for example)"
+
+  utter_deal_with_barriers_10:
+  - text: "In terms of energy, think back to when we talked about when you feel most energetic during the day. Aim to schedule activities at those times, since it will be easier for you that way."
+
+  utter_deal_with_barriers_11:
+  - text: "Try to go to the gym when it's a bit quieter if you don't like it when other people can see you doing physical activity. It is not absolutely necessary to go to a gym, especially if you're only taking walks. Try walking in a park nearby or simply on the sidewalk."
+
+  utter_deal_with_barriers_12:
+  - text: "Another common barrier is not having the right equipment. For walking in particular, the only thing you really need are shoes that are comfortable for you, so putting aside some money for that can be a relatively simple strategy."
+
+  utter_deal_with_barriers_13:
+  - text: "If you have children to take care of, it might be a good idea to take them on regular walks with you. That way you can fulfill your family obligations and make progress towards your goal."
 
   utter_show_testimonials:
   - text: "placeholder show testimonials"
