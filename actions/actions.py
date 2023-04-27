@@ -358,7 +358,7 @@ class ActionSaveEventState(Action):
         
         return []
 
-def do_action(action):
+def do_action(dispatcher, action):
 
     if action == "explain_planning":
 
@@ -571,7 +571,7 @@ class ActionSelectActionSaveToDB(Action):
 
         # TODO: do the action that was picked
 
-        do_action(action)
+        do_action(dispatcher, action)
 
         save_sessiondata_entry(cur, conn, prolific_id, formatted_date, f"action: {action}")
 
