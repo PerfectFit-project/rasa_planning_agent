@@ -537,7 +537,7 @@ class ActionSelectAction(Action):
 
         else:
 
-            return [SlotSet(picked, True), SlotSet("last_action", picked)]
+            return [SlotSet(action, True), SlotSet("last_action", action)]
 
 
 def save_goal_plans_and_reward_to_db(cur, conn, prolific_id, time, goal, plan_1, plan_2, plan_3, reward):
