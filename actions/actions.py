@@ -447,7 +447,7 @@ class ActionSelectActionSaveToDB(Action):
 
         dispatcher.utter_message(text=f"I built the state")
 
-        query = ("SELECT * FROM state_action_state WHERE state = %s")
+        query = ("SELECT * FROM state_action_state WHERE state_before = %s")
         
         cur.execute(query, [state])
         
