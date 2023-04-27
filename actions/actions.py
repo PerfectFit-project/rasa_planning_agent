@@ -443,50 +443,32 @@ class ActionSelectActionSaveToDB(Action):
         # retrieve all database entries which have an action taken from this state
         result = cur.fetchall()
 
-        dispatcher.utter_message(text=f"I found {len(result)} states that match this one")
-
         # select only the actions in the database results
         actions = [f"{action}" for (userid,date,state,action,next_state) in result]
 
         # count how many times each action was done
         count = collections.Counter(actions)
 
-        dispatcher.utter_message(text=f"The count is {count}")
-
         # order the count such that the most frequently done action is first
         ordered = list(count.most_common())
 
-        dispatcher.utter_message(text=f"Ordered {ordered}")
-
         cleaned = []
-
-        dispatcher.utter_message(text=f"Possible actions {possible_actions}")
 
         # remove actions that cannot be done from this state (should never happen, but it's safer this way)
         for (ordered_action, frequency) in ordered:
-            dispatcher.utter_message(text=f"Ordered action {ordered_action}, frequency {frequency}")
             if ordered_action in possible_actions:
-                dispatcher.utter_message(text=f"Added")
                 cleaned.append((ordered_action, frequency))      
-
-        dispatcher.utter_message(text=f"Possible actions after removing impossible ones {cleaned}")
 
         # if there are possible actions for this state that have never been done, add them to the list with them being done 0 times
         for possible_action in possible_actions:
             if not possible_action in [action for (action,frequency) in cleaned]:
                 cleaned.append((possible_action, 0))
-
-        dispatcher.utter_message(text=f"Frequency of actions after adding those that have never been done {ordered}")
         
         # figure out how many times he least frequent action was done
         least_frequent = min(cleaned, key = lambda x: x[1])[1]
 
-        dispatcher.utter_message(text=f"Least frequent action done {least_frequent} times")
-
         # pick a random action from the ones that have been done the least
         pick_from = [action for (action,frequency) in cleaned if frequency == least_frequent]
-
-        dispatcher.utter_message(text=f"Possible actions to pick from {pick_from}")
 
         picked = random.choice(pick_from)
         
