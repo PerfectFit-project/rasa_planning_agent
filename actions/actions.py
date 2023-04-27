@@ -365,6 +365,9 @@ class ActionSelectActionSaveToDB(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
+
+        dispatcher.utter_message(text=f"I am starting the custom action")
+
         conn = mysql.connector.connect(
             user=DATABASE_USER,
             password=DATABASE_PASSWORD,
@@ -373,6 +376,8 @@ class ActionSelectActionSaveToDB(Action):
             database='db'
         )
         cur = conn.cursor(prepared=True)
+
+        dispatcher.utter_message(text=f"I am connected to the db")
 
         now = datetime.now()
         formatted_date = now.strftime('%Y-%m-%d %H:%M:%S')
@@ -390,6 +395,8 @@ class ActionSelectActionSaveToDB(Action):
         show_testimonials = tracker.get_slot("show_testimonials")
 
         last_action = tracker.get_slot("last_action")
+
+        dispatcher.utter_message(text=f"I retrieved a bunch of states")
 
         number_actions = changes_to_plan + explain_planning + identify_barriers + deal_with_barriers + show_testimonials
 
@@ -416,6 +423,8 @@ class ActionSelectActionSaveToDB(Action):
             # we want to show testimonials only once
             if show_testimonials == False:
                 possible_actions.append("show_testimonials")
+
+        dispatcher.utter_message(text=f"I figured out the possible actions")
 
         # there are no actions that we cannot do
         # this means we have already done all the 6 possible actions
