@@ -1477,10 +1477,7 @@ responses:
   - text: "Think if these apply to you specifically.  "
 
   utter_identify_barriers_11:
-  - text: "You can also try to come up with some things that you know have been barriers in the past."
-
-  utter_identify_barriers_12:
-  - text: "Write down all the barriers for yourself and let me know when you are ready to proceed."
+  - text: "You can also try to come up with some things that you know have been barriers in the past. Write down all the barriers for yourself and let me know when you are ready to proceed."
 
 
   utter_deal_with_barriers_1:
