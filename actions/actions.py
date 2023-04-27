@@ -499,3 +499,47 @@ class ActionSaveGoalPlansAndReward(Action):
         save_goal_plans_and_reward_to_db(cur, conn, prolific_id, formatted_date, goal, plan_1, plan_2, plan_3, reward)
 
         return []
+
+class ActionConvertDBToStateActionNextState(Action):
+    def name(self):
+        return "action_rearrange_db"
+
+    async def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        conn = mysql.connector.connect(
+            user=DATABASE_USER,
+            password=DATABASE_PASSWORD,
+            host=DATABASE_HOST,
+            port=DATABASE_PORT,
+            database='db'
+        )
+        cur = conn.cursor(prepared=True)
+        
+        prolific_id = tracker.current_state()['sender_id']
+
+        query = ("SELECT * FROM sessiondata WHERE prolific_id = %s")
+        
+        cur.execute(query, [prolific_id])
+        
+        result = cur.fetchall()
+
+        for row in result[:-1:2]:
+    
+            i = result.index(row)
+            
+            state_before = row[2]
+            
+            action = result[i+1][2]
+            
+            state_after = result[i+2][2]
+
+            time = result[i+2][1]
+
+            query = "INSERT INTO state_action_state(prolific_id, time, state_before, action, state_after) VALUES(%s, %s, %s, %s, %s)"
+            cur.execute(query, [prolific_id, time, state_before, action, state_after])
+            conn.commit()
+
+
+        return []

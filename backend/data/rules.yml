@@ -305,6 +305,7 @@ rules:
   - action: utter_prolific_link
   - action: utter_goodbye
   - action: action_save_goal_plans_and_reward
+  - action: action_rearrange_db
 
 
 - rule: goodbye
