@@ -92,6 +92,7 @@ intents:
 - do_changes_to_plan
 
 - confirm_continue_explain_planning
+- confirm_continue_identify_barriers
 
 - confirm_actions_done
 
@@ -1432,8 +1433,53 @@ responses:
   utter_explain_planning_8:
   - text: "By seeing the plan, you can picture yourself doing the exercises each week, and think if that is feasible for you."
 
-  utter_identify_barriers:
-  - text: "placeholder identify barriers"
+  utter_identify_barriers_1:
+  - text: "I think it might be useful to think of some barriers, or things that might stop or prevent you from doing more physical activity."
+
+  utter_identify_barriers_2:
+  - text: "Let's first think of what the barriers are and then we'll see how we can deal with them."
+
+  utter_identify_barriers_3:
+  - buttons:
+    - payload: /confirm_continue_identify_barriers
+      title: "Lack of time"
+    - payload: /confirm_continue_identify_barriers
+      title: "Lack of energy"
+    - payload: /confirm_continue_identify_barriers
+      title: "Disliking being in the presence of others when exercising"
+    - payload: /confirm_continue_identify_barriers
+      title: "Lack of equipment"
+    - payload: /confirm_continue_identify_barriers
+      title: "Family obligations"
+    text: "Which of these do you think might be a common barrier?"
+
+  utter_identify_barriers_4:
+  - text: "You're right!"
+
+  utter_identify_barriers_5:
+  - text: "A common barrier is that you may not always have time to exercise or you may be tired at the end of the day."
+
+  utter_identify_barriers_6:
+  - text: "On the other hand, maybe you do not enjoy other people being there when you exercise."
+
+  utter_identify_barriers_7:
+  - text: "Maybe you don't have shoes that are comfortable to take longer walks in."
+
+  utter_identify_barriers_8:
+  - text: "It could also be that you have young children to take care of and that leaves you with little time."
+
+  utter_identify_barriers_9:
+  - text: "All of these are barriers which could prevent you from doing more physical activity."
+
+  utter_identify_barriers_10:
+  - text: "Think if these apply to you specifically.  "
+
+  utter_identify_barriers_11:
+  - text: "You can also try to come up with some things that you know have been barriers in the past."
+
+  utter_identify_barriers_12:
+  - text: "Write down all the barriers for yourself and let me know when you are ready to proceed."
+
 
   utter_deal_with_barriers:
   - text: "placeholder deal with barriers"
