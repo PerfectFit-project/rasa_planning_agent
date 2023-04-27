@@ -473,7 +473,7 @@ class ActionSelectActionSaveToDB(Action):
 
         # if there are possible actions for this state that have never been done, add them to the list with them being done 0 times
         for possible_action in possible_actions:
-            if not possible_action in [action for (action,frequency) in cleaned]:
+            if not possible_action in [action for (action,frequency) in ordered]:
                 cleaned.append((possible_action, 0))
 
         dispatcher.utter_message(text=f"Frequency of actions after adding those that have never been done {ordered}")
