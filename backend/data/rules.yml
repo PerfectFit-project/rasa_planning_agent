@@ -314,6 +314,7 @@ rules:
 - rule: confirm actions done
   steps:
   - intent: confirm_actions_done
+  - action: utter_almost_done
   - action: utter_satisfaction
 
 - rule: confirm satisfaction ask commitment first week

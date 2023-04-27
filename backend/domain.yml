@@ -1428,6 +1428,9 @@ responses:
       title: "Nice!"
     text: "We're almost done with the dialogue! I just have a few more questions for you."
 
+  utter_almost_done:
+  - text: "We're almost done with the dialogue! I just have a few more questions for you."
+
   utter_satisfaction:
   - buttons:
     - payload: /confirm_satisfaction{"satisfaction":"0"}

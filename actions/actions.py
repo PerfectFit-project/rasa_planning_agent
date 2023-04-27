@@ -426,7 +426,8 @@ class ActionSelectAction(Action):
         # there are no actions that we cannot do
         # this means we have already done all the 6 possible actions
         if len(possible_actions) == 0:
-            return [SlotSet("actions_done", True)]
+            dispatcher.utter_message(text=f"actions done")
+            return [ActionExecuted("action_listen"), UserUttered(text="/confirm_actions_done", parse_data={"intent": {"name": "confirm_actions_done", "confidence": 1.0}}), SlotSet("actions_done", True)]
 
         # pick the action that was done the least for this state
 
