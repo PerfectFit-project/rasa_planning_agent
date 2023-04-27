@@ -91,6 +91,8 @@ intents:
 - do_show_testimonials
 - do_changes_to_plan
 
+- confirm_continue_explain_planning
+
 - confirm_actions_done
 
 ## reward signal
@@ -1397,8 +1399,23 @@ responses:
   utter_attitude_repeat:
   - text: "So your attitude is {attitude}."
 
-  utter_explain_planning:
-  - text: "placeholder explain planning"
+  utter_explain_planning_1:
+  - text: "Maybe it would be useful to look again at why planning can help you do more physical activity."
+
+  utter_explain_planning_2:
+  - buttons:
+    - payload: /confirm_continue_explain_planning
+      title: "Motivation"
+    - payload: /confirm_continue_explain_planning
+      title: "Routine"
+    - payload: /confirm_continue_explain_planning
+      title: "Visualising the road towards the goal"
+    - payload: /confirm_continue_explain_planning
+      title: "Realistic expectations"
+    text: "First off, why do you think planning can help you do more physical activity?"
+
+  utter_explain_planning_3:
+  - text: "That's right!"
 
   utter_identify_barriers:
   - text: "placeholder identify barriers"
