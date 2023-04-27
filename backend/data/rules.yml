@@ -274,7 +274,41 @@ rules:
   - intent: confirm_attitude
   # - action: utter_attitude_repeat
   - action: action_save_event_state
-  - action: action_select_action_and_save
+  - action: action_select_action
+
+- rule: explain planning
+  steps:
+  - intent: do_explain_planning
+  - action: utter_explain_planning
+  - action: action_save_action
+  - action: utter_action_finished_loop_back
+
+- rule: identify barriers
+  steps:
+  - intent: do_identify_barriers
+  - action: utter_identify_barriers
+  - action: action_save_action
+  - action: utter_action_finished_loop_back
+
+- rule: deal with barriers
+  steps:
+  - intent: do_deal_with_barriers
+  - action: utter_deal_with_barriers
+  - action: action_save_action
+  - action: utter_action_finished_loop_back
+
+- rule: show testimonials
+  steps:
+  - intent: do_show_testimonials
+  - action: utter_show_testimonials
+  - action: action_save_action
+  - action: utter_action_finished_loop_back
+
+- rule: changes to plan
+  steps:
+  - intent: do_changes_to_plan
+  - action: utter_changes_to_plan
+  - action: action_save_action
   - action: utter_action_finished_loop_back
 
 - rule: confirm actions done

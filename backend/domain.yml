@@ -83,6 +83,14 @@ intents:
 - confirm_perceived_usefulness
 - confirm_attitude
 
+## actions
+
+- do_explain_planning
+- do_explain_identify_barriers
+- do_explain_deal_with_barriers
+- do_explain_show_testimonials
+- do_explain_changes_to_plan
+
 - confirm_actions_done
 
 ## reward signal
@@ -247,6 +255,9 @@ entities:
     influence_conversation: false
 
 - show_testimonials:
+    influence_conversation: false
+
+- action:
     influence_conversation: false
 
 - actions_done:
@@ -666,6 +677,13 @@ slots:
     mappings:
     - type: from_entity
       entity: last_action
+
+  action:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: action
 
   changes_to_plan:
     type: categorical
@@ -1379,6 +1397,21 @@ responses:
   utter_attitude_repeat:
   - text: "So your attitude is {attitude}."
 
+  utter_explain_planning:
+  - text: "placeholder explain planning"
+
+  utter_identify_barriers:
+  - text: "placeholder identify barriers"
+
+  utter_deal_with_barriers:
+  - text: "placeholder deal with barriers"
+
+  utter_show_testimonials:
+  - text: "placeholder show testimonials"
+
+  utter_changes_to_plan:
+  - text: "placeholder changes to plan"
+
   utter_action_finished_loop_back:
   - condition:
       - type: slot
@@ -1551,6 +1584,7 @@ actions:
 - action_default_fallback_end_dialog
 - action_create_initial_plan
 - action_save_event_state
-- action_select_action_and_save
+- action_select_action
+- action_save_action
 - action_save_goal_plans_and_reward
 - action_rearrange_db
