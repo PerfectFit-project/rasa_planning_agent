@@ -57,6 +57,8 @@ intents:
 
 ## energy levels
 
+- move_to_energy
+
 # weekdays
 - confirm_weekdays_morning
 - confirm_weekdays_midday
@@ -1720,6 +1722,7 @@ actions:
 - action_load_session_first
 - action_end_dialog
 - action_default_fallback_end_dialog
+- action_check_number_of_slots
 - action_create_initial_plan
 - action_show_testimonials
 - action_save_event_state

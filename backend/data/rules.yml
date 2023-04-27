@@ -103,11 +103,6 @@ rules:
   - action: utter_routines_4
   - action: utter_routines_monday
 
-- rule: ask about routines when there are not enough time slots selected
-  steps:
-  - intent: retry_time_slots
-  - action: utter_routines_monday
-
 - rule: ask about routines monday repeat
   steps:
   - intent: confirm_monday
@@ -182,8 +177,15 @@ rules:
 - rule: no more free on sundays
   steps: 
   - intent: confirm_sunday_continue
-  # - action: utter_confirm_sunday_slots
-  - action: utter_thank_for_times
+  - action: action_check_number_of_slots
+  
+- rule: ask about routines when there are not enough time slots selected
+  steps:
+  - intent: retry_time_slots
+  - action: utter_routines_monday
+
+- rule: ask about energy levels
+  - intent: move_to_energy
   - action: utter_energy_levels
   - action: utter_energy_levels_weekdays_morning
 

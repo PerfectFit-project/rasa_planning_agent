@@ -123,6 +123,31 @@ class ActionLoadSessionFirst(Action):
 
         return [SlotSet("session_loaded", True)]
 
+class ActionCheckNumberOfSlos(Action):
+
+    def name(self) -> Text:
+        return "action_check_number_of_slots"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        # free times
+
+        number_of_timeslots = bool(tracker.get_slot('monday_morning'))+ bool(tracker.get_slot('monday_midday'))+ bool(tracker.get_slot('monday_afternoon'))+ bool(tracker.get_slot('monday_evening')) + bool(tracker.get_slot('tuesday_morning'))+ bool(tracker.get_slot('tuesday_midday'))+ bool(tracker.get_slot('tuesday_afternoon'))+ bool(tracker.get_slot('tuesday_evening')) + bool(tracker.get_slot('wednesday_morning'))+ bool(tracker.get_slot('wednesday_midday'))+ bool(tracker.get_slot('wednesday_afternoon'))+ bool(tracker.get_slot('wednesday_evening')) + bool(tracker.get_slot('thursday_morning'))+ bool(tracker.get_slot('thursday_midday'))+ bool(tracker.get_slot('thursday_afternoon'))+ bool(tracker.get_slot('thursday_evening')) + bool(tracker.get_slot('friday_morning'))+ bool(tracker.get_slot('friday_midday'))+ bool(tracker.get_slot('friday_afternoon'))+ bool(tracker.get_slot('friday_evening')) + bool(tracker.get_slot('saturday_morning'))+ bool(tracker.get_slot('saturday_midday'))+ bool(tracker.get_slot('saturday_afternoon'))+ bool(tracker.get_slot('saturday_evening')) + bool(tracker.get_slot('sunday_morning'))+ bool(tracker.get_slot('sunday_midday'))+ bool(tracker.get_slot('sunday_afternoon'))+ bool(tracker.get_slot('sunday_evening'))  
+        
+        if number_of_timeslots < 4:
+
+            dispatcher.utter_message(text=f"I'm afraid you would have to do a bit too much activity all at once if we were to plan with your current schedule in mind… Let's think again about the times when you are available. Even if you're free for only 30 minutes or so at that time, that should still be enough to take a short walk.")
+                
+            return [ActionExecuted("action_listen"), UserUttered(text="/retry_time_slots", parse_data={"intent": {"name": "retry_time_slots", "confidence": 1.0}})]
+
+        else:
+            dispatcher.utter_message(text=f"Thank you for letting me know when you are available.")
+                
+            return [ActionExecuted("action_listen"), UserUttered(text="/move_to_energy", parse_data={"intent": {"name": "move_to_energy", "confidence": 1.0}})]
+
+
 def round_to_nearest_5(n):
     return 5 * round(n / 5)
 
@@ -252,14 +277,8 @@ class ActionCreateInitialPlan(Action):
             weekly_increase = 22
         elif goal == "10000":
             weekly_increase = 25
-
-        if number_of_timeslots < 4:
-            
-            dispatcher.utter_message(text=f"I'm afraid you would have to do a bit too much activity all at once if we were to plan with your current schedule in mind… Let's think again about the times when you are available. Even if you're free for only 30 minutes or so at that time, that should still be enough to take a short walk.")
-            
-            return [ActionExecuted("action_listen"), UserUttered(text="/retry_time_slots", parse_data={"intent": {"name": "retry_time_slots", "confidence": 1.0}})]
-
-        elif number_of_timeslots == 4:
+        
+        if number_of_timeslots == 4:
 
             selected =  available_timeslots
 
