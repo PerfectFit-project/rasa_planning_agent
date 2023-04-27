@@ -305,6 +305,8 @@ rules:
   - action: utter_email_reminder
   - action: utter_prolific_link
   - action: utter_goodbye
+  - action: action_save_goal_and_plans
+  - action: action_save_goal_plans_and_reward
 
 
 - rule: goodbye

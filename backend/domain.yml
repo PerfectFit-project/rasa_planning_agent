@@ -1552,4 +1552,4 @@ actions:
 - action_create_initial_plan
 - action_save_event_state
 - action_select_action_and_save
-- action_save_goal_and_plans
+- action_save_goal_plans_and_reward
