@@ -283,7 +283,28 @@ rules:
   - action: utter_satisfaction
   - action: action_save_goal_and_plans
 
+- rule: confirm satisfaction ask commitment first week
+  steps:
+  - intent: confirm_satisfaction
+  - action: utter_commitment_1
 
+- rule: confirm commitment first week ask commitment whole plan
+  steps:
+  - intent: confirm_commitment_1
+  - action: utter_commitment_f
+
+- rule: confirm commitment whole plan ask confidence goal
+  steps:
+  - intent: confirm_commitment_f
+  - action: utter_confidence_goal
+
+- rule: confirm confidence goal utter end and save to db
+  steps:
+  - intent: confirm_confidence_goal
+  - action: utter_thank
+  - action: utter_email_reminder
+  - action: utter_prolific_link
+  - action: utter_goodbye
 
 
 - rule: goodbye

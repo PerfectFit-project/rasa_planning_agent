@@ -85,6 +85,12 @@ intents:
 
 - confirm_actions_done
 
+## reward signal
+
+- confirm_satisfaction
+- confirm_commitment_1
+- confirm_commitment_f
+- confirm_confidence_goal
 
 ## end session
 - confirm_goodbye
@@ -217,35 +223,46 @@ entities:
     influence_conversation: false
 
 - confidence:
-    influence_conversation: false 
+    influence_conversation: false
 
 - perceived_usefulness:
-    influence_conversation: false 
+    influence_conversation: false
 
 - attitude:
-    influence_conversation: false 
+    influence_conversation: false
 
 - last_action:
-    influence_conversation: false 
+    influence_conversation: false
 
 - changes_to_plan:
     influence_conversation: false
 
 - explain_planning:
-    influence_conversation: false 
+    influence_conversation: false
 
 - identify_barriers:
-    influence_conversation: false 
+    influence_conversation: false
 
 - deal_with_barriers:
-    influence_conversation: false 
+    influence_conversation: false
 
 - show_testimonials:
-    influence_conversation: false 
+    influence_conversation: false
 
 - actions_done:
-    influence_conversation: false 
+    influence_conversation: false
 
+- satisfaction:
+    influence_conversation: false
+
+- commitment_1:
+    influence_conversation: false
+
+- commitment_f:
+    influence_conversation: false
+
+- confidence_goal:
+    influence_conversation: false
 
 slots:
   ### intro/general
@@ -595,7 +612,7 @@ slots:
     mappings:
     - type: from_entity
       entity: plan_3
-  
+
 
   ### goal
 
@@ -622,7 +639,7 @@ slots:
     mappings:
     - type: from_entity
       entity: confidence
-  
+
   perceived_usefulness:
     type: categorical
     influence_conversation: false
@@ -649,7 +666,7 @@ slots:
     mappings:
     - type: from_entity
       entity: last_action
-  
+
   changes_to_plan:
     type: categorical
     influence_conversation: false
@@ -701,12 +718,88 @@ slots:
     - type: from_entity
       entity: actions_done
 
+  satisfaction:
+    type: categorical
+    influence_conversation: false
+    values:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+    mappings:
+    - type: from_entity
+      entity: satisfaction
+
+
+  commitment_1:
+    type: categorical
+    influence_conversation: false
+    values:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+    mappings:
+    - type: from_entity
+      entity: commitment_1
+
+  commitment_f:
+    type: categorical
+    influence_conversation: false
+    values:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+    mappings:
+    - type: from_entity
+      entity: commitment_f
+
+  confidence_goal:
+    type: categorical
+    influence_conversation: false
+    values:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+    mappings:
+    - type: from_entity
+      entity: confidence_goal
 
 
 responses:
 
 
-  ### Intro 
+  ### Intro
   utter_greet_1:
   - text: "Hey there! I'm Jamie, your virtual coach."
 
@@ -802,7 +895,7 @@ responses:
       title: "I have a different reason."
     text: "I'll show you a few common reasons, but if you have a different one, feel free to pick \"I have a different reason\"."
 
-  
+
   utter_explain_usefulness_planning_1:
   - text: "Now, I told you we'll make a plan together, but I forgot to mention why this is important to begin with."
 
@@ -844,11 +937,11 @@ responses:
     - payload: /confirm_monday{"monday_afternoon":"True"}
       title: "Afternoon (14:00 - 18:00)"
     - payload: /confirm_monday{"monday_evening":"True"}
-      title: "Evening (18:00 - 22:00)"    
+      title: "Evening (18:00 - 22:00)"
     - payload: /confirm_monday_continue
       title: "I'm never free on Mondays."
     text: "Use the buttons to let me know when you are usually free on Mondays."
-   
+
 
   utter_routines_monday_repeat:
   - buttons:
@@ -859,7 +952,7 @@ responses:
     - payload: /confirm_monday{"monday_afternoon":"True"}
       title: "Afternoon (14:00 - 18:00)"
     - payload: /confirm_monday{"monday_evening":"True"}
-      title: "Evening (18:00 - 22:00)"    
+      title: "Evening (18:00 - 22:00)"
     - payload: /confirm_monday_continue
       title: "I have no other times when I am free on Mondays."
     text: "Is there any other time when you are free on Mondays?"
@@ -876,7 +969,7 @@ responses:
     - payload: /confirm_tuesday{"tuesday_afternoon":"True"}
       title: "Afternoon (14:00 - 18:00)"
     - payload: /confirm_tuesday{"tuesday_evening":"True"}
-      title: "Evening (18:00 - 22:00)"    
+      title: "Evening (18:00 - 22:00)"
     - payload: /confirm_tuesday_continue
       title: "I'm never free on Tuesdays."
     text: "Use the buttons to let me know when you are usually free on Tuesdays."
@@ -890,7 +983,7 @@ responses:
     - payload: /confirm_tuesday{"tuesday_afternoon":"True"}
       title: "Afternoon (14:00 - 18:00)"
     - payload: /confirm_tuesday{"tuesday_evening":"True"}
-      title: "Evening (18:00 - 22:00)"    
+      title: "Evening (18:00 - 22:00)"
     - payload: /confirm_tuesday_continue
       title: "I have no other times when I am free on Tuesdays."
     text: "Is there any other time when you are free on Tuesdays?"
@@ -908,7 +1001,7 @@ responses:
     - payload: /confirm_wednesday{"wednesday_afternoon":"True"}
       title: "Afternoon (14:00 - 18:00)"
     - payload: /confirm_wednesday{"wednesday_evening":"True"}
-      title: "Evening (18:00 - 22:00)"    
+      title: "Evening (18:00 - 22:00)"
     - payload: /confirm_wednesday_continue
       title: "I'm never free on Wednesdays."
     text: "Use the buttons to let me know when you are usually free on Wednesdays."
@@ -922,7 +1015,7 @@ responses:
     - payload: /confirm_wednesday{"wednesday_afternoon":"True"}
       title: "Afternoon (14:00 - 18:00)"
     - payload: /confirm_wednesday{"wednesday_evening":"True"}
-      title: "Evening (18:00 - 22:00)"    
+      title: "Evening (18:00 - 22:00)"
     - payload: /confirm_wednesday_continue
       title: "I have no other times when I am free on Wednesdays."
     text: "Is there any other time when you are free on Wednesdays?"
@@ -940,7 +1033,7 @@ responses:
     - payload: /confirm_thursday{"thursday_afternoon":"True"}
       title: "Afternoon (14:00 - 18:00)"
     - payload: /confirm_thursday{"thursday_evening":"True"}
-      title: "Evening (18:00 - 22:00)"    
+      title: "Evening (18:00 - 22:00)"
     - payload: /confirm_thursday_continue
       title: "I'm never free on Thursdays."
     text: "Use the buttons to let me know when you are usually free on Thursdays."
@@ -954,7 +1047,7 @@ responses:
     - payload: /confirm_thursday{"thursday_afternoon":"True"}
       title: "Afternoon (14:00 - 18:00)"
     - payload: /confirm_thursday{"thursday_evening":"True"}
-      title: "Evening (18:00 - 22:00)"    
+      title: "Evening (18:00 - 22:00)"
     - payload: /confirm_thursday_continue
       title: "I have no other times when I am free on Thursdays."
     text: "Is there any other time when you are free on Thursdays?"
@@ -971,7 +1064,7 @@ responses:
     - payload: /confirm_friday{"friday_afternoon":"True"}
       title: "Afternoon (14:00 - 18:00)"
     - payload: /confirm_friday{"friday_evening":"True"}
-      title: "Evening (18:00 - 22:00)"    
+      title: "Evening (18:00 - 22:00)"
     - payload: /confirm_friday_continue
       title: "I'm never free on Fridays."
     text: "Use the buttons to let me know when you are usually free on Fridays."
@@ -985,7 +1078,7 @@ responses:
     - payload: /confirm_friday{"friday_afternoon":"True"}
       title: "Afternoon (14:00 - 18:00)"
     - payload: /confirm_friday{"friday_evening":"True"}
-      title: "Evening (18:00 - 22:00)"    
+      title: "Evening (18:00 - 22:00)"
     - payload: /confirm_friday_continue
       title: "I have no other times when I am free on Fridays."
     text: "Is there any other time when you are free on Fridays?"
@@ -1003,7 +1096,7 @@ responses:
     - payload: /confirm_saturday{"saturday_afternoon":"True"}
       title: "Afternoon (14:00 - 18:00)"
     - payload: /confirm_saturday{"saturday_evening":"True"}
-      title: "Evening (18:00 - 22:00)"    
+      title: "Evening (18:00 - 22:00)"
     - payload: /confirm_saturday_continue
       title: "I'm never free on Saturdays."
     text: "Use the buttons to let me know when you are usually free on Saturdays."
@@ -1017,7 +1110,7 @@ responses:
     - payload: /confirm_saturday{"saturday_afternoon":"True"}
       title: "Afternoon (14:00 - 18:00)"
     - payload: /confirm_saturday{"saturday_evening":"True"}
-      title: "Evening (18:00 - 22:00)"    
+      title: "Evening (18:00 - 22:00)"
     - payload: /confirm_saturday_continue
       title: "I have no other times when I am free on Saturdays."
     text: "Is there any other time when you are free on Saturdays?"
@@ -1035,7 +1128,7 @@ responses:
     - payload: /confirm_sunday{"sunday_afternoon":"True"}
       title: "Afternoon (14:00 - 18:00)"
     - payload: /confirm_sunday{"sunday_evening":"True"}
-      title: "Evening (18:00 - 22:00)"    
+      title: "Evening (18:00 - 22:00)"
     - payload: /confirm_sunday_continue
       title: "I'm never free on Sundays."
     text: "Use the buttons to let me know when you are usually free on Sundays."
@@ -1049,7 +1142,7 @@ responses:
     - payload: /confirm_sunday{"sunday_afternoon":"True"}
       title: "Afternoon (14:00 - 18:00)"
     - payload: /confirm_sunday{"sunday_evening":"True"}
-      title: "Evening (18:00 - 22:00)"    
+      title: "Evening (18:00 - 22:00)"
     - payload: /confirm_sunday_continue
       title: "I have no other times when I am free on Sundays."
     text: "Is there any other time when you are free on Sundays?"
@@ -1071,7 +1164,7 @@ responses:
     - payload: /confirm_weekdays_morning{"weekdays_morning":"2"}
       title: "A moderate amount."
     - payload: /confirm_weekdays_morning{"weekdays_morning":"3"}
-      title: "A lot."   
+      title: "A lot."
     text: "That is, how much energy for physical activity do you have on weekdays in the morning (6:00 - 10:00)?"
 
   utter_energy_levels_weekdays_midday:
@@ -1081,7 +1174,7 @@ responses:
     - payload: /confirm_weekdays_midday{"weekdays_midday":"2"}
       title: "A moderate amount."
     - payload: /confirm_weekdays_midday{"weekdays_midday":"3"}
-      title: "A lot."   
+      title: "A lot."
     text: "What about your energy during the midday (10:00 - 14:00) on weekdays?"
 
   utter_energy_levels_weekdays_afternoon:
@@ -1091,7 +1184,7 @@ responses:
     - payload: /confirm_weekdays_afternoon{"weekdays_afternoon":"2"}
       title: "A moderate amount."
     - payload: /confirm_weekdays_afternoon{"weekdays_afternoon":"3"}
-      title: "A lot."   
+      title: "A lot."
     text: "How about in the afternoon (14:00 - 18:00) on weekdays?"
 
 
@@ -1102,7 +1195,7 @@ responses:
     - payload: /confirm_weekdays_evening{"weekdays_evening":"2"}
       title: "A moderate amount."
     - payload: /confirm_weekdays_evening{"weekdays_evening":"3"}
-      title: "A lot."   
+      title: "A lot."
     text: "And in the evening (18:00 - 22:00) on weekdays?"
 
   utter_energy_levels_weekdays_confirm:
@@ -1115,7 +1208,7 @@ responses:
     - payload: /confirm_weekends_morning{"weekends_morning":"2"}
       title: "A moderate amount."
     - payload: /confirm_weekends_morning{"weekends_morning":"3"}
-      title: "A lot."   
+      title: "A lot."
     text: "Now, let's move on to the weekends. How much energy for physical activity do you have on weekends in the morning (6:00 - 10:00)?"
 
   utter_energy_levels_weekends_midday:
@@ -1125,7 +1218,7 @@ responses:
     - payload: /confirm_weekends_midday{"weekends_midday":"2"}
       title: "A moderate amount."
     - payload: /confirm_weekends_midday{"weekends_midday":"3"}
-      title: "A lot."   
+      title: "A lot."
     text: "What about your energy during the midday (10:00 - 14:00) on weekends?"
 
   utter_energy_levels_weekends_afternoon:
@@ -1135,7 +1228,7 @@ responses:
     - payload: /confirm_weekends_afternoon{"weekends_afternoon":"2"}
       title: "A moderate amount."
     - payload: /confirm_weekends_afternoon{"weekends_afternoon":"3"}
-      title: "A lot."   
+      title: "A lot."
     text: "What about your energy during the afternoon (14:00 - 18:00) on weekends?"
 
   utter_energy_levels_weekends_evening:
@@ -1145,7 +1238,7 @@ responses:
     - payload: /confirm_weekends_evening{"weekends_evening":"2"}
       title: "A moderate amount."
     - payload: /confirm_weekends_evening{"weekends_evening":"3"}
-      title: "A lot."   
+      title: "A lot."
     text: "How about in the evening (18:00 - 22:00) on weekends?"
 
   utter_energy_levels_weekends_confirm:
@@ -1172,7 +1265,7 @@ responses:
     - payload: /confirm_goal{"goal":"9000"}
       title: "9000 steps (or 90 minutes) per day."
     - payload: /confirm_goal{"goal":"10000"}
-      title: "10000 steps (or 100 minutes) per day."   
+      title: "10000 steps (or 100 minutes) per day."
     text: "Please pick one of these options as your goal. Try to imagine yourself doing that many steps in a day and pick a goal that you feel like you can accomplish."
 
   utter_confirm_goal:
@@ -1303,13 +1396,116 @@ responses:
     text: "We're almost done with the dialogue! I just have a few more questions for you."
 
   utter_satisfaction:
-  - text: "placeholder"
+  - buttons:
+    - payload: /confirm_satisfaction{"satisfaction":"0"}
+      title: "0 (I am very dissatisfied)"
+    - payload: /confirm_satisfaction{"satisfaction":"1"}
+      title: "1"
+    - payload: /confirm_satisfaction{"satisfaction":"2"}
+      title: "2"
+    - payload: /confirm_satisfaction{"satisfaction":"3"}
+      title: "3"
+    - payload: /confirm_satisfaction{"satisfaction":"4"}
+      title: "4"
+    - payload: /confirm_satisfaction{"satisfaction":"5"}
+      title: "5"
+    - payload: /confirm_satisfaction{"satisfaction":"6"}
+      title: "6"
+    - payload: /confirm_satisfaction{"satisfaction":"7"}
+      title: "7"
+    - payload: /confirm_satisfaction{"satisfaction":"8"}
+      title: "8"
+    - payload: /confirm_satisfaction{"satisfaction":"9"}
+      title: "9"
+    - payload: /confirm_satisfaction{"satisfaction":"10"}
+      title: "10 (I enjoyed it very much)"
+    text: "How satisfied are you by our interaction?"
 
+  utter_commitment_1:
+  - buttons:
+    - payload: /confirm_commitment_1{"commitment_1":"0"}
+      title: "0 (I highly doubt that I could follow the first week of the plan)"
+    - payload: /confirm_commitment_1{"commitment_1":"1"}
+      title: "1"
+    - payload: /confirm_commitment_1{"commitment_1":"2"}
+      title: "2"
+    - payload: /confirm_commitment_1{"commitment_1":"3"}
+      title: "3"
+    - payload: /confirm_commitment_1{"commitment_1":"4"}
+      title: "4"
+    - payload: /confirm_commitment_1{"commitment_1":"5"}
+      title: "5"
+    - payload: /confirm_commitment_1{"commitment_1":"6"}
+      title: "6"
+    - payload: /confirm_commitment_1{"commitment_1":"7"}
+      title: "7"
+    - payload: /confirm_commitment_1{"commitment_1":"8"}
+      title: "8"
+    - payload: /confirm_commitment_1{"commitment_1":"9"}
+      title: "9"
+    - payload: /confirm_commitment_1{"commitment_1":"10"}
+      title: "10 (I am sure I could follow the first week of the plan)"
+    text: " How willing are you to follow the first week of the plan?"
+
+  utter_commitment_f:
+  - buttons:
+    - payload: /confirm_commitment_f{"commitment_f":"0"}
+      title: "0 (I highly doubt that I could follow the plan)"
+    - payload: /confirm_commitment_f{"commitment_f":"1"}
+      title: "1"
+    - payload: /confirm_commitment_f{"commitment_f":"2"}
+      title: "2"
+    - payload: /confirm_commitment_f{"commitment_f":"3"}
+      title: "3"
+    - payload: /confirm_commitment_f{"commitment_f":"4"}
+      title: "4"
+    - payload: /confirm_commitment_f{"commitment_f":"5"}
+      title: "5"
+    - payload: /confirm_commitment_f{"commitment_f":"6"}
+      title: "6"
+    - payload: /confirm_commitment_f{"commitment_f":"7"}
+      title: "7"
+    - payload: /confirm_commitment_f{"commitment_f":"8"}
+      title: "8"
+    - payload: /confirm_commitment_f{"commitment_f":"9"}
+      title: "9"
+    - payload: /confirm_commitment_f{"commitment_f":"10"}
+      title: "10 (I am sure I could follow the plan)"
+    text: "How willing are you to follow the entire plan?"
+
+  utter_confidence_goal:
+  - buttons:
+    - payload: /confirm_confidence_goal{"confidence_goal":"0"}
+      title: "0 (I am not confident at that I can reach my goal)"
+    - payload: /confirm_confidence_goal{"confidence_goal":"1"}
+      title: "1"
+    - payload: /confirm_confidence_goal{"confidence_goal":"2"}
+      title: "2"
+    - payload: /confirm_confidence_goal{"confidence_goal":"3"}
+      title: "3"
+    - payload: /confirm_confidence_goal{"confidence_goal":"4"}
+      title: "4"
+    - payload: /confirm_confidence_goal{"confidence_goal":"5"}
+      title: "5"
+    - payload: /confirm_confidence_goal{"confidence_goal":"6"}
+      title: "6"
+    - payload: /confirm_confidence_goal{"confidence_goal":"7"}
+      title: "7"
+    - payload: /confirm_confidence_goal{"confidence_goal":"8"}
+      title: "8"
+    - payload: /confirm_confidence_goal{"confidence_goal":"9"}
+      title: "9"
+    - payload: /confirm_confidence_goal{"confidence_goal":"10"}
+      title: "10 (I am sure that I can reach my goal)"
+    text: "How confident are you that you could reach your goal of {goal} minutes per day in six months from now?"
+
+  utter_thank:
+    - text: "Thank you for all your answers and for your time!"
 
 
   ### End session
   utter_email_reminder:
-    - text: "That's all for this session. I'll be sending you a message with your activity on Prolific right after this session."
+    - text: "That's all for this session. I'll be sending you a message on Prolific right after this session to confirm that you have completed everything."
 
 
   utter_prolific_link:
@@ -1317,41 +1513,14 @@ responses:
 
 
   utter_goodbye:
-    - text: "Bye!"
+    - text: "Have a great day! Goodbye!"
       buttons:
       - payload: /confirm_goodbye
-        title: "Goodbye!"
+        title: "Goodbye, Jamie!"
 
 
   utter_final_close_session:
-  - text: "THIS IS THE END OF THIS SESSION. PLEASE CLOSE THIS WINDOW.\nANY FURTHER TYPING IN THIS CHAT RENDERS THIS SESSION INVALID. IF YOU HAVE QUESTIONS, CONTACT THE RESEARCHER PER MESSAGE ON PROLIFIC."
-
-
-  ### General
-  utter_great:
-  - text: Great!
-  - text: Perfect!
-  - text: Awesome!
-
-
-  utter_cool:
-  - text: Nice!
-  - text: Cool!
-  - text: Perfect!
-
-
-  utter_thanks:
-  - text: "Thanks!"
-  - text: "Thanks for letting me know!"
-  - text: "Okay thanks!"
-  - text: "Thanks for sharing that with me!"
-
-
-  utter_provide_more_detail:
-  - text: "Hmm, can you describe this in a bit more detail?"
-  - text: "I see, could you elaborate a little more on this?"
-  - text: "I'd like to understand better, can you give me more details on this?"
-  - text: "I'm not quite following, could you provide more details?"
+  - text: "This is the end of the session. Please close this window.\nAny further typing in this chat renders this session invalid. Ff you have questions, contact the researcher by message on Prolific."
 
 
   utter_default:
@@ -1359,11 +1528,11 @@ responses:
 
 
   utter_default_close_session:
-  - text: "PLEASE CLOSE THIS WINDOW AND CONTACT THE RESEARCHER ON PROLIFIC."
+  - text: "Please close this window and contact the researcher on prolific."
 
 
   utter_error_close_session:
-  - text: "PLEASE CLOSE THIS WINDOW. ANY FURTHER TYPING IN THIS CHAT RENDERS THIS SESSION INVALID."
+  - text: "Please close this window. Any further typing in this chat renders this session invalid."
 
 
 session_config:
