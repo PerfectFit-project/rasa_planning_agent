@@ -140,7 +140,14 @@ class ActionCheckNumberOfSlos(Action):
 
             dispatcher.utter_message(text=f"I'm afraid you would have to do a bit too much activity all at once if we were to plan with your current schedule in mind… Let's think again about the times when you are available. Even if you're free for only 30 minutes or so at that time, that should still be enough to take a short walk.")
                 
-            return [ActionExecuted("action_listen"), UserUttered(text="/retry_time_slots", parse_data={"intent": {"name": "retry_time_slots", "confidence": 1.0}})]
+            return [ActionExecuted("action_listen"), UserUttered(text="/retry_time_slots", parse_data={"intent": {"name": "retry_time_slots", "confidence": 1.0}}), 
+            SlotSet("monday_morning", False), SlotSet("monday_midday", False), SlotSet("monday_afternoon", False), SlotSet("monday_evening", False),
+            SlotSet("tuesday_morning", False), SlotSet("tuesday_midday", False), SlotSet("tuesday_afternoon", False), SlotSet("tuesday_evening", False),
+            SlotSet("wednesday_morning", False), SlotSet("wednesday_midday", False), SlotSet("wednesday_afternoon", False), SlotSet("wednesday_evening", False),
+            SlotSet("thursday_morning", False), SlotSet("thursday_midday", False), SlotSet("thursday_afternoon", False), SlotSet("thursday_evening", False),
+            SlotSet("friday_morning", False), SlotSet("friday_midday", False), SlotSet("friday_afternoon", False), SlotSet("friday_evening", False),
+            SlotSet("saturday_morning", False), SlotSet("saturday_midday", False), SlotSet("saturday_afternoon", False), SlotSet("saturday_evening", False),
+            SlotSet("sunday_morning", False), SlotSet("sunday_midday", False), SlotSet("sunday_afternoon", False), SlotSet("sunday_evening", False)]
 
         else:
             dispatcher.utter_message(text=f"Thank you for letting me know when you are available.")
