@@ -347,7 +347,10 @@ rules:
 - rule: show testimonials
   steps:
   - intent: do_show_testimonials
-  - action: utter_show_testimonials
+  - action: utter_show_testimonials_1
+  - action: utter_show_testimonials_2
+  - action: action_show_testimonials
+  - action: utter_show_testimonials_3
   - action: action_save_action
   - action: utter_action_finished_loop_back
 

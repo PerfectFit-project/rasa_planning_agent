@@ -1538,8 +1538,14 @@ responses:
   utter_deal_with_barriers_13:
   - text: "If you have children to take care of, it might be a good idea to take them on regular walks with you. That way you can fulfill your family obligations and make progress towards your goal."
 
-  utter_show_testimonials:
-  - text: "placeholder show testimonials"
+  utter_show_testimonials_1:
+  - text: "Seeing other people make plans and succeed with regards to their goals is something that might help you."
+
+  utter_show_testimonials_2:
+  - text: "Let's take a look at a few such cases."
+
+  utter_show_testimonials_3:
+  - text: "What can you take away from this? Think for yourself and let me know when you are ready to continue."
 
   utter_changes_to_plan:
   - text: "placeholder changes to plan"

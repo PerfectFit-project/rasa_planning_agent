@@ -632,3 +632,32 @@ class ActionConvertDBToStateActionNextState(Action):
 
 
         return []
+
+class ActionShowTestimonials(Action):
+    def name(self):
+        return "action_show_testimonials"
+
+    async def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+            testimonials = ["This person introduces themselves as follows: 'Hello. I know I'm thin, but I have great stamina. I'm a big Pokémon go fan. I walk for 2 hours every day to collect as many virtual Pokémon as possible.'\n Their goal was: 'I think the best sport for me is walking. I walked 3.000 km last year. I played games and did sports.'\n The way they achieved this goal is described as: 'I achieved this by walking every day for 2 hours, that's about 8 km a day.'\n As you can see, what helped them was to follow a plan for doing physical activity.",
+                            "This person introduces themselves as follows: 'Hi, I am very interested in exchanging our experiences. I run to increase my resistance.'\n Their goal was: 'I ran every day for 30 minutes.'\n The way they achieved this goal is described as: 'I achieved this by running every day for 30 minutes at least.'\n As you can see, what helped them was to follow a plan for doing physical activity.",
+                            "This person introduces themselves as follows: 'I had been a bit of a couch potato before early retirement, however, during the last year I have taken up walking.'\n Their goal was: 'I reached over 10.000 steps in 24 hours.'\n The way they achieved this goal is described as: 'I achieved this by walking daily along beaches and in forests.'\n As you can see, what helped them was to follow a plan for doing physical activity.",
+                            "This person introduces themselves as follows: 'I really like cycling on the weekends. I don't always feel like running so I try to sprint every time. If I'm able to I always walk to my destination.'\n Their goal was: 'I ran 100m in 12 seconds.'\n The way they achieved this goal is described as: 'I achieved this by sprinting 3 times a week.'\n As you can see, what helped them was to follow a plan for doing physical activity.",
+                            "This person introduces themselves as follows: 'I really like to run and be active. I like going to the gym as well. I like challenges.'\n Their goal was: 'My goal was to run 10 km in under 40 minutes.'\n The way they achieved this goal is described as: 'I achieved this by training every day for a year.'\n As you can see, what helped them was to follow a plan for doing physical activity.",
+                            "This person introduces themselves as follows: 'I'm 51, not really physically fit but trying. I've set myself walking and jogging goals through lockdown which I've achieved.'\n Their goal was: 'I walked and ran more during lockdown.'\n The way they achieved this goal is described as: 'I achieved this by walking more through lockdown, especially in the morning.'\n As you can see, what helped them was to follow a plan for doing physical activity.",
+                            "This person introduces themselves as follows: 'I like to walk for an hour every day. I am looking to get back into table tennis weekly.'\n Their goal was: 'I have walked for an hour every day.'\n The way they achieved this goal is described as: 'I achieved this by writing a schedule every day and making sure to incorporate it into the framework.'\n As you can see, what helped them was to follow a plan for doing physical activity.",
+                            "This person introduces themselves as follows: 'Hello, my name is Joseph and I'm a 29-year-old man who loves to run. I like outdoor running and I exercise 3-5 times per week.'\n Their goal was: 'I pushed myself to be able to run for a longer time with fewer pauses.'\n The way they achieved this goal is described as: 'I achieved this by keeping up with my running schedule. I ran faster to push myself. I ate better food and tried to eat at good times.'\n As you can see, what helped them was to follow a plan for doing physical activity."
+                            ]
+
+            testimonials_to_show = random.sample(testimonials, 2)
+
+
+            dispatcher.utter_message(text=testimonials_to_show[0])
+
+            dispatcher.utter_message(text="Let's see another example.")
+
+            dispatcher.utter_message(text=testimonials_to_show[1])
+
+            return []
