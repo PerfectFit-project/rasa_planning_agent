@@ -477,23 +477,23 @@ class ActionSelectAction(Action):
         
         if picked == "explain_planning":
 
-            return[UserUttered(text="Explain planning", intent={"name": "do_explain_planning", "confidence": 1.0}), SlotSet("action", picked)]
+            return[ActionExecuted("action_listen"), UserUttered(text="/do_explain_planning", parse_data={"intent": {"name": "do_explain_planning", "confidence": 1.0}}), SlotSet("action", picked)]
 
         elif picked == "identify_barriers":
 
-            return[UserUttered(text="Identify barriers", intent={"name": "do_identify_barriers", "confidence": 1.0}), SlotSet("action", picked)]
+            return[ActionExecuted("action_listen"), UserUttered(text="/do_identify_barriers", parse_data={"intent": {"name": "do_identify_barriers", "confidence": 1.0}}), SlotSet("action", picked)]
 
         elif picked == "deal_with_barriers":
 
-            return[UserUttered(text="Deal with barriers", intent={"name": "do_deal_with_barriers", "confidence": 1.0}), SlotSet("action", picked)]
+            return[ActionExecuted("action_listen"), UserUttered(text="/do_deal_with_barriers", parse_data={"intent": {"name": "do_deal_with_barriers", "confidence": 1.0}}), SlotSet("action", picked)]
 
         elif picked == "show_testimonials":
 
-            return[UserUttered(text="Show testimonials", intent={"name": "do_show_testimonials", "confidence": 1.0}), SlotSet("action", picked)]
+            return[ActionExecuted("action_listen"), UserUttered(text="/do_show_testimonials", parse_data={"intent": {"name": "do_show_testimonials", "confidence": 1.0}}), SlotSet("action", picked)]
 
         elif picked == "changes_to_plan":
 
-            return[UserUttered(text="Changes to plan", intent={"name": "do_changes_to_plan", "confidence": 1.0}), SlotSet("action", picked)]
+            return[ActionExecuted("action_listen"), UserUttered(text="/do_changes_to_plan", parse_data={"intent": {"name": "do_changes_to_plan", "confidence": 1.0}}), SlotSet("action", picked)]
 
 class ActionSelectAction(Action):
     def name(self):
