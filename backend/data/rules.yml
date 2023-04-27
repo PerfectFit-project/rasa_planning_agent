@@ -185,6 +185,7 @@ rules:
   - action: utter_routines_monday
 
 - rule: ask about energy levels
+  steps:
   - intent: move_to_energy
   - action: utter_energy_levels
   - action: utter_energy_levels_weekdays_morning
