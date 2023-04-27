@@ -366,9 +366,6 @@ class ActionSelectActionSaveToDB(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-
-        dispatcher.utter_message(text=f"I am starting the custom action")
-
         conn = mysql.connector.connect(
             user=DATABASE_USER,
             password=DATABASE_PASSWORD,
@@ -377,8 +374,6 @@ class ActionSelectActionSaveToDB(Action):
             database='db'
         )
         cur = conn.cursor(prepared=True)
-
-        dispatcher.utter_message(text=f"I am connected to the db")
 
         now = datetime.now()
         formatted_date = now.strftime('%Y-%m-%d %H:%M:%S')
@@ -396,8 +391,6 @@ class ActionSelectActionSaveToDB(Action):
         show_testimonials = tracker.get_slot("show_testimonials")
 
         last_action = tracker.get_slot("last_action")
-
-        dispatcher.utter_message(text=f"I retrieved a bunch of states")
 
         number_actions = changes_to_plan + explain_planning + identify_barriers + deal_with_barriers + show_testimonials
 
@@ -425,14 +418,10 @@ class ActionSelectActionSaveToDB(Action):
             if show_testimonials == False:
                 possible_actions.append("show_testimonials")
 
-        dispatcher.utter_message(text=f"I figured out the possible actions")
-
         # there are no actions that we cannot do
         # this means we have already done all the 6 possible actions
         if len(possible_actions) == 0:
             return [SlotSet("actions_done", True)]
-
-        dispatcher.utter_message(text=f"I am done checking for possilbe actions")
 
         # pick the action that was done the least for this state
 
@@ -444,9 +433,7 @@ class ActionSelectActionSaveToDB(Action):
 
         a = tracker.get_slot("attitude")
 
-        state = f"{ch}, {c}, {pu}, {a}, {explain_planning}, {identify_barriers}, {deal_with_barriers}, {show_testimonials}"
-
-        dispatcher.utter_message(text=f"I built the state")
+        state = f"state: {ch}, {c}, {pu}, {a}, {explain_planning}, {identify_barriers}, {deal_with_barriers}, {show_testimonials}"
 
         query = ("SELECT * FROM state_action_state WHERE state_before = %s")
         
