@@ -449,7 +449,7 @@ class ActionSelectActionSaveToDB(Action):
         actions = [action for (userid,date,state,action,next_state) in result]
 
         # count how many times each action was done
-        count = collections.Counter(a)
+        count = collections.Counter(actions)
 
         dispatcher.utter_message(text=f"The count is {count}")
 
