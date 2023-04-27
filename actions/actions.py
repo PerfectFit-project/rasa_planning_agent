@@ -446,7 +446,7 @@ class ActionSelectActionSaveToDB(Action):
         dispatcher.utter_message(text=f"I found {len(result)} states that match this one")
 
         # select only the actions in the database results
-        actions = [action for (userid,date,state,action,next_state) in result]
+        actions = [f"{action}" for (userid,date,state,action,next_state) in result]
 
         # count how many times each action was done
         count = collections.Counter(actions)
