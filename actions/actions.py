@@ -393,6 +393,8 @@ class ActionSelectAction(Action):
 
         last_action = tracker.get_slot("last_action")
 
+        dispatcher.utter_message(text=f"Slots: changes {changes_to_plan}, explain {explain_planning}, identify {identify_barriers}, deal {deal_with_barriers}, show {show_testimonials}, last {last_action}")
+
         number_actions = changes_to_plan + explain_planning + identify_barriers + deal_with_barriers + show_testimonials
 
         possible_actions = []
@@ -418,6 +420,8 @@ class ActionSelectAction(Action):
             # we want to show testimonials only once
             if show_testimonials == False:
                 possible_actions.append("show_testimonials")
+
+        dispatcher.utter_message(text=f"possible {possible_actions}")
 
         # there are no actions that we cannot do
         # this means we have already done all the 6 possible actions
