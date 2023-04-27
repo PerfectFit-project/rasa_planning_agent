@@ -86,10 +86,10 @@ intents:
 ## actions
 
 - do_explain_planning
-- do_explain_identify_barriers
-- do_explain_deal_with_barriers
-- do_explain_show_testimonials
-- do_explain_changes_to_plan
+- do_identify_barriers
+- do_deal_with_barriers
+- do_show_testimonials
+- do_changes_to_plan
 
 - confirm_actions_done
 
