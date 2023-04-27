@@ -286,6 +286,11 @@ rules:
   steps:
   - intent: confirm_continue_explain_planning
   - action: utter_explain_planning_3
+  - action: utter_explain_planning_4
+  - action: utter_explain_planning_5
+  - action: utter_explain_planning_6
+  - action: utter_explain_planning_7
+  - action: utter_explain_planning_8
   - action: action_save_action
   - action: utter_action_finished_loop_back
 
