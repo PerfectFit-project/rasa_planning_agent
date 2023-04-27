@@ -358,6 +358,99 @@ class ActionSaveEventState(Action):
         
         return []
 
+def do_action(action):
+
+    if action == "explain_planning":
+
+        dispatcher.utter_message(text="Maybe it would be useful to look again at why planning can help you do more physical activity.")
+        
+        buttons = []
+
+        buttons.append({"title": "Motivation"})
+        buttons.append({"title": "Routine"})
+        buttons.append({"title": "Visualising the road towards the goal"})
+        buttons.append({"title": "Realistic expectations"})
+        
+        dispatcher.utter_message(text="First off, why do you think planning can help you do more physical activity?", buttons=buttons)
+        dispatcher.utter_message(text="That's right!")
+        dispatcher.utter_message(text="Ultimately, the plan is meant to help you stay committed to your goal.")
+        dispatcher.utter_message(text="By creating a plan that is consistent across different weeks, it will be easier for you to form a habit of doing physical activity regularly.")
+        dispatcher.utter_message(text="Besides this, the plan shows you what you will be able to achieve in the end, so you have an idea of the goal you are working towards.")
+        dispatcher.utter_message(text="It might also help you set realistic expectations.")
+        dispatcher.utter_message(text="By seeing the plan, you can picture yourself doing the exercises each week, and think if that is feasible for you.")
+    
+    else if action == "identify_barriers":
+
+        dispatcher.utter_message(text="I think it might be useful to think of some barriers, or things that might stop or prevent you from doing more physical activity.")
+
+        dispatcher.utter_message(text="Let's first think of what the barriers are and then we'll see how we can deal with them.")
+
+        buttons = []
+
+        buttons.append({"title": "Lack of time"})
+        buttons.append({"title": "Lack of energy"})
+        buttons.append({"title": "Disliking being in the presence of others when exercising"})
+        buttons.append({"title": "Lack of equipment"})
+        buttons.append({"title": "Family obligations"})
+
+        ispatcher.utter_message(text="Which of these do you think might be a common barrier?", buttons=buttons)
+
+        dispatcher.utter_message(text="You're right!")
+        dispatcher.utter_message(text="A common barrier is that you may not always have time to exercise or you may be tired at the end of the day.")
+        dispatcher.utter_message(text="On the other hand, maybe you do not enjoy other people being there when you exercise.")
+        dispatcher.utter_message(text="Maybe you don't have shoes that are comfortable to take longer walks in.")
+        dispatcher.utter_message(text="It could also be that you have young children to take care of and that leaves you with little time.")
+        dispatcher.utter_message(text="All of these are barriers which could prevent you from doing more physical activity.")
+        dispatcher.utter_message(text="Think if these apply to you specifically.")
+        dispatcher.utter_message(text="You can also try to come up with some things that you know have been barriers in the past.")
+        dispatcher.utter_message(text="Write down all the barriers for yourself and let me know when you are ready to proceed.")
+
+    else if action == "deal_with_barriers":
+
+        dispatcher.utter_message(text="We've previously thought of barriers which might prevent you from being physically active.")
+        dispatcher.utter_message(text="Now, let's try to think how you could overcome those barriers.")
+        dispatcher.utter_message(text="Keep in mind that, while I can provide suggestions, it's really up to you to come up with the solution that works best for you.")
+        dispatcher.utter_message(text="Let's first see what you think would be a good way of dealing with a certain barrier.")
+
+        buttons = []
+
+        buttons.append({"title": "Lack of time"})
+        buttons.append({"title": "Lack of energy"})
+        buttons.append({"title": "Disliking being in the presence of others when exercising"})
+        buttons.append({"title": "Lack of equipment"})
+        buttons.append({"title": "Family obligations"})
+        
+        dispatcher.utter_message(text="Pick one of the barriers that we've talked about before and let me know how you would deal with it.", buttons=buttons)
+        dispatcher.utter_message(text="How would you overcome this barrier? Think for yourself and write it down next to the barrier you previously wrote down.")
+        
+        buttons = []
+
+        buttons.append({"title": "Let's move further."})
+        buttons.append({"title": "Let's proceed."})
+
+        dispatcher.utter_message(text="Let me know when you are ready to go on.", buttons = buttons)
+
+        dispatcher.utter_message(text="Okay. Now, you have your approach to this barrier. Here are the straegies for common barriers that I thought about.")
+        dispatcher.utter_message(text="If you lack the time to do physical activity, you could try taking a short walk when you have some free time (during your lunch break, for example).")
+        dispatcher.utter_message(text="In terms of energy, think back to when we talked about when you feel most energetic during the day. Aim to schedule activities at those times, since it will be easier for you that way.")
+        dispatcher.utter_message(text="Try to go to the gym when it's a bit quieter if you don't like it when other people can see you doing physical activity. It is not absolutely necessary to go to a gym, especially if you're only taking walks. Try walking in a park nearby or simply on the sidewalk.")
+        dispatcher.utter_message(text="Another common barrier is not having the right equipment. For walking in particular, the only thing you really need are shoes that are comfortable for you, so putting aside some money for that can be a relatively simple strategy.")
+        dispatcher.utter_message(text="If you have children to take care of, it might be a good idea to take them on regular walks with you. That way you can fulfill your family obligations and make progress towards your goal.")
+
+    else if action == "show_testimonials":
+
+        #TODO
+
+        dispatcher.utter_message(text="Testimonial")
+
+    else if action == "changes_to_plan":
+
+        #TODO
+
+        dispatcher.utter_message(text="Change plan")
+
+
+
 class ActionSelectActionSaveToDB(Action):
     def name(self):
         return "action_select_action_and_save"
@@ -472,11 +565,13 @@ class ActionSelectActionSaveToDB(Action):
 
         picked = random.choice(pick_from)
         
-        dispatcher.utter_message(text=f"I am going to do the action {picked}.")
+        # dispatcher.utter_message(text=f"I am going to do the action {picked}.")
 
         action = picked
 
         # TODO: do the action that was picked
+
+        do_action(action)
 
         save_sessiondata_entry(cur, conn, prolific_id, formatted_date, f"action: {action}")
 
