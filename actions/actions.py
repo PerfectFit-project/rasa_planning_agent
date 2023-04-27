@@ -458,7 +458,7 @@ class ActionSelectActionSaveToDB(Action):
 
         dispatcher.utter_message(text=f"Ordered {ordered}")
 
-        cleaned = []
+        # cleaned = []
 
         dispatcher.utter_message(text=f"Possible actions {possible_actions}")
 
@@ -469,18 +469,14 @@ class ActionSelectActionSaveToDB(Action):
         #         dispatcher.utter_message(text=f"Added")
         #         cleaned.append((ordered_action, frequency))      
 
-        for possible_action in possible_actions:
-            if possible_action in possible_actions:
-                dispatcher.utter_message(text=f"Good")
-
-        dispatcher.utter_message(text=f"Possible actions after removing impossible ones {cleaned}")
+        # dispatcher.utter_message(text=f"Possible actions after removing impossible ones {cleaned}")
 
         # if there are possible actions for this state that have never been done, add them to the list with them being done 0 times
         for possible_action in possible_actions:
             if not possible_action in [action for (action,frequency) in cleaned]:
                 cleaned.append((possible_action, 0))
 
-        dispatcher.utter_message(text=f"Possible actions after adding those that have never been done {cleaned}")
+        dispatcher.utter_message(text=f"Frequency of actions after adding those that have never been done {ordered}")
         
         # figure out how many times he least frequent action was done
         least_frequent = min(cleaned, key = lambda x: x[1])[1]
