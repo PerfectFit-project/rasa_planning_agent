@@ -434,7 +434,7 @@ class ActionSelectActionSaveToDB(Action):
         a = tracker.get_slot("attitude")
 
         # build current state
-        state = f"state: {ch}, {c}, {pu}, {a}, {explain_planning}, {identify_barriers}, {deal_with_barriers}, {show_testimonials}"
+        state = f"{ch}, {c}, {pu}, {a}, {explain_planning}, {identify_barriers}, {deal_with_barriers}, {show_testimonials}"
 
         query = ("SELECT * FROM state_action_state WHERE state_before = %s")
         
