@@ -327,13 +327,13 @@ rules:
 
 - rule: identify barriers continue 1
   steps:
-  - intent: confirm_continue_identify_barriers_1
+  - intent: confirm_continue_deal_with_barriers_1
   - action: utter_deal_with_barriers_6
   - action: utter_deal_with_barriers_7
 
 - rule: identify barriers continue 2
   steps:
-  - intent: confirm_continue_identify_barriers_2
+  - intent: confirm_continue_deal_with_barriers_2
   - action: utter_deal_with_barriers_8
   - action: utter_deal_with_barriers_9
   - action: utter_deal_with_barriers_10
