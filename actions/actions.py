@@ -379,7 +379,7 @@ def do_action(action):
         dispatcher.utter_message(text="It might also help you set realistic expectations.")
         dispatcher.utter_message(text="By seeing the plan, you can picture yourself doing the exercises each week, and think if that is feasible for you.")
     
-    else if action == "identify_barriers":
+    elif action == "identify_barriers":
 
         dispatcher.utter_message(text="I think it might be useful to think of some barriers, or things that might stop or prevent you from doing more physical activity.")
 
@@ -405,7 +405,7 @@ def do_action(action):
         dispatcher.utter_message(text="You can also try to come up with some things that you know have been barriers in the past.")
         dispatcher.utter_message(text="Write down all the barriers for yourself and let me know when you are ready to proceed.")
 
-    else if action == "deal_with_barriers":
+    elif action == "deal_with_barriers":
 
         dispatcher.utter_message(text="We've previously thought of barriers which might prevent you from being physically active.")
         dispatcher.utter_message(text="Now, let's try to think how you could overcome those barriers.")
@@ -437,13 +437,13 @@ def do_action(action):
         dispatcher.utter_message(text="Another common barrier is not having the right equipment. For walking in particular, the only thing you really need are shoes that are comfortable for you, so putting aside some money for that can be a relatively simple strategy.")
         dispatcher.utter_message(text="If you have children to take care of, it might be a good idea to take them on regular walks with you. That way you can fulfill your family obligations and make progress towards your goal.")
 
-    else if action == "show_testimonials":
+    elif action == "show_testimonials":
 
         #TODO
 
         dispatcher.utter_message(text="Testimonial")
 
-    else if action == "changes_to_plan":
+    elif action == "changes_to_plan":
 
         #TODO
 
