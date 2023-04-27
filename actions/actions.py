@@ -458,7 +458,7 @@ class ActionSelectActionSaveToDB(Action):
 
         cleaned = []
 
-        dispatcher.utter_message(text=f"Possible actions {possible_action}")
+        dispatcher.utter_message(text=f"Possible actions {possible_actions}")
 
         # remove actions that cannot be done from this state (should never happen, but it's safer this way)
         for (ordered_action, frequency) in ordered:
