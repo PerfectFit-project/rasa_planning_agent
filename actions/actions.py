@@ -462,6 +462,8 @@ class ActionSelectActionSaveToDB(Action):
 
         # TODO: check that least common is in the list of possible actions. If it is, pick it, if not, repeat for second least common
 
+        picked = ""
+
         if len(count) > 0:
             picked = count.most_common()[-1][0]
         
