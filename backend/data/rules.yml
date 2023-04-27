@@ -103,6 +103,11 @@ rules:
   - action: utter_routines_4
   - action: utter_routines_monday
 
+- rule: ask about routines when there are not enough time slots selected
+  steps:
+  - intent: retry_time_slots
+  - action: utter_routines_monday
+
 - rule: ask about routines monday repeat
   steps:
   - intent: confirm_monday

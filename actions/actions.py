@@ -255,9 +255,9 @@ class ActionCreateInitialPlan(Action):
 
         if number_of_timeslots < 4:
             
-            dispatcher.utter_message(text=f"I'm afraid you would have to do a bit too much activity all at once if we were to plan with your current schedule in mind… Let's think again about the times when you are available. Even if you're free for only 30 minutes or so at that time, that should still be enough to take a short walk.  [Handle this case later by going back to selecting time slots].")
+            dispatcher.utter_message(text=f"I'm afraid you would have to do a bit too much activity all at once if we were to plan with your current schedule in mind… Let's think again about the times when you are available. Even if you're free for only 30 minutes or so at that time, that should still be enough to take a short walk.")
             
-            return []
+            return [ActionExecuted("action_listen"), UserUttered(text="/retry_time_slots", parse_data={"intent": {"name": "retry_time_slots", "confidence": 1.0}})]
 
         elif number_of_timeslots == 4:
 

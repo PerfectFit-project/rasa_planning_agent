@@ -24,6 +24,8 @@ intents:
 
 ## free time
 
+- retry_time_slots
+
 # monday
 - confirm_monday
 - confirm_monday_continue
