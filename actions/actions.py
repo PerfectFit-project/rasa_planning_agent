@@ -13,6 +13,7 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import FollowupAction, SlotSet
 from typing import Any, Dict, List, Optional, Text
 
+import collections
 import logging
 import math
 import mysql.connector
