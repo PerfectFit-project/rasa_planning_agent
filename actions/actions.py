@@ -365,6 +365,20 @@ class ActionSelectActionSaveToDB(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
+        conn = mysql.connector.connect(
+            user=DATABASE_USER,
+            password=DATABASE_PASSWORD,
+            host=DATABASE_HOST,
+            port=DATABASE_PORT,
+            database='db'
+        )
+        cur = conn.cursor(prepared=True)
+
+        now = datetime.now()
+        formatted_date = now.strftime('%Y-%m-%d %H:%M:%S')
+        
+        prolific_id = tracker.current_state()['sender_id']
+
         changes_to_plan = int(tracker.get_slot("changes_to_plan"))
 
         explain_planning = tracker.get_slot("explain_planning")
@@ -408,23 +422,33 @@ class ActionSelectActionSaveToDB(Action):
         if len(possible_actions) == 0:
             return [SlotSet("actions_done", True)]
 
-        picked = random.choice(possible_actions)
+        # pick the action that was done the least for this state
 
-        dispatcher.utter_message(text=f"I am going to do the action {picked}.")
+        ch = tracker.get_slot("changes_to_plan")
 
-        now = datetime.now()
-        formatted_date = now.strftime('%Y-%m-%d %H:%M:%S')
+        c = tracker.get_slot("confidence")
 
-        conn = mysql.connector.connect(
-            user=DATABASE_USER,
-            password=DATABASE_PASSWORD,
-            host=DATABASE_HOST,
-            port=DATABASE_PORT,
-            database='db'
-        )
-        cur = conn.cursor(prepared=True)
+        pu = tracker.get_slot("perceived_usefulness")
+
+        a = tracker.get_slot("attitude")
+
+        state = f"{ch}, {c}, {pu}, {a}, {explain_planning}, {identify_barriers}, {deal_with_barriers}, {show_testimonials}"
+
+        query = ("SELECT * FROM state_action_state WHERE state = %s")
         
-        prolific_id = tracker.current_state()['sender_id']
+        cur.execute(query, [state])
+        
+        result = cur.fetchall()
+
+        dispatcher.utter_message(text=f"I found {len(result)} states that match this one")
+
+        actions = [action for (userid,date,state,action,next_state) in result]
+
+        count = collections.Counter(actions)
+
+        picked = count.most_common()[-1][0]
+        
+        dispatcher.utter_message(text=f"I am going to do the action {picked}.")
 
         action = picked
 
