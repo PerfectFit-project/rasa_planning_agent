@@ -393,8 +393,6 @@ class ActionSelectAction(Action):
 
         last_action = tracker.get_slot("last_action")
 
-        dispatcher.utter_message(text=f"Slots: changes {changes_to_plan}, explain {explain_planning}, identify {identify_barriers}, deal {deal_with_barriers}, show {show_testimonials}, last {last_action}")
-
         number_actions = changes_to_plan + explain_planning + identify_barriers + deal_with_barriers + show_testimonials
 
         possible_actions = []
