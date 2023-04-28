@@ -112,16 +112,12 @@ class ActionLoadSessionFirst(Action):
             database='db'
         )
         cur = conn.cursor(prepared=True)
-
-        ## commented out for debugging
-        
-        # session_loaded = check_session_not_done_before(cur, prolific_id)
+    
+        session_loaded = check_session_not_done_before(cur, prolific_id)
         
         conn.close()
 
-        ## changd to True for debugging
-
-        return [SlotSet("session_loaded", True)]
+        return [SlotSet("session_loaded", session_loaded)]
 
 class ActionCheckNumberOfSlos(Action):
 
