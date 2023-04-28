@@ -171,7 +171,7 @@ function setBotResponse(response) {
 										"friday_morning_1", "friday_midday_1", "friday_afternoon_1", "friday_evening_1",
 										"saturday_morning_1", "saturday_midday_1", "saturday_afternoon_1", "saturday_evening_1",
 										"sunday_morning_1", "sunday_midday_1", "sunday_afternoon_1", "sunday_evening_1",
-										"monday_morning_2", "monday_midday_2", "monday_afternoong_2", "monday_evening_2",
+										"monday_morning_2", "monday_midday_2", "monday_afternoon_2", "monday_evening_2",
 										"tuesday_morning_2", "tuesday_midday_2", "tuesday_afternoon_2", "tuesday_evening_2",
 										"wednesday_morning_2", "wednesday_midday_2", "wednesday_afternoon_2", "wednesday_evening_2",
 										"thursday_morning_2", "thursday_midday_2", "thursday_afternoon_2", "thursday_evening_2",
