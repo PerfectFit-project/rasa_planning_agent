@@ -266,7 +266,11 @@ $("#monday_morning_1").click(function () {
 	console.log("user has clicked monday morning")
 	if(time_slot.classList.contains("toggleable")){
 		console.log("user has clicked monday morning and it was toggleable")
-		$("#monday_morning_1").toggle();
+		if (time_slot.style.display === "none") {
+			time_slot.style.display = "block";
+		  } else {
+			time_slot.style.display = "none";
+		  }
 	}
 });
 

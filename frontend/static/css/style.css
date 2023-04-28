@@ -192,6 +192,7 @@ textarea-webkit-scrollbar {
 }
 
 .toggleable {
+	display: block;
 	cursor: pointer;
 }
 
