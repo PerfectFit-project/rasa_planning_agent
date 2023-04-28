@@ -325,8 +325,8 @@ function check_selected_timeslots(){
 	var selected_slots_1 = [];
 	var selected_slots_2 = [];
 
-	days_1.forEach(element_id => selected_slots_1.push(check_inner_HTML(element_id)));
-	days_2.forEach(element_id => selected_slots_2.push(check_inner_HTML(element_id)));
+	days_1.forEach(element_id => selected_slots_1.push(slots_selected(element_id)));
+	days_2.forEach(element_id => selected_slots_2.push(slots_selected(element_id)));
 
 	console.log(`selected_slots_1: ${selected_slots_1}`);
 	console.log(`selected_slots_2: ${selected_slots_2}`);
