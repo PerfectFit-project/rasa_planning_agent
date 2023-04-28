@@ -1,3 +1,5 @@
+var number_plan = 0;
+
 // ========================== start session ========================
 $(document).ready(function () {
 
@@ -125,7 +127,6 @@ function setBotResponse(response) {
 				for (j = 0; j < response_text.length; j++){
 					// display the plan when it is available
 					if(response_text[j].includes("Plan 1: Week 1 - ")){
-						console.log(response_text[j]);
 
 						const week_1 = response_text[j].split("Plan 1: Week 1 - ")[1].split(" ")[0];
 
@@ -140,15 +141,11 @@ function setBotResponse(response) {
 						const month_3 = response_text[j].split(" Month 3 - Walking for up to ")[1].split(" ")[0];
 
 						const slots = response_text[j].split(" minutes at these time slots: [")[1].split("]")[0].split(", ");
-
-						console.log(slots);
     
 						var clean_slots = slots.map(function(e) { 
 							e = e.replace(/^'(.*)'$/, '$1'); 
 							return e;
 						});
-
-						console.log(`clean_slots: ${clean_slots}`);
 
 						clean_slots.forEach(e => document.getElementById(e + "_1").innerHTML = "Walk " + week_1 + " minutes");
 
@@ -163,6 +160,8 @@ function setBotResponse(response) {
 						document.getElementById("month_3").innerHTML = "Walking for up to " + month_3 + " minutes per week across 5 days each week";
 
 						$(".plan_table").toggle();
+
+						number_plan = 1;
 					}
 					else if(response_text[j].includes("placeholder changes to plan")){
 
@@ -328,9 +327,6 @@ function check_selected_timeslots(){
 	days_1.forEach(element_id => selected_slots_1.push(slots_selected(element_id)));
 	days_2.forEach(element_id => selected_slots_2.push(slots_selected(element_id)));
 
-	console.log(`selected_slots_1: ${selected_slots_1}`);
-	console.log(`selected_slots_2: ${selected_slots_2}`);
-
 	var filtered_1 = selected_slots_1.filter(function (el) {
 		return el != "";
 	});
@@ -338,9 +334,6 @@ function check_selected_timeslots(){
 	var filtered_2 = selected_slots_2.filter(function (el) {
 		return el != "";
 	});
-
-	console.log(`filtered_1: ${filtered_1}`);
-	console.log(`filtered_2: ${filtered_2}`);
 
 	const week_3 = document.getElementById("week_3").innerHTML;
 	const week_4 = document.getElementById("week_4").innerHTML;
@@ -352,12 +345,20 @@ function check_selected_timeslots(){
 		button.style.display = "none";
 		days_1.forEach(element => document.getElementById(element).classList.remove("toggleable"));
 		days_2.forEach(element => document.getElementById(element).classList.remove("toggleable"));
-		var message = `/plan_modified{"plan_2":"Plan 2: Week 1 - 30 minutes at these time slots: [${filtered_1}]. Week 2 - 35 minutes at these time slots: [${filtered_2}]. Week 3 - Walking for ${week_3} minutes across 4 days. Week 4 - Walking for ${week_4} minutes across 4 days. Month 2 - Walking for up to ${month_2} minutes per week across 5 days. Month 3 - Walking for up to ${month_3} minutes per week across 6 days."}`;
 
-		send(message);
+		if(number_plan == 1){
+			var message = `/plan_modified{"plan_2":"Plan 2: Week 1 - 30 minutes at these time slots: [${filtered_1}]. Week 2 - 35 minutes at these time slots: [${filtered_2}]. Week 3 - Walking for ${week_3} minutes across 4 days. Week 4 - Walking for ${week_4} minutes across 4 days. Month 2 - Walking for up to ${month_2} minutes per week across 5 days. Month 3 - Walking for up to ${month_3} minutes per week across 6 days."}`;
 
-		console.log(`plan: ${message}`);
+			send(message);
 
+			number_plan = 2;
+	
+		}
+		else{
+			var message = `/plan_modified{"plan_3":"Plan 3: Week 1 - 30 minutes at these time slots: [${filtered_1}]. Week 2 - 35 minutes at these time slots: [${filtered_2}]. Week 3 - Walking for ${week_3} minutes across 4 days. Week 4 - Walking for ${week_4} minutes across 4 days. Month 2 - Walking for up to ${month_2} minutes per week across 5 days. Month 3 - Walking for up to ${month_3} minutes per week across 6 days."}`;
+
+			send(message);
+		}
 	}
 	else{
 		window.alert("You cannot submit the plan as it is currently. Each week should have exactly four time slots selected.");
