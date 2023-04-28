@@ -260,6 +260,15 @@ $("#profile_div").click(function () {
 	$(".widget").toggle();
 });
 
+//====================================== Toggle time slots =======================================
+$("#monday_morning_1").click(function () {
+	var time_slot = document.getElementById("monday_morning_1")
+
+	if(time_slot.classList.contains("toggleable")){
+		$("#monday_morning_1").toggle();
+	}
+});
+
 
 //====================================== Suggestions ===========================================
 
