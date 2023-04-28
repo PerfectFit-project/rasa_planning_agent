@@ -555,13 +555,7 @@ class ActionSelectAction(Action):
             
             changes_to_plan += 1
 
-            if changes_to_plan == 1:
-        
-                return [SlotSet("changes_to_plan", f"{changes_to_plan}"), SlotSet("last_action", "changes_to_plan"), SlotSet("plan_2", "placeholder2")]
-
-            if changes_to_plan == 2:
-
-                return [SlotSet("changes_to_plan", f"{changes_to_plan}"), SlotSet("last_action", "changes_to_plan"), SlotSet("plan_3", "placeholder3")]
+            return [SlotSet("changes_to_plan", f"{changes_to_plan}"), SlotSet("last_action", "changes_to_plan")]
 
         else:
 
