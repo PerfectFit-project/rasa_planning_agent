@@ -1,5 +1,7 @@
 var number_plan = 0;
 
+$('.usrInput').attr("disabled",true);
+
 // ========================== start session ========================
 $(document).ready(function () {
 
@@ -389,7 +391,7 @@ function slots_selected(element_id){
 
 function addSuggestion(textToAdd) {
 	setTimeout(function () {
-		$('.usrInput').attr("disabled",true);
+
 		$(".usrInput").prop('placeholder', "Use one of the buttons to answer.");
 		var suggestions = textToAdd;
 		var suggLength = textToAdd.length;
@@ -404,8 +406,8 @@ function addSuggestion(textToAdd) {
 
 // on click of suggestions, get the value and send to rasa
 $(document).on("click", ".menu .menuChips", function () {
-	$('.usrInput').attr("disabled",false);
-	$(".usrInput").prop('placeholder', "Type a message...");
+	// $('.usrInput').attr("disabled",false);
+	$(".usrInput").prop('placeholder', "Use the buttons to answer...");
 	var text = this.innerText;
 	var payload = this.getAttribute('data-payload');
 	console.log("payload: ", this.getAttribute('data-payload'))
