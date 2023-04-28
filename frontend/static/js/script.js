@@ -333,14 +333,14 @@ function check_selected_timeslots(){
 	const week_3 = document.getElementById("week_3").innerHTML;
 	const week_4 = document.getElementById("week_4").innerHTML;
 
+	const month_2 = document.getElementById("month_2").innerHTML;
 	const month_3 = document.getElementById("month_3").innerHTML;
-	const month_4 = document.getElementById("month_4").innerHTML;
 
 	if(count_1 == 4 && count_2 == 4){
 		button.style.display = "none";
 		days_1.forEach(element => document.getElementById(element).classList.remove("toggleable"));
 		days_2.forEach(element => document.getElementById(element).classList.remove("toggleable"));
-		var message = `/plan_modified{\"plan_2\":\"Plan: Week 1 - 30 minutes at these time slots: [${filtered_1}]. Week 2 - 35 minutes at these time slots: [${filtered_2}]. Week 3 - Walking for ${week_3} minutes across 4 days. Week 4 - Walking for ${week_4} minutes across 4 days. Month 2 - Walking for up to ${month_3} minutes per week across 5 days. Month 3 - Walking for up to ${month_4} minutes per week across 6 days.\"`;
+		var message = `/plan_modified{\"plan_2\":\"Plan: Week 1 - 30 minutes at these time slots: [${filtered_1}]. Week 2 - 35 minutes at these time slots: [${filtered_2}]. Week 3 - Walking for ${week_3} minutes across 4 days. Week 4 - Walking for ${week_4} minutes across 4 days. Month 2 - Walking for up to ${month_2} minutes per week across 5 days. Month 3 - Walking for up to ${month_3} minutes per week across 6 days.\"`;
 
 		send(message);
 
