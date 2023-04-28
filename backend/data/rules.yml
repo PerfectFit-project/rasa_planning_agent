@@ -363,6 +363,7 @@ rules:
 - rule: changes to plan
   steps:
   - intent: do_changes_to_plan
+  - action: utter_start_planning
   - action: utter_changes_to_plan_1
   - action: utter_changes_to_plan_2
   - action: utter_changes_to_plan_3
@@ -370,7 +371,7 @@ rules:
   - action: utter_changes_to_plan_5
   - action: utter_changes_to_plan_6
   - action: utter_changes_to_plan_7
-  - action: utter_start_planning
+
 
 - rule: receive modified plan
   steps:
