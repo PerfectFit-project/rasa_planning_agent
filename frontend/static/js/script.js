@@ -159,7 +159,7 @@ function setBotResponse(response) {
 						$(".plan_table").toggle();
 					}
 					else if(response_text[j].includes("placeholder changes to plan")){
-						$(".submit_plan_button").toggle();
+						document.getElementById("submit_plan_button").style.display = "table";
 					}
 					// otherwise, display the message
 					else{
