@@ -363,12 +363,17 @@ rules:
 - rule: changes to plan
   steps:
   - intent: do_changes_to_plan
-  - action: utter_changes_to_plan
+  - action: utter_changes_to_plan_1
+  - action: utter_changes_to_plan_2
+  - action: utter_changes_to_plan_3
+  - action: utter_changes_to_plan_4
+  - action: utter_changes_to_plan_5
+  - action: utter_changes_to_plan_6
+  - action: utter_changes_to_plan_17
 
 - rule: receive modified plan
   steps:
   - intent: plan_modified
-  - action: utter_plan_modified
   - action: action_save_action
   - action: utter_action_finished_loop_back
 
