@@ -124,10 +124,10 @@ function setBotResponse(response) {
 				var response_text = response[0].text.split("\n")
 				for (j = 0; j < response_text.length; j++){
 					// display the plan when it is available
-					if(response_text[j].includes("Plan: Week 1 - ")){
+					if(response_text[j].includes("Plan 1: Week 1 - ")){
 						console.log(response_text[j]);
 
-						const week_1 = response_text[j].split("Plan: Week 1 - ")[1].split(" ")[0];
+						const week_1 = response_text[j].split("Plan 1: Week 1 - ")[1].split(" ")[0];
 
 						const week_2 = response_text[j].split(" Week 2 - ")[1].split(" ")[0];
 						
@@ -352,7 +352,7 @@ function check_selected_timeslots(){
 		button.style.display = "none";
 		days_1.forEach(element => document.getElementById(element).classList.remove("toggleable"));
 		days_2.forEach(element => document.getElementById(element).classList.remove("toggleable"));
-		var message = `/plan_modified{"plan_2":"Plan: Week 1 - 30 minutes at these time slots: [${filtered_1}]. Week 2 - 35 minutes at these time slots: [${filtered_2}]. Week 3 - Walking for ${week_3} minutes across 4 days. Week 4 - Walking for ${week_4} minutes across 4 days. Month 2 - Walking for up to ${month_2} minutes per week across 5 days. Month 3 - Walking for up to ${month_3} minutes per week across 6 days."}`;
+		var message = `/plan_modified{"plan_2":"Plan 2: Week 1 - 30 minutes at these time slots: [${filtered_1}]. Week 2 - 35 minutes at these time slots: [${filtered_2}]. Week 3 - Walking for ${week_3} minutes across 4 days. Week 4 - Walking for ${week_4} minutes across 4 days. Month 2 - Walking for up to ${month_2} minutes per week across 5 days. Month 3 - Walking for up to ${month_3} minutes per week across 6 days."}`;
 
 		send(message);
 

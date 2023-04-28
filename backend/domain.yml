@@ -1552,7 +1552,7 @@ responses:
   - text: "placeholder changes to plan"
 
   utter_plan_modified:
-  - text: "placeholder plan modified: plan 2 is {plan_2}"
+  - text: "placeholder plan modified: plan 2 is aaaaaaaaaaaaaa{plan_2}"
 
   utter_action_finished_loop_back:
   - condition:
