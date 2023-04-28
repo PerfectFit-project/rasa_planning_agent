@@ -159,7 +159,29 @@ function setBotResponse(response) {
 						$(".plan_table").toggle();
 					}
 					else if(response_text[j].includes("placeholder changes to plan")){
-						document.getElementById("submit_plan_button").style.display = "table";
+
+						var button = document.getElementById("submit_plan_button");
+  						
+						button.style.display = "table";
+
+						const days = [	"monday_morning_1", "monday_morning_1", "monday_morning_1", "monday_morning_1",
+										"tuesday_morning_1", "tuesday_morning_1", "tuesday_morning_1", "tuesday_morning_1",
+										"wednesday_morning_1", "wednesday_morning_1", "wednesday_morning_1", "wednesday_morning_1",
+										"thursday_morning_1", "thursday_morning_1", "thursday_morning_1", "thursday_morning_1",
+										"friday_morning_1", "friday_morning_1", "friday_morning_1", "friday_morning_1",
+										"saturday_morning_1", "saturday_morning_1", "saturday_morning_1", "saturday_morning_1",
+										"sunday_morning_1", "sunday_morning_1", "sunday_morning_1", "sunday_morning_1",
+										"monday_morning_2", "monday_morning_2", "monday_morning_2", "monday_morning_2",
+										"tuesday_morning_2", "tuesday_morning_2", "tuesday_morning_2", "tuesday_morning_2",
+										"wednesday_morning_2", "wednesday_morning_2", "wednesday_morning_2", "wednesday_morning_2",
+										"thursday_morning_2", "thursday_morning_2", "thursday_morning_2", "thursday_morning_2",
+										"friday_morning_2", "friday_morning_2", "friday_morning_2", "friday_morning_2",
+										"saturday_morning_2", "saturday_morning_2", "saturday_morning_2", "saturday_morning_2",
+										"sunday_morning_2", "sunday_morning_2", "sunday_morning_2", "sunday_morning_2"
+									]
+
+						days.forEach(element => document.getElementById(element).classList.add("toggleable"));
+
 					}
 					// otherwise, display the message
 					else{
