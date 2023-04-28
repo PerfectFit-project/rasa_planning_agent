@@ -380,7 +380,7 @@ function slots_selected(element_id){
 		return "";
 	}
 	// remove the _1 or _2 from the id
-	else return element_id.substring(0, element_id.length - 2);
+	else return `'${element_id.substring(0, element_id.length - 2)}'`;
 }
 
 
