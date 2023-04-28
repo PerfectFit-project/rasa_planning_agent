@@ -125,6 +125,8 @@ function setBotResponse(response) {
 				for (j = 0; j < response_text.length; j++){
 					// display the plan when it is available
 					if(response_text[j].includes("Plan: Week 1 - ")){
+						console.log(response_text[j]);
+
 						const week_1 = response_text[j].split("Plan: Week 1 - ")[1].split(" ")[0];
 
 						const week_2 = response_text[j].split(" Week 2 - ")[1].split(" ")[0];
@@ -139,7 +141,7 @@ function setBotResponse(response) {
 
 						const slots = response_text[j].split(" minutes at these time slots: [")[1].split("]")[0].split(", ");
 
-						console.log(`slots: ${slots}`);
+						console.log(slots);
     
 						var clean_slots = slots.map(function(e) { 
 							e = e.replace(/^'(.*)'$/, '$1'); 
@@ -372,7 +374,7 @@ function check_inner_HTML(element_id){
 }
 
 function slots_selected(element_id){
-	var element =  document.getElementById(element_id);
+	var element = document.getElementById(element_id);
 
 	if(element.innerHTML == ""){
 		return "";
