@@ -266,10 +266,10 @@ $("#monday_morning_1").click(function () {
 	console.log("user has clicked monday morning")
 	if(time_slot.classList.contains("toggleable")){
 		console.log("user has clicked monday morning and it was toggleable")
-		if (time_slot.style.display === "none") {
-			time_slot.style.display = "block";
+		if (time_slot.innerHTML = "Walk 30 minutes") {
+			time_slot.innerHTML = "";
 		  } else {
-			time_slot.style.display = "none";
+			time_slot.innerHTML = "Walk 30 minutes";
 		  }
 	}
 });
