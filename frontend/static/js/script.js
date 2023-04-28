@@ -138,11 +138,15 @@ function setBotResponse(response) {
 						const month_3 = response_text[j].split(" Month 3 - Walking for up to ")[1].split(" ")[0];
 
 						const slots = response_text[j].split(" minutes at these time slots: [")[1].split("]")[0].split(", ");
+
+						console.log(`slots: ${slots}`);
     
 						var clean_slots = slots.map(function(e) { 
 							e = e.replace(/^'(.*)'$/, '$1'); 
 							return e;
 						});
+
+						console.log(`clean_slots: ${clean_slots}`);
 
 						clean_slots.forEach(e => document.getElementById(e + "_1").innerHTML = "Walk " + week_1 + " minutes");
 
@@ -322,6 +326,9 @@ function check_selected_timeslots(){
 	days_1.forEach(element_id => selected_slots_1.push(check_inner_HTML(element_id)));
 	days_2.forEach(element_id => selected_slots_2.push(check_inner_HTML(element_id)));
 
+	console.log(`selected_slots_1: ${selected_slots_1}`);
+	console.log(`selected_slots_2: ${selected_slots_2}`);
+
 	var filtered_1 = selected_slots_1.filter(function (el) {
 		return el != "";
 	});
@@ -329,6 +336,9 @@ function check_selected_timeslots(){
 	var filtered_2 = selected_slots_2.filter(function (el) {
 		return el != "";
 	});
+
+	console.log(`filtered_1: ${filtered_1}`);
+	console.log(`filtered_2: ${filtered_2}`);
 
 	const week_3 = document.getElementById("week_3").innerHTML;
 	const week_4 = document.getElementById("week_4").innerHTML;
@@ -343,6 +353,8 @@ function check_selected_timeslots(){
 		var message = `/plan_modified{"plan_2":"Plan: Week 1 - 30 minutes at these time slots: [${filtered_1}]. Week 2 - 35 minutes at these time slots: [${filtered_2}]. Week 3 - Walking for ${week_3} minutes across 4 days. Week 4 - Walking for ${week_4} minutes across 4 days. Month 2 - Walking for up to ${month_2} minutes per week across 5 days. Month 3 - Walking for up to ${month_3} minutes per week across 6 days."}`;
 
 		send(message);
+
+		console.log(`plan: ${message}`);
 
 	}
 	else{
