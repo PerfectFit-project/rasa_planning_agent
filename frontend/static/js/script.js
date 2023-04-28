@@ -261,18 +261,24 @@ $("#profile_div").click(function () {
 });
 
 //====================================== Toggle time slots =======================================
-function toggle_table_cell(clicked_id){
+function toggle_table_cell_1(clicked_id){
 	var time_slot = document.getElementById(clicked_id)
 	if(time_slot.classList.contains("toggleable")){
-		if (time_slot.innerHTML == "Walk 30 minutes" || time_slot.innerHTML == "Walk 35 minutes") {
+		if (time_slot.innerHTML == "Walk 30 minutes") {
 			time_slot.innerHTML = "";
-		  } else if(clicked_id.contains("1")){
+		  } else {
 			time_slot.innerHTML = "Walk 30 minutes";
-		  } else if(clicked_id.contains("2")){
-			time_slot.innerHTML = "Walk 35 minutes";
 		  }
-		  else{
+	}
+}
+
+function toggle_table_cell_2(clicked_id){
+	var time_slot = document.getElementById(clicked_id)
+	if(time_slot.classList.contains("toggleable")){
+		if (time_slot.innerHTML == "Walk 35 minutes") {
 			time_slot.innerHTML = "";
+		  } else {
+			time_slot.innerHTML = "Walk 35 minutes";
 		  }
 	}
 }
