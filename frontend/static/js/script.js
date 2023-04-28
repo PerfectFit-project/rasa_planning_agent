@@ -340,7 +340,7 @@ function check_selected_timeslots(){
 		button.style.display = "none";
 		days_1.forEach(element => document.getElementById(element).classList.remove("toggleable"));
 		days_2.forEach(element => document.getElementById(element).classList.remove("toggleable"));
-		var message = `/plan_modified{\"plan_2\":\"Plan: Week 1 - 30 minutes at these time slots: [${filtered_1}]. Week 2 - 35 minutes at these time slots: [${filtered_2}]. Week 3 - Walking for ${week_3} minutes across 4 days. Week 4 - Walking for ${week_4} minutes across 4 days. Month 2 - Walking for up to ${month_2} minutes per week across 5 days. Month 3 - Walking for up to ${month_3} minutes per week across 6 days.\"`;
+		var message = `/plan_modified{"plan_2":"Plan: Week 1 - 30 minutes at these time slots: [${filtered_1}]. Week 2 - 35 minutes at these time slots: [${filtered_2}]. Week 3 - Walking for ${week_3} minutes across 4 days. Week 4 - Walking for ${week_4} minutes across 4 days. Month 2 - Walking for up to ${month_2} minutes per week across 5 days. Month 3 - Walking for up to ${month_3} minutes per week across 6 days."}`;
 
 		send(message);
 
