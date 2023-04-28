@@ -158,6 +158,9 @@ function setBotResponse(response) {
 
 						$(".plan_table").toggle();
 					}
+					else if(response_text[j].includes("placeholder changes to plan")){
+						$(".submit_plan_button").toggle();
+					}
 					// otherwise, display the message
 					else{
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
