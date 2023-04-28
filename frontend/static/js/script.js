@@ -261,6 +261,8 @@ $("#profile_div").click(function () {
 });
 
 //====================================== Toggle time slots =======================================
+// a bit hacky since I'm not passing the "real" values, but it turns out that regardless of what the goal is,
+// these are always 30 minutes in the first week and 35 in the second week since we round to the nearest 5
 function toggle_table_cell_1(clicked_id){
 	var time_slot = document.getElementById(clicked_id)
 	if(time_slot.classList.contains("toggleable")){
