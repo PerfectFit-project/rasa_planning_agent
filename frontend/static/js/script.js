@@ -276,16 +276,6 @@ function toggle_table_cell(clicked_id){
 		  }
 	}
 }
-$("#monday_morning_1").click(function () {
-	
-
-		  }
-	}
-}
-$("#monday_morning_1").click(function () {
-	
-});
-
 
 //====================================== Suggestions ===========================================
 
