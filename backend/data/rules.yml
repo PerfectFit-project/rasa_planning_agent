@@ -370,6 +370,7 @@ rules:
   - action: utter_changes_to_plan_5
   - action: utter_changes_to_plan_6
   - action: utter_changes_to_plan_7
+  - action: utter_start_planning
 
 - rule: receive modified plan
   steps:

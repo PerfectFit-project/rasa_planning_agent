@@ -1569,6 +1569,9 @@ responses:
   utter_changes_to_plan_7:
   - text: "Oh, and keep in mind that you should have precisely four times for going on a walk scheduled in each of the weeks."
 
+  utter_start_planning:
+  - text: "this is a message for javascript: enable the buttons"
+
   utter_action_finished_loop_back:
   - condition:
       - type: slot

@@ -163,7 +163,7 @@ function setBotResponse(response) {
 
 						number_plan = 1;
 					}
-					else if(response_text[j].includes("placeholder changes to plan")){
+					else if(response_text[j].includes("this is a message for javascript: enable the buttons")){
 
 						var button = document.getElementById("submit_plan_button");
   						
