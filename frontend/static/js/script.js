@@ -320,6 +320,8 @@ function check_selected_timeslots(){
 		button.style.display = "none";
 		days_1.forEach(element => document.getElementById(element).classList.remove("toggleable"));
 		days_2.forEach(element => document.getElementById(element).classList.remove("toggleable"));
+		send("/plan_modified");
+
 	}
 	else{
 		window.alert("You cannot submit the plan as it is currently. Each week should have exactly four time slots selected.");

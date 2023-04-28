@@ -364,6 +364,11 @@ rules:
   steps:
   - intent: do_changes_to_plan
   - action: utter_changes_to_plan
+
+- rule: receive modified plan
+  steps:
+  - intent: plan_modified
+  - action: utter_plan_modified
   - action: action_save_action
   - action: utter_action_finished_loop_back
 

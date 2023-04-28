@@ -95,6 +95,8 @@ intents:
 - do_show_testimonials
 - do_changes_to_plan
 
+- plan_modified
+
 - confirm_continue_explain_planning
 - confirm_continue_identify_barriers
 - confirm_continue_deal_with_barriers_1
@@ -1548,6 +1550,9 @@ responses:
 
   utter_changes_to_plan:
   - text: "placeholder changes to plan"
+
+  utter_plan_modified:
+  - text: "placeholder plan modified"
 
   utter_action_finished_loop_back:
   - condition:
