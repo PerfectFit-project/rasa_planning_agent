@@ -164,20 +164,20 @@ function setBotResponse(response) {
   						
 						button.style.display = "table";
 
-						const days = [	"monday_morning_1", "monday_morning_1", "monday_morning_1", "monday_morning_1",
-										"tuesday_morning_1", "tuesday_morning_1", "tuesday_morning_1", "tuesday_morning_1",
-										"wednesday_morning_1", "wednesday_morning_1", "wednesday_morning_1", "wednesday_morning_1",
-										"thursday_morning_1", "thursday_morning_1", "thursday_morning_1", "thursday_morning_1",
-										"friday_morning_1", "friday_morning_1", "friday_morning_1", "friday_morning_1",
-										"saturday_morning_1", "saturday_morning_1", "saturday_morning_1", "saturday_morning_1",
-										"sunday_morning_1", "sunday_morning_1", "sunday_morning_1", "sunday_morning_1",
-										"monday_morning_2", "monday_morning_2", "monday_morning_2", "monday_morning_2",
-										"tuesday_morning_2", "tuesday_morning_2", "tuesday_morning_2", "tuesday_morning_2",
-										"wednesday_morning_2", "wednesday_morning_2", "wednesday_morning_2", "wednesday_morning_2",
-										"thursday_morning_2", "thursday_morning_2", "thursday_morning_2", "thursday_morning_2",
-										"friday_morning_2", "friday_morning_2", "friday_morning_2", "friday_morning_2",
-										"saturday_morning_2", "saturday_morning_2", "saturday_morning_2", "saturday_morning_2",
-										"sunday_morning_2", "sunday_morning_2", "sunday_morning_2", "sunday_morning_2"
+						const days = [	"monday_morning_1", "monday_midday_1", "monday_afternoon_1", "monday_evening_1",
+										"tuesday_morning_1", "tuesday_midday_1", "tuesday_afternoon_1", "tuesday_evening_1",
+										"wednesday_morning_1", "wednesday_midday_1", "wednesday_afternoon_1", "wednesday_evening_1",
+										"thursday_morning_1", "thursday_midday_1", "thursday_afternoon_1", "thursday_evening_1",
+										"friday_morning_1", "friday_midday_1", "friday_afternoon_1", "friday_evening_1",
+										"saturday_morning_1", "saturday_midday_1", "saturday_afternoon_1", "saturday_evening_1",
+										"sunday_morning_1", "sunday_midday_1", "sunday_afternoon_1", "sunday_evening_1",
+										"monday_morning_2", "monday_midday_2", "monday_afternoong_2", "monday_evening_2",
+										"tuesday_morning_2", "tuesday_midday_2", "tuesday_afternoon_2", "tuesday_evening_2",
+										"wednesday_morning_2", "wednesday_midday_2", "wednesday_afternoon_2", "wednesday_evening_2",
+										"thursday_morning_2", "thursday_midday_2", "thursday_afternoon_2", "thursday_evening_2",
+										"friday_morning_2", "friday_midday_2", "friday_afternoon_2", "friday_evening_2",
+										"saturday_morning_2", "saturday_midday_2", "saturday_afternoon_2", "saturday_evening_2",
+										"sunday_morning_2", "sunday_midday_2", "sunday_afternoon_2", "sunday_evening_2"
 									]
 
 						days.forEach(element => document.getElementById(element).classList.add("toggleable"));
