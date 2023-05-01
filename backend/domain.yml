@@ -1564,7 +1564,7 @@ responses:
   - text: "Think about when you would want to do physical activity."
 
   utter_changes_to_plan_6:
-  - text: "Once you are done, please click the button titled 'I am done modifying the plan'."
+  - text: "Once you are done, please click the button titled 'I am done adjusting the plan'."
 
   utter_changes_to_plan_7:
   - text: "Oh, and keep in mind that you should have precisely four times for going on a walk scheduled in each of the weeks."
