@@ -1403,7 +1403,7 @@ responses:
       title: "9"
     - payload: /confirm_attitude{"attitude":"high"}
       title: "10 (Very useful)"
-    text: "Please complete the following statement: 'For me, planning for physical activity for the enxt 3 months would be ...'"
+    text: "Please complete the following statement: 'For me, planning for physical activity for the next 3 months would be ...'"
 
   utter_attitude_repeat:
   - text: "So your attitude is {attitude}."
