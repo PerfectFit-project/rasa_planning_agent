@@ -159,6 +159,7 @@ The project further uses an mysql database to store specific data from the conve
    - When setting up the connection, use "db" for "Database", "root" for "Username", and the password specified in docker-compose.yml. Keep "Port" to 3306. The "Server Host" is the IP address of your instance.
       - You might have to set "allowPublicKeyRetrieval" to "true" in "Driver properties." 
    - To delete the database content, just delete the folder "data_mysql" on your Google Compute Engine instance.
+   - Make sure to use a secure password. This needs to be set in both docker-compose.yml and actions/definitions.py. For example, see [this post](https://www.akamai.com/blog/security/btc-strikes-back-now-attacking-mysql-databases).
 
 
 Some errors I got during the setup:
