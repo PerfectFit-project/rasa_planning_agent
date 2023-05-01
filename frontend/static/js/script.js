@@ -101,10 +101,6 @@ function send(message) {
 	});
 }
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 //=================== set bot response in the chats ===========================================
 function setBotResponse(response) {
 
@@ -190,8 +186,6 @@ function setBotResponse(response) {
 									]
 
 						days.forEach(element => document.getElementById(element).classList.add("toggleable"));
-
-						await sleep(10000);
 
 						button.style.display = "table";
 
