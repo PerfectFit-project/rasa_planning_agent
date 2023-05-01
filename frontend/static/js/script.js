@@ -168,8 +168,6 @@ function setBotResponse(response) {
 					else if(response_text[j].includes("this is a message for javascript: enable the buttons")){
 
 						var button = document.getElementById("submit_plan_button");
-  						
-						button.style.display = "table";
 
 						const days = [	"monday_morning_1", "monday_midday_1", "monday_afternoon_1", "monday_evening_1",
 										"tuesday_morning_1", "tuesday_midday_1", "tuesday_afternoon_1", "tuesday_evening_1",
@@ -188,6 +186,10 @@ function setBotResponse(response) {
 									]
 
 						days.forEach(element => document.getElementById(element).classList.add("toggleable"));
+
+						await new Promise(r => setTimeout(r, 10000));
+
+						button.style.display = "table";
 
 					}
 					// otherwise, display the message
