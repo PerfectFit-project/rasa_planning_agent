@@ -861,7 +861,7 @@ responses:
 
 
   utter_purpose_2:
-  - text: "Being more physically active is generally regarded as beneficial for both health and mood."
+  - text: "Being more physically active is generally regarded as beneficial for both health and mood. So, how do I motivate you to get started?"
 
 
   utter_purpose_3:
