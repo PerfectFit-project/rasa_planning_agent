@@ -879,7 +879,7 @@ responses:
 
 
   utter_purpose_7:
-  - text: "Don't be alarmed if that seems a bit much right now. It will get easier after the first few times."
+  - text: "Do not be alarmed if that seems a bit much right now. It will get easier after the first few times."
 
   utter_confirm_purpose:
   - buttons:
@@ -900,7 +900,7 @@ responses:
       title: "Okay, that makes sense!"
     - payload: /confirm_usage
       title: "I understand."
-    text: "Most of the time, you can just click on one of the buttons like you already did. If no buttons appear, just make use of the text field below."
+    text: "You can simply click on one of the buttons like you already did. If no buttons appear below the message, you might need to do something in a diferent part of the screen. I will tell you when that is the case."
 
 
   utter_internal_moivation_1:
@@ -942,7 +942,7 @@ responses:
     - payload: /confirm_usefulnes_planning_intro
       title: "Yeah."
     - payload: /confirm_usefulnes_planning_intro
-      title: "Sounds reasoable."
+      title: "Sounds reasonable."
     text: "Does that make sense?"
 
   utter_routines_1:
@@ -1279,7 +1279,7 @@ responses:
 
 
   utter_goal_1:
-  - text: "One last thing before we move on to making the plan. Let's set goal for you."
+  - text: "One last thing before we move on to making the plan. Let's set a goal for you."
 
   utter_goal_2:
   - text: "Having a clear goal to work towards is also helpful in keeping you motivated."
@@ -1462,7 +1462,7 @@ responses:
     text: "Which of these do you think might be a common barrier?"
 
   utter_identify_barriers_4:
-  - text: "You're right!"
+  - text: "You're right! That is indeed a barrierr."
 
   utter_identify_barriers_5:
   - text: "A common barrier is that you may not always have time to exercise or you may be tired at the end of the day."
@@ -1641,7 +1641,7 @@ responses:
       title: "9"
     - payload: /confirm_commitment_1{"commitment_1":"10"}
       title: "10 (I strongly agree)"
-    text: "How much do you agree with the following statement: 'I am committing to being physically active by following the first two weeks of the plan, no mater what feels uncomfortable or challenging about that'?"
+    text: "How much do you agree with the following statement: 'I am committing to being physically active by following the first two weeks of the plan, no matter what feels uncomfortable or challenging about that'?"
 
   utter_commitment_f:
   - buttons:
