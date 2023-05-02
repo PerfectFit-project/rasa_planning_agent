@@ -468,6 +468,8 @@ class ActionSelectAction(Action):
         # retrieve all database entries which have an action taken from this state
         result = cur.fetchall()
 
+        conn.close()
+
         # select only the actions in the database results
         actions = [f"{action}" for (userid,date,state,action,next_state) in result]
 
@@ -605,6 +607,8 @@ class ActionSaveGoalPlansAndReward(Action):
 
         save_goal_plans_and_reward_to_db(cur, conn, prolific_id, formatted_date, goal, plan_1, plan_2, plan_3, reward)
 
+        conn.close()
+
         return []
 
 class ActionConvertDBToStateActionNextState(Action):
@@ -647,6 +651,8 @@ class ActionConvertDBToStateActionNextState(Action):
             query = "INSERT INTO state_action_state(prolific_id, time, state_before, action, state_after) VALUES(%s, %s, %s, %s, %s)"
             cur.execute(query, [prolific_id, time, state_before, action, state_after])
             conn.commit()
+
+        conn.close()
 
 
         return []
