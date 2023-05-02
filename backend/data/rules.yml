@@ -88,6 +88,7 @@ rules:
 - rule: explain why planning is useful
   steps:
   - intent: confirm_motivation
+  - action: utter_thank_for_motivation
   - action: utter_explain_usefulness_planning_1
   - action: utter_explain_usefulness_planning_2
   - action: utter_explain_usefulness_planning_3

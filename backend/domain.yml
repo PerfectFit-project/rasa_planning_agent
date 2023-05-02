@@ -924,6 +924,8 @@ responses:
       title: "I have a different reason."
     text: "I'll show you a few common reasons, but if you have a different one, feel free to pick \"I have a different reason\"."
 
+  utter_thank_for_motivation:
+  - text: "I see, thank you for letting me know!"
 
   utter_explain_usefulness_planning_1:
   - text: "Now, I told you we'll make a plan together, but I forgot to mention why this is important to begin with."
