@@ -11,6 +11,7 @@ from definitions import (DATABASE_HOST, DATABASE_PASSWORD,
 from rasa_sdk import Action, FormValidationAction, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import FollowupAction, SlotSet, UserUttered, ActionExecuted
+from time import sleep
 from typing import Any, Dict, List, Optional, Text
 
 import collections
@@ -679,6 +680,8 @@ class ActionShowTestimonials(Action):
 
 
             dispatcher.utter_message(text=testimonials_to_show[0])
+
+            sleep(7) # Time in seconds
 
             dispatcher.utter_message(text="Let's see another example.")
 
