@@ -1355,7 +1355,7 @@ responses:
   utter_state_perceived_usefulness:
   - buttons:
     - payload: /confirm_perceived_usefulness{"perceived_usefulness":"low"}
-      title: "0 (I think it's useless to plan physical activity)"
+      title: "0 (I strongly disagree)"
     - payload: /confirm_perceived_usefulness{"perceived_usefulness":"low"}
       title: "1"
     - payload: /confirm_perceived_usefulness{"perceived_usefulness":"low"}
@@ -1375,7 +1375,7 @@ responses:
     - payload: /confirm_perceived_usefulness{"perceived_usefulness":"high"}
       title: "9"
     - payload: /confirm_perceived_usefulness{"perceived_usefulness":"high"}
-      title: "10 (I think it's very useful to plan physical activity)"
+      title: "10 (I strongly agree)"
     text: "How much do you agree with the following statement: 'Planning makes it easier for me to do physical activity'?"
 
   utter_perceived_usefulness_repeat:
