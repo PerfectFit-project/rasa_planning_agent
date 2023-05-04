@@ -104,19 +104,26 @@ class ActionLoadSessionFirst(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
     
         prolific_id = tracker.current_state()['sender_id']
-        
-        conn = mysql.connector.connect(
-            user=DATABASE_USER,
-            password=DATABASE_PASSWORD,
-            host=DATABASE_HOST,
-            port=DATABASE_PORT,
-            database='db'
-        )
-        cur = conn.cursor(prepared=True)
+
+        try:
+            conn = mysql.connector.connect(
+                user=DATABASE_USER,
+                password=DATABASE_PASSWORD,
+                host=DATABASE_HOST,
+                port=DATABASE_PORT,
+                database='db'
+            )
+            cur = conn.cursor(prepared=True)
     
-        session_loaded = check_session_not_done_before(cur, prolific_id)
-        
-        conn.close()
+            session_loaded = check_session_not_done_before(cur, prolific_id)
+
+        except mysql.connector.Error as error:
+            logging.info("Error in loading first session: " + str(error))
+
+        finally:
+            if conn.is_connected():
+                cur.close()
+                conn.close()
 
         return [SlotSet("session_loaded", session_loaded)]
 
@@ -348,38 +355,45 @@ class ActionSaveEventState(Action):
         now = datetime.now()
         formatted_date = now.strftime('%Y-%m-%d %H:%M:%S')
 
-        conn = mysql.connector.connect(
-            user=DATABASE_USER,
-            password=DATABASE_PASSWORD,
-            host=DATABASE_HOST,
-            port=DATABASE_PORT,
-            database='db'
-        )
-        cur = conn.cursor(prepared=True)
-        
-        prolific_id = tracker.current_state()['sender_id']
+        try:
+            conn = mysql.connector.connect(
+                user=DATABASE_USER,
+                password=DATABASE_PASSWORD,
+                host=DATABASE_HOST,
+                port=DATABASE_PORT,
+                database='db'
+            )
+            cur = conn.cursor(prepared=True)
+            
+            prolific_id = tracker.current_state()['sender_id']
 
-        ch = tracker.get_slot("changes_to_plan")
+            ch = tracker.get_slot("changes_to_plan")
 
-        c = tracker.get_slot("confidence")
+            c = tracker.get_slot("confidence")
 
-        pu = tracker.get_slot("perceived_usefulness")
+            pu = tracker.get_slot("perceived_usefulness")
 
-        a = tracker.get_slot("attitude")
+            a = tracker.get_slot("attitude")
 
-        explain_planning = tracker.get_slot("explain_planning")
+            explain_planning = tracker.get_slot("explain_planning")
 
-        identify_barriers = tracker.get_slot("identify_barriers")
+            identify_barriers = tracker.get_slot("identify_barriers")
 
-        deal_with_barriers = tracker.get_slot("deal_with_barriers")
+            deal_with_barriers = tracker.get_slot("deal_with_barriers")
 
-        show_testimonials = tracker.get_slot("show_testimonials")
+            show_testimonials = tracker.get_slot("show_testimonials")
 
-        state = f"{ch}, {c}, {pu}, {a}, {explain_planning}, {identify_barriers}, {deal_with_barriers}, {show_testimonials}"
+            state = f"{ch}, {c}, {pu}, {a}, {explain_planning}, {identify_barriers}, {deal_with_barriers}, {show_testimonials}"
 
-        save_sessiondata_entry(cur, conn, prolific_id, formatted_date, f"state: {state}")
+            save_sessiondata_entry(cur, conn, prolific_id, formatted_date, f"state: {state}")
 
-        conn.close()
+        except mysql.connector.Error as error:
+            logging.info("Error in saving event stateto db: " + str(error))
+
+        finally:
+            if conn.is_connected():
+                cur.close()
+                conn.close()
         
         return []
 
@@ -392,133 +406,144 @@ class ActionSelectAction(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        conn = mysql.connector.connect(
-            user=DATABASE_USER,
-            password=DATABASE_PASSWORD,
-            host=DATABASE_HOST,
-            port=DATABASE_PORT,
-            database='db'
-        )
-        cur = conn.cursor(prepared=True)
+        try:
 
-        now = datetime.now()
-        formatted_date = now.strftime('%Y-%m-%d %H:%M:%S')
-        
-        prolific_id = tracker.current_state()['sender_id']
+            conn = mysql.connector.connect(
+                user=DATABASE_USER,
+                password=DATABASE_PASSWORD,
+                host=DATABASE_HOST,
+                port=DATABASE_PORT,
+                database='db'
+            )
+            cur = conn.cursor(prepared=True)
 
-        changes_to_plan = int(tracker.get_slot("changes_to_plan"))
+            now = datetime.now()
+            formatted_date = now.strftime('%Y-%m-%d %H:%M:%S')
+            
+            prolific_id = tracker.current_state()['sender_id']
 
-        explain_planning = tracker.get_slot("explain_planning")
+            changes_to_plan = int(tracker.get_slot("changes_to_plan"))
 
-        identify_barriers = tracker.get_slot("identify_barriers")
+            explain_planning = tracker.get_slot("explain_planning")
 
-        deal_with_barriers = tracker.get_slot("deal_with_barriers")
+            identify_barriers = tracker.get_slot("identify_barriers")
 
-        show_testimonials = tracker.get_slot("show_testimonials")
+            deal_with_barriers = tracker.get_slot("deal_with_barriers")
 
-        last_action = tracker.get_slot("last_action")
+            show_testimonials = tracker.get_slot("show_testimonials")
 
-        number_actions = changes_to_plan + explain_planning + identify_barriers + deal_with_barriers + show_testimonials
+            last_action = tracker.get_slot("last_action")
 
-        possible_actions = []
+            number_actions = changes_to_plan + explain_planning + identify_barriers + deal_with_barriers + show_testimonials
 
-        # this corresponds to having done 3 actions, none of which were changes to the plan
-        # if we do the 4th action that is not a change to the plan, then we have to do changes to plans in turns 5 and 6
-        # that shouldn't happen, since we don't want to make changes to plans twice in a row
-        if number_actions == 3 and changes_to_plan == 0:
-            possible_actions = ["changes_to_plan"]
-        else:
-            # we want to make at most 2 changes to the initial plan and to not change the plan twice in a row
-            if last_action != "changes_to_plan" and changes_to_plan<=1:
-                possible_actions.append("changes_to_plan")
-            # we want to explain planning only once
-            if explain_planning == False:
-                possible_actions.append("explain_planning")
-            # we want to identify barriers only once
-            if identify_barriers == False:
-                possible_actions.append("identify_barriers")
-            # we can only deal with barriers after we have identified them and we want to do this only once
-            if deal_with_barriers == False and identify_barriers == True:
-                possible_actions.append("deal_with_barriers")
-            # we want to show testimonials only once
-            if show_testimonials == False:
-                possible_actions.append("show_testimonials")
+            possible_actions = []
 
-        # there are no actions that we cannot do
-        # this means we have already done all the 6 possible actions
-        if len(possible_actions) == 0:
-            return [ActionExecuted("action_listen"), UserUttered(text="/confirm_actions_done", parse_data={"intent": {"name": "confirm_actions_done", "confidence": 1.0}}), SlotSet("actions_done", True)]
+            # this corresponds to having done 3 actions, none of which were changes to the plan
+            # if we do the 4th action that is not a change to the plan, then we have to do changes to plans in turns 5 and 6
+            # that shouldn't happen, since we don't want to make changes to plans twice in a row
+            if number_actions == 3 and changes_to_plan == 0:
+                possible_actions = ["changes_to_plan"]
+            else:
+                # we want to make at most 2 changes to the initial plan and to not change the plan twice in a row
+                if last_action != "changes_to_plan" and changes_to_plan<=1:
+                    possible_actions.append("changes_to_plan")
+                # we want to explain planning only once
+                if explain_planning == False:
+                    possible_actions.append("explain_planning")
+                # we want to identify barriers only once
+                if identify_barriers == False:
+                    possible_actions.append("identify_barriers")
+                # we can only deal with barriers after we have identified them and we want to do this only once
+                if deal_with_barriers == False and identify_barriers == True:
+                    possible_actions.append("deal_with_barriers")
+                # we want to show testimonials only once
+                if show_testimonials == False:
+                    possible_actions.append("show_testimonials")
 
-        # pick the action that was done the least for this state
+            # there are no actions that we cannot do
+            # this means we have already done all the 6 possible actions
+            if len(possible_actions) == 0:
+                return [ActionExecuted("action_listen"), UserUttered(text="/confirm_actions_done", parse_data={"intent": {"name": "confirm_actions_done", "confidence": 1.0}}), SlotSet("actions_done", True)]
 
-        ch = tracker.get_slot("changes_to_plan")
+            # pick the action that was done the least for this state
 
-        c = tracker.get_slot("confidence")
+            ch = tracker.get_slot("changes_to_plan")
 
-        pu = tracker.get_slot("perceived_usefulness")
+            c = tracker.get_slot("confidence")
 
-        a = tracker.get_slot("attitude")
+            pu = tracker.get_slot("perceived_usefulness")
 
-        # build current state
-        state = f"{ch}, {c}, {pu}, {a}, {explain_planning}, {identify_barriers}, {deal_with_barriers}, {show_testimonials}"
+            a = tracker.get_slot("attitude")
 
-        query = ("SELECT * FROM state_action_state WHERE state_before = %s")
-        
-        cur.execute(query, [state])
-        
-        # retrieve all database entries which have an action taken from this state
-        result = cur.fetchall()
+            # build current state
+            state = f"{ch}, {c}, {pu}, {a}, {explain_planning}, {identify_barriers}, {deal_with_barriers}, {show_testimonials}"
 
-        conn.close()
+            query = ("SELECT * FROM state_action_state WHERE state_before = %s")
+            
+            cur.execute(query, [state])
+            
+            # retrieve all database entries which have an action taken from this state
+            result = cur.fetchall()
 
         # select only the actions in the database results
-        actions = [f"{action}" for (userid,date,state,action,next_state) in result]
+            actions = [f"{action}" for (userid,date,state,action,next_state) in result]
 
-        # count how many times each action was done
-        count = collections.Counter(actions)
+            # count how many times each action was done
+            count = collections.Counter(actions)
 
-        # order the count such that the most frequently done action is first
-        ordered = list(count.most_common())
+            # order the count such that the most frequently done action is first
+            ordered = list(count.most_common())
 
-        cleaned = []
+            cleaned = []
 
-        # remove actions that cannot be done from this state (should never happen, but it's safer this way)
-        for (ordered_action, frequency) in ordered:
-            if ordered_action in possible_actions:
-                cleaned.append((ordered_action, frequency))      
+            # remove actions that cannot be done from this state (should never happen, but it's safer this way)
+            for (ordered_action, frequency) in ordered:
+                if ordered_action in possible_actions:
+                    cleaned.append((ordered_action, frequency))      
 
-        # if there are possible actions for this state that have never been done, add them to the list with them being done 0 times
-        for possible_action in possible_actions:
-            if not possible_action in [action for (action,frequency) in cleaned]:
-                cleaned.append((possible_action, 0))
+            # if there are possible actions for this state that have never been done, add them to the list with them being done 0 times
+            for possible_action in possible_actions:
+                if not possible_action in [action for (action,frequency) in cleaned]:
+                    cleaned.append((possible_action, 0))
+            
+            # figure out how many times he least frequent action was done
+            least_frequent = min(cleaned, key = lambda x: x[1])[1]
+
+            # pick a random action from the ones that have been done the least
+            pick_from = [action for (action,frequency) in cleaned if frequency == least_frequent]
+
+            picked = random.choice(pick_from)
+
+            if picked == "explain_planning":
+
+                return[ActionExecuted("action_listen"), UserUttered(text="/do_explain_planning", parse_data={"intent": {"name": "do_explain_planning", "confidence": 1.0}}), SlotSet("action", picked)]
+
+            elif picked == "identify_barriers":
+
+                return[ActionExecuted("action_listen"), UserUttered(text="/do_identify_barriers", parse_data={"intent": {"name": "do_identify_barriers", "confidence": 1.0}}), SlotSet("action", picked)]
+
+            elif picked == "deal_with_barriers":
+
+                return[ActionExecuted("action_listen"), UserUttered(text="/do_deal_with_barriers", parse_data={"intent": {"name": "do_deal_with_barriers", "confidence": 1.0}}), SlotSet("action", picked)]
+
+            elif picked == "show_testimonials":
+
+                return[ActionExecuted("action_listen"), UserUttered(text="/do_show_testimonials", parse_data={"intent": {"name": "do_show_testimonials", "confidence": 1.0}}), SlotSet("action", picked)]
+
+            elif picked == "changes_to_plan":
+
+                return[ActionExecuted("action_listen"), UserUttered(text="/do_changes_to_plan", parse_data={"intent": {"name": "do_changes_to_plan", "confidence": 1.0}}), SlotSet("action", picked)]
+
+        except mysql.connector.Error as error:
+            logging.info("Error in selecting action based on db data: " + str(error))
         
-        # figure out how many times he least frequent action was done
-        least_frequent = min(cleaned, key = lambda x: x[1])[1]
+        finally:
+            if conn.is_connected():
+                cur.close()
+                conn.close()
+        
+        return []
 
-        # pick a random action from the ones that have been done the least
-        pick_from = [action for (action,frequency) in cleaned if frequency == least_frequent]
-
-        picked = random.choice(pick_from)
-
-        if picked == "explain_planning":
-
-            return[ActionExecuted("action_listen"), UserUttered(text="/do_explain_planning", parse_data={"intent": {"name": "do_explain_planning", "confidence": 1.0}}), SlotSet("action", picked)]
-
-        elif picked == "identify_barriers":
-
-            return[ActionExecuted("action_listen"), UserUttered(text="/do_identify_barriers", parse_data={"intent": {"name": "do_identify_barriers", "confidence": 1.0}}), SlotSet("action", picked)]
-
-        elif picked == "deal_with_barriers":
-
-            return[ActionExecuted("action_listen"), UserUttered(text="/do_deal_with_barriers", parse_data={"intent": {"name": "do_deal_with_barriers", "confidence": 1.0}}), SlotSet("action", picked)]
-
-        elif picked == "show_testimonials":
-
-            return[ActionExecuted("action_listen"), UserUttered(text="/do_show_testimonials", parse_data={"intent": {"name": "do_show_testimonials", "confidence": 1.0}}), SlotSet("action", picked)]
-
-        elif picked == "changes_to_plan":
-
-            return[ActionExecuted("action_listen"), UserUttered(text="/do_changes_to_plan", parse_data={"intent": {"name": "do_changes_to_plan", "confidence": 1.0}}), SlotSet("action", picked)]
 
 class ActionSelectAction(Action):
     def name(self):
@@ -528,37 +553,49 @@ class ActionSelectAction(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        conn = mysql.connector.connect(
-            user=DATABASE_USER,
-            password=DATABASE_PASSWORD,
-            host=DATABASE_HOST,
-            port=DATABASE_PORT,
-            database='db'
-        )
-        cur = conn.cursor(prepared=True)
+        
+        try:
+            conn = mysql.connector.connect(
+                user=DATABASE_USER,
+                password=DATABASE_PASSWORD,
+                host=DATABASE_HOST,
+                port=DATABASE_PORT,
+                database='db'
+            )
+            cur = conn.cursor(prepared=True)
 
-        now = datetime.now()
-        formatted_date = now.strftime('%Y-%m-%d %H:%M:%S')
+            now = datetime.now()
+            formatted_date = now.strftime('%Y-%m-%d %H:%M:%S')
 
-        prolific_id = tracker.current_state()['sender_id']
+            prolific_id = tracker.current_state()['sender_id']
 
-        changes_to_plan = int(tracker.get_slot("changes_to_plan"))
+            changes_to_plan = int(tracker.get_slot("changes_to_plan"))
 
-        action = tracker.get_slot("action")
+            action = tracker.get_slot("action")
 
-        save_sessiondata_entry(cur, conn, prolific_id, formatted_date, f"action: {action}")
+            save_sessiondata_entry(cur, conn, prolific_id, formatted_date, f"action: {action}")
 
-        conn.close()
+            conn.close()
 
-        if action == "changes_to_plan":
-            
-            changes_to_plan += 1
+            if action == "changes_to_plan":
+                
+                changes_to_plan += 1
 
-            return [SlotSet("changes_to_plan", f"{changes_to_plan}"), SlotSet("last_action", "changes_to_plan")]
+                return [SlotSet("changes_to_plan", f"{changes_to_plan}"), SlotSet("last_action", "changes_to_plan")]
 
-        else:
+            else:
 
-            return [SlotSet(action, True), SlotSet("last_action", action)]
+                return [SlotSet(action, True), SlotSet("last_action", action)]
+
+        except mysql.connector.Error as error:
+            logging.info("Error in saving action to db: " + str(error))
+
+        finally:
+            if conn.is_connected():
+                cur.close()
+                conn.close()
+
+        return []
 
 
 def save_goal_plans_and_reward_to_db(cur, conn, prolific_id, time, goal, plan_1, plan_2, plan_3, reward):
@@ -577,38 +614,46 @@ class ActionSaveGoalPlansAndReward(Action):
         now = datetime.now()
         formatted_date = now.strftime('%Y-%m-%d %H:%M:%S')
 
-        conn = mysql.connector.connect(
-            user=DATABASE_USER,
-            password=DATABASE_PASSWORD,
-            host=DATABASE_HOST,
-            port=DATABASE_PORT,
-            database='db'
-        )
-        cur = conn.cursor(prepared=True)
-        
-        prolific_id = tracker.current_state()['sender_id']
+        try:
 
-        goal = tracker.get_slot("goal")
+            conn = mysql.connector.connect(
+                user=DATABASE_USER,
+                password=DATABASE_PASSWORD,
+                host=DATABASE_HOST,
+                port=DATABASE_PORT,
+                database='db'
+            )
+            cur = conn.cursor(prepared=True)
+            
+            prolific_id = tracker.current_state()['sender_id']
 
-        plan_1 = tracker.get_slot("plan_1")
+            goal = tracker.get_slot("goal")
 
-        plan_2 = tracker.get_slot("plan_2")
+            plan_1 = tracker.get_slot("plan_1")
 
-        plan_3 = tracker.get_slot("plan_3")
+            plan_2 = tracker.get_slot("plan_2")
 
-        satisfaction = tracker.get_slot("satisfaction")
+            plan_3 = tracker.get_slot("plan_3")
 
-        commitment_1 = tracker.get_slot("commitment_1")
+            satisfaction = tracker.get_slot("satisfaction")
 
-        commitment_f = tracker.get_slot("commitment_f")
+            commitment_1 = tracker.get_slot("commitment_1")
 
-        confidence_goal = tracker.get_slot("confidence_goal")
+            commitment_f = tracker.get_slot("commitment_f")
 
-        reward = f"Reward: satifaction = {satisfaction}, commitment_1 = {commitment_1}, commitment_f = {commitment_f}, confidence_goal = {confidence_goal}"
+            confidence_goal = tracker.get_slot("confidence_goal")
 
-        save_goal_plans_and_reward_to_db(cur, conn, prolific_id, formatted_date, goal, plan_1, plan_2, plan_3, reward)
+            reward = f"Reward: satifaction = {satisfaction}, commitment_1 = {commitment_1}, commitment_f = {commitment_f}, confidence_goal = {confidence_goal}"
 
-        conn.close()
+            save_goal_plans_and_reward_to_db(cur, conn, prolific_id, formatted_date, goal, plan_1, plan_2, plan_3, reward)
+
+        except mysql.connector.Error as error:
+            logging.info("Error in saving name to db: " + str(error))
+
+        finally:
+            if conn.is_connected():
+                cur.close()
+                conn.close()
 
         return []
 
@@ -620,41 +665,47 @@ class ActionConvertDBToStateActionNextState(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        conn = mysql.connector.connect(
-            user=DATABASE_USER,
-            password=DATABASE_PASSWORD,
-            host=DATABASE_HOST,
-            port=DATABASE_PORT,
-            database='db'
-        )
-        cur = conn.cursor(prepared=True)
-        
-        prolific_id = tracker.current_state()['sender_id']
-
-        query = ("SELECT * FROM sessiondata WHERE prolific_id = %s")
-        
-        cur.execute(query, [prolific_id])
-        
-        result = cur.fetchall()
-
-        for row in result[:-1:2]:
-    
-            i = result.index(row)
+        try:
+            conn = mysql.connector.connect(
+                user=DATABASE_USER,
+                password=DATABASE_PASSWORD,
+                host=DATABASE_HOST,
+                port=DATABASE_PORT,
+                database='db'
+            )
+            cur = conn.cursor(prepared=True)
             
-            state_before = row[2].split("state: ")[1]
+            prolific_id = tracker.current_state()['sender_id']
+
+            query = ("SELECT * FROM sessiondata WHERE prolific_id = %s")
             
-            action = result[i+1][2].split("action: ")[1]
+            cur.execute(query, [prolific_id])
             
-            state_after = result[i+2][2].split("state: ")[1]
+            result = cur.fetchall()
 
-            time = result[i+2][1]
+            for row in result[:-1:2]:
+        
+                i = result.index(row)
+                
+                state_before = row[2].split("state: ")[1]
+                
+                action = result[i+1][2].split("action: ")[1]
+                
+                state_after = result[i+2][2].split("state: ")[1]
 
-            query = "INSERT INTO state_action_state(prolific_id, time, state_before, action, state_after) VALUES(%s, %s, %s, %s, %s)"
-            cur.execute(query, [prolific_id, time, state_before, action, state_after])
-            conn.commit()
+                time = result[i+2][1]
 
-        conn.close()
+                query = "INSERT INTO state_action_state(prolific_id, time, state_before, action, state_after) VALUES(%s, %s, %s, %s, %s)"
+                cur.execute(query, [prolific_id, time, state_before, action, state_after])
+                conn.commit()
 
+        except mysql.connector.Error as error:
+            logging.info("Error in saving name to db: " + str(error))
+
+        finally:
+            if conn.is_connected():
+                cur.close()
+                conn.close()
 
         return []
 
