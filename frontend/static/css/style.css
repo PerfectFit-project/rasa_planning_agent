@@ -48,12 +48,11 @@ body {
 
 .plan_table{
 	display: none;
-	width: 50%;
-	height: 90%;
-	left: 5%;
-	height: 90%;
-	bottom: 5%;
-	top: 5%;
+	width: 55%;
+	height: 95%;
+	left: 1%;
+	bottom: 2%;
+	top: 2%;
 	position: fixed;
 	background: #f7f7f7;
 	border-radius: 10px 10px 10px 10px;
