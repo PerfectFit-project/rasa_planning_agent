@@ -139,7 +139,7 @@ function setBotResponse(response) {
 					}
 
 					else if(response_text[j].includes("Now, I want to ask when you are usually energetic.")){
-						$(".energy_levels").toggle();
+						$(".energy_levels_table").toggle();
 
 
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
@@ -313,6 +313,17 @@ function toggle_table_cell_2(clicked_id){
 
 
 function toggle_slot(clicked_id){
+	var time_slot = document.getElementById(clicked_id)
+	if (time_slot.innerHTML == "Selected") {
+		time_slot.innerHTML = "";
+		time_slot.style.backgroundColor = "white";
+		} else {
+		time_slot.innerHTML = "Selected";
+		time_slot.style.backgroundColor = "#82e876";
+		}
+}
+
+function toggle_slot_energy(clicked_id){
 	var time_slot = document.getElementById(clicked_id)
 	if (time_slot.innerHTML == "Selected") {
 		time_slot.innerHTML = "";
