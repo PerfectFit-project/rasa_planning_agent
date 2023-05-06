@@ -1,7 +1,5 @@
 var number_plan = 0;
 
-var selected_timeslots_initial = [];
-
 $('.usrInput').attr("disabled",true);
 
 // ========================== start session ========================
@@ -452,7 +450,7 @@ function check_selected_timeslots_initial(){
 
 	days.forEach(element_id => selected_slots.push(slots_selected_initial(element_id)));
 
-	var selected_timeslots_initial = selected_slots.filter(function (el) {
+	var selected_slots = selected_slots.filter(function (el) {
 		return el != "";
 	});
 
@@ -461,7 +459,15 @@ function check_selected_timeslots_initial(){
 		button.style.display = "none";
 		table.style.display = "none";
 
-		var message = `/move_to_energy`;
+		var message = `/move_to_energy{`;
+
+		selected_slots.forEach(function(slot) {
+			message = message.concat(`"${slot}":"true",`);
+		});
+
+		message = message.substring(0, message.length - 1);
+
+		message = message.concat(`}`);
 
 		send(message);
 		
