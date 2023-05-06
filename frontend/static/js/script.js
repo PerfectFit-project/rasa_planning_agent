@@ -498,7 +498,7 @@ function check_energy(){
 
 		if(count != 1 && !alerted_1){
 			alerted_1 = true;
-			window.alert("Please select an option for each of the time periods for weekdays");
+			window.alert("Please select an option for each of the time periods for both weekdays and weekends.");
 		}
 		
 	});
@@ -517,9 +517,9 @@ function check_energy(){
 		
 		slots.forEach(element_id => count+= check_inner_HTML(element_id));
 
-		if(count != 1 && !alerted_2){
+		if(count != 1 && !alerted_1 && !alerted_2){
 			alerted_2 = true;
-			window.alert("Please select an option for each of the time periods for weekends.");
+			window.alert("Please select an option for each of the time periods for both weekdays and weekends.");
 		}
 		
 	});
