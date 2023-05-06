@@ -286,6 +286,14 @@ $("#profile_div").click(function () {
 	$(".widget").toggle();
 });
 
+$('#weekdays_morning_energy_select').change( function() {
+
+	if(this.val() == "3"){
+		this.innerHTML = "Quite a bit";
+	}
+	
+});
+
 //====================================== Toggle time slots =======================================
 // a bit hacky since I'm not passing the "real" values, but it turns out that regardless of what the goal is,
 // these are always 30 minutes in the first week and 35 in the second week since we round to the nearest 5
