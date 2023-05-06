@@ -498,7 +498,26 @@ function check_energy(){
 
 		if(count != 1 && !alerted){
 			alerted = true;
-			window.alert("Please select an option for each of the time periods for both weekdays and weekends.");
+			window.alert("Please select an option for each of the time periods for weekdays");
+		}
+		
+	});
+
+	times_weekendss.forEach(function(time) {
+
+		slots = [];
+
+		for(var i = 0; i<=4; i++){
+			slots.push(`${time}_${i}`);
+		}
+
+		count = 0;
+		
+		slots.forEach(element_id => count+= check_inner_HTML(element_id));
+
+		if(count != 1 && !alerted){
+			alerted = true;
+			window.alert("Please select an option for each of the time periods for weekends.");
 		}
 		
 	});
