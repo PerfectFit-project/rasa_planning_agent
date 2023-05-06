@@ -474,6 +474,10 @@ function check_selected_timeslots_initial(){
 
 function check_energy(){
 
+	var button = document.getElementById("submit_energy_button");
+
+	var table = document.getElementById("energy_levels_table");
+
 	times_weekdays = [ "weekdays_morning_energy", "weekdays_midday_energy", "weekdays_afternoon_energy", "weekdays_evening_energy"]
 
 	times_weekends = [ "weekends_morning_energy", "weekends_midday_energy", "weekends_afternoon_energy", "weekends_evening_energy"]
@@ -492,7 +496,7 @@ function check_energy(){
 		
 		slots.forEach(element_id => count+= check_inner_HTML(element_id));
 
-		if(count != 1){
+		if(count != 1 && !alerted){
 			alerted = true;
 			window.alert("Please select an option for each of the time periods for both weekdays and weekends.");
 		}
@@ -500,7 +504,7 @@ function check_energy(){
 	});
 
 	if(!alerted){
-		
+
 		button.style.display = "none";
 		table.style.display = "none";
 	
