@@ -329,7 +329,7 @@ class ActionCreateInitialPlan(Action):
 
                     if number_of_medium_energy_timeslots > select_slots:
 
-                    selected += random.sample(medium_energy_timeslots, select_slots)
+                        selected += random.sample(medium_energy_timeslots, select_slots)
 
                     else:
 
@@ -347,9 +347,9 @@ class ActionCreateInitialPlan(Action):
 
                             select_slots -= number_of_low_energy_timeslots
 
-                        if select_slots is not 0:
+                            if select_slots is not 0:
                             
-                            selected += random.sample(very_low_energy_timeslots, select_slots)
+                                selected += random.sample(very_low_energy_timeslots, select_slots)
 
 
         # dispatcher.utter_message(text=f"Available slots: {available_timeslots},  Selected slots: {selected}")
