@@ -105,86 +105,86 @@ rules:
   - action: utter_timeslots
   # - action: utter_routines_monday
 
-- rule: ask about routines monday repeat
-  steps:
-  - intent: confirm_monday
-  - action: utter_routines_monday_repeat
+# - rule: ask about routines monday repeat
+#   steps:
+#   - intent: confirm_monday
+#   - action: utter_routines_monday_repeat
 
-- rule: no more free on mondays
-  steps: 
-  - intent: confirm_monday_continue
-  # - action: utter_confirm_monday_slots
-  - action: utter_routines_tuesday
+# - rule: no more free on mondays
+#   steps: 
+#   - intent: confirm_monday_continue
+#   # - action: utter_confirm_monday_slots
+#   - action: utter_routines_tuesday
 
-- rule: ask about routines tuesday repeat
-  steps:
-  - intent: confirm_tuesday
-  - action: utter_routines_tuesday_repeat
+# - rule: ask about routines tuesday repeat
+#   steps:
+#   - intent: confirm_tuesday
+#   - action: utter_routines_tuesday_repeat
 
-- rule: no more free on tuesdays
-  steps: 
-  - intent: confirm_tuesday_continue
-  # - action: utter_confirm_tuesday_slots
-  - action: utter_routines_wednesday
+# - rule: no more free on tuesdays
+#   steps: 
+#   - intent: confirm_tuesday_continue
+#   # - action: utter_confirm_tuesday_slots
+#   - action: utter_routines_wednesday
 
-- rule: ask about routines wednesday repeat
-  steps:
-  - intent: confirm_wednesday
-  - action: utter_routines_wednesday_repeat
+# - rule: ask about routines wednesday repeat
+#   steps:
+#   - intent: confirm_wednesday
+#   - action: utter_routines_wednesday_repeat
 
-- rule: no more free on wednesdays
-  steps: 
-  - intent: confirm_wednesday_continue
-  # - action: utter_confirm_wednesday_slots
-  - action: utter_routines_thursday
+# - rule: no more free on wednesdays
+#   steps: 
+#   - intent: confirm_wednesday_continue
+#   # - action: utter_confirm_wednesday_slots
+#   - action: utter_routines_thursday
 
-- rule: ask about routines thursday repeat
-  steps:
-  - intent: confirm_thursday
-  - action: utter_routines_thursday_repeat
+# - rule: ask about routines thursday repeat
+#   steps:
+#   - intent: confirm_thursday
+#   - action: utter_routines_thursday_repeat
 
-- rule: no more free on thursdays
-  steps: 
-  - intent: confirm_thursday_continue
-  # - action: utter_confirm_thursday_slots
-  - action: utter_routines_friday
+# - rule: no more free on thursdays
+#   steps: 
+#   - intent: confirm_thursday_continue
+#   # - action: utter_confirm_thursday_slots
+#   - action: utter_routines_friday
 
-- rule: ask about routines friday repeat
-  steps:
-  - intent: confirm_friday
-  - action: utter_routines_friday_repeat
+# - rule: ask about routines friday repeat
+#   steps:
+#   - intent: confirm_friday
+#   - action: utter_routines_friday_repeat
 
-- rule: no more free on fridays
-  steps: 
-  - intent: confirm_friday_continue
-  # - action: utter_confirm_friday_slots
-  - action: utter_routines_saturday
+# - rule: no more free on fridays
+#   steps: 
+#   - intent: confirm_friday_continue
+#   # - action: utter_confirm_friday_slots
+#   - action: utter_routines_saturday
 
-- rule: ask about routines saturday repeat
-  steps:
-  - intent: confirm_saturday
-  - action: utter_routines_saturday_repeat
+# - rule: ask about routines saturday repeat
+#   steps:
+#   - intent: confirm_saturday
+#   - action: utter_routines_saturday_repeat
 
-- rule: no more free on saturdays
-  steps: 
-  - intent: confirm_saturday_continue
-  # - action: utter_confirm_saturday_slots
-  - action: utter_routines_sunday
+# - rule: no more free on saturdays
+#   steps: 
+#   - intent: confirm_saturday_continue
+#   # - action: utter_confirm_saturday_slots
+#   - action: utter_routines_sunday
 
-- rule: ask about routines sunday repeat
-  steps:
-  - intent: confirm_sunday
-  - action: utter_routines_sunday_repeat
+# - rule: ask about routines sunday repeat
+#   steps:
+#   - intent: confirm_sunday
+#   - action: utter_routines_sunday_repeat
 
-- rule: no more free on sundays
-  steps: 
-  - intent: confirm_sunday_continue
-  - action: action_check_number_of_slots
+# - rule: no more free on sundays
+#   steps: 
+#   - intent: confirm_sunday_continue
+#   - action: action_check_number_of_slots
   
-- rule: ask about routines when there are not enough time slots selected
-  steps:
-  - intent: retry_time_slots
-  - action: utter_routines_monday
+# - rule: ask about routines when there are not enough time slots selected
+#   steps:
+#   - intent: retry_time_slots
+#   - action: utter_routines_monday
 
 - rule: ask about energy levels
   steps:

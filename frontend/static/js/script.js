@@ -423,7 +423,7 @@ function check_selected_timeslots_initial(){
 		button.style.display = "none";
 		table.style.display = "none";
 
-		var message = `/time_slots_ok`;
+		var message = `/move_to_energy`;
 
 		send(message);
 		
