@@ -609,7 +609,7 @@ class ActionSelectAction(Action):
                 
                 changes_to_plan += 1
 
-                return [SlotSet("changes_to_plan", f"{changes_to_plan}"), SlotSet("last_action", "changes_to_plan")]
+                return [ActionExecuted("action_listen"), UserUttered(text="/confirm_state", parse_data={"intent": {"name": "confirm_state", "confidence": 1.0}}),SlotSet("changes_to_plan", f"{changes_to_plan}"), SlotSet("last_action", "changes_to_plan")]
 
             else:
 
