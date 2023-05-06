@@ -280,18 +280,21 @@ function doScaledTimeout(i, response, summed_timeout) {
 }
 
 
+
+function show(value) {
+    document.querySelector(".text-box").value = value;
+  }
+  
+  let dropdown = document.querySelector(".dropdown")
+  dropdown.onclick = function() {
+      dropdown.classList.toggle("active")
+  }
+
+
 //====================================== Toggle chatbot =======================================
 $("#profile_div").click(function () {
 	$(".profile_div").toggle();
 	$(".widget").toggle();
-});
-
-$('#weekdays_morning_energy_select').change( function() {
-
-	if(this.val() == "3"){
-		this.innerHTML = "Quite a bit";
-	}
-	
 });
 
 //====================================== Toggle time slots =======================================
