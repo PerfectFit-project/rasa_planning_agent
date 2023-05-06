@@ -129,6 +129,15 @@ function setBotResponse(response) {
 			if (response[0].hasOwnProperty("text")) {
 				var response_text = response[0].text.split("\n")
 				for (j = 0; j < response_text.length; j++){
+					
+					if(response_text[j].includes("Nice! Before we can get started, let's see when you have free time.")){
+						document.getElementById("timeslots_table").display = "block";
+
+
+						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
+						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
+					}
+
 					// display the plan when it is available
 					if(response_text[j].includes("Plan 1: Week 1 - ")){
 
