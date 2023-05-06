@@ -306,15 +306,13 @@ function toggle_table_cell_2(clicked_id){
 
 function toggle_slot(clicked_id){
 	var time_slot = document.getElementById(clicked_id)
-	if(time_slot.classList.contains("toggleable")){
-		if (time_slot.innerHTML == "Selected") {
-			time_slot.innerHTML = "";
-			time_slot.style.backgroundColor = "white";
-		  } else {
-			time_slot.innerHTML = "Selected";
-			time_slot.style.backgroundColor = "#82e876";
-		  }
-	}
+	if (time_slot.innerHTML == "Selected") {
+		time_slot.innerHTML = "";
+		time_slot.style.backgroundColor = "white";
+		} else {
+		time_slot.innerHTML = "Selected";
+		time_slot.style.backgroundColor = "#82e876";
+		}
 }
 
 //====================================== Check selected time slots =======================================
@@ -424,7 +422,6 @@ function check_selected_timeslots_initial(){
 	if(count == 4){
 		button.style.display = "none";
 		table.style.display = "none";
-		days.forEach(element => document.getElementById(element).classList.remove("toggleable"));
 
 		var message = `/time_slots_ok`;
 
