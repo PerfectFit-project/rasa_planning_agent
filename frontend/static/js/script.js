@@ -505,7 +505,7 @@ function check_energy(){
 
 	var alerted_2;
 
-	times_weekendss.forEach(function(time) {
+	times_weekends.forEach(function(time) {
 
 		slots = [];
 
