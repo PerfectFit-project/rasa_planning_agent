@@ -81,6 +81,19 @@
             <span class = "submit_timeslots_button" id = "submit_timeslots_button" onClick="check_selected_timeslots_initial()">I'm done selecting time slots when I am free.</span>
         </div>
 
+        <!--table for energy levels-->
+        <div class="energy_levels_table" id="energy_levels_table">
+            <table class="energy_table" id ="energy_table" cellpadding="2" cellspacing="0" border="1" style="font-size: small">
+                <tr style="height:22px; font-weight: bold"><td></td><td>Weekdays</td><td>Weekends</td></tr>
+                <tr style="height:22px;"><td>Morning (6:00 - 10:00)</td><td id = "weekdays_morning_energy" onClick="toggle_slot(this.id)"></td><td id = "weekends_morning_energy" onClick="toggle_slot(this.id)"></td></tr>
+                <tr style="height:22px;"><td>Midday (10:00 - 14:00)</td><td id = "weekdays_midday_energy" onClick="toggle_slot(this.id)"></td><td id = "weekends_midday_energy" onClick="toggle_slot(this.id)"></td></tr>
+                <tr style="height:22px;"><td>Afternoon (14:00 - 18:00)</td><td id = "weekdays_afternoon_energy" onClick="toggle_slot(this.id)"></td><td id = "weekends_afternoon_energy" onClick="toggle_slot(this.id)"></td></tr>
+                <tr style="height:22px;"><td>Evening (18:00 - 22:00)</td><td id = "weekdays_evening_energy" onClick="toggle_slot(this.id)"></td><td id = "weekends_evening_energy" onClick="toggle_slot(this.id)"></td></tr>
+            
+            </table>
+            <span class = "submit_energy_button" id = "submit_energy_button" onClick="check_energy()">I'm done specifying my energy levels.</span>
+        </div>
+
 
     </div>
 

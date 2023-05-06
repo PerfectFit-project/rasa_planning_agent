@@ -138,6 +138,14 @@ function setBotResponse(response) {
 						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
 					}
 
+					else if(response_text[j].includes("Now, I want to ask when you are usually energetic.")){
+						$(".energy_table").toggle();
+
+
+						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
+						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
+					}
+
 					// display the plan when it is available
 					else if(response_text[j].includes("Plan 1: Week 1 - ")){
 
