@@ -508,7 +508,7 @@ function check_energy(){
 		button.style.display = "none";
 		table.style.display = "none";
 	
-		var message = `/move_to_energy`;
+		var message = `/confirm_energy_levels`;
 	
 		send(message);
 	}
