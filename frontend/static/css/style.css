@@ -83,7 +83,7 @@ body {
 	margin: 0 auto;
 }
 
-.energy_levels_table{
+.energy_levels{
 	display: none;
 	width: 57%;
 	height: 95%;
@@ -94,11 +94,11 @@ body {
 	overflow: auto;
 }
 
-.energy_table{
+/* .energy_table{
 	width: 750px;
 	height: 300px;
 	margin: 0 auto;
-}
+} */
 
 div.chats::-webkit-scrollbar {
 	overflow-y: hidden;
@@ -250,7 +250,7 @@ textarea-webkit-scrollbar {
 input {
 	width: 80%;
   }
-  
+
 datalist {
 display: flex;
 justify-content: space-between;
