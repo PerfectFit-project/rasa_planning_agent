@@ -270,17 +270,25 @@ class ActionCreateInitialPlan(Action):
 
         number_of_timeslots = len(available_timeslots) 
 
+        very_high_energy_timeslots = [[available, energy] for [available, energy] in available_timeslots if energy == '4']
+
         high_energy_timeslots = [[available, energy] for [available, energy] in available_timeslots if energy == '3']
 
         medium_energy_timeslots = [[available, energy] for [available, energy] in available_timeslots if energy == '2']
 
         low_energy_timeslots = [[available, energy] for [available, energy] in available_timeslots if energy == '1']
 
+        very_low_energy_timeslots = [[available, energy] for [available, energy] in available_timeslots if energy == '0']
+
+        number_of_very_high_energy_timeslots = len(very_high_energy_timeslots)
+
         number_of_high_energy_timeslots = len(high_energy_timeslots)
 
         number_of_medium_energy_timeslots = len(medium_energy_timeslots)
 
         number_of_low_energy_timeslots = len(low_energy_timeslots)
+
+        number_of_very_low_energy_timeslots = len(very_low_energy_timeslots)
 
         minutes_week_1 = 120
 
@@ -299,29 +307,49 @@ class ActionCreateInitialPlan(Action):
 
             select_slots = 4
 
-            if number_of_high_energy_timeslots > select_slots:
+            if number_of_very_high_energy_timeslots > select_slots:
 
-                selected = random.sample(high_energy_timeslots, select_slots)
+                selected = random.sample(very_high_energy_timeslots, select_slots)
 
             else: 
 
                 selected = high_energy_timeslots
 
-                select_slots -= number_of_high_energy_timeslots
+                select_slots -= number_of_very_high_energy_timeslots
 
-                if number_of_medium_energy_timeslots > select_slots:
+                if number_of_high_energy_timeslots > select_slots:
 
-                    selected += random.sample(medium_energy_timeslots, select_slots)
+                    selected += random.sample(high_energy_timeslots, select_slots)
 
                 else:
 
-                    selected += medium_energy_timeslots
+                    selected += high_energy_timeslots
 
-                    select_slots -= number_of_medium_energy_timeslots
+                    select_slots -= number_of_high_energy_timeslots
 
-                    if select_slots is not 0:
-                        
-                        selected += random.sample(low_energy_timeslots, select_slots)
+                    if number_of_medium_energy_timeslots > select_slots:
+
+                    selected += random.sample(medium_energy_timeslots, select_slots)
+
+                    else:
+
+                        selected += medium_energy_timeslots
+
+                        select_slots -= number_of_medium_energy_timeslots
+
+                        if number_of_low_energy_timeslots > select_slots:
+
+                            selected += random.sample(low_energy_timeslots, select_slots)
+
+                        else:
+
+                            selected += low_energy_timeslots
+
+                            select_slots -= number_of_low_energy_timeslots
+
+                        if select_slots is not 0:
+                            
+                            selected += random.sample(very_low_energy_timeslots, select_slots)
 
 
         # dispatcher.utter_message(text=f"Available slots: {available_timeslots},  Selected slots: {selected}")
