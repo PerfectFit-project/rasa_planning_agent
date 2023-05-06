@@ -490,6 +490,8 @@ function check_energy(){
 
 	var alerted_1 = false;
 
+	selected = [];
+
 	times_weekdays.forEach(function(time) {
 
 		slots = [];
@@ -500,7 +502,14 @@ function check_energy(){
 
 		count = 0;
 		
-		slots.forEach(element_id => count+= check_inner_HTML(element_id));
+		slots.forEach(function(element_id) {
+			var value = check_inner_HTML(element_id);
+			count += value;
+
+			if(value==1){
+				selected.push(element_id);
+			}
+		});
 
 		if(count != 1 && !alerted_1){
 			alerted_1 = true;
@@ -520,7 +529,14 @@ function check_energy(){
 
 		count = 0;
 		
-		slots.forEach(element_id => count+= check_inner_HTML(element_id));
+		slots.forEach(function(element_id) {
+			var value = check_inner_HTML(element_id);
+			count += value;
+
+			if(value==1){
+				selected.push(element_id);
+			}
+		});
 
 		if(count != 1 && !alerted_2){
 			alerted_2 = true;
@@ -542,8 +558,16 @@ function check_energy(){
 
 		button.style.display = "none";
 		table.style.display = "none";
-	
-		var message = `/confirm_energy_levels`;
+
+		var message = `/confirm_energy_levels{`;
+
+		selected.forEach(function(level) {
+			message = message.concat(`"${level.substring(0,level.length-9)}":"${level.slice(-1)}",`);
+		});
+
+		message = message.substring(0, message.length - 1);
+
+		message = message.concat(`}`);
 	
 		send(message);
 	}
