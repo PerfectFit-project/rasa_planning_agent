@@ -353,6 +353,15 @@ function toggle_slot_energy(clicked_id){
 		}
 }
 
+function submit_energy(){
+	button.style.display = "none";
+	table.style.display = "none";
+
+	var message = `/move_to_energy`;
+
+	send(message);
+}
+
 //====================================== Check selected time slots =======================================
 function check_selected_timeslots(){
 

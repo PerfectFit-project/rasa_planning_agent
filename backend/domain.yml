@@ -26,7 +26,7 @@ intents:
 
 - retry_time_slots
 
-- time_slots_ok
+- confirm_energy_levels
 
 # monday
 - confirm_monday

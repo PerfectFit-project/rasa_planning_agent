@@ -193,51 +193,51 @@ rules:
   # - action: utter_energy_levels_weekdays_morning
   - action: utter_energy_instruction
 
-- rule: confirm energy levels morning ask for midday
-  steps: 
-  - intent: confirm_weekdays_morning
-  - action: utter_energy_levels_weekdays_midday
+# - rule: confirm energy levels morning ask for midday
+#   steps: 
+#   - intent: confirm_weekdays_morning
+#   - action: utter_energy_levels_weekdays_midday
 
-- rule: confirm energy levels midday ask for afternoon
-  steps: 
-  - intent: confirm_weekdays_midday
-  - action: utter_energy_levels_weekdays_afternoon
+# - rule: confirm energy levels midday ask for afternoon
+#   steps: 
+#   - intent: confirm_weekdays_midday
+#   - action: utter_energy_levels_weekdays_afternoon
   
 
-- rule: confirm energy levels afternoon ask for evening
-  steps: 
-  - intent: confirm_weekdays_afternoon
-  - action: utter_energy_levels_weekdays_evening
+# - rule: confirm energy levels afternoon ask for evening
+#   steps: 
+#   - intent: confirm_weekdays_afternoon
+#   - action: utter_energy_levels_weekdays_evening
 
 
-- rule: confirm energy levels evening ask for weekend morning
-  steps: 
-  - intent: confirm_weekdays_evening
-  # - action: utter_energy_levels_weekdays_confirm
-  - action: utter_energy_levels_weekends_morning
+# - rule: confirm energy levels evening ask for weekend morning
+#   steps: 
+#   - intent: confirm_weekdays_evening
+#   # - action: utter_energy_levels_weekdays_confirm
+#   - action: utter_energy_levels_weekends_morning
 
 
-- rule: confirm energy levels weekend morning ask for weekend midday
-  steps: 
-  - intent: confirm_weekends_morning
-  - action: utter_energy_levels_weekends_midday
+# - rule: confirm energy levels weekend morning ask for weekend midday
+#   steps: 
+#   - intent: confirm_weekends_morning
+#   - action: utter_energy_levels_weekends_midday
 
   
-- rule: confirm energy levels weekend midday ask for weekend afternoon
-  steps: 
-  - intent: confirm_weekends_midday
-  - action: utter_energy_levels_weekends_afternoon
+# - rule: confirm energy levels weekend midday ask for weekend afternoon
+#   steps: 
+#   - intent: confirm_weekends_midday
+#   - action: utter_energy_levels_weekends_afternoon
   
 
-- rule: confirm energy levels weekend afternoon ask for weekend evening
-  steps: 
-  - intent: confirm_weekends_afternoon
-  - action: utter_energy_levels_weekends_evening
+# - rule: confirm energy levels weekend afternoon ask for weekend evening
+#   steps: 
+#   - intent: confirm_weekends_afternoon
+#   - action: utter_energy_levels_weekends_evening
 
 
 - rule: confirm energy levels weekend evening
   steps: 
-  - intent: confirm_weekends_evening
+  - intent: confirm_energy_levels
   # - action: utter_energy_levels_weekends_confirm
   - action: utter_thank_for_energy_levels
   - action: utter_goal_1
