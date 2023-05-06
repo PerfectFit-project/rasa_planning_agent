@@ -131,7 +131,7 @@ function setBotResponse(response) {
 				for (j = 0; j < response_text.length; j++){
 					
 					if(response_text[j].includes("Nice! Before we can get started, let's see when you have free time.")){
-						document.getElementById("timeslots_table").display = "block";
+						$(".timeslots_table").toggle();
 
 
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
@@ -139,7 +139,7 @@ function setBotResponse(response) {
 					}
 
 					// display the plan when it is available
-					if(response_text[j].includes("Plan 1: Week 1 - ")){
+					else if(response_text[j].includes("Plan 1: Week 1 - ")){
 
 						const week_1 = response_text[j].split("Plan 1: Week 1 - ")[1].split(" ")[0];
 
