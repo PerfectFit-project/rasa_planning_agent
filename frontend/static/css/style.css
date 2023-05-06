@@ -66,6 +66,23 @@ body {
 	margin: 0 auto;
 }
 
+.timeslots_table{
+	display: none;
+	width: 57%;
+	height: 95%;
+	left: 1%;
+	bottom: 2%;
+	top: 2%;
+	position: fixed;
+	overflow: auto;
+}
+
+.time_table{
+	width: 750px;
+	height: 300px;
+	margin: 0 auto;
+}
+
 div.chats::-webkit-scrollbar {
 	overflow-y: hidden;
 	width: 0px;

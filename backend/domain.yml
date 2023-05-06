@@ -26,6 +26,8 @@ intents:
 
 - retry_time_slots
 
+- time_slots_ok
+
 # monday
 - confirm_monday
 - confirm_monday_continue
@@ -958,6 +960,9 @@ responses:
 
   utter_routines_4:
   - text: "Ideally, we're looking for at least four different times during the week when you have at least 30 minutes to take a walk."
+
+  utter_timeslots:
+  - text: "On the left side of the screen, you can see a table. You can click on a time slot in the table to specify that you are available at that time. Please select all the slots when you are avaialable."
 
   utter_routines_monday:
   - buttons:

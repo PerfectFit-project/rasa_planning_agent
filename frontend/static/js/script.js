@@ -1,5 +1,7 @@
 var number_plan = 0;
 
+var selected_timeslots_initial = [];
+
 $('.usrInput').attr("disabled",true);
 
 // ========================== start session ========================
@@ -292,6 +294,20 @@ function toggle_table_cell_2(clicked_id){
 	}
 }
 
+
+function toggle_slot(clicked_id){
+	var time_slot = document.getElementById(clicked_id)
+	if(time_slot.classList.contains("toggleable")){
+		if (time_slot.innerHTML == "Selected") {
+			time_slot.innerHTML = "";
+			time_slot.style.backgroundColor = "white";
+		  } else {
+			time_slot.innerHTML = "Selected";
+			time_slot.style.backgroundColor = "#82e876";
+		  }
+	}
+}
+
 //====================================== Check selected time slots =======================================
 function check_selected_timeslots(){
 
@@ -367,6 +383,50 @@ function check_selected_timeslots(){
 	}
 }
 
+function check_selected_timeslots_initial(){
+
+	var button = document.getElementById("submit_timeslots_button");
+
+	var table = document.getElementById("timeslots_table");
+
+	const days = ["monday_morning_slot", "monday_midday_slot", "monday_afternoon_slot", "monday_evening_slot",
+	"tuesday_morning_slot", "tuesday_midday_slot", "tuesday_afternoon_slot", "tuesday_evening_slot",
+	"wednesday_morning_slot", "wednesday_midday_slot", "wednesday_afternoon_slot", "wednesday_evening_slot",
+	"thursday_morning_slot", "thursday_midday_slot", "thursday_afternoon_slot", "thursday_evening_slot",
+	"friday_morning_slot", "friday_midday_slot", "friday_afternoon_slot", "friday_evening_slot",
+	"saturday_morning_slot", "saturday_midday_slot", "saturday_afternoon_slot", "saturday_evening_slot",
+	"sunday_morning_slot", "sunday_midday_slot", "sunday_afternoon_slot", "sunday_evening_slot"
+	]
+
+
+	var count = 0;
+
+	days.forEach(element_id => count+= check_inner_HTML(element_id));
+
+	var selected_slots = [];
+
+	days.forEach(element_id => selected_slots.push(slots_selected_initial(element_id)));
+
+	var selected_timeslots_initial = selected_slots.filter(function (el) {
+		return el != "";
+	});
+
+
+	if(count == 4){
+		button.style.display = "none";
+		table.style.display = "none";
+		days.forEach(element => document.getElementById(element).classList.remove("toggleable"));
+
+		var message = `/time_slots_ok`;
+
+		send(message);
+		
+	}
+	else{
+		window.alert("It seems like you are avaiable");
+	}
+}
+
 function check_inner_HTML(element_id){
 	var element =  document.getElementById(element_id);
 
@@ -384,6 +444,16 @@ function slots_selected(element_id){
 	}
 	// remove the _1 or _2 from the id
 	else return `'${element_id.substring(0, element_id.length - 2)}'`;
+}
+
+function slots_selected_initial(element_id){
+	var element = document.getElementById(element_id);
+
+	if(element.innerHTML == ""){
+		return "";
+	}
+	// remove the _slot from the id
+	else return `'${element_id.substring(0, element_id.length - 5)}'`;
 }
 
 

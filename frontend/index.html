@@ -68,6 +68,19 @@
             <span class = "submit_plan_button" id = "submit_plan_button" onClick="check_selected_timeslots()">I'm done adjusting the plan.</span>
         </div>
 
+        <!--table for free time slots-->
+        <div class="timeslots_table" id="timeslots_table">
+            <table class="time_table" id ="time_table" cellpadding="2" cellspacing="0" border="1" style="font-size: small">
+                <tr style="height:22px; font-weight: bold"><td></td><td>Monday</td><td>Tuesday</td><td>Wednesday</td><td>Thursday</td><td>Friday</td><td>Saturday</td><td>Sunday</td></tr>
+                <tr style="height:22px;"><td>Morning (6:00 - 10:00)</td><td id = "monday_morning_slot" onClick="toggle_slot(this.id)"></td><td id = "tuesday_morning_slot" onClick="toggle_slot(this.id)"></td><td id = "wednesday_morning_slot" onClick="toggle_slot(this.id)"></td><td id = "thursday_morning_slot" onClick="toggle_slot(this.id)"></td><td id = "friday_morning_slot" onClick="toggle_slot(this.id)"></td><td id = "saturday_morning_slot" onClick="toggle_slot(this.id)"></td><td id = "sunday_morning_slot" onClick="toggle_slot(this.id)"></td></tr>
+                <tr style="height:22px;"><td>Midday (10:00 - 14:00)</td><td id = "monday_midday_slot" onClick="toggle_slot(this.id)"></td><td id = "tuesday_midday_slot" onClick="toggle_slot(this.id)"></td><td id = "wednesday_midday_slot" onClick="toggle_slot(this.id)"></td><td id = "thursday_midday_slot" onClick="toggle_slot(this.id)"></td><td id = "friday_midday_slot" onClick="toggle_slot(this.id)"></td><td id = "saturday_midday_slot" onClick="toggle_slot(this.id)"></td><td id = "sunday_midday_slot" onClick="toggle_slot(this.id)"></td></tr>
+                <tr style="height:22px;"><td>Afternoon (14:00 - 18:00)</td><td id = "monday_afternoon_slot" onClick="toggle_slot(this.id)"></td><td id = "tuesday_afternoon_slot" onClick="toggle_slot(this.id)"></td><td id = "wednesday_afternoon_slot" onClick="toggle_slot(this.id)"></td><td id = "thursday_afternoon_slot" onClick="toggle_slot(this.id)"></td><td id = "friday_afternoon_slot" onClick="toggle_slot(this.id)"></td><td id = "saturday_afternoon_slot" onClick="toggle_slot(this.id)"></td><td id = "sunday_afternoon_slot" onClick="toggle_slot(this.id)"></td></tr>
+                <tr style="height:22px;"><td>Evening (18:00 - 22:00)</td><td id = "monday_evening_slot" onClick="toggle_slot(this.id)"></td><td id = "tuesday_evening_slot" onClick="toggle_slot(this.id)"></td><td id = "wednesday_evening_slot" onClick="toggle_slot(this.id)"></td><td id = "thursday_evening_slot" onClick="toggle_slot(this.id)"></td><td id = "friday_evening_slot" onClick="toggle_slot(this.id)"></td><td id = "saturday_evening_slot" onClick="toggle_slot(this.id)"></td><td id = "sunday_evening_slot" onClick="toggle_slot(this.id)"></td></tr>
+            
+            </table>
+            <span class = "submit_timeslots_button" id = "submit_timeslots_button" onClick="check_selected_timeslots_initial()">I'm done selecting time slots when I am free.</span>
+        </div>
+
 
     </div>
 
