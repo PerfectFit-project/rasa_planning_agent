@@ -427,7 +427,7 @@ function check_selected_timeslots_initial(){
 	});
 
 
-	if(count == 4){
+	if(count >= 4){
 		button.style.display = "none";
 		table.style.display = "none";
 
