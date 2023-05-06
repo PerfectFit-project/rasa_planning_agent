@@ -211,7 +211,7 @@ textarea-webkit-scrollbar {
 }
 
 #submit_timeslots_button {
-	display: none;
+	display: table;
 	width: 250px;
 	text-align: center;
 	margin: 10 auto;
