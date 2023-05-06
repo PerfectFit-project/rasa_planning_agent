@@ -432,7 +432,7 @@ function check_selected_timeslots_initial(){
 		
 	}
 	else{
-		window.alert("It seems like you are avaiable");
+		window.alert("Please select at least four time slots.");
 	}
 }
 
