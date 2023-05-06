@@ -60,8 +60,12 @@ body {
 	overflow: auto;
 }
 
+.plan_table td{
+	border:none;
+}
+
 .plan{
-	width: 750px;
+	width: 800px;
 	height: 500px;
 	margin: 0 auto;
 }
