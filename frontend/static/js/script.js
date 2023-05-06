@@ -462,7 +462,7 @@ function check_selected_timeslots_initial(){
 		var message = `/move_to_energy{`;
 
 		selected_slots.forEach(function(slot) {
-			message = message.concat(`"${slot}":"true",`);
+			message = message.concat(`"${slot}":"True",`);
 		});
 
 		message = message.substring(0, message.length - 1);
