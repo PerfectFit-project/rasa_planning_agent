@@ -482,7 +482,7 @@ function check_energy(){
 
 	times_weekends = [ "weekends_morning_energy", "weekends_midday_energy", "weekends_afternoon_energy", "weekends_evening_energy"]
 
-	var alerted = false;
+	var alerted_1 = false;
 
 	times_weekdays.forEach(function(time) {
 
@@ -496,12 +496,14 @@ function check_energy(){
 		
 		slots.forEach(element_id => count+= check_inner_HTML(element_id));
 
-		if(count != 1 && !alerted){
-			alerted = true;
+		if(count != 1 && !alerted_1){
+			alerted_1 = true;
 			window.alert("Please select an option for each of the time periods for weekdays");
 		}
 		
 	});
+
+	var alerted_2;
 
 	times_weekendss.forEach(function(time) {
 
@@ -515,14 +517,14 @@ function check_energy(){
 		
 		slots.forEach(element_id => count+= check_inner_HTML(element_id));
 
-		if(count != 1 && !alerted){
-			alerted = true;
+		if(count != 1 && !alerted_2){
+			alerted_2 = true;
 			window.alert("Please select an option for each of the time periods for weekends.");
 		}
 		
 	});
 
-	if(!alerted){
+	if(!alerted_1 && !alerted_2){
 
 		button.style.display = "none";
 		table.style.display = "none";
