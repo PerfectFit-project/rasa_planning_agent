@@ -516,7 +516,7 @@ function check_energy(){
 		
 		slots.forEach(element_id => count+= check_inner_HTML(element_id));
 
-		if(count != 1 && !alerted_1 && !alerted_2){
+		if(count != 1 && !alerted_2){
 			alerted_2 = true;
 			
 		}
