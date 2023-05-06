@@ -147,6 +147,8 @@ function setBotResponse(response) {
 					// display the plan when it is available
 					else if(response_text[j].includes("Plan 1: Week 1 - ")){
 
+						console.log(response_text[j]);
+
 						const week_1 = response_text[j].split("Plan 1: Week 1 - ")[1].split(" ")[0];
 
 						const week_2 = response_text[j].split(" Week 2 - ")[1].split(" ")[0];
