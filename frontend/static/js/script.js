@@ -353,15 +353,6 @@ function toggle_slot_energy(clicked_id){
 		}
 }
 
-function submit_energy(){
-	button.style.display = "none";
-	table.style.display = "none";
-
-	var message = `/move_to_energy`;
-
-	send(message);
-}
-
 //====================================== Check selected time slots =======================================
 function check_selected_timeslots(){
 
@@ -477,6 +468,45 @@ function check_selected_timeslots_initial(){
 	}
 	else{
 		window.alert("Please select at least four time slots.");
+	}
+}
+
+
+function check_energy(){
+
+	times_weekdays = [ "weekdays_morning_energy", "weekdays_midday_energy", "weekdays_afternoon_energy", "weekdays_evening_energy"]
+
+	times_weekends = [ "weekends_morning_energy", "weekends_midday_energy", "weekends_afternoon_energy", "weekends_evening_energy"]
+
+	var alerted = false;
+
+	times_weekdays.forEach(function(time) {
+
+		slots = [];
+
+		for(var i = 0; i<=4; i++){
+			slots.push(`${time}_${i}`);
+		}
+
+		count = 0;
+		
+		slots.forEach(element_id => count+= check_inner_HTML(element_id));
+
+		if(count != 1){
+			alerted = true;
+			window.alert("Please select an option for each of the time periods for both weekdays and weekends.");
+		}
+		
+	});
+
+	if(!alerted){
+		
+		button.style.display = "none";
+		table.style.display = "none";
+	
+		var message = `/move_to_energy`;
+	
+		send(message);
 	}
 }
 
