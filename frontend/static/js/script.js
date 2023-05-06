@@ -139,7 +139,7 @@ function setBotResponse(response) {
 					}
 
 					else if(response_text[j].includes("Now, I want to ask when you are usually energetic.")){
-						$(".energy_table").toggle();
+						$(".energy_levels_table").toggle();
 
 
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';

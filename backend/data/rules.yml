@@ -190,7 +190,8 @@ rules:
   steps:
   - intent: move_to_energy
   - action: utter_energy_levels
-  - action: utter_energy_levels_weekdays_morning
+  # - action: utter_energy_levels_weekdays_morning
+  - action: utter_energy_instruction
 
 - rule: confirm energy levels morning ask for midday
   steps: 

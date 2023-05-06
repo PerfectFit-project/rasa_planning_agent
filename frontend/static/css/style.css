@@ -237,6 +237,16 @@ textarea-webkit-scrollbar {
 	background-color: #2ed59f61
 }
 
+#submit_energy_button {
+	display: table;
+	width: 250px;
+	text-align: center;
+	margin: 10 auto;
+	cursor: pointer;
+	border: 2px solid  #000000;
+	background-color: #2ed59f61
+}
+
 .toggleable {
 	cursor: pointer;
 }
