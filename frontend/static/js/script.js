@@ -469,8 +469,6 @@ function check_selected_timeslots_initial(){
 
 		message = message.concat(`}`);
 
-		console.log(message);
-
 		send(message);
 		
 	}
