@@ -325,10 +325,29 @@ function toggle_slot(clicked_id){
 
 function toggle_slot_energy(clicked_id){
 	var time_slot = document.getElementById(clicked_id)
+
 	if (time_slot.innerHTML == "Selected") {
 		time_slot.innerHTML = "";
 		time_slot.style.backgroundColor = "white";
 		} else {
+
+		var time = clicked_id.substring(0, clicked_id.length - 9);
+
+		var times = [];
+
+		for(var i = 0; i<=4; i++){
+			times.push(`${time}_energy_${i}`);
+		}
+
+		var index = times.indexOf(clicked_id);
+
+		times.splice(index, 1);
+
+		times.forEach(function(element) {
+			document.getElementById(element).innerHTML = "";
+			document.getElementById(element).style.backgroundColor = "white";
+		});
+
 		time_slot.innerHTML = "Selected";
 		time_slot.style.backgroundColor = "#82e876";
 		}
