@@ -280,16 +280,6 @@ function doScaledTimeout(i, response, summed_timeout) {
 }
 
 
-
-function show(value) {
-    document.querySelector(".text-box").value = value;
-  }
-  
-$(".dropdown").click = function() {
-	dropdown.classList.toggle("active");
-}
-
-
 //====================================== Toggle chatbot =======================================
 $("#profile_div").click(function () {
 	$(".profile_div").toggle();
