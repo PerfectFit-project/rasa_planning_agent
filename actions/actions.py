@@ -352,7 +352,7 @@ class ActionCreateInitialPlan(Action):
                                 selected += random.sample(very_low_energy_timeslots, select_slots)
 
 
-        # dispatcher.utter_message(text=f"Available slots: {available_timeslots},  Selected slots: {selected}")
+        dispatcher.utter_message(text=f"Available slots: {available_timeslots},  Selected slots: {selected}")
 
         duration_per_timeslot_week_1 = math.ceil(minutes_week_1/4)
 
