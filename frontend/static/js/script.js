@@ -2,6 +2,14 @@ var number_plan = 0;
 
 var current_takeaway = 0;
 
+var first_walk = "";
+
+var week_3_time = "";
+
+var check_first_walk = false;
+
+var check_week_3 = false;
+
 $('.usrInput').attr("disabled",true);
 
 // ========================== start session ========================
@@ -43,6 +51,30 @@ $(".usrInput").on("keyup keypress", function (e) {
 			}
 			else if(current_takeaway == 2){
 				var message = "/confirm_takeaway_2";
+				setUserResponse(text);
+				send(message);
+			}
+			else if(check_first_walk){
+
+				if(text==first_walk){
+					var message = "/first_walk_correct";
+				}
+				else{
+					var message = "/first_walk_incorrect";
+				}
+
+				setUserResponse(text);
+				send(message);
+			}
+			else if(check_week_3){
+
+				if(text==week_3_time){
+					var message = "/week_3_correct";
+				}
+				else{
+					var message = "/week_3_incorrect";
+				}
+				
 				setUserResponse(text);
 				send(message);
 			}
@@ -178,6 +210,10 @@ function setBotResponse(response) {
 						const month_3 = response_text[j].split(" Month 3 - Walking for up to ")[1].split(" ")[0];
 
 						const slots = response_text[j].split(" minutes at these time slots: [")[1].split("]")[0].split(", ");
+
+						week_3_time = String(week_3);
+
+						first_walk = String(slots[0]);
     
 						var clean_slots = slots.map(function(e) { 
 							e = e.replace(/^'(.*)'$/, '$1'); 
@@ -188,13 +224,13 @@ function setBotResponse(response) {
 
 						clean_slots.forEach(e => document.getElementById(e + "_2").innerHTML = "Walk " + week_2 + " minutes");
 
-						document.getElementById("week_3").innerHTML = "Walking for up to " + week_3 + " minutes across 4 days";
+						document.getElementById("week_3").innerHTML = "Walking for " + week_3 + " hours, distributed across 4 time slots";
 
-						document.getElementById("week_4").innerHTML = "Walking for up to " + week_4 + " minutes across 4 days";
+						document.getElementById("week_4").innerHTML = "Walking for " + week_4 + " hours, distributed across 4 time slots";
 
-						document.getElementById("month_2").innerHTML = "Walking for up to " + month_2 + " minutes per week across 5 days each week";
+						document.getElementById("month_2").innerHTML = "Walking for up to " + month_2 + " hours per week, distributed across 5 time slots each week";
 
-						document.getElementById("month_3").innerHTML = "Walking for up to " + month_3 + " minutes per week across 5 days each week";
+						document.getElementById("month_3").innerHTML = "Walking for up to " + month_3 + " hours per week, distributed across 6 time slots each week";
 
 						$(".plan_table").toggle();
 
@@ -240,6 +276,23 @@ function setBotResponse(response) {
 						$('.usrInput').attr("disabled",false);
 						$(".usrInput").prop('placeholder', "Type something...");
 						current_takeaway = 2;
+					}
+
+					else if(response_text[j].includes("To check that you understand what the plan signifies, let's do a quick pop quiz!")){
+						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
+						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
+						
+						$('.usrInput').attr("disabled",false);
+						$(".usrInput").prop('placeholder', "Type something...");
+						check_week_3 = true;
+					}
+					else if(response_text[j].includes("You can see the first two weeks planned in detail. When is the first time you have to take a walk?")){
+						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
+						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
+						
+						$('.usrInput').attr("disabled",false);
+						$(".usrInput").prop('placeholder', "Type something...");
+						check_first_walk = true;
 					}
 					// otherwise, display the message
 					else{
@@ -442,7 +495,7 @@ function check_selected_timeslots(){
 		days_2.forEach(element => document.getElementById(element).classList.remove("toggleable"));
 
 		if(number_plan == 1){
-			var message = `/plan_modified{"plan_2":"Plan 2: Week 1 - 30 minutes at these time slots: [${filtered_1}]. Week 2 - 35 minutes at these time slots: [${filtered_2}]. Week 3 - Walking for ${week_3} minutes across 4 days. Week 4 - Walking for ${week_4} minutes across 4 days. Month 2 - Walking for up to ${month_2} minutes per week across 5 days. Month 3 - Walking for up to ${month_3} minutes per week across 6 days."}`;
+			var message = `/plan_modified{"plan_2":"Plan 2: Week 1 - 30 minutes at these time slots: [${filtered_1}]. Week 2 - 35 minutes at these time slots: [${filtered_2}]. Week 3 - Walking for ${week_3} hours, distributed across 4 time slots. Week 4 - Walking for ${week_4} hours, distributed across 4 time slots. Month 2 - Walking for up to ${month_2} hours per week, distributed across 5 time slots. Month 3 - Walking for up to ${month_3} hours per week, distributed across 6 time slots."}`;
 
 			send(message);
 
@@ -450,7 +503,7 @@ function check_selected_timeslots(){
 	
 		}
 		else{
-			var message = `/plan_modified{"plan_3":"Plan 3: Week 1 - 30 minutes at these time slots: [${filtered_1}]. Week 2 - 35 minutes at these time slots: [${filtered_2}]. Week 3 - Walking for ${week_3} minutes across 4 days. Week 4 - Walking for ${week_4} minutes across 4 days. Month 2 - Walking for up to ${month_2} minutes per week across 5 days. Month 3 - Walking for up to ${month_3} minutes per week across 6 days."}`;
+			var message = `/plan_modified{"plan_3":"Plan 3: Week 1 - 30 minutes at these time slots: [${filtered_1}]. Week 2 - 35 minutes at these time slots: [${filtered_2}]. Week 3 - Walking for ${week_3} hours, distributed across 4 time slots. Week 4 - Walking for ${week_4} hours, distributed across 4 time slots. Month 2 - Walking for up to ${month_2} hours per week, distributed across 5 time slots. Month 3 - Walking for up to ${month_3} hours per week, distributed across 6 time slots."}`;
 
 			send(message);
 		}

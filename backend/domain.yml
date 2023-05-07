@@ -80,6 +80,12 @@ intents:
 - confirm_initial_plan
 - confirm_checked_plan
 
+- confirm_continue_check
+- first_walk_correct
+- first_walk_incorrect
+- week_3_correct
+- week_3_incorrect
+
 ## state variables
 
 - confirm_state
@@ -244,6 +250,13 @@ entities:
     influence_conversation: false
 
 - plan_3:
+    influence_conversation: false
+
+
+- plan_check_week_3:
+    influence_conversation: false
+
+- plan_check_first_walk:
     influence_conversation: false
 
 - goal:
@@ -664,6 +677,20 @@ slots:
     mappings:
     - type: from_entity
       entity: plan_3
+
+  plan_check_week_3:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: plan_check_week_3
+
+  plan_check_first_walk:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: plan_check_first_walk
 
 
   ### goal
@@ -1363,10 +1390,37 @@ responses:
   - buttons:
     - payload: /confirm_checked_plan{"changes_to_plan":"0"}
       title: "Okay."
-    text: "I'll leave the plan there so you can take a look at it later."
+  - text: "I'll leave the plan on the left side on the screen so you can take a look at it later."
+
+  utter_present_plan_3:
+  - text: "Before we move on, let's took a bit at the plan."
+
+  utter_check_plan_first_walk:
+  - text: "You can see the first two weeks planned in detail. When is the first time you have to take a walk? Please type your answer as day_time. For example, if your first walk is on Friday morning, please type 'friday_morning'."
+
+  utter_check_plan_first_walk_correct:
+  - text: "That's right, your first walk is on {plan_check_first_walk}."
+
+  utter_check_plan_first_walk_incorrect:
+  - text: "Unfortunately, you are not right. If you take another look at the plan, you will see that your first walk is on {plan_check_first_walk}."
+  
+  utter_explain_weeks:
+  - buttons:
+    - payload: /confirm_continue_check
+      title: "Yes."
+    text: "Moving on, you can also see the following weeks, but only in terms of how many hours you have to walk and how often. For the months, you see only how much you will have to do in the last week of that month, to give you an idea of the effort that you are building up towards. Are you ready to continue?"
+
+  utter_check_plan_week_3:
+  - text: "To check that you understand what the plan signifies, let's do a quick pop quiz! How much time will you have to walk on your third week? Please type your answer as a number with one decimal point. For example, if your answer is 1 and a half hours, please type '1.5'"
+
+  utter_check_plan_week_3_correct:
+  - text: "Correct! In your third week, you will have to walk for {plan_check_week_3} hours."
+
+  utter_check_plan_week_3_incorrect:
+  - text: "I'm afraid your answer is not correct. If you take a look at the plan, you can see that, in your third week, you will have to walk for {plan_check_week_3} hours."
 
   utter_state_variables_intro_1:
-  - text: "Throughout the dialogue, I will ask you some questions to better understand your situation. Some of these questions might repeat, so do not be alarmed if you see a question you have already seen."
+  - text: "Let's continue. Throughout the dialogue, I will ask you some questions to better understand your situation. Some of these questions might repeat, so do not be alarmed if you see a question you have already seen."
 
   utter_state_variables_intro_2:
   - buttons:

@@ -257,11 +257,42 @@ rules:
   - action: utter_present_plan_1
   - action: utter_present_plan_2
 
-- rule: intro state variables ask confidence
+- rule: check plan understanding first walk
   steps:
   - intent: confirm_checked_plan
+  - action: utter_check_plan_first_walk
+
+- rule: check plan understanding first walk correct
+  steps:
+  - intent: first_walk_correct
+  - action: utter_check_plan_first_walk_correct
+  - action: utter_explain_weeks
+
+- rule: check plan understanding first walk incorrect
+  steps:
+  - intent: first_walk_incorrect
+  - action: utter_check_plan_first_walk_incorrect
+  - action: utter_explain_weeks
+
+- rule: check plan understanding week 3
+  steps:
+  - intent: confirm_continue_check
+  - action: utter_check_plan_week_3
+
+- rule: check plan understanding week 3 correct
+  steps:
+  - intent: week_3_correct
+  - action: utter_check_plan_week_3_correct
   - action: utter_state_variables_intro_1
   - action: utter_state_variables_intro_2
+
+- rule: check plan understanding week 3 incorrect
+  steps:
+  - intent: week_3_incorrect
+  - action: utter_check_plan_week_3_incorrect
+  - action: utter_state_variables_intro_1
+  - action: utter_state_variables_intro_2
+
 
 - rule: loop asking for state and doing actions
   steps:

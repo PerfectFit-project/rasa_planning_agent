@@ -164,6 +164,9 @@ class ActionCheckNumberOfSlos(Action):
 def round_to_nearest_5(n):
     return 5 * round(n / 5)
 
+def round_to_nearest_half(n):
+    return round(n * 2.0) / 2.0
+
 
 class ActionCreateInitialPlan(Action):
 
@@ -358,11 +361,25 @@ class ActionCreateInitialPlan(Action):
 
         selected_times = [time_energy[0] for time_energy in selected]
 
-        message = f"""Plan 1: Week 1 - {round_to_nearest_5(duration_per_timeslot_week_1)} minutes at these time slots: {selected_times}. Week 2 - {round_to_nearest_5(math.ceil((minutes_week_1 + weekly_increase)/4))} minutes at these time slots: {selected_times}. Week 3 - Walking for {round_to_nearest_5(minutes_week_1 + 2* weekly_increase)} minutes across 4 days. Week 4 - Walking for {round_to_nearest_5(minutes_week_1 + 3* weekly_increase)} minutes across 4 days. Month 2 - Walking for up to {round_to_nearest_5(minutes_week_1 + 7* weekly_increase)} minutes per week across 5 days. Month 3 - Walking for up to {round_to_nearest_5(minutes_week_1 + 11* weekly_increase)} minutes per week across 6 days."""
+        custom_order = {
+            "monday_morning": 0, "monday_midday": 1, "monday_afternoon": 2, "monday_evening": 3,
+            "tuesday_morning": 4, "tuesday_midday": 5, "tuesday_afternoon": 6, "tuesday_evening": 7,
+            "wednesday_morning": 8, "wednesday_midday": 9, "wednesday_afternoon": 10, "wednesday_evening": 11,
+            "thursday_morning": 12, "thursday_midday": 13, "thursday_afternoon": 14, "thursday_evening": 15,
+            "friday_morning": 16, "friday_midday": 17, "friday_afternoon": 18, "friday_evening": 19,
+            "saturday_morning": 20, "saturday_midday": 21, "saturday_afternoon": 22, "saturday_evening": 23,
+            "sunday_morning": 24, "sunday_midday": 25, "sunday_afternoon": 26, "sunday_evening": 27
+        }
+
+        first = selected_times[0]
+
+        selected_times.sort(key=lambda x:custom_order[x])
+
+        message = f"""Plan 1: Week 1 - {round_to_nearest_5(duration_per_timeslot_week_1)} minutes at these time slots: {selected_times}. Week 2 - {round_to_nearest_5(math.ceil((minutes_week_1 + weekly_increase)/4))} minutes at these time slots: {selected_times}. Week 3 - Walking for {round_to_nearest_half((minutes_week_1 + 2* weekly_increase)/60.0)} hours, distributed across 4 time slots. Week 4 - Walking for {round_to_nearest_half((minutes_week_1 + 3* weekly_increase)/60.0)} hours, distributed across 4 time slots. Month 2 - Walking for up to {round_to_nearest_half((minutes_week_1 + 7* weekly_increase)/60.0)} hours per week, distributed across 5 time slots. Month 3 - Walking for up to {round_to_nearest_half((minutes_week_1 + 11* weekly_increase)/60.0)} hours per week, distributed across 6 time slots."""
 
         dispatcher.utter_message(text=message)
 
-        return [SlotSet("plan_1", message)]
+        return [SlotSet("plan_1", message), SlotSet("plan_check_week_3", f"{round_to_nearest_half((minutes_week_1 + 2* weekly_increase)/60.0)}"), SlotSet("plan_check_first_walk", first)]
 
     
     
