@@ -1631,7 +1631,7 @@ responses:
   utter_ask_takeaway_1:
   - text: "What can you take away from this example for yourself? Please type this in the chat."
 
-  utter_ask_takeaway_1:
+  utter_ask_takeaway_2:
   - text: "How about this example? What can you take away for yourself? Please type this in the chat."
 
   utter_testimonial_another:
