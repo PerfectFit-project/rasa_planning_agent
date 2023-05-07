@@ -1390,7 +1390,7 @@ responses:
   - buttons:
     - payload: /confirm_checked_plan{"changes_to_plan":"0"}
       title: "Okay."
-  - text: "I'll leave the plan on the left side on the screen so you can take a look at it later."
+    text: "I'll leave the plan on the left side on the screen so you can take a look at it later."
 
   utter_present_plan_3:
   - text: "Before we move on, let's took a bit at the plan."
