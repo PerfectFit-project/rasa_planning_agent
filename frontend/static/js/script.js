@@ -1,5 +1,7 @@
 var number_plan = 0;
 
+var current_takeaway = 0;
+
 $('.usrInput').attr("disabled",true);
 
 // ========================== start session ========================
@@ -33,8 +35,22 @@ $(".usrInput").on("keyup keypress", function (e) {
 			$("#paginated_cards").remove();
 			$(".suggestions").remove();
 			$(".usrInput").blur();
-			setUserResponse(text);
-			send(text);
+
+			if(current_takeaway == 1){
+				var message = "/confirm_takeaway_1";
+				setUserResponse(text);
+				send(message);
+			}
+			else if(current_takeaway == 2){
+				var message = "/confirm_takeaway_2";
+				setUserResponse(text);
+				send(message);
+			}
+			else{
+				setUserResponse(text);
+				send(text);
+			}
+
 			e.preventDefault();
 			return false;
 		}
@@ -215,10 +231,7 @@ function setBotResponse(response) {
 						
 						$('.usrInput').attr("disabled",false);
 						$(".usrInput").prop('placeholder', "Type something...");
-						var text = document.getElementById("userInput").innerHTML;
-						var message = "/confirm_takeaway_1";
-						setUserResponse(text);
-						send(message);
+						current_takeaway = 1;
 					}
 					else if(response_text[j].includes("How about this example? What can you take away for yourself? Please type this in the chat.")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
@@ -226,10 +239,7 @@ function setBotResponse(response) {
 						
 						$('.usrInput').attr("disabled",false);
 						$(".usrInput").prop('placeholder', "Type something...");
-						var text = document.getElementById("userInput").innerHTML;
-						var message = "/confirm_takeaway_2";
-						setUserResponse(text);
-						send(message);
+						current_takeaway = 2;
 					}
 					// otherwise, display the message
 					else{
