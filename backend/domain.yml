@@ -1319,7 +1319,7 @@ responses:
   - text: "Now, I want to ask when you are usually energetic."
 
   utter_energy_instruction:
-  - text: "Like before, I would like you to pay attention to the left side of the sceen. Please specify your energy levels by making use of the options that appear after clicking on the buttons titled 'specify energy'."
+  - text: "Like before, I would like you to pay attention to the left side of the sceen. Please specify your energy levels by clicking on the corresponding energy level for that time slot."
 
   # utter_energy_levels_weekdays_morning:
   # - buttons:

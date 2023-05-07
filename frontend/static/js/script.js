@@ -194,7 +194,7 @@ function setBotResponse(response) {
 				var response_text = response[0].text.split("\n")
 				for (j = 0; j < response_text.length; j++){
 					
-					if(response_text[j].includes("Nice! Before we can get started, let's see when you have free time.")){
+					if(response_text[j].includes("Alright! In order to started, let's see when you have free time.")){
 						$(".timeslots_table").toggle();
 
 
