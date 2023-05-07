@@ -209,7 +209,7 @@ function setBotResponse(response) {
 						button.style.display = "table";
 
 					}
-					else if(response_text[j].includes("Seeing other people make plans and succeed with regards to their goals is something that might help you.")){
+					else if(response_text[j].includes("What can you take away from this example for yourself? Please type this in the chat.")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
 						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
 						
@@ -220,7 +220,7 @@ function setBotResponse(response) {
 						setUserResponse(text);
 						send(message);
 					}
-					else if(response_text[j].includes("Let's look at another example.")){
+					else if(response_text[j].includes("How about this example? What can you take away for yourself? Please type this in the chat.")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
 						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
 						

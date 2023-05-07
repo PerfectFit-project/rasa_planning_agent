@@ -363,14 +363,24 @@ rules:
   - action: utter_show_testimonials_2
   - action: action_show_testimonials
   - action: utter_testimonial_1
-  - action: utter_ask_takeaway
+  - action: utter_ask_read_testimonial_1
+
+- rule: confirm read testimonial 1
+steps:
+  - intent: confirm_read_testimonial_1
+  - action: utter_ask_takeaway_1
 
 - rule: show testimonial 2
   steps:
   - intent: confirm_takeaway_1
   - action: utter_testimonial_another
   - action: utter_testimonial_2
-  - action: utter_ask_takeaway
+  - action: utter_ask_read_testimonial_2
+
+- rule: confirm read testimonial 2
+steps:
+  - intent: confirm_read_testimonial_2
+  - action: utter_ask_takeaway_2
   
   
 - rule: finish testimonails

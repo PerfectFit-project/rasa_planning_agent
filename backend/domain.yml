@@ -97,6 +97,9 @@ intents:
 - do_show_testimonials
 - do_changes_to_plan
 
+- confirm_read_testimonial_1
+- confirm_read_testimonial_2
+
 - confirm_takeaway_1
 - confirm_takeaway_2
 
@@ -1613,8 +1616,21 @@ responses:
   utter_testimonial_2:
   - text: "{testimonial_2}"
 
-  utter_ask_takeaway:
+  utter_ask_read_testimonial_1:
+  - payload: /confirm_read_testimonial_1
+      title: "Yes."
+    text: "Have you finished reading how planning helped this person?"
+
+  utter_ask_read_testimonial_2:
+  - payload: /confirm_read_testimonial_2
+      title: "Yes."
+    text: "Have you finished reading how planning helped this person?"
+
+  utter_ask_takeaway_1:
   - text: "What can you take away from this example for yourself? Please type this in the chat."
+
+  utter_ask_takeaway_1:
+  - text: "How about this example? What can you take away for yourself? Please type this in the chat."
 
   utter_testimonial_another:
   - text: "Let's look at another example."
