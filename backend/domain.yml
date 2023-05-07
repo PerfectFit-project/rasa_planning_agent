@@ -1610,7 +1610,7 @@ responses:
       title: "Lack of equipment."
     - payload: /confirm_continue_identify_barriers
       title: "Family obligations."
-    text: "Which of these do you think might be a common barrier?"
+    text: "Which of these do you think might be a common barrier for most people?"
 
   utter_identify_barriers_4:
   - text: "You're right! That is indeed a barrierr."
