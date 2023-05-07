@@ -11,7 +11,8 @@ intents:
 - confirm_mood_bad
 
 # purpose
-- confirm_continue_purpose
+- confirm_continue_purpose_1
+- confirm_continue_purpose_2
 - confirm_purpose
 
 # usage
@@ -943,9 +944,9 @@ responses:
   utter_purpose_3:
   - text: "To be a bit more specific, we will create a plan for taking walks during the week."
 
-  utter_continue_purpose:
+  utter_continue_purpose_1:
   - buttons:
-    - payload: /confirm_continue_purpose
+    - payload: /confirm_continue_purpose_1
       title: "Let's continue."
     text: "I'll explain a bit more about the plan later, but keep in mind that I'm not asking you to actually take walks. The purpose of this chat is to only create a plan for walking. Let me know when you are done reading so we can continue."
 
@@ -954,7 +955,13 @@ responses:
   - text: "Walking is a great way to start being more active, since it's easily accessible for everyone."
 
   utter_purpose_5:
-  - text: "This means that it doesn't take a lot of time like a workout might, nor does it require special equipment. Additionally, you can easily build up by slightly increasing the amount of time you walk for."
+  - text: "This means that it doesn't take a lot of time like a workout might, nor does it require special equipment."
+
+  utter_continue_purpose_2:
+  - buttons:
+    - payload: /confirm_continue_purpose_2
+      title: "Yes."
+    text: "Additionally, you can easily build up by slightly increasing the amount of time you walk for. Are you ready to continue?"
 
   utter_purpose_6:
   - text: "Unlike leisurely walks though, you'll have to walk at moderate intensity for our plan to be effective. Moderate intensity is characterised by breathing more heavily than usual, while still being able to hold a short conversation."
