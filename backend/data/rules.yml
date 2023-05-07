@@ -366,7 +366,7 @@ rules:
   - action: utter_ask_read_testimonial_1
 
 - rule: confirm read testimonial 1
-steps:
+  steps:
   - intent: confirm_read_testimonial_1
   - action: utter_ask_takeaway_1
 
@@ -378,7 +378,7 @@ steps:
   - action: utter_ask_read_testimonial_2
 
 - rule: confirm read testimonial 2
-steps:
+  steps:
   - intent: confirm_read_testimonial_2
   - action: utter_ask_takeaway_2
   
