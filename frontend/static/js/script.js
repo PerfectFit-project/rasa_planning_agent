@@ -297,7 +297,7 @@ function setBotResponse(response) {
 						current_takeaway = 2;
 					}
 
-					else if(response_text[j].includes("To check that you understand what the plan signifies, let's do a quick pop quiz!")){
+					else if(response_text[j].includes("Let's do an extra check to make sure everything is clear.")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
 						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
 						
@@ -305,7 +305,7 @@ function setBotResponse(response) {
 						$(".usrInput").prop('placeholder', "Type something...");
 						check_week_3 = true;
 					}
-					else if(response_text[j].includes("You can see the first two weeks planned in detail. When is the first time you have to take a walk?")){
+					else if(response_text[j].includes("You can see the first two weeks planned in detail.")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
 						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
 						

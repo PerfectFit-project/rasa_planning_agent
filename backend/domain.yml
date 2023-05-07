@@ -1446,7 +1446,7 @@ responses:
   - text: "Before we move on, let's took a bit at the plan. On the left side of your screen, you should see a big table with a view similar to that of a calendar. Time slots when you should take walks are marked with the duration you should walk for. You can also notice that the duration increases each week."
 
   utter_check_plan_first_walk:
-  - text: "You can see the first two weeks planned in detail. When is the first time you have to take a walk? Please type your answer as day_time. For example, if your first walk is on Friday morning, please type 'friday_morning'."
+  - text: "You can see the first two weeks planned in detail. To check that you understand what the plan signifies, let's do a quick pop quiz! When is the first time you have to take a walk? Please type your answer as day_time. For example, if your first walk is on Friday morning, please type 'friday_morning'."
 
   utter_check_plan_first_walk_correct:
   - text: "That's right, your first walk is on {plan_check_first_walk}."
@@ -1461,7 +1461,7 @@ responses:
     text: "Moving on, you can also see the following weeks, but only in terms of how many hours you have to walk and how often. For the months, you see only how much you will have to do in the last week of that month, to give you an idea of the effort that you are building up towards. Are you ready to continue?"
 
   utter_check_plan_week_3:
-  - text: "To check that you understand what the plan signifies, let's do a quick pop quiz! How much time will you have to walk on your third week? Please type your answer as a number with one decimal point. For example, if your answer is 1 and a half hours, please type '1.5'"
+  - text: "Let's do an extra check to make sure everything is clear. How much time will you have to walk on your third week? Please type your answer as a number with one decimal point. For example, if your answer is 1 and a half hours, please type '1.5'"
 
   utter_check_plan_week_3_correct:
   - text: "Correct! In your third week, you will have to walk for {plan_check_week_3} hours."
