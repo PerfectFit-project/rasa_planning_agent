@@ -76,6 +76,8 @@ $(".usrInput").on("keyup keypress", function (e) {
 				setUserResponse(text);
 				send(message);
 
+				check_first_walk = false;
+
 				$('.usrInput').attr("disabled",true);
 			}
 			else if(check_week_3){
@@ -95,6 +97,8 @@ $(".usrInput").on("keyup keypress", function (e) {
 				
 				setUserResponse(text);
 				send(message);
+
+				check_week_3 = false;
 
 				$('.usrInput').attr("disabled",true);
 			}
