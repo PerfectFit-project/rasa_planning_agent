@@ -1476,7 +1476,7 @@ responses:
   - buttons:
     - payload: /confirm_state
       title: "Yes."
-    text: "are you prepared?"
+    text: "Are you prepared?"
 
   utter_state_confidence:
   - buttons:
