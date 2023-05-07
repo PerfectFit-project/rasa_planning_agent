@@ -60,7 +60,7 @@ $(".usrInput").on("keyup keypress", function (e) {
 
 				console.log(first_walk);
 
-				if(text==first_walk){
+				if(`'${text}'`==first_walk){
 					var message = "/first_walk_correct";
 				}
 				else{
@@ -78,7 +78,7 @@ $(".usrInput").on("keyup keypress", function (e) {
 
 				console.log(week_3_time);
 
-				if(text==week_3_time){
+				if(`'${text}'`==week_3_time){
 					var message = "/week_3_correct";
 				}
 				else{
