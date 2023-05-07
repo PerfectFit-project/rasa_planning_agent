@@ -286,7 +286,7 @@ rules:
   steps:
   - intent: confirm_attitude
   # - action: utter_attitude_repeat\
-  - action: utter_thank_for_attitude
+  # - action: utter_thank_for_attitude
   - action: action_save_event_state
   - action: action_select_action
 
