@@ -968,12 +968,11 @@ responses:
   - buttons:
     - payload: /confirm_usage
       title: "Yes."
-    text: "You can simply click on one of the buttons like you already did. If no buttons appear below the message, you might need to do something in a diferent part of the screen. I will tell you when that is the case. Shall we continue?"
+    text: "You can simply click on one of the buttons like you already did. Sometimes, you will have to use the chat box bellow to type your answer. Other times, you will need to do something on the left side of the screen. I will tell you when that is the case. Shall we continue?"
 
 
   utter_internal_moivation_1:
   - text: "The researchers already told me that you're quite motivated to do physical activity. "
-
 
   utter_internal_moivation_2:
   - text: "So, I am curious: which one of these reasons motivates you the most?"
@@ -983,15 +982,15 @@ responses:
     - payload: /confirm_motivation
       title: "Family."
     - payload: /confirm_motivation
-      title: "Health"
+      title: "Health."
     - payload: /confirm_motivation
-      title: "Relationships"
+      title: "Relationships."
     - payload: /confirm_motivation
-      title: "Personal growth"
+      title: "Personal growth."
     - payload: /confirm_motivation
-      title: "Work"
+      title: "Work."
     - payload: /confirm_motivation
-      title: "Friends"
+      title: "Friends."
     text: "Please pick one of the options below:"
 
   utter_thank_for_motivation:
