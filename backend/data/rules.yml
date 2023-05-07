@@ -356,13 +356,26 @@ rules:
   - action: utter_action_finished_loop_back
 
 
-- rule: show testimonials
+- rule: show testimonial 1
   steps:
   - intent: do_show_testimonials
   - action: utter_show_testimonials_1
   - action: utter_show_testimonials_2
   - action: action_show_testimonials
-  - action: utter_show_testimonials_3
+  - action: utter_testimonial_1
+  - action: utter_ask_takeaway
+
+- rule: show testimonial 2
+  steps:
+  - intent: confirm_takeaway_1
+  - action: utter_testimonial_another
+  - action: utter_testimonial_2
+  - action: utter_ask_takeaway
+  
+  
+- rule: finish testimonails
+  steps:
+  - intent: confirm_takeaway_2
   - action: action_save_action
   - action: utter_action_finished_loop_back
 

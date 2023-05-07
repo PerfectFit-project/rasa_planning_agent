@@ -209,6 +209,28 @@ function setBotResponse(response) {
 						button.style.display = "table";
 
 					}
+					else if(response_text[j].includes("Seeing other people make plans and succeed with regards to their goals is something that might help you.")){
+						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
+						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
+						
+						$('.usrInput').attr("disabled",false);
+						$(".usrInput").prop('placeholder', "Type something...");
+						var text = document.getElementById("userInput").innerHTML;
+						var message = "/confirm_takeaway_1";
+						setUserResponse(text);
+						send(message);
+					}
+					else if(response_text[j].includes("Let's look at another example.")){
+						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
+						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
+						
+						$('.usrInput').attr("disabled",false);
+						$(".usrInput").prop('placeholder', "Type something...");
+						var text = document.getElementById("userInput").innerHTML;
+						var message = "/confirm_takeaway_2";
+						setUserResponse(text);
+						send(message);
+					}
 					// otherwise, display the message
 					else{
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';

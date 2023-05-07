@@ -97,6 +97,9 @@ intents:
 - do_show_testimonials
 - do_changes_to_plan
 
+- confirm_takeaway_1
+- confirm_takeaway_2
+
 - plan_modified
 
 - confirm_continue_explain_planning
@@ -268,6 +271,12 @@ entities:
     influence_conversation: false
 
 - show_testimonials:
+    influence_conversation: false
+
+- testimonial_1:
+    influence_conversation: false
+
+- testimonial_2:
     influence_conversation: false
 
 - action:
@@ -756,6 +765,21 @@ slots:
     mappings:
     - type: from_entity
       entity: show_testimonials
+
+  testimonial_1:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: testimonial_1
+
+  testimonial_2:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: testimonial_2
+
 
   actions_done:
     type: bool
@@ -1583,8 +1607,17 @@ responses:
   utter_show_testimonials_2:
   - text: "Let's take a look at a few such cases."
 
-  utter_show_testimonials_3:
-  - text: "What can you take away from this? Think for yourself and let me know when you are ready to continue."
+  utter_testmonial_1:
+  - text: "{testimonial_1}"
+
+  utter_testmonial_2:
+  - text: "{testimonial_2}"
+
+  utter_ask_takeaway:
+  - text: "What can you take away from this example for yourself? Please type this in the chat."
+
+  utter_testimonial_another:
+  - text: "Let's look at another example."
 
   utter_changes_to_plan_1:
   - text: "I propose we take another look at the plan and modify it a bit."

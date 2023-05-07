@@ -757,13 +757,4 @@ class ActionShowTestimonials(Action):
 
             testimonials_to_show = random.sample(testimonials, 2)
 
-
-            dispatcher.utter_message(text=testimonials_to_show[0])
-
-            sleep(7) # Time in seconds
-
-            dispatcher.utter_message(text="Let's see another example.")
-
-            dispatcher.utter_message(text=testimonials_to_show[1])
-
-            return []
+            return [SlotSet("testimonial_1", testimonials_to_show[0]), SlotSet("testimonial_2", testimonials_to_show[1])]
