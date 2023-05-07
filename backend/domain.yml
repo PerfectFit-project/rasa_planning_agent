@@ -1617,12 +1617,13 @@ responses:
   - text: "{testimonial_2}"
 
   utter_ask_read_testimonial_1:
-  - payload: /confirm_read_testimonial_1
+  - buttons:
       title: "Yes."
     text: "Have you finished reading how planning helped this person?"
 
   utter_ask_read_testimonial_2:
-  - payload: /confirm_read_testimonial_2
+  - buttons:
+    - payload: /confirm_read_testimonial_2
       title: "Yes."
     text: "Have you finished reading how planning helped this person?"
 
