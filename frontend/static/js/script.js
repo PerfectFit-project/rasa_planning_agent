@@ -70,9 +70,6 @@ $(".usrInput").on("keyup keypress", function (e) {
 				else{
 					var message = "/first_walk_incorrect";
 				}
-
-				console.log(message);
-
 				setUserResponse(text);
 				send(message);
 
@@ -82,9 +79,8 @@ $(".usrInput").on("keyup keypress", function (e) {
 			}
 			else if(check_week_3){
 
-				console.log(text);
 
-				console.log(week_3_time);
+				text = parseFloat(text).toFixed(1);
 
 				if(text==week_3_time){
 					var message = "/week_3_correct";
@@ -92,8 +88,6 @@ $(".usrInput").on("keyup keypress", function (e) {
 				else{
 					var message = "/week_3_incorrect";
 				}
-
-				console.log(message);
 				
 				setUserResponse(text);
 				send(message);
