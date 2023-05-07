@@ -60,7 +60,7 @@ $(".usrInput").on("keyup keypress", function (e) {
 
 				console.log(first_walk);
 
-				if(`'${text}'`==first_walk){
+				if(text==first_walk){
 					var message = "/first_walk_correct";
 				}
 				else{
@@ -78,7 +78,7 @@ $(".usrInput").on("keyup keypress", function (e) {
 
 				console.log(week_3_time);
 
-				if(`'${text}'`==week_3_time){
+				if(text==week_3_time){
 					var message = "/week_3_correct";
 				}
 				else{
@@ -225,12 +225,13 @@ function setBotResponse(response) {
 
 						week_3_time = String(week_3);
 
-						first_walk = String(slots[0]);
     
 						var clean_slots = slots.map(function(e) { 
 							e = e.replace(/^'(.*)'$/, '$1'); 
 							return e;
 						});
+
+						first_walk = String(clean_slots[0]);
 
 						clean_slots.forEach(e => document.getElementById(e + "_1").innerHTML = "Walk " + week_1 + " minutes");
 
