@@ -1416,7 +1416,7 @@ responses:
   - buttons:
     - payload: /confirm_ready_initial_plan
       title: "Okay."
-    text: "Now, here is the initial plan! Don't worry if it's not entirely to you liking yet. You'll have opportunities to modify it later."
+    text: "Now, let's see initial plan! Don't worry if it's not entirely to you liking yet. You'll have opportunities to modify it later."
 
   utter_present_plan_2:
   - buttons:
