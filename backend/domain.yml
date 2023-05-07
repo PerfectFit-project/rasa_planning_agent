@@ -1560,18 +1560,18 @@ responses:
   - text: "Thanks for telling me!"
 
   utter_explain_planning_1:
-  - text: "Maybe it would be useful to look again at why planning can help you be more physicall active by walking."
+  - text: "I think it would be useful to look again at more ways in which planning can help you be more physically active by walking."
 
   utter_explain_planning_2:
   - buttons:
     - payload: /confirm_continue_explain_planning
-      title: "Motivation."
+      title: "It can help increase my motivation."
     - payload: /confirm_continue_explain_planning
-      title: "Habit."
+      title: "It can help me create a habit."
     - payload: /confirm_continue_explain_planning
-      title: "Visualising the road towards the goal."
+      title: "It can help me visualise the road towards the goal."
     - payload: /confirm_continue_explain_planning
-      title: "Dealing with obstacles"
+      title: "It can help me deal with obstacles."
     text: "First off, why do you think planning can help you do more physical activity?"
 
   utter_explain_planning_3:
@@ -1689,7 +1689,7 @@ responses:
   - text: "If you have children to take care of, it might be a good idea to take them on regular walks with you. That way you can fulfill your family obligations and make progress towards your goal."
 
   utter_show_testimonials_1:
-  - text: "Seeing other people make plans and succeed with regards to their goals is something that might help you."
+  - text: "Seeing other people make plans and see how they succeed with regards to their goals is something that might help you."
 
   utter_show_testimonials_2:
   - text: "Let's take a look at a few such cases."
