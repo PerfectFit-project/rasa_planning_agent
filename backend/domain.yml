@@ -964,9 +964,12 @@ responses:
     text: "Additionally, you can easily build up by slightly increasing the amount of time you walk for. Are you ready to continue?"
 
   utter_purpose_6:
-  - text: "Unlike leisurely walks though, you'll have to walk at moderate intensity for our plan to be effective. Moderate intensity is characterised by breathing more heavily than usual, while still being able to hold a short conversation."
-
+  - text: "Now, you may be thingking that just walking can't possibly help you be more active. Unlike leisurely walks though, you'll have to walk at moderate intensity for our plan to be effective."
+  
   utter_purpose_7:
+  - text: "Moderate intensity is characterised by breathing more heavily than usual, while still being able to hold a short conversation."
+  
+  utter_purpose_8:
   - text: "In other words, you should walk at a pace that makes it somewhat challenging for you to keep going, which is about 100 steps per minute for the average person."
 
   utter_confirm_purpose:

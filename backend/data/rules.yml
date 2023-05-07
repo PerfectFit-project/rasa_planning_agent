@@ -70,6 +70,7 @@ rules:
   - intent: confirm_continue_purpose_2
   - action: utter_purpose_6
   - action: utter_purpose_7
+  - action: utter_purpose_8
   - action: utter_confirm_purpose
 
 
