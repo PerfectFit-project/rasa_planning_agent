@@ -1376,6 +1376,10 @@ responses:
   utter_confidence_repeat:
   - text: "So your confidence is {confidence}."
 
+  utter_thank_for_confidence:
+  - text: "I see. Thank you for telling me."
+  - text: "Okay. Good to know. Thank you."
+
   utter_state_perceived_usefulness:
   - buttons:
     - payload: /confirm_perceived_usefulness{"perceived_usefulness":"low"}
@@ -1405,6 +1409,10 @@ responses:
   utter_perceived_usefulness_repeat:
   - text: "So your perceived usefulness is {perceived_usefulness}."
 
+  utter_thank_for_perceived_usefulness:
+  - text: "So that is your opinion. Okay!"
+  - text: "I see, that's what you think. Thank you for letting me know."
+
   utter_state_attitude:
   - buttons:
     - payload: /confirm_attitude{"attitude":"low"}
@@ -1433,6 +1441,10 @@ responses:
 
   utter_attitude_repeat:
   - text: "So your attitude is {attitude}."
+
+  utter_thank_for_attitude:
+  - text: "That is good to know. Thank you."
+  - text: "Thanks for telling me!"
 
   utter_explain_planning_1:
   - text: "Maybe it would be useful to look again at why planning can help you do more physical activity."

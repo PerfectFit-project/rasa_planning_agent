@@ -272,18 +272,21 @@ rules:
   steps:
   - intent: confirm_confidence
   # - action: utter_confidence_repeat
+  - action: utter_thank_for_confidence
   - action: utter_state_perceived_usefulness
 
 - rule: confirm perceived usefulness ask attitude
   steps:
   - intent: confirm_perceived_usefulness
   # - action: utter_perceived_usefulness_repeat
+  - action: utter_thank_for_perceived_usefulness
   - action: utter_state_attitude
 
 - rule: confirm attitude do action ask confidence
   steps:
   - intent: confirm_attitude
-  # - action: utter_attitude_repeat
+  # - action: utter_attitude_repeat\
+  - action: utter_thank_for_attitude
   - action: action_save_event_state
   - action: action_select_action
 
