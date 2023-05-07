@@ -56,6 +56,10 @@ $(".usrInput").on("keyup keypress", function (e) {
 			}
 			else if(check_first_walk){
 
+				console.log(text);
+
+				console.log(first_walk);
+
 				if(text==first_walk){
 					var message = "/first_walk_correct";
 				}
@@ -63,10 +67,16 @@ $(".usrInput").on("keyup keypress", function (e) {
 					var message = "/first_walk_incorrect";
 				}
 
+				console.log(message);
+
 				setUserResponse(text);
 				send(message);
 			}
 			else if(check_week_3){
+
+				console.log(text);
+
+				console.log(week_3_time);
 
 				if(text==week_3_time){
 					var message = "/week_3_correct";
@@ -74,6 +84,8 @@ $(".usrInput").on("keyup keypress", function (e) {
 				else{
 					var message = "/week_3_incorrect";
 				}
+
+				console.log(message);
 				
 				setUserResponse(text);
 				send(message);
