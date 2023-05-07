@@ -417,6 +417,7 @@ rules:
 - rule: finish testimonails
   steps:
   - intent: confirm_takeaway_2
+  - action: utter_acknowledge_answer
   - action: action_save_action
   - action: utter_action_finished_loop_back
 

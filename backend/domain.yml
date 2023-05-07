@@ -1691,6 +1691,9 @@ responses:
   utter_testimonial_another:
   - text: "Great! Let's look at another example."
 
+  utter_acknowledge_answer:
+  - text: "Okay, that's good!"
+
   utter_changes_to_plan_1:
   - text: "I propose we take another look at the plan and modify it a bit."
 
