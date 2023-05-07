@@ -1607,10 +1607,10 @@ responses:
   utter_show_testimonials_2:
   - text: "Let's take a look at a few such cases."
 
-  utter_testmonial_1:
+  utter_testimonial_1:
   - text: "{testimonial_1}"
 
-  utter_testmonial_2:
+  utter_testimonial_2:
   - text: "{testimonial_2}"
 
   utter_ask_takeaway:
