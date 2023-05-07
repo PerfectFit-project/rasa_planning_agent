@@ -65,7 +65,7 @@ rules:
   - action: utter_purpose_5
   - action: utter_continue_purpose_2
 
-  - rule: continue purpose 2
+- rule: continue purpose 2
   steps:
   - intent: confirm_continue_purpose_2
   - action: utter_purpose_6
