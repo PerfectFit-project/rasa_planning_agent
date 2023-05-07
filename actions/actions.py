@@ -371,9 +371,9 @@ class ActionCreateInitialPlan(Action):
             "sunday_morning": 24, "sunday_midday": 25, "sunday_afternoon": 26, "sunday_evening": 27
         }
 
-        first = selected_times[0]
-
         selected_times.sort(key=lambda x:custom_order[x])
+
+        first = selected_times[0]
 
         message = f"""Plan 1: Week 1 - {round_to_nearest_5(duration_per_timeslot_week_1)} minutes at these time slots: {selected_times}. Week 2 - {round_to_nearest_5(math.ceil((minutes_week_1 + weekly_increase)/4))} minutes at these time slots: {selected_times}. Week 3 - Walking for {round_to_nearest_half((minutes_week_1 + 2* weekly_increase)/60.0)} hours, distributed across 4 time slots. Week 4 - Walking for {round_to_nearest_half((minutes_week_1 + 3* weekly_increase)/60.0)} hours, distributed across 4 time slots. Month 2 - Walking for up to {round_to_nearest_half((minutes_week_1 + 7* weekly_increase)/60.0)} hours per week, distributed across 5 time slots. Month 3 - Walking for up to {round_to_nearest_half((minutes_week_1 + 11* weekly_increase)/60.0)} hours per week, distributed across 6 time slots."""
 
