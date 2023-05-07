@@ -1440,7 +1440,7 @@ responses:
   - buttons:
     - payload: /confirm_checked_plan{"changes_to_plan":"0"}
       title: "Yes."
-    text: "I'll leave the plan on the left side on the screen so you can take a look at it later. Are you ready to continue?"
+    text: "I'll leave the plan on the left side on the screen so you can take a look at it later. Note that you may need to scroll to see the entire plan, depending on your screen resolution. Are you ready to continue?"
 
   utter_present_plan_3:
   - text: "Before we move on, let's took a bit at the plan. On the left side of your screen, you should see a big table with a view similar to that of a calendar. Time slots when you should take walks are marked with the duration you should walk for. You can also notice that the duration increases each week."
