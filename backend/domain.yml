@@ -11,10 +11,14 @@ intents:
 - confirm_mood_bad
 
 # purpose
+- confirm_continue_purpose
 - confirm_purpose
 
 # usage
 - confirm_usage
+
+# goal
+- confirm_continue_goal
 
 # internal motivation
 - confirm_motivation
@@ -929,55 +933,94 @@ responses:
 
 
   utter_purpose_1:
-  - text: "Let me tell you a bit about myself next. My goal is to help people prepare for becoming more physically active."
-
+  - text: "Let me tell you a bit about myself. My goal is to help people create plans for becoming more physically active."
 
   utter_purpose_2:
-  - text: "Being more physically active is generally regarded as beneficial for both health and mood. So, how do I motivate you to get started?"
-
+  - text: "Being more physically active is generally regarded as beneficial for both health and mood."
 
   utter_purpose_3:
-  - text: "Well, we will create a plan together for when you will be exercising. Keep in mind that I won't ask you to do the exercises. We are only creating a plan."
+  - text: "To be a bit more specific, we will create a plan for taking walks during the week."
+
+  utter_continue_purpose:
+  - buttons:
+    - payload: /confirm_continue_purpose
+      title: "Let's continue."
+    text: "I'll explain a bit more about the plan later. For now, let me know when you are done reading so we can continue."
 
 
   utter_purpose_4:
-  - text: "I will, however, ask you to behave as if you really had to follow this plan to do physical activity."
+  - text: "Walking is a great way to start being more active, since it's easily accessible for everyone."
 
   utter_purpose_5:
-  - text: "And don't worry, we'll start off easy with planning some walks throughout the week."
+  - text: "This means that it doesn't take a lot of time like a workout might, nor does it require special equipment. Additionally, you can easily build up by slightly increasing the amount of time you walk for."
 
   utter_purpose_6:
-  - text: "Unlike leisurely walks though, you'll have to do them at moderate intensity. What that means is that you'll have to walk about 100 steps per minute."
-
+  - text: "Unlike leisurely walks though, you'll have to walk at moderate intensity for our plan to be effective. Moderate intensity is characterised by breathing more heavily than usual, while still being able to hold a short conversation."
 
   utter_purpose_7:
-  - text: "Do not be alarmed if that seems a bit much right now. It will get easier after the first few times."
+  - text: "In other words, you should walk at a pace that makes it somewhat challenging for you to keep going, which is about 100 steps per minute for the average person."
 
   utter_confirm_purpose:
   - buttons:
     - payload: /confirm_purpose
       title: "I am ready."
-    text: "Ultimately, my goal is to help you create a plan that works best for your situation, so let's make sure that our effort is worth it and make a great plan! Please let me know when you are deady to continue."
+    text: "It might be a bit more or less for you, so see what works best for you. Please let me know when you are ready to continue."
 
 
   utter_prompt_usage:
-  - text: "Nice! Before we start, let me explain how you can communicate with me."
+  - text: "Okay! Before we start, let me explain how you can communicate with me."
 
 
   utter_explain_usage:
   - buttons:
     - payload: /confirm_usage
       title: "Yes."
-    text: "You can simply click on one of the buttons like you already did. Sometimes, you will have to use the chat box bellow to type your answer. Other times, you will need to do something on the left side of the screen. I will tell you when that is the case. Shall we continue?"
+    text: "You can simply click on one of the buttons, like you already did. Sometimes, you will have to use the chat box bellow to type your answer. Other times, you will need to do something on the left side of the screen. I will tell you when that is the case. Shall we continue?"
 
 
-  utter_internal_moivation_1:
-  - text: "The researchers already told me that you're quite motivated to do physical activity. "
+  utter_explain_goal_1:
+  - text: "In order to create a plan for walking, we should first set a goal for you."
 
-  utter_internal_moivation_2:
+  utter_explain_goal_2:
+  - text: "Having a clear goal to work towards is helpful in keeping you motivated."
+
+  utter_explain_goal_3:
+  - text: "However, for the goal to be most effective, you should pick a goal is both challenging and achievable."
+
+  utter_explain_goal_4:
+  - text: "You should feel like you have to put in the effort to reach your goal, while avoiding aiming for something unrealistic and burning yourself out."
+
+  utter_explain_goal_continue:
+  - buttons:
+    - payload: /confirm_continue_goal
+      title: "I am done."
+    text: "Once you are done reading, I will explain how this all ties together with the help of the plan."
+
+  utter_explain_usefulness_planning_1:
+  - text: "Nice. So, how does planning help you make progress towards your goal?"
+
+  utter_explain_usefulness_planning_2:
+  - text: "If you have a clear indication of when you should do an activity, it will be much easier for you to actually do it."
+
+  utter_explain_usefulness_planning_3:
+  - text: "You'll have a clear schedule set in place, which will make it more difficult to avoid doing exercise or to postpone it."
+
+  utter_explain_usefulness_planning_4:
+  - text: "After all, there is only so much time in a week, so, by making a plan, you integrate walking into your schedule such that you actually have time to do it."
+
+  utter_explain_usefulness_planning_question:
+  - buttons:
+    - payload: /confirm_usefulnes_planning_intro
+      title: "Yes."
+    text: "Are you ready to continue?"
+
+  utter_internal_motivation_1:
+  - text: "Okay! Another important part of achieving your goal is being motivated."
+
+  utter_internal_motivation_2:
   - text: "So, I am curious: which one of these reasons motivates you the most?"
 
-  utter_internal_moivation_question:
+  utter_internal_motivation_question:
   - buttons:
     - payload: /confirm_motivation
       title: "Family."
@@ -996,26 +1039,41 @@ responses:
   utter_thank_for_motivation:
   - text: "I see, thank you for letting me know!"
 
-  utter_explain_usefulness_planning_1:
-  - text: "Now, I told you we'll make a plan together, but I forgot to mention why this is important to begin with."
+  utter_set_goal_1:
+  - text: "I think we are almost ready for you to set a goal for walking."
 
-  utter_explain_usefulness_planning_2:
-  - text: "If you have a clear indication of when you should do an activity, it will be much easier for you to actually do it."
+  utter_set_goal_2:
+  - text: "A common way of measuring how much you walk is through counting the number of steps you take in a day."
 
-  utter_explain_usefulness_planning_3:
-  - text: "You'll have a clear schedule set in place, which will make it a bit difficult to avoid doing exercise or to postpone it."
+  utter_set_goal_3:
+  - text: "And a common goal is to aim for 10000 steps per day, as this is beneficial for your health, especially if you are currently inactive."
 
-  utter_explain_usefulness_planning_4:
-  - text: "After all, there is only so much time in a week."
+  utter_set_goal_4:
+  - text: "I assume you take at least about 2000 steps per day through your regular activities, so one of your options is to increase that amount by 8000 steps."
 
-  utter_explain_usefulness_planning_question:
+  utter_set_goal_5:
+  - text: "However, you can also pick a higher goal if you want a challenge!"
+
+  utter_set_goal:
   - buttons:
-    - payload: /confirm_usefulnes_planning_intro
-      title: "Yes."
-    text: "Are you ready to continue?"
+    - payload: /confirm_goal{"goal":"8000"}
+      title: "8000 steps (or 80 minutes) per day."
+    - payload: /confirm_goal{"goal":"9000"}
+      title: "9000 steps (or 90 minutes) per day."
+    - payload: /confirm_goal{"goal":"10000"}
+      title: "10000 steps (or 100 minutes) per day."
+    text: "Please pick one of these options as your goal. Note that these are additional steps, besides the ones you are already doing."
+
+  utter_confirm_goal:
+  - buttons:
+    - payload: /confirm_initial_plan
+      title: "Let's do that."
+    text: "Great! I'm sure you'll be able to achieve your goal of {goal} steps per day. Now, let's create a plan that can help you reach this goal."
+
+
 
   utter_routines_1:
-  - text: "Nice! Before we can get started, let's see when you have free time."
+  - text: "Alright! In order to started, let's see when you have free time."
 
   utter_routines_2:
   - text: "You don't have to provide me with your exact daily schedule, but let me know if you have any routines in place."
@@ -1352,40 +1410,17 @@ responses:
   utter_thank_for_energy_levels:
   - text: "Thank you for letting me know when you are energetic."
 
-
-  utter_goal_1:
-  - text: "One last thing before we move on to making the plan. Let's set a goal for you."
-
-  utter_goal_2:
-  - text: "Having a clear goal to work towards is also helpful in keeping you motivated."
-
-  utter_goal_3:
-  - text: "We'll set this goal for half a year from now, so you have plenty of time to work on reaching it."
-
-  utter_set_goal:
-  - buttons:
-    - payload: /confirm_goal{"goal":"8000"}
-      title: "8000 steps (or 80 minutes) per day."
-    - payload: /confirm_goal{"goal":"9000"}
-      title: "9000 steps (or 90 minutes) per day."
-    - payload: /confirm_goal{"goal":"10000"}
-      title: "10000 steps (or 100 minutes) per day."
-    text: "Please pick one of these options as your goal. Try to imagine yourself doing that many steps in a day and pick a goal that you feel like you can accomplish."
-
-  utter_confirm_goal:
-  - buttons:
-    - payload: /confirm_initial_plan
-      title: "Let's do that."
-    text: "Great! I'm sure you'll be able to achieve your goal of {goal} steps per day. Now, let's create an initial plan and we'll see if we need to modify it later."
-
   utter_present_plan_1:
-  - text: "Nice! Now we have a starting point."
+  - buttons:
+    - payload: /confirm_ready_initial_plan
+      title: "Okay."
+    text: "Now, here is the initial plan! Don't worry if it's not entirely to you liking yet. You'll have opportunities to modify it later."
 
   utter_present_plan_2:
   - buttons:
     - payload: /confirm_checked_plan{"changes_to_plan":"0"}
-      title: "Okay."
-    text: "I'll leave the plan on the left side on the screen so you can take a look at it later."
+      title: "Yes."
+    text: "I'll leave the plan on the left side on the screen so you can take a look at it later. Are you ready to continue?"
 
   utter_present_plan_3:
   - text: "Before we move on, let's took a bit at the plan. On the left side of your screen, you should see a big table with a view similar to that of a calendar. Time slots when you should take walks are marked with the duration you should walk for. You can also notice that the duration increases each week."
@@ -1447,7 +1482,7 @@ responses:
       title: "9"
     - payload: /confirm_confidence{"confidence":"high"}
       title: "10 (Very confident)"
-    text: "How confident are you that you can follow the plan as it is currently?"
+    text: "How confident are you that you can follow the plan?"
 
   utter_confidence_repeat:
   - text: "So your confidence is {confidence}."
@@ -1480,7 +1515,7 @@ responses:
       title: "9"
     - payload: /confirm_perceived_usefulness{"perceived_usefulness":"high"}
       title: "10 (I think it can help me)"
-    text: "To what extent do you think planning can help you do physical activity?"
+    text: "To what extent do you think planning can help you take walks?"
 
   utter_perceived_usefulness_repeat:
   - text: "So your perceived usefulness is {perceived_usefulness}."
@@ -1513,7 +1548,7 @@ responses:
       title: "9"
     - payload: /confirm_attitude{"attitude":"high"}
       title: "10 (Very useful)"
-    text: "Please complete the following statement: 'For me, planning for physical activity for the next 3 months would be ...'"
+    text: "Please complete the following statement: 'For me, planning walks for the next 3 months would be ...'"
 
   utter_attitude_repeat:
   - text: "So your attitude is {attitude}."
@@ -1523,7 +1558,7 @@ responses:
   - text: "Thanks for telling me!"
 
   utter_explain_planning_1:
-  - text: "Maybe it would be useful to look again at why planning can help you do more physical activity."
+  - text: "Maybe it would be useful to look again at why planning can help you be more physicall active by walking."
 
   utter_explain_planning_2:
   - buttons:
@@ -1541,22 +1576,22 @@ responses:
   - text: "That's right!"
 
   utter_explain_planning_4:
-  - text: "Ultimately, the plan is meant to help you do physical activity. Rather than relying on spontaneous bursts motivation, having a plan can help give you the cue to start."
+  - text: "Ultimately, the plan is meant to help you take walks regularly. Rather than relying on spontaneous bursts motivation, having a plan can help give you the cue to start."
 
   utter_explain_planning_5:
-  - text: "By creating a plan that is consistent across different weeks, it will be easier for you to form a habit of doing physical activity regularly."
+  - text: "By creating a plan that is consistent across different weeks, it will be easier for you to form a habit of when you should go for a walk."
 
   utter_explain_planning_6:
   - text: "Besides this, the plan shows you what you will be able to achieve in the end, so you have an idea of the goal you are working towards."
 
   utter_explain_planning_7:
-  - text: "Planning can also help you identify and deal with obstacles that might prevent you from doing physical activity."
+  - text: "Planning can also help you identify and deal with obstacles that might prevent you from going on your walks."
 
   utter_explain_planning_8:
   - text: "By anticipating these obstacles and devising strategies for overcoming them ahead of time, it will be easier to deal with them when they happen."
 
   utter_identify_barriers_1:
-  - text: "I think it might be useful to think of some barriers, or things that might stop or prevent you from doing more physical activity."
+  - text: "I think it might be useful to think of some barriers, or things that might stop or prevent you from taking walks regularly."
 
   utter_identify_barriers_2:
   - text: "Let's first think of what the barriers are and then we'll see how we can deal with them."
@@ -1591,15 +1626,15 @@ responses:
   - text: "It could also be that you have young children to take care of and that leaves you with little time."
 
   utter_identify_barriers_9:
-  - text: "All of these are barriers which could prevent you from doing more physical activity. Think if these apply to you specifically."
+  - text: "All of these are barriers which could prevent you from taking a walk. Think if these apply to you specifically."
 
   utter_identify_barriers_10:
-  - text: "You can also try to come up with some things that you know have been barriers in the past. Write down all the barriers for yourself and let me know when you are ready to proceed."
+  - text: "You can also try to come up with some things that you know have been barriers in the past. Think about which of these barriers apply to you and let me know when you are ready to proceed."
 
 
 
   utter_deal_with_barriers_1:
-  - text: "We've previously thought of barriers which might prevent you from being physically active."
+  - text: "We've previously thought of barriers which might prevent you from taking walks regularly."
 
   utter_deal_with_barriers_2:
   - text: "Now, let's try to think how you could overcome those barriers."
@@ -1625,24 +1660,22 @@ responses:
     text: "Pick one of the barriers that we've talked about before and let me know how you would deal with it."
 
   utter_deal_with_barriers_6:
-  - text: "How would you overcome this barrier? Think for yourself and write it down next to the barrier you previously wrote down."
+  - text: "Think for yourself: how can you overcome this barrier?"
 
   utter_deal_with_barriers_7:
   - buttons:
     - payload: /confirm_continue_deal_with_barriers_2
-      title: "Let's move further."
-    - payload: /confirm_continue_deal_with_barriers_2
       title: "Let's proceed."
-    text: "Like before, let me know when you are ready to go on." 
+    text: "When you are ready, I will give you my suggestions." 
 
   utter_deal_with_barriers_8:
   - text: "Okay. Now, you have your approach to this barrier. Here are strategies for common barriers that I thought about."
 
   utter_deal_with_barriers_9:
-  - text: "If you lack the time to do physical activity, you could try taking a short walk when you have some free time (during your lunch break, for example)"
+  - text: "If you lack the time to do go for regular walks, you could try taking a short walk when you have some free time (during your lunch break, for example)"
 
   utter_deal_with_barriers_10:
-  - text: "In terms of energy, think back to when we talked about when you feel most energetic during the day. Aim to schedule activities at those times, since it will be easier for you that way."
+  - text: "In terms of energy, think back to when we talked about when you feel most energetic during the day. Aim to schedule walks at those times, since it will be easier for you that way."
 
   utter_deal_with_barriers_11:
   - text: "Try to go to the gym when it's a bit quieter if you don't like it when other people can see you doing physical activity. It is not absolutely necessary to go to a gym, especially if you're only taking walks. Try walking in a park nearby or simply on the sidewalk."
@@ -1702,7 +1735,7 @@ responses:
   - text: "You can also click on time slots which have no activity to schedule an activity at that time."
 
   utter_changes_to_plan_5:
-  - text: "Think about when you would want to do physical activity."
+  - text: "Think about when you would want to do go for walks."
 
   utter_changes_to_plan_6:
   - text: "Once you are done, please click the button titled 'I am done adjusting the plan'. It is at the bottom of the plan, after Month 3. Note that you may need to scroll to the button depending on your screen resolution."

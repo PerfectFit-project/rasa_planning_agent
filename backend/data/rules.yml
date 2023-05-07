@@ -38,11 +38,7 @@ rules:
   - action: utter_purpose_1
   - action: utter_purpose_2
   - action: utter_purpose_3
-  - action: utter_purpose_4
-  - action: utter_purpose_5
-  - action: utter_purpose_6
-  - action: utter_purpose_7
-  - action: utter_confirm_purpose
+  - action: utter_continue_purpose
 
 - rule: mood neutral explain purpose 
   steps:
@@ -51,11 +47,7 @@ rules:
   - action: utter_purpose_1
   - action: utter_purpose_2
   - action: utter_purpose_3
-  - action: utter_purpose_4
-  - action: utter_purpose_5
-  - action: utter_purpose_6
-  - action: utter_purpose_7
-  - action: utter_confirm_purpose
+  - action: utter_continue_purpose
 
 - rule: mood bad explain purpose
   steps:
@@ -64,6 +56,11 @@ rules:
   - action: utter_purpose_1
   - action: utter_purpose_2
   - action: utter_purpose_3
+  - action: utter_continue_purpose
+
+- rule: continue purpose
+  steps:
+  - intent: confirm_continue_purpose
   - action: utter_purpose_4
   - action: utter_purpose_5
   - action: utter_purpose_6
@@ -77,27 +74,51 @@ rules:
   - action: utter_prompt_usage
   - action: utter_explain_usage
 
-
-- rule: internal motivation
+- rule: confirm usage explain goal
   steps:
   - intent: confirm_usage
-  - action: utter_internal_moivation_1
-  - action: utter_internal_moivation_2
-  - action: utter_internal_moivation_question
+  - action: utter_explain_goal_1
+  - action: utter_explain_goal_2  
+  - action: utter_explain_goal_3
+  - action: utter_explain_goal_4  
+  - action: utter_explain_goal_continue
 
-- rule: explain why planning is useful
+- rule: confirm goal explain planning
   steps:
-  - intent: confirm_motivation
-  - action: utter_thank_for_motivation
+  - intent: confirm_continue_goal
   - action: utter_explain_usefulness_planning_1
   - action: utter_explain_usefulness_planning_2
   - action: utter_explain_usefulness_planning_3
   - action: utter_explain_usefulness_planning_4
   - action: utter_explain_usefulness_planning_question
 
-- rule: ask about routines monday
+- rule: internal motivation
   steps:
-  - intent: confirm_usefulnes_planning_intro
+  - intent: confirm_usefulness_planning_intro
+  - action: utter_internal_motivation_1
+  - action: utter_internal_motivation_2
+  - action: utter_internal_motivation_question
+
+- rule: set goal
+  steps:
+  - intent: confirm_motivation
+  - action: utter_thank_for_motivation
+  - action: utter_set_goal_1
+  - action: utter_set_goal_2
+  - action: utter_set_goal_3
+  - action: utter_set_goal_4
+  - action: utter_set_goal_5
+  - action: utter_set_goal
+
+
+- rule: confirm goal
+  steps:
+  - intent: confirm_goal
+  - action: utter_confirm_goal
+
+- rule: ask about routines
+  steps:
+  - intent: confirm_initial_plan
   - action: utter_routines_1
   - action: utter_routines_2
   - action: utter_routines_3
@@ -235,26 +256,16 @@ rules:
 #   - action: utter_energy_levels_weekends_evening
 
 
-- rule: confirm energy levels weekend evening
+- rule: confirm energy levels weekend
   steps: 
   - intent: confirm_energy_levels
-  # - action: utter_energy_levels_weekends_confirm
   - action: utter_thank_for_energy_levels
-  - action: utter_goal_1
-  - action: utter_goal_2
-  - action: utter_goal_3
-  - action: utter_set_goal
-
-- rule: confirm goal
-  steps: 
-  - intent: confirm_goal
-  - action: utter_confirm_goal
-  
-- rule: create initial plan
-  steps:
-  - intent: confirm_initial_plan
-  - action: action_create_initial_plan
   - action: utter_present_plan_1
+
+- rule: create initial plan
+  steps: 
+  - intent: confirm_ready_initial_plan
+  - action: action_create_initial_plan
   - action: utter_present_plan_2
 
 - rule: check plan understanding first walk
