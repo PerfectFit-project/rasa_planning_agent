@@ -117,7 +117,6 @@ rules:
 - rule: set goal continue
   steps:
   - intent: confirm_set_goal_continue
-  - action: utter_thank_for_motivation
   - action: utter_set_goal_4
   - action: utter_set_goal_5
   - action: utter_set_goal
