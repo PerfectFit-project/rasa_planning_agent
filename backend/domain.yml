@@ -1393,7 +1393,7 @@ responses:
     text: "I'll leave the plan on the left side on the screen so you can take a look at it later."
 
   utter_present_plan_3:
-  - text: "Before we move on, let's took a bit at the plan."
+  - text: "Before we move on, let's took a bit at the plan. On the left side of your screen, you should see a big table with a view similar to that of a calendar. Time slots when you should take walks are marked with the duration you should walk for. You can also notice that the duration increases each week."
 
   utter_check_plan_first_walk:
   - text: "You can see the first two weeks planned in detail. When is the first time you have to take a walk? Please type your answer as day_time. For example, if your first walk is on Friday morning, please type 'friday_morning'."
