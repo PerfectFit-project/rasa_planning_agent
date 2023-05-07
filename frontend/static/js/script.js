@@ -576,6 +576,8 @@ function check_selected_timeslots_initial(){
 		message = message.concat(`}`);
 
 		send(message);
+
+		setUserResponse("I'm done selecting time slots when I am free.");
 		
 	}
 	else{
@@ -678,6 +680,8 @@ function check_energy(){
 		console.log(message);
 	
 		send(message);
+
+		setUserResponse("I'm done specifying my energy levels.");
 	}
 }
 
