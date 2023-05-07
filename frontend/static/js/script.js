@@ -532,6 +532,8 @@ function check_selected_timeslots(){
 
 			send(message);
 
+			setUserResponse("I'm done adjusting the plan.");
+
 			number_plan = 2;
 	
 		}
@@ -539,6 +541,8 @@ function check_selected_timeslots(){
 			var message = `/plan_modified{"plan_3":"Plan 3: Week 1 - 30 minutes at these time slots: [${filtered_1}]. Week 2 - 35 minutes at these time slots: [${filtered_2}]. Week 3 - Walking for ${week_3} hours, distributed across 4 time slots. Week 4 - Walking for ${week_4} hours, distributed across 4 time slots. Month 2 - Walking for up to ${month_2} hours per week, distributed across 5 time slots. Month 3 - Walking for up to ${month_3} hours per week, distributed across 6 time slots."}`;
 
 			send(message);
+
+			setUserResponse("I'm done adjusting the plan.");
 		}
 	}
 	else{
