@@ -48,11 +48,15 @@ $(".usrInput").on("keyup keypress", function (e) {
 				var message = "/confirm_takeaway_1";
 				setUserResponse(text);
 				send(message);
+
+				$('.usrInput').attr("disabled",true);
 			}
 			else if(current_takeaway == 2){
 				var message = "/confirm_takeaway_2";
 				setUserResponse(text);
 				send(message);
+
+				$('.usrInput').attr("disabled",true);
 			}
 			else if(check_first_walk){
 
@@ -71,6 +75,8 @@ $(".usrInput").on("keyup keypress", function (e) {
 
 				setUserResponse(text);
 				send(message);
+
+				$('.usrInput').attr("disabled",true);
 			}
 			else if(check_week_3){
 
@@ -89,6 +95,8 @@ $(".usrInput").on("keyup keypress", function (e) {
 				
 				setUserResponse(text);
 				send(message);
+
+				$('.usrInput').attr("disabled",true);
 			}
 			else{
 				setUserResponse(text);
