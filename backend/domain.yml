@@ -947,7 +947,7 @@ responses:
   - buttons:
     - payload: /confirm_continue_purpose
       title: "Let's continue."
-    text: "I'll explain a bit more about the plan later. For now, let me know when you are done reading so we can continue."
+    text: "I'll explain a bit more about the plan later, but keep in mind that I'm not asking you to actually take walks. The purpose of this chat is to only create a plan for walking. Let me know when you are done reading so we can continue."
 
 
   utter_purpose_4:
@@ -1572,7 +1572,7 @@ responses:
       title: "It can help me visualise the road towards the goal."
     - payload: /confirm_continue_explain_planning
       title: "It can help me deal with obstacles."
-    text: "First off, why do you think planning can help you do more physical activity?"
+    text: "First off, why do you think planning can help you?"
 
   utter_explain_planning_3:
   - text: "That's right!"
