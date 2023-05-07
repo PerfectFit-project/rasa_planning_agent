@@ -21,6 +21,8 @@ intents:
 # goal
 - confirm_continue_goal
 
+- confirm_set_goal_continue
+
 # internal motivation
 - confirm_motivation
 
@@ -1060,8 +1062,14 @@ responses:
   utter_set_goal_3:
   - text: "And a common goal is to aim for 10000 steps per day, as this is beneficial for your health, especially if you are currently inactive."
 
+  utter_set_goal_continue:
+  - buttons:
+    - payload: /confirm_set_goal_continue
+      title: "Yes."
+    text: "Shall we move on?"
+
   utter_set_goal_4:
-  - text: "I assume you take at least about 2000 steps per day through your regular activities, so one of your options is to increase that amount by 8000 steps."
+  - text: "Okay. I assume you take at least about 2000 steps per day through your regular activities, so one of your options is to increase that amount by 8000 steps."
 
   utter_set_goal_5:
   - text: "However, you can also pick a higher goal if you want a challenge!"
