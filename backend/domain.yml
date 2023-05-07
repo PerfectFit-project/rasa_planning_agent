@@ -956,10 +956,8 @@ responses:
   utter_confirm_purpose:
   - buttons:
     - payload: /confirm_purpose
-      title: "Okay!"
-    - payload: /confirm_purpose
-      title: "Sure!"
-    text: "Ultimately, my goal is to help you create a plan that works best for your situation, so let's make sure that our effort is worth it and make a great plan, okay?"
+      title: "I am ready."
+    text: "Ultimately, my goal is to help you create a plan that works best for your situation, so let's make sure that our effort is worth it and make a great plan! Please let me know when you are deady to continue."
 
 
   utter_prompt_usage:
@@ -969,10 +967,8 @@ responses:
   utter_explain_usage:
   - buttons:
     - payload: /confirm_usage
-      title: "Okay, that makes sense!"
-    - payload: /confirm_usage
-      title: "I understand."
-    text: "You can simply click on one of the buttons like you already did. If no buttons appear below the message, you might need to do something in a diferent part of the screen. I will tell you when that is the case."
+      title: "Yes."
+    text: "You can simply click on one of the buttons like you already did. If no buttons appear below the message, you might need to do something in a diferent part of the screen. I will tell you when that is the case. Shall we continue?"
 
 
   utter_internal_moivation_1:
@@ -980,21 +976,23 @@ responses:
 
 
   utter_internal_moivation_2:
-  - text: "So, I wanted to ask: what motivates you to be more physically active?"
+  - text: "So, I am curious: which one of these reasons motivates you the most?"
 
   utter_internal_moivation_question:
   - buttons:
     - payload: /confirm_motivation
-      title: "I want to be more healthy."
+      title: "Family."
     - payload: /confirm_motivation
-      title: "I want to be fit. I want to get in shape."
+      title: "Health"
     - payload: /confirm_motivation
-      title: "I want to lose some weight."
+      title: "Relationships"
     - payload: /confirm_motivation
-      title: "I want to relax by doing exercise."
+      title: "Personal growth"
     - payload: /confirm_motivation
-      title: "I have a different reason."
-    text: "I'll show you a few common reasons, but if you have a different one, feel free to pick \"I have a different reason\"."
+      title: "Work"
+    - payload: /confirm_motivation
+      title: "Friends"
+    text: "Please pick one of the options below:"
 
   utter_thank_for_motivation:
   - text: "I see, thank you for letting me know!"
@@ -1014,10 +1012,8 @@ responses:
   utter_explain_usefulness_planning_question:
   - buttons:
     - payload: /confirm_usefulnes_planning_intro
-      title: "Yeah."
-    - payload: /confirm_usefulnes_planning_intro
-      title: "Sounds reasonable."
-    text: "Does that make sense?"
+      title: "Yes."
+    text: "Are you ready to continue?"
 
   utter_routines_1:
   - text: "Nice! Before we can get started, let's see when you have free time."
@@ -1034,224 +1030,224 @@ responses:
   utter_timeslots:
   - text: "On the left side of the screen, you can see a table. You can click on a time slot in the table to specify that you are available at that time. Please select all the slots when you are avaialable."
 
-  utter_routines_monday:
-  - buttons:
-    - payload: /confirm_monday{"monday_morning":"True"}
-      title: "Morning (6:00 - 10:00)"
-    - payload: /confirm_monday{"monday_midday":"True"}
-      title: "Midday (10:00 - 14:00)"
-    - payload: /confirm_monday{"monday_afternoon":"True"}
-      title: "Afternoon (14:00 - 18:00)"
-    - payload: /confirm_monday{"monday_evening":"True"}
-      title: "Evening (18:00 - 22:00)"
-    - payload: /confirm_monday_continue
-      title: "I'm never free on Mondays."
-    text: "Use the buttons to let me know when you are usually free on Mondays."
+  # utter_routines_monday:
+  # - buttons:
+  #   - payload: /confirm_monday{"monday_morning":"True"}
+  #     title: "Morning (6:00 - 10:00)"
+  #   - payload: /confirm_monday{"monday_midday":"True"}
+  #     title: "Midday (10:00 - 14:00)"
+  #   - payload: /confirm_monday{"monday_afternoon":"True"}
+  #     title: "Afternoon (14:00 - 18:00)"
+  #   - payload: /confirm_monday{"monday_evening":"True"}
+  #     title: "Evening (18:00 - 22:00)"
+  #   - payload: /confirm_monday_continue
+  #     title: "I'm never free on Mondays."
+  #   text: "Use the buttons to let me know when you are usually free on Mondays."
 
 
-  utter_routines_monday_repeat:
-  - buttons:
-    - payload: /confirm_monday{"monday_morning":"True"}
-      title: "Morning (6:00 - 10:00)"
-    - payload: /confirm_monday{"monday_midday":"True"}
-      title: "Midday (10:00 - 14:00)"
-    - payload: /confirm_monday{"monday_afternoon":"True"}
-      title: "Afternoon (14:00 - 18:00)"
-    - payload: /confirm_monday{"monday_evening":"True"}
-      title: "Evening (18:00 - 22:00)"
-    - payload: /confirm_monday_continue
-      title: "I have no other times when I am free on Mondays."
-    text: "Is there any other time when you are free on Mondays?"
+  # utter_routines_monday_repeat:
+  # - buttons:
+  #   - payload: /confirm_monday{"monday_morning":"True"}
+  #     title: "Morning (6:00 - 10:00)"
+  #   - payload: /confirm_monday{"monday_midday":"True"}
+  #     title: "Midday (10:00 - 14:00)"
+  #   - payload: /confirm_monday{"monday_afternoon":"True"}
+  #     title: "Afternoon (14:00 - 18:00)"
+  #   - payload: /confirm_monday{"monday_evening":"True"}
+  #     title: "Evening (18:00 - 22:00)"
+  #   - payload: /confirm_monday_continue
+  #     title: "I have no other times when I am free on Mondays."
+  #   text: "Is there any other time when you are free on Mondays?"
 
-  utter_confirm_monday_slots:
-  - text: "So those are all the times when you are free on Mondays:\n Morning: {monday_morning},\n Midday: {monday_midday},\n Afternoon: {monday_afternoon},\n Evening: {monday_evening}."
+  # utter_confirm_monday_slots:
+  # - text: "So those are all the times when you are free on Mondays:\n Morning: {monday_morning},\n Midday: {monday_midday},\n Afternoon: {monday_afternoon},\n Evening: {monday_evening}."
 
-  utter_routines_tuesday:
-  - buttons:
-    - payload: /confirm_tuesday{"tuesday_morning":"True"}
-      title: "Morning (6:00 - 10:00)"
-    - payload: /confirm_tuesday{"tuesday_midday":"True"}
-      title: "Midday (10:00 - 14:00)"
-    - payload: /confirm_tuesday{"tuesday_afternoon":"True"}
-      title: "Afternoon (14:00 - 18:00)"
-    - payload: /confirm_tuesday{"tuesday_evening":"True"}
-      title: "Evening (18:00 - 22:00)"
-    - payload: /confirm_tuesday_continue
-      title: "I'm never free on Tuesdays."
-    text: "Use the buttons to let me know when you are usually free on Tuesdays."
+  # utter_routines_tuesday:
+  # - buttons:
+  #   - payload: /confirm_tuesday{"tuesday_morning":"True"}
+  #     title: "Morning (6:00 - 10:00)"
+  #   - payload: /confirm_tuesday{"tuesday_midday":"True"}
+  #     title: "Midday (10:00 - 14:00)"
+  #   - payload: /confirm_tuesday{"tuesday_afternoon":"True"}
+  #     title: "Afternoon (14:00 - 18:00)"
+  #   - payload: /confirm_tuesday{"tuesday_evening":"True"}
+  #     title: "Evening (18:00 - 22:00)"
+  #   - payload: /confirm_tuesday_continue
+  #     title: "I'm never free on Tuesdays."
+  #   text: "Use the buttons to let me know when you are usually free on Tuesdays."
 
-  utter_routines_tuesday_repeat:
-  - buttons:
-    - payload: /confirm_tuesday{"tuesday_morning":"True"}
-      title: "Morning (6:00 - 10:00)"
-    - payload: /confirm_tuesday{"tuesday_midday":"True"}
-      title: "Midday (10:00 - 14:00)"
-    - payload: /confirm_tuesday{"tuesday_afternoon":"True"}
-      title: "Afternoon (14:00 - 18:00)"
-    - payload: /confirm_tuesday{"tuesday_evening":"True"}
-      title: "Evening (18:00 - 22:00)"
-    - payload: /confirm_tuesday_continue
-      title: "I have no other times when I am free on Tuesdays."
-    text: "Is there any other time when you are free on Tuesdays?"
+  # utter_routines_tuesday_repeat:
+  # - buttons:
+  #   - payload: /confirm_tuesday{"tuesday_morning":"True"}
+  #     title: "Morning (6:00 - 10:00)"
+  #   - payload: /confirm_tuesday{"tuesday_midday":"True"}
+  #     title: "Midday (10:00 - 14:00)"
+  #   - payload: /confirm_tuesday{"tuesday_afternoon":"True"}
+  #     title: "Afternoon (14:00 - 18:00)"
+  #   - payload: /confirm_tuesday{"tuesday_evening":"True"}
+  #     title: "Evening (18:00 - 22:00)"
+  #   - payload: /confirm_tuesday_continue
+  #     title: "I have no other times when I am free on Tuesdays."
+  #   text: "Is there any other time when you are free on Tuesdays?"
 
-  utter_confirm_tuesday_slots:
-  - text: "So those are all the times when you are free on Tuesdays:\n Morning: {tuesday_morning},\n Midday: {tuesday_midday},\n Afternoon: {tuesday_afternoon},\n Evening: {tuesday_evening}."
-
-
-  utter_routines_wednesday:
-  - buttons:
-    - payload: /confirm_wednesday{"wednesday_morning":"True"}
-      title: "Morning (6:00 - 10:00)"
-    - payload: /confirm_wednesday{"wednesday_midday":"True"}
-      title: "Midday (10:00 - 14:00)"
-    - payload: /confirm_wednesday{"wednesday_afternoon":"True"}
-      title: "Afternoon (14:00 - 18:00)"
-    - payload: /confirm_wednesday{"wednesday_evening":"True"}
-      title: "Evening (18:00 - 22:00)"
-    - payload: /confirm_wednesday_continue
-      title: "I'm never free on Wednesdays."
-    text: "Use the buttons to let me know when you are usually free on Wednesdays."
-
-  utter_routines_wednesday_repeat:
-  - buttons:
-    - payload: /confirm_wednesday{"wednesday_morning":"True"}
-      title: "Morning (6:00 - 10:00)"
-    - payload: /confirm_wednesday{"wednesday_midday":"True"}
-      title: "Midday (10:00 - 14:00)"
-    - payload: /confirm_wednesday{"wednesday_afternoon":"True"}
-      title: "Afternoon (14:00 - 18:00)"
-    - payload: /confirm_wednesday{"wednesday_evening":"True"}
-      title: "Evening (18:00 - 22:00)"
-    - payload: /confirm_wednesday_continue
-      title: "I have no other times when I am free on Wednesdays."
-    text: "Is there any other time when you are free on Wednesdays?"
-
-  utter_confirm_wednesday_slots:
-  - text: "So those are all the times when you are free on Wednesdays:\n Morning: {wednesday_morning},\n Midday: {wednesday_midday},\n Afternoon: {wednesday_afternoon},\n Evening: {wednesday_evening}."
+  # utter_confirm_tuesday_slots:
+  # - text: "So those are all the times when you are free on Tuesdays:\n Morning: {tuesday_morning},\n Midday: {tuesday_midday},\n Afternoon: {tuesday_afternoon},\n Evening: {tuesday_evening}."
 
 
-  utter_routines_thursday:
-  - buttons:
-    - payload: /confirm_thursday{"thursday_morning":"True"}
-      title: "Morning (6:00 - 10:00)"
-    - payload: /confirm_thursday{"thursday_midday":"True"}
-      title: "Midday (10:00 - 14:00)"
-    - payload: /confirm_thursday{"thursday_afternoon":"True"}
-      title: "Afternoon (14:00 - 18:00)"
-    - payload: /confirm_thursday{"thursday_evening":"True"}
-      title: "Evening (18:00 - 22:00)"
-    - payload: /confirm_thursday_continue
-      title: "I'm never free on Thursdays."
-    text: "Use the buttons to let me know when you are usually free on Thursdays."
+  # utter_routines_wednesday:
+  # - buttons:
+  #   - payload: /confirm_wednesday{"wednesday_morning":"True"}
+  #     title: "Morning (6:00 - 10:00)"
+  #   - payload: /confirm_wednesday{"wednesday_midday":"True"}
+  #     title: "Midday (10:00 - 14:00)"
+  #   - payload: /confirm_wednesday{"wednesday_afternoon":"True"}
+  #     title: "Afternoon (14:00 - 18:00)"
+  #   - payload: /confirm_wednesday{"wednesday_evening":"True"}
+  #     title: "Evening (18:00 - 22:00)"
+  #   - payload: /confirm_wednesday_continue
+  #     title: "I'm never free on Wednesdays."
+  #   text: "Use the buttons to let me know when you are usually free on Wednesdays."
 
-  utter_routines_thursday_repeat:
-  - buttons:
-    - payload: /confirm_thursday{"thursday_morning":"True"}
-      title: "Morning (6:00 - 10:00)"
-    - payload: /confirm_thursday{"thursday_midday":"True"}
-      title: "Midday (10:00 - 14:00)"
-    - payload: /confirm_thursday{"thursday_afternoon":"True"}
-      title: "Afternoon (14:00 - 18:00)"
-    - payload: /confirm_thursday{"thursday_evening":"True"}
-      title: "Evening (18:00 - 22:00)"
-    - payload: /confirm_thursday_continue
-      title: "I have no other times when I am free on Thursdays."
-    text: "Is there any other time when you are free on Thursdays?"
+  # utter_routines_wednesday_repeat:
+  # - buttons:
+  #   - payload: /confirm_wednesday{"wednesday_morning":"True"}
+  #     title: "Morning (6:00 - 10:00)"
+  #   - payload: /confirm_wednesday{"wednesday_midday":"True"}
+  #     title: "Midday (10:00 - 14:00)"
+  #   - payload: /confirm_wednesday{"wednesday_afternoon":"True"}
+  #     title: "Afternoon (14:00 - 18:00)"
+  #   - payload: /confirm_wednesday{"wednesday_evening":"True"}
+  #     title: "Evening (18:00 - 22:00)"
+  #   - payload: /confirm_wednesday_continue
+  #     title: "I have no other times when I am free on Wednesdays."
+  #   text: "Is there any other time when you are free on Wednesdays?"
 
-  utter_confirm_thursday_slots:
-  - text: "So those are all the times when you are free on Thursdays:\n Morning: {thursday_morning},\n Midday: {thursday_midday},\n Afternoon: {thursday_afternoon},\n Evening: {thursday_evening}."
-
-  utter_routines_friday:
-  - buttons:
-    - payload: /confirm_friday{"friday_morning":"True"}
-      title: "Morning (6:00 - 10:00)"
-    - payload: /confirm_friday{"friday_midday":"True"}
-      title: "Midday (10:00 - 14:00)"
-    - payload: /confirm_friday{"friday_afternoon":"True"}
-      title: "Afternoon (14:00 - 18:00)"
-    - payload: /confirm_friday{"friday_evening":"True"}
-      title: "Evening (18:00 - 22:00)"
-    - payload: /confirm_friday_continue
-      title: "I'm never free on Fridays."
-    text: "Use the buttons to let me know when you are usually free on Fridays."
-
-  utter_routines_friday_repeat:
-  - buttons:
-    - payload: /confirm_friday{"friday_morning":"True"}
-      title: "Morning (6:00 - 10:00)"
-    - payload: /confirm_friday{"friday_midday":"True"}
-      title: "Midday (10:00 - 14:00)"
-    - payload: /confirm_friday{"friday_afternoon":"True"}
-      title: "Afternoon (14:00 - 18:00)"
-    - payload: /confirm_friday{"friday_evening":"True"}
-      title: "Evening (18:00 - 22:00)"
-    - payload: /confirm_friday_continue
-      title: "I have no other times when I am free on Fridays."
-    text: "Is there any other time when you are free on Fridays?"
-
-  utter_confirm_friday_slots:
-  - text: "So those are all the times when you are free on fridays:\n Morning: {friday_morning},\n Midday: {friday_midday},\n Afternoon: {friday_afternoon},\n Evening: {friday_evening}."
+  # utter_confirm_wednesday_slots:
+  # - text: "So those are all the times when you are free on Wednesdays:\n Morning: {wednesday_morning},\n Midday: {wednesday_midday},\n Afternoon: {wednesday_afternoon},\n Evening: {wednesday_evening}."
 
 
-  utter_routines_saturday:
-  - buttons:
-    - payload: /confirm_saturday{"saturday_morning":"True"}
-      title: "Morning (6:00 - 10:00)"
-    - payload: /confirm_saturday{"saturday_midday":"True"}
-      title: "Midday (10:00 - 14:00)"
-    - payload: /confirm_saturday{"saturday_afternoon":"True"}
-      title: "Afternoon (14:00 - 18:00)"
-    - payload: /confirm_saturday{"saturday_evening":"True"}
-      title: "Evening (18:00 - 22:00)"
-    - payload: /confirm_saturday_continue
-      title: "I'm never free on Saturdays."
-    text: "Use the buttons to let me know when you are usually free on Saturdays."
+  # utter_routines_thursday:
+  # - buttons:
+  #   - payload: /confirm_thursday{"thursday_morning":"True"}
+  #     title: "Morning (6:00 - 10:00)"
+  #   - payload: /confirm_thursday{"thursday_midday":"True"}
+  #     title: "Midday (10:00 - 14:00)"
+  #   - payload: /confirm_thursday{"thursday_afternoon":"True"}
+  #     title: "Afternoon (14:00 - 18:00)"
+  #   - payload: /confirm_thursday{"thursday_evening":"True"}
+  #     title: "Evening (18:00 - 22:00)"
+  #   - payload: /confirm_thursday_continue
+  #     title: "I'm never free on Thursdays."
+  #   text: "Use the buttons to let me know when you are usually free on Thursdays."
 
-  utter_routines_saturday_repeat:
-  - buttons:
-    - payload: /confirm_saturday{"saturday_morning":"True"}
-      title: "Morning (6:00 - 10:00)"
-    - payload: /confirm_saturday{"saturday_midday":"True"}
-      title: "Midday (10:00 - 14:00)"
-    - payload: /confirm_saturday{"saturday_afternoon":"True"}
-      title: "Afternoon (14:00 - 18:00)"
-    - payload: /confirm_saturday{"saturday_evening":"True"}
-      title: "Evening (18:00 - 22:00)"
-    - payload: /confirm_saturday_continue
-      title: "I have no other times when I am free on Saturdays."
-    text: "Is there any other time when you are free on Saturdays?"
+  # utter_routines_thursday_repeat:
+  # - buttons:
+  #   - payload: /confirm_thursday{"thursday_morning":"True"}
+  #     title: "Morning (6:00 - 10:00)"
+  #   - payload: /confirm_thursday{"thursday_midday":"True"}
+  #     title: "Midday (10:00 - 14:00)"
+  #   - payload: /confirm_thursday{"thursday_afternoon":"True"}
+  #     title: "Afternoon (14:00 - 18:00)"
+  #   - payload: /confirm_thursday{"thursday_evening":"True"}
+  #     title: "Evening (18:00 - 22:00)"
+  #   - payload: /confirm_thursday_continue
+  #     title: "I have no other times when I am free on Thursdays."
+  #   text: "Is there any other time when you are free on Thursdays?"
 
-  utter_confirm_saturday_slots:
-  - text: "So those are all the times when you are free on Saturdays:\n Morning: {saturday_morning},\n Midday: {saturday_midday},\n Afternoon: {saturday_afternoon},\n Evening: {saturday_evening}."
+  # utter_confirm_thursday_slots:
+  # - text: "So those are all the times when you are free on Thursdays:\n Morning: {thursday_morning},\n Midday: {thursday_midday},\n Afternoon: {thursday_afternoon},\n Evening: {thursday_evening}."
+
+  # utter_routines_friday:
+  # - buttons:
+  #   - payload: /confirm_friday{"friday_morning":"True"}
+  #     title: "Morning (6:00 - 10:00)"
+  #   - payload: /confirm_friday{"friday_midday":"True"}
+  #     title: "Midday (10:00 - 14:00)"
+  #   - payload: /confirm_friday{"friday_afternoon":"True"}
+  #     title: "Afternoon (14:00 - 18:00)"
+  #   - payload: /confirm_friday{"friday_evening":"True"}
+  #     title: "Evening (18:00 - 22:00)"
+  #   - payload: /confirm_friday_continue
+  #     title: "I'm never free on Fridays."
+  #   text: "Use the buttons to let me know when you are usually free on Fridays."
+
+  # utter_routines_friday_repeat:
+  # - buttons:
+  #   - payload: /confirm_friday{"friday_morning":"True"}
+  #     title: "Morning (6:00 - 10:00)"
+  #   - payload: /confirm_friday{"friday_midday":"True"}
+  #     title: "Midday (10:00 - 14:00)"
+  #   - payload: /confirm_friday{"friday_afternoon":"True"}
+  #     title: "Afternoon (14:00 - 18:00)"
+  #   - payload: /confirm_friday{"friday_evening":"True"}
+  #     title: "Evening (18:00 - 22:00)"
+  #   - payload: /confirm_friday_continue
+  #     title: "I have no other times when I am free on Fridays."
+  #   text: "Is there any other time when you are free on Fridays?"
+
+  # utter_confirm_friday_slots:
+  # - text: "So those are all the times when you are free on fridays:\n Morning: {friday_morning},\n Midday: {friday_midday},\n Afternoon: {friday_afternoon},\n Evening: {friday_evening}."
 
 
-  utter_routines_sunday:
-  - buttons:
-    - payload: /confirm_sunday{"sunday_morning":"True"}
-      title: "Morning (6:00 - 10:00)"
-    - payload: /confirm_sunday{"sunday_midday":"True"}
-      title: "Midday (10:00 - 14:00)"
-    - payload: /confirm_sunday{"sunday_afternoon":"True"}
-      title: "Afternoon (14:00 - 18:00)"
-    - payload: /confirm_sunday{"sunday_evening":"True"}
-      title: "Evening (18:00 - 22:00)"
-    - payload: /confirm_sunday_continue
-      title: "I'm never free on Sundays."
-    text: "Use the buttons to let me know when you are usually free on Sundays."
+  # utter_routines_saturday:
+  # - buttons:
+  #   - payload: /confirm_saturday{"saturday_morning":"True"}
+  #     title: "Morning (6:00 - 10:00)"
+  #   - payload: /confirm_saturday{"saturday_midday":"True"}
+  #     title: "Midday (10:00 - 14:00)"
+  #   - payload: /confirm_saturday{"saturday_afternoon":"True"}
+  #     title: "Afternoon (14:00 - 18:00)"
+  #   - payload: /confirm_saturday{"saturday_evening":"True"}
+  #     title: "Evening (18:00 - 22:00)"
+  #   - payload: /confirm_saturday_continue
+  #     title: "I'm never free on Saturdays."
+  #   text: "Use the buttons to let me know when you are usually free on Saturdays."
 
-  utter_routines_sunday_repeat:
-  - buttons:
-    - payload: /confirm_sunday{"sunday_morning":"True"}
-      title: "Morning (6:00 - 10:00)"
-    - payload: /confirm_sunday{"sunday_midday":"True"}
-      title: "Midday (10:00 - 14:00)"
-    - payload: /confirm_sunday{"sunday_afternoon":"True"}
-      title: "Afternoon (14:00 - 18:00)"
-    - payload: /confirm_sunday{"sunday_evening":"True"}
-      title: "Evening (18:00 - 22:00)"
-    - payload: /confirm_sunday_continue
-      title: "I have no other times when I am free on Sundays."
-    text: "Is there any other time when you are free on Sundays?"
+  # utter_routines_saturday_repeat:
+  # - buttons:
+  #   - payload: /confirm_saturday{"saturday_morning":"True"}
+  #     title: "Morning (6:00 - 10:00)"
+  #   - payload: /confirm_saturday{"saturday_midday":"True"}
+  #     title: "Midday (10:00 - 14:00)"
+  #   - payload: /confirm_saturday{"saturday_afternoon":"True"}
+  #     title: "Afternoon (14:00 - 18:00)"
+  #   - payload: /confirm_saturday{"saturday_evening":"True"}
+  #     title: "Evening (18:00 - 22:00)"
+  #   - payload: /confirm_saturday_continue
+  #     title: "I have no other times when I am free on Saturdays."
+  #   text: "Is there any other time when you are free on Saturdays?"
+
+  # utter_confirm_saturday_slots:
+  # - text: "So those are all the times when you are free on Saturdays:\n Morning: {saturday_morning},\n Midday: {saturday_midday},\n Afternoon: {saturday_afternoon},\n Evening: {saturday_evening}."
+
+
+  # utter_routines_sunday:
+  # - buttons:
+  #   - payload: /confirm_sunday{"sunday_morning":"True"}
+  #     title: "Morning (6:00 - 10:00)"
+  #   - payload: /confirm_sunday{"sunday_midday":"True"}
+  #     title: "Midday (10:00 - 14:00)"
+  #   - payload: /confirm_sunday{"sunday_afternoon":"True"}
+  #     title: "Afternoon (14:00 - 18:00)"
+  #   - payload: /confirm_sunday{"sunday_evening":"True"}
+  #     title: "Evening (18:00 - 22:00)"
+  #   - payload: /confirm_sunday_continue
+  #     title: "I'm never free on Sundays."
+  #   text: "Use the buttons to let me know when you are usually free on Sundays."
+
+  # utter_routines_sunday_repeat:
+  # - buttons:
+  #   - payload: /confirm_sunday{"sunday_morning":"True"}
+  #     title: "Morning (6:00 - 10:00)"
+  #   - payload: /confirm_sunday{"sunday_midday":"True"}
+  #     title: "Midday (10:00 - 14:00)"
+  #   - payload: /confirm_sunday{"sunday_afternoon":"True"}
+  #     title: "Afternoon (14:00 - 18:00)"
+  #   - payload: /confirm_sunday{"sunday_evening":"True"}
+  #     title: "Evening (18:00 - 22:00)"
+  #   - payload: /confirm_sunday_continue
+  #     title: "I have no other times when I am free on Sundays."
+  #   text: "Is there any other time when you are free on Sundays?"
 
   utter_confirm_sunday_slots:
   - text: "So those are all the times when you are free on Sundays:\n Morning: {sunday_morning},\n Midday: {sunday_midday},\n Afternoon: {sunday_afternoon},\n Evening: {sunday_evening}."
@@ -1266,89 +1262,89 @@ responses:
   utter_energy_instruction:
   - text: "Like before, I would like you to pay attention to the left side of the sceen. Please specify your energy levels by making use of the options that appear after clicking on the buttons titled 'specify energy'."
 
-  utter_energy_levels_weekdays_morning:
-  - buttons:
-    - payload: /confirm_weekdays_morning{"weekdays_morning":"1"}
-      title: "A little."
-    - payload: /confirm_weekdays_morning{"weekdays_morning":"2"}
-      title: "A moderate amount."
-    - payload: /confirm_weekdays_morning{"weekdays_morning":"3"}
-      title: "A lot."
-    text: "That is, how much energy for physical activity do you have on weekdays in the morning (6:00 - 10:00)?"
+  # utter_energy_levels_weekdays_morning:
+  # - buttons:
+  #   - payload: /confirm_weekdays_morning{"weekdays_morning":"1"}
+  #     title: "A little."
+  #   - payload: /confirm_weekdays_morning{"weekdays_morning":"2"}
+  #     title: "A moderate amount."
+  #   - payload: /confirm_weekdays_morning{"weekdays_morning":"3"}
+  #     title: "A lot."
+  #   text: "That is, how much energy for physical activity do you have on weekdays in the morning (6:00 - 10:00)?"
 
-  utter_energy_levels_weekdays_midday:
-  - buttons:
-    - payload: /confirm_weekdays_midday{"weekdays_midday":"1"}
-      title: "A little."
-    - payload: /confirm_weekdays_midday{"weekdays_midday":"2"}
-      title: "A moderate amount."
-    - payload: /confirm_weekdays_midday{"weekdays_midday":"3"}
-      title: "A lot."
-    text: "What about your energy during the midday (10:00 - 14:00) on weekdays?"
+  # utter_energy_levels_weekdays_midday:
+  # - buttons:
+  #   - payload: /confirm_weekdays_midday{"weekdays_midday":"1"}
+  #     title: "A little."
+  #   - payload: /confirm_weekdays_midday{"weekdays_midday":"2"}
+  #     title: "A moderate amount."
+  #   - payload: /confirm_weekdays_midday{"weekdays_midday":"3"}
+  #     title: "A lot."
+  #   text: "What about your energy during the midday (10:00 - 14:00) on weekdays?"
 
-  utter_energy_levels_weekdays_afternoon:
-  - buttons:
-    - payload: /confirm_weekdays_afternoon{"weekdays_afternoon":"1"}
-      title: "A little."
-    - payload: /confirm_weekdays_afternoon{"weekdays_afternoon":"2"}
-      title: "A moderate amount."
-    - payload: /confirm_weekdays_afternoon{"weekdays_afternoon":"3"}
-      title: "A lot."
-    text: "How about in the afternoon (14:00 - 18:00) on weekdays?"
+  # utter_energy_levels_weekdays_afternoon:
+  # - buttons:
+  #   - payload: /confirm_weekdays_afternoon{"weekdays_afternoon":"1"}
+  #     title: "A little."
+  #   - payload: /confirm_weekdays_afternoon{"weekdays_afternoon":"2"}
+  #     title: "A moderate amount."
+  #   - payload: /confirm_weekdays_afternoon{"weekdays_afternoon":"3"}
+  #     title: "A lot."
+  #   text: "How about in the afternoon (14:00 - 18:00) on weekdays?"
 
 
-  utter_energy_levels_weekdays_evening:
-  - buttons:
-    - payload: /confirm_weekdays_evening{"weekdays_evening":"1"}
-      title: "A little."
-    - payload: /confirm_weekdays_evening{"weekdays_evening":"2"}
-      title: "A moderate amount."
-    - payload: /confirm_weekdays_evening{"weekdays_evening":"3"}
-      title: "A lot."
-    text: "And in the evening (18:00 - 22:00) on weekdays?"
+  # utter_energy_levels_weekdays_evening:
+  # - buttons:
+  #   - payload: /confirm_weekdays_evening{"weekdays_evening":"1"}
+  #     title: "A little."
+  #   - payload: /confirm_weekdays_evening{"weekdays_evening":"2"}
+  #     title: "A moderate amount."
+  #   - payload: /confirm_weekdays_evening{"weekdays_evening":"3"}
+  #     title: "A lot."
+  #   text: "And in the evening (18:00 - 22:00) on weekdays?"
 
-  utter_energy_levels_weekdays_confirm:
-  - text: "So those are your energy levels on weekdays:\n Morning: {weekdays_morning}, Midday: {weekdays_midday}, Afternoon: {weekdays_afternoon}, Evening: {weekdays_evening}."
+  # utter_energy_levels_weekdays_confirm:
+  # - text: "So those are your energy levels on weekdays:\n Morning: {weekdays_morning}, Midday: {weekdays_midday}, Afternoon: {weekdays_afternoon}, Evening: {weekdays_evening}."
 
-  utter_energy_levels_weekends_morning:
-  - buttons:
-    - payload: /confirm_weekends_morning{"weekends_morning":"1"}
-      title: "A little."
-    - payload: /confirm_weekends_morning{"weekends_morning":"2"}
-      title: "A moderate amount."
-    - payload: /confirm_weekends_morning{"weekends_morning":"3"}
-      title: "A lot."
-    text: "Now, let's move on to the weekends. How much energy for physical activity do you have on weekends in the morning (6:00 - 10:00)?"
+  # utter_energy_levels_weekends_morning:
+  # - buttons:
+  #   - payload: /confirm_weekends_morning{"weekends_morning":"1"}
+  #     title: "A little."
+  #   - payload: /confirm_weekends_morning{"weekends_morning":"2"}
+  #     title: "A moderate amount."
+  #   - payload: /confirm_weekends_morning{"weekends_morning":"3"}
+  #     title: "A lot."
+  #   text: "Now, let's move on to the weekends. How much energy for physical activity do you have on weekends in the morning (6:00 - 10:00)?"
 
-  utter_energy_levels_weekends_midday:
-  - buttons:
-    - payload: /confirm_weekends_midday{"weekends_midday":"1"}
-      title: "A little."
-    - payload: /confirm_weekends_midday{"weekends_midday":"2"}
-      title: "A moderate amount."
-    - payload: /confirm_weekends_midday{"weekends_midday":"3"}
-      title: "A lot."
-    text: "What about your energy during the midday (10:00 - 14:00) on weekends?"
+  # utter_energy_levels_weekends_midday:
+  # - buttons:
+  #   - payload: /confirm_weekends_midday{"weekends_midday":"1"}
+  #     title: "A little."
+  #   - payload: /confirm_weekends_midday{"weekends_midday":"2"}
+  #     title: "A moderate amount."
+  #   - payload: /confirm_weekends_midday{"weekends_midday":"3"}
+  #     title: "A lot."
+  #   text: "What about your energy during the midday (10:00 - 14:00) on weekends?"
 
-  utter_energy_levels_weekends_afternoon:
-  - buttons:
-    - payload: /confirm_weekends_afternoon{"weekends_afternoon":"1"}
-      title: "A little."
-    - payload: /confirm_weekends_afternoon{"weekends_afternoon":"2"}
-      title: "A moderate amount."
-    - payload: /confirm_weekends_afternoon{"weekends_afternoon":"3"}
-      title: "A lot."
-    text: "What about your energy during the afternoon (14:00 - 18:00) on weekends?"
+  # utter_energy_levels_weekends_afternoon:
+  # - buttons:
+  #   - payload: /confirm_weekends_afternoon{"weekends_afternoon":"1"}
+  #     title: "A little."
+  #   - payload: /confirm_weekends_afternoon{"weekends_afternoon":"2"}
+  #     title: "A moderate amount."
+  #   - payload: /confirm_weekends_afternoon{"weekends_afternoon":"3"}
+  #     title: "A lot."
+  #   text: "What about your energy during the afternoon (14:00 - 18:00) on weekends?"
 
-  utter_energy_levels_weekends_evening:
-  - buttons:
-    - payload: /confirm_weekends_evening{"weekends_evening":"1"}
-      title: "A little."
-    - payload: /confirm_weekends_evening{"weekends_evening":"2"}
-      title: "A moderate amount."
-    - payload: /confirm_weekends_evening{"weekends_evening":"3"}
-      title: "A lot."
-    text: "How about in the evening (18:00 - 22:00) on weekends?"
+  # utter_energy_levels_weekends_evening:
+  # - buttons:
+  #   - payload: /confirm_weekends_evening{"weekends_evening":"1"}
+  #     title: "A little."
+  #   - payload: /confirm_weekends_evening{"weekends_evening":"2"}
+  #     title: "A moderate amount."
+  #   - payload: /confirm_weekends_evening{"weekends_evening":"3"}
+  #     title: "A lot."
+  #   text: "How about in the evening (18:00 - 22:00) on weekends?"
 
   utter_energy_levels_weekends_confirm:
   - text: "So those are your energy levels on weekends:\n Morning: {weekends_morning}, Midday: {weekends_midday}, Afternoon: {weekends_afternoon}, Evening: {weekends_evening}."
@@ -1695,7 +1691,7 @@ responses:
   - text: "Okay, that's good!"
 
   utter_changes_to_plan_1:
-  - text: "I propose we take another look at the plan and modify it a bit."
+  - text: "I propose we take another look at the plan. Maybe considering our discussion so far, you realised that you want to change some of the times when you have to go for walks. If you do not want to change anything, please just click the button titled 'I am done adjusting the plan'"
 
   utter_changes_to_plan_2:
   - text: "If you take a look at the let side of the screen, you will see the current plan."
