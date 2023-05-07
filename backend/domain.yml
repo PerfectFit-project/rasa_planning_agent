@@ -1618,6 +1618,7 @@ responses:
 
   utter_ask_read_testimonial_1:
   - buttons:
+    - payload: /confirm_read_testimonial_1
       title: "Yes."
     text: "Have you finished reading how planning helped this person?"
 
