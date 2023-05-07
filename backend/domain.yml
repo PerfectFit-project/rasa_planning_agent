@@ -1683,10 +1683,7 @@ responses:
   - text: "Think for yourself: how can you overcome this barrier?"
 
   utter_deal_with_barriers_7:
-  - buttons:
-    - payload: /confirm_continue_deal_with_barriers_2
-      title: "Let's proceed."
-    text: "When you are ready, I will give you my suggestions." 
+  - text: "Please type your strategy in the chat, and then I will give you my suggestions." 
 
   utter_deal_with_barriers_8:
   - text: "Okay. Now, you have your approach to this barrier. Here are strategies for common barriers that I thought about."

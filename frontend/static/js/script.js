@@ -10,6 +10,8 @@ var check_first_walk = false;
 
 var check_week_3 = false;
 
+var barrier = false;
+
 $('.usrInput').attr("disabled",true);
 
 // ========================== start session ========================
@@ -60,9 +62,6 @@ $(".usrInput").on("keyup keypress", function (e) {
 			}
 			else if(check_first_walk){
 
-				console.log(text);
-
-				console.log(first_walk);
 
 				if(text==first_walk){
 					var message = "/first_walk_correct";
@@ -93,6 +92,13 @@ $(".usrInput").on("keyup keypress", function (e) {
 				send(message);
 
 				check_week_3 = false;
+
+				$('.usrInput').attr("disabled",true);
+			}
+			else if(barrier){
+				var message = "/confirm_continue_deal_with_barriers_2";
+				setUserResponse(text);
+				send(message);
 
 				$('.usrInput').attr("disabled",true);
 			}
@@ -312,6 +318,14 @@ function setBotResponse(response) {
 						$('.usrInput').attr("disabled",false);
 						$(".usrInput").prop('placeholder', "Type something...");
 						check_first_walk = true;
+					}
+					else if(response_text[j].includes("Think for yourself: how can you overcome this barrier?")){
+						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
+						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
+						
+						$('.usrInput').attr("disabled",false);
+						$(".usrInput").prop('placeholder', "Type something...");
+						barrier = true;
 					}
 					// otherwise, display the message
 					else{
