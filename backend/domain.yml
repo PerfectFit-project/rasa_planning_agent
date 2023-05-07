@@ -24,7 +24,7 @@ intents:
 - confirm_motivation
 
 # usefulness planning intro
-- confirm_usefulnes_planning_intro
+- confirm_usefulness_planning_intro
 
 ## free time
 
@@ -81,6 +81,8 @@ intents:
 - confirm_goal
 
 ## initial plan
+
+- confirm_ready_initial_plan
 - confirm_initial_plan
 - confirm_checked_plan
 

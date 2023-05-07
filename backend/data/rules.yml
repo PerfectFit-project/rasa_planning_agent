@@ -483,11 +483,6 @@ rules:
   - action: action_rearrange_db
 
 
-- rule: goodbye
-  steps:
-  - intent: confirm_state_pa
-  - action: utter_goodbye
-
 - rule: end
   steps:
   - intent: confirm_goodbye
