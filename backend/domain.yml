@@ -1457,8 +1457,8 @@ responses:
   utter_state_variables_intro_2:
   - buttons:
     - payload: /confirm_state
-      title: "Makes sense."
-    text: "Is that clear?"
+      title: "Yes."
+    text: "are you prepared?"
 
   utter_state_confidence:
   - buttons:
