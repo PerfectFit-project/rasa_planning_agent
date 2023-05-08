@@ -58,6 +58,8 @@ $(".usrInput").on("keyup keypress", function (e) {
 				setUserResponse(text);
 				send(message);
 
+				current_takeaway == 0;
+
 				$('.usrInput').attr("disabled",true);
 			}
 			else if(check_first_walk){
