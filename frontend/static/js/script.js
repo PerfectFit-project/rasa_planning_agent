@@ -100,6 +100,8 @@ $(".usrInput").on("keyup keypress", function (e) {
 				setUserResponse(text);
 				send(message);
 
+				barrier = false;
+
 				$('.usrInput').attr("disabled",true);
 			}
 			else{
