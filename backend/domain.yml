@@ -1631,7 +1631,7 @@ responses:
     text: "Which of these do you think might be a common barrier for most people?"
 
   utter_identify_barriers_4:
-  - text: "You're right! That is indeed a barrierr."
+  - text: "You're right! That is indeed a barrier."
 
   utter_identify_barriers_5:
   - text: "A common barrier is that you may not always have time to exercise or you may be tired at the end of the day."
