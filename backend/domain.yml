@@ -1363,10 +1363,10 @@ responses:
   - text: "Thank you for letting me know when you are available."
 
   utter_energy_levels:
-  - text: "Now, I want to ask when you are usually energetic."
+  - text: "Now, I want to ask when you have more energy than usual. We could make use of this opportunity to schedule a walk if you are also free at the time."
 
   utter_energy_instruction:
-  - text: "Like before, I would like you to pay attention to the left side of the sceen. Please specify your energy levels by clicking on the corresponding energy level for that time slot."
+  - text: "Like before, I would like you to pay attention to the left side of the sceen. Please specify how much energy you have during the weekdays and during the weekend by clicking the corresponding box."
 
   # utter_energy_levels_weekdays_morning:
   # - buttons:
