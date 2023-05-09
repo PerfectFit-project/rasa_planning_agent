@@ -335,7 +335,7 @@ function setBotResponse(response) {
 						$(".usrInput").prop('placeholder', "Type something...");
 						check_first_walk = true;
 					}
-					else if(response_text[j].includes("Let's first see what you think would be a good way of dealing with your barrier.")){
+					else if(response_text[j].includes("I think it might be useful to think of some barriers, or things that might stop or prevent you from taking walks regularly.")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
 						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
 						
