@@ -368,16 +368,15 @@ rules:
   - action: utter_identify_barriers_2
   - action: utter_identify_barriers_3
 
-- rule: identify barriers continue
+- rule: identify barriers continue 1
   steps:
-  - intent: confirm_continue_identify_barriers
+  - intent: confirm_continue_identify_barriers_1
   - action: utter_identify_barriers_4
+
+- rule: identify barriers continue 2
+  steps:
+  - intent: confirm_continue_identify_barriers_2
   - action: utter_identify_barriers_5
-  - action: utter_identify_barriers_6
-  - action: utter_identify_barriers_7
-  - action: utter_identify_barriers_8
-  - action: utter_identify_barriers_9
-  - action: utter_identify_barriers_10
   - action: action_save_action
   - action: utter_action_finished_loop_back
 
@@ -387,24 +386,19 @@ rules:
   - action: utter_deal_with_barriers_1
   - action: utter_deal_with_barriers_2
   - action: utter_deal_with_barriers_3
-  - action: utter_deal_with_barriers_4
-  - action: utter_deal_with_barriers_5
 
 - rule: deal with barriers continue 1
   steps:
   - intent: confirm_continue_deal_with_barriers_1
+  - action: utter_deal_with_barriers_4
+  - action: utter_deal_with_barriers_5
   - action: utter_deal_with_barriers_6
   - action: utter_deal_with_barriers_7
 
 - rule: deal with barriers continue 2
   steps:
   - intent: confirm_continue_deal_with_barriers_2
-  - action: utter_deal_with_barriers_8
-  - action: utter_deal_with_barriers_9
-  - action: utter_deal_with_barriers_10
-  - action: utter_deal_with_barriers_11
-  - action: utter_deal_with_barriers_12
-  - action: utter_deal_with_barriers_13
+  - action: utter_corresponding_strategy_for_barrier
   - action: action_save_action
   - action: utter_action_finished_loop_back
 

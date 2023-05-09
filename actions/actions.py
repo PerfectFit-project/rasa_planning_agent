@@ -127,7 +127,7 @@ class ActionLoadSessionFirst(Action):
 
         return [SlotSet("session_loaded", session_loaded)]
 
-class ActionCheckNumberOfSlos(Action):
+class ActionCheckNumberOfSlots(Action):
 
     def name(self) -> Text:
         return "action_check_number_of_slots"
@@ -160,6 +160,35 @@ class ActionCheckNumberOfSlos(Action):
                 
             return [ActionExecuted("action_listen"), UserUttered(text="/move_to_energy", parse_data={"intent": {"name": "move_to_energy", "confidence": 1.0}})]
 
+
+class ActionUtterCorrespondingStrategyForBarrier(Action):
+
+    def name(self) -> Text:
+        return "action_utter_corresponding_strategy_for_barrier"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        barrier_type = tracker.get_slot('identified_barrier')
+
+        if barrier_type != "other":
+            dispatcher.utter_message(text=f"Okay! Now, you have your approach to this barrier. Here is a strategy I thought about.")
+
+        if barrier_type == "time":
+            dispatcher.utter_message(text=f"If you lack the time to do go for regular walks, you could try taking a short walk when you have some free time (during your lunch break, for example)")
+        elif barrier_type == "energy":
+            dispatcher.utter_message(text=f"In terms of energy, think back to when we talked about when you feel most energetic during the day. Aim to schedule walks at those times, since it will be easier for you that way.")
+        elif barrier_type == "people":
+            dispatcher.utter_message(text=f"Try to go to the gym when it's a bit quieter if you don't like it when other people can see you doing physical activity. It is not absolutely necessary to go to a gym, especially if you're only taking walks. Try walking in a park nearby or simply on the sidewalk.")
+        elif barrier_type == "equipment":
+            dispatcher.utter_message(text=f"For walking in particular, the only thing you really need in terms of equipment are shoes that are comfortable for you, so putting aside some money for that can be a relatively simple strategy.")
+        elif barrier_type == "family":
+            dispatcher.utter_message(text=f"If you have to take care of someone in your family, it might be a good idea to take them on regular walks with you. That way you can fulfill your family obligations and make progress towards your goal.")
+        elif barrier_type == "other":
+            dispatcher.utter_message(text=f"Okay! Now, you have your approach to this barrier.")
+                
+        return []
 
 def round_to_nearest_5(n):
     return 5 * round(n / 5)

@@ -12,6 +12,8 @@ var check_week_3 = false;
 
 var barrier = false;
 
+var identified_barrier = false;
+
 $('.usrInput').attr("disabled",true);
 
 // ========================== start session ========================
@@ -106,6 +108,16 @@ $(".usrInput").on("keyup keypress", function (e) {
 
 				$('.usrInput').attr("disabled",true);
 			}
+			else if(identified_barrier){
+				var message = `/confirm_continue_identify_barriers_2{"barrier_description":"${text}"}`;
+				setUserResponse(text);
+				send(message);
+
+				identified_barrier = false;
+
+				$('.usrInput').attr("disabled",true);
+			}
+
 			else{
 				setUserResponse(text);
 				send(text);
@@ -323,13 +335,21 @@ function setBotResponse(response) {
 						$(".usrInput").prop('placeholder', "Type something...");
 						check_first_walk = true;
 					}
-					else if(response_text[j].includes("Think for yourself: how can you overcome this barrier?")){
+					else if(response_text[j].includes("Let's first see what you think would be a good way of dealing with your barrier.")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
 						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
 						
 						$('.usrInput').attr("disabled",false);
 						$(".usrInput").prop('placeholder', "Type something...");
 						barrier = true;
+					}
+					else if(response_text[j].includes("I see. Thank you for sharing. Would you mind describing your barrier to me in the chat?")){
+						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
+						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
+						
+						$('.usrInput').attr("disabled",false);
+						$(".usrInput").prop('placeholder', "Type something...");
+						identified_barrier = true;
 					}
 					// otherwise, display the message
 					else{

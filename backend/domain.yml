@@ -121,7 +121,8 @@ intents:
 - plan_modified
 
 - confirm_continue_explain_planning
-- confirm_continue_identify_barriers
+- confirm_continue_identify_barriers_1
+- confirm_continue_identify_barriers_2
 - confirm_continue_deal_with_barriers_1
 - confirm_continue_deal_with_barriers_2
 
@@ -296,6 +297,12 @@ entities:
     influence_conversation: false
 
 - show_testimonials:
+    influence_conversation: false
+
+- identified_barrier:
+    influence_conversation: false
+
+- barrier_description:
     influence_conversation: false
 
 - testimonial_1:
@@ -788,6 +795,27 @@ slots:
     mappings:
     - type: from_entity
       entity: identify_barriers
+
+  identified_barrier:
+    type: categorical
+    influence_conversation: false
+    values:
+      - time
+      - energy
+      - people
+      - equipment
+      - family
+      - other
+    mappings:
+    - type: from_entity
+      entity: identified_barrier
+
+  barrier_description:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: barrier_description
 
   deal_with_barriers:
     type: bool
@@ -1618,38 +1646,37 @@ responses:
 
   utter_identify_barriers_3:
   - buttons:
-    - payload: /confirm_continue_identify_barriers
+    - payload: /confirm_continue_identify_barriers_1{"identified_barrier":"time"}
       title: "Lack of time."
-    - payload: /confirm_continue_identify_barriers
+    - payload: /confirm_continue_identify_barriers_1{"identified_barrier":"energy"}
       title: "Lack of energy."
-    - payload: /confirm_continue_identify_barriers
+    - payload: /confirm_continue_identify_barriers_1{"identified_barrier":"people"}
       title: "Disliking being in the presence of others when exercising."
-    - payload: /confirm_continue_identify_barriers
+    - payload: /confirm_continue_identify_barriers_1{"identified_barrier":"equipment"}
       title: "Lack of equipment."
-    - payload: /confirm_continue_identify_barriers
+    - payload: /confirm_continue_identify_barriers_1{"identified_barrier":"family"}
       title: "Family obligations."
-    text: "Which of these do you think might be a common barrier for most people?"
+    - payload: /confirm_continue_identify_barriers_1{"identified_barrier":"other"}
+      title: "I have a different kind of barrier."
+    text: "Which of these do you think is the biggest barrier for you?"
 
   utter_identify_barriers_4:
-  - text: "You're right! That is indeed a barrier."
+  - text: "I see. Thank you for sharing. Would you mind briefly describing your barrier to me in the chat?"
 
   utter_identify_barriers_5:
-  - text: "A common barrier is that you may not always have time to exercise or you may be tired at the end of the day."
+  - text: "Thank you for telling me. I'll try to think of a a way to overcome your barrier."
 
-  utter_identify_barriers_6:
-  - text: "On the other hand, maybe you do not enjoy other people being there when you exercise."
+  # utter_identify_barriers_7:
+  # - text: "Maybe you don't have shoes that are comfortable to take longer walks in."
 
-  utter_identify_barriers_7:
-  - text: "Maybe you don't have shoes that are comfortable to take longer walks in."
+  # utter_identify_barriers_8:
+  # - text: "It could also be that you have young children to take care of and that leaves you with little time."
 
-  utter_identify_barriers_8:
-  - text: "It could also be that you have young children to take care of and that leaves you with little time."
+  # utter_identify_barriers_9:
+  # - text: "All of these are barriers which could prevent you from taking a walk. Think if these apply to you specifically."
 
-  utter_identify_barriers_9:
-  - text: "All of these are barriers which could prevent you from taking a walk. Think if these apply to you specifically."
-
-  utter_identify_barriers_10:
-  - text: "You can also try to come up with some things that you know have been barriers in the past. Think about which of these barriers apply to you and let me know when you are ready to proceed."
+  # utter_identify_barriers_10:
+  # - text: "You can also try to come up with some things that you know have been barriers in the past. Think about which of these barriers apply to you and let me know when you are ready to proceed."
 
 
 
@@ -1662,46 +1689,41 @@ responses:
   utter_deal_with_barriers_3:
   - text: "Keep in mind that, while I can provide suggestions, it's really up to you to come up with the solution that works best for you."
 
-  utter_deal_with_barriers_4:
-  - text: "Let's first see what you think would be a good way of dealing with a certain barrier."
-
-  utter_deal_with_barriers_5:
+  utter_deal_with_barriers_continue:
   - buttons:
     - payload: /confirm_continue_deal_with_barriers_1
-      title: "Lack of time."
-    - payload: /confirm_continue_deal_with_barriers_1
-      title: "Lack of energy."
-    - payload: /confirm_continue_deal_with_barriers_1
-      title: "Disliking being in the presence of others when exercising."
-    - payload: /confirm_continue_deal_with_barriers_1
-      title: "Lack of equipment."
-    - payload: /confirm_continue_deal_with_barriers_1
-      title: "Family obligations."
-    text: "Pick one of the barriers that we've talked about before and let me know how you would deal with it."
+      title: "Let's continue."
+    text: "Let me know when you are ready to continue."
+
+  utter_deal_with_barriers_4:
+  - text: "Let's first see what you think would be a good way of dealing with your barrier."
+
+  utter_deal_with_barriers_5:
+  - text: "Earlier, you told me that this is your barrier: {barrier_description}"
 
   utter_deal_with_barriers_6:
   - text: "Think for yourself: how can you overcome this barrier?"
 
   utter_deal_with_barriers_7:
-  - text: "Please type your strategy in the chat, and then I will give you my suggestions." 
+  - text: "Please type your strategy in the chat."
 
-  utter_deal_with_barriers_8:
-  - text: "Okay. Now, you have your approach to this barrier. Here are strategies for common barriers that I thought about."
+  # utter_deal_with_barriers_8:
+  # - text: "Okay. Now, you have your approach to this barrier. Here are strategies for common barriers that I thought about."
 
-  utter_deal_with_barriers_9:
-  - text: "If you lack the time to do go for regular walks, you could try taking a short walk when you have some free time (during your lunch break, for example)"
+  # utter_deal_with_barriers_9:
+  # - text: "If you lack the time to do go for regular walks, you could try taking a short walk when you have some free time (during your lunch break, for example)"
 
-  utter_deal_with_barriers_10:
-  - text: "In terms of energy, think back to when we talked about when you feel most energetic during the day. Aim to schedule walks at those times, since it will be easier for you that way."
+  # utter_deal_with_barriers_10:
+  # - text: "In terms of energy, think back to when we talked about when you feel most energetic during the day. Aim to schedule walks at those times, since it will be easier for you that way."
 
-  utter_deal_with_barriers_11:
-  - text: "Try to go to the gym when it's a bit quieter if you don't like it when other people can see you doing physical activity. It is not absolutely necessary to go to a gym, especially if you're only taking walks. Try walking in a park nearby or simply on the sidewalk."
+  # utter_deal_with_barriers_11:
+  # - text: "Try to go to the gym when it's a bit quieter if you don't like it when other people can see you doing physical activity. It is not absolutely necessary to go to a gym, especially if you're only taking walks. Try walking in a park nearby or simply on the sidewalk."
 
-  utter_deal_with_barriers_12:
-  - text: "Another common barrier is not having the right equipment. For walking in particular, the only thing you really need are shoes that are comfortable for you, so putting aside some money for that can be a relatively simple strategy."
+  # utter_deal_with_barriers_12:
+  # - text: "Another common barrier is not having the right equipment. For walking in particular, the only thing you really need are shoes that are comfortable for you, so putting aside some money for that can be a relatively simple strategy."
 
-  utter_deal_with_barriers_13:
-  - text: "If you have children to take care of, it might be a good idea to take them on regular walks with you. That way you can fulfill your family obligations and make progress towards your goal."
+  # utter_deal_with_barriers_13:
+  # - text: "If you have children to take care of, it might be a good idea to take them on regular walks with you. That way you can fulfill your family obligations and make progress towards your goal."
 
   utter_show_testimonials_1:
   - text: "Seeing other people make plans and see how they succeed with regards to their goals is something that might help you."
@@ -1770,8 +1792,8 @@ responses:
         value: false
     buttons:
       - payload: /confirm_state
-        title: "Yes."
-    text: "Are you ready to continue?"
+        title: "I am ready."
+    text: "Let me know when you are ready to continue."
   - buttons:
     - payload: /confirm_actions_done
       title: "Okay!"
@@ -1939,6 +1961,7 @@ actions:
 - action_check_number_of_slots
 - action_create_initial_plan
 - action_show_testimonials
+- action_utter_corresponding_strategy_for_barrier
 - action_save_event_state
 - action_select_action
 - action_save_action
