@@ -1031,7 +1031,7 @@ responses:
   - text: "However, for the goal to be most effective, you should pick a goal is both challenging and achievable."
 
   utter_explain_goal_4:
-  - text: "You should feel like you have to put in the effort to reach your goal, while avoiding aiming for something unrealistic and burning yourself out."
+  - text: "You should feel like you have to put in the effort to reach your goal, while avoiding aiming for something unrealistic."
 
   utter_explain_goal_continue:
   - buttons:
