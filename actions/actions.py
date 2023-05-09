@@ -324,11 +324,11 @@ class ActionCreateInitialPlan(Action):
 
         minutes_week_1 = 120
 
-        if goal == "8000":
+        if goal == "10000":
             weekly_increase = 20
-        elif goal == "9000":
+        elif goal == "11000":
             weekly_increase = 22
-        elif goal == "10000":
+        elif goal == "12000":
             weekly_increase = 25
         
         if number_of_timeslots == 4:

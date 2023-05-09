@@ -716,9 +716,9 @@ slots:
     type: categorical
     influence_conversation: false
     values:
-      - 8000
-      - 9000
       - 10000
+      - 11000
+      - 12000
     mappings:
     - type: from_entity
       entity: goal
@@ -1105,11 +1105,11 @@ responses:
 
   utter_set_goal:
   - buttons:
-    - payload: /confirm_goal{"goal":"8000"}
-      title: "10000 steps (or 100 minutes) per day."
-    - payload: /confirm_goal{"goal":"9000"}
-      title: "11000 steps (or 100 minutes) per day."
     - payload: /confirm_goal{"goal":"10000"}
+      title: "10000 steps (or 100 minutes) per day."
+    - payload: /confirm_goal{"goal":"11000"}
+      title: "11000 steps (or 100 minutes) per day."
+    - payload: /confirm_goal{"goal":"12000"}
       title: "12000 steps (or 120 minutes) per day."
     text: "Please pick one of these options as your goal."
 
@@ -1117,7 +1117,7 @@ responses:
   - buttons:
     - payload: /confirm_initial_plan
       title: "Let's do that."
-    text: "Great! I'm sure you'll be able to achieve your goal of {goal} steps per day. Now, let's create a plan that can help you reach this goal."
+    text: "Great! Take walks regularly and you'll be able to achieve your goal of {goal} steps per day. Now, let's create a plan that can help you reach this goal."
 
 
 
