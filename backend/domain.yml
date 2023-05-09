@@ -970,7 +970,7 @@ responses:
   - text: "Let me tell you a bit about myself. My goal is to help people create plans for becoming more physically active. Do keep in mind that I'm not asking you to do any physical activity. The purpose of this chat is to only create a plan."
 
   utter_purpose_2:
-  - text: "Being more physically active is generally regarded as beneficial for both health and mood."
+  - text: "Being physically active is generally regarded as beneficial for both health and mood."
 
   utter_purpose_3:
   - text: "To be a bit more specific, we will create a plan for taking walks during the week."
