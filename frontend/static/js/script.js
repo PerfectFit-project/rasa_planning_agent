@@ -514,7 +514,7 @@ function toggle_slot_energy(clicked_id){
 		setlect_energy(clicked_id);
 
 		
-		}
+	}
 }
 
 function setlect_energy(clicked_id){
