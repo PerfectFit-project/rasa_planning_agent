@@ -1539,6 +1539,11 @@ responses:
   utter_thank_for_confidence:
   - text: "I see. Thank you for telling me."
   - text: "Okay. Good to know. Thank you."
+  - text: "Okay! Thanks for letting me know"
+  - text: "I see. Thank you for telling me."
+  - text: "Good to know. Thanks!"
+  - text: "Got it. Thanks for letting me know!"
+  - text: "Good to know! Thanks a lot!"
 
   utter_state_perceived_usefulness:
   - buttons:
@@ -1570,8 +1575,13 @@ responses:
   - text: "So your perceived usefulness is {perceived_usefulness}."
 
   utter_thank_for_perceived_usefulness:
-  - text: "So that is your opinion. Okay!"
-  - text: "I see, that's what you think. Thank you for letting me know."
+  - text: "I see. Thank you for telling me."
+  - text: "Okay. Good to know. Thank you."
+  - text: "Okay! Thanks for letting me know"
+  - text: "I see. Thank you for telling me."
+  - text: "Good to know. Thanks!"
+  - text: "Got it. Thanks for letting me know!"
+  - text: "Good to know! Thanks a lot!"
 
   utter_state_attitude:
   - buttons:
