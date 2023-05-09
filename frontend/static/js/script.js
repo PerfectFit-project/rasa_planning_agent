@@ -485,12 +485,14 @@ function toggle_slot(clicked_id){
 }
 
 function toggle_slot_energy(clicked_id){
-	var time_slot = document.getElementById(clicked_id)
+	var time_slot = document.getElementById(clicked_id);
 
-	if (time_slot.innerHTML == "Selected") {
+	if (time_slot.innerHTML != "") {
 		time_slot.innerHTML = "";
 		time_slot.style.backgroundColor = "white";
-		} else {
+	} 
+	
+	else {
 
 		var time = clicked_id.substring(0, clicked_id.length - 9);
 
@@ -509,9 +511,35 @@ function toggle_slot_energy(clicked_id){
 			document.getElementById(element).style.backgroundColor = "white";
 		});
 
-		time_slot.innerHTML = "Selected";
-		time_slot.style.backgroundColor = "#82e876";
+		setlect_energy(clicked_id);
+
+		
 		}
+}
+
+function setlect_energy(clicked_id){
+
+	var time_slot = document.getElementById(clicked_id);
+
+	time_slot.style.backgroundColor = "#82e876";
+
+	if(clicked_id.includes("0")){
+		time_slot.innerHTML = "None at all"
+	}
+	else if (clicked_id.includes("1")){
+		time_slot.innerHTML = "Less than usual"
+	}
+	else if (clicked_id.includes("2")){
+		time_slot.innerHTML = "An average amount"
+	}
+	else if (clicked_id.includes("3")){
+		time_slot.innerHTML = "More than average"
+	}
+	else if (clicked_id.includes("4")){
+		time_slot.innerHTML = "Much more than average"
+	}
+
+	time_slot.innerHTML = 
 }
 
 //====================================== Check selected time slots =======================================
