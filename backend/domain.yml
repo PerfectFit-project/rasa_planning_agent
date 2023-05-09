@@ -1061,7 +1061,7 @@ responses:
   - text: "Okay! Another important part of achieving your goal is being motivated."
 
   utter_internal_motivation_2:
-  - text: "So, I am curious: which one of these reasons motivates you the most?"
+  - text: "So, I am curious: what motivates you to want to walk regularly?"
 
   utter_internal_motivation_question:
   - buttons:
