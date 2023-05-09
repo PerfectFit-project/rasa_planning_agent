@@ -125,6 +125,7 @@ intents:
 - confirm_continue_identify_barriers_2
 - confirm_continue_deal_with_barriers_1
 - confirm_continue_deal_with_barriers_2
+- confirm_continue_deal_with_barriers_3
 
 - confirm_actions_done
 
@@ -1707,11 +1708,11 @@ responses:
   utter_deal_with_barriers_7:
   - text: "Please type your strategy in the chat."
 
-  # utter_deal_with_barriers_8:
-  # - text: "Okay. Now, you have your approach to this barrier. Here are strategies for common barriers that I thought about."
+  utter_deal_with_barriers_8:
+  - text: "Now that you have seen my suggestion, maybe you have gotten a different idea for a solution. So, I would like to ask again: how would you overcome this barrier?"
 
-  # utter_deal_with_barriers_9:
-  # - text: "If you lack the time to do go for regular walks, you could try taking a short walk when you have some free time (during your lunch break, for example)"
+  utter_deal_with_barriers_9:
+  - text: "Great! Thank you for sharing!"
 
   # utter_deal_with_barriers_10:
   # - text: "In terms of energy, think back to when we talked about when you feel most energetic during the day. Aim to schedule walks at those times, since it will be easier for you that way."

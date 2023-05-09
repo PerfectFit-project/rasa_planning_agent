@@ -400,6 +400,12 @@ rules:
   steps:
   - intent: confirm_continue_deal_with_barriers_2
   - action: action_utter_corresponding_strategy_for_barrier
+  - action: utter_deal_with_barriers_8
+
+- rule: deal with barriers continue 3
+  steps:
+  - intent: confirm_continue_deal_with_barriers_3
+  - action: utter_deal_with_barriers_9
   - action: action_save_action
   - action: utter_action_finished_loop_back
 
