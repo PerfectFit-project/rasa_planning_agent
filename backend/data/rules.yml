@@ -386,6 +386,7 @@ rules:
   - action: utter_deal_with_barriers_1
   - action: utter_deal_with_barriers_2
   - action: utter_deal_with_barriers_3
+  - action: utter_deal_with_barriers_continue
 
 - rule: deal with barriers continue 1
   steps:
