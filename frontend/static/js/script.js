@@ -538,8 +538,6 @@ function setlect_energy(clicked_id){
 	else if (clicked_id.includes("4")){
 		time_slot.innerHTML = "Much more than average"
 	}
-
-	time_slot.innerHTML = 
 }
 
 //====================================== Check selected time slots =======================================
