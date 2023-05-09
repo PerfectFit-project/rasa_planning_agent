@@ -58,7 +58,7 @@ $(".usrInput").on("keyup keypress", function (e) {
 				setUserResponse(text);
 				send(message);
 
-				current_takeaway == 0;
+				current_takeaway = 99;
 
 				$('.usrInput').attr("disabled",true);
 			}
