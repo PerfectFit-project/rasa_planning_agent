@@ -1774,7 +1774,7 @@ responses:
   - text: "You can also click on time slots which have no activity to schedule an activity at that time."
 
   utter_changes_to_plan_5:
-  - text: "Think about when you would want to do go for walks."
+  - text: "Think about when you would want to go for walks."
 
   utter_changes_to_plan_6:
   - text: "Once you are done, please click the button titled 'I am done adjusting the plan'. It is at the bottom of the plan, after Month 3. Note that you may need to scroll to the button depending on your screen resolution."
