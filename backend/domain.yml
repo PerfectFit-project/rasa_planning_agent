@@ -1108,7 +1108,7 @@ responses:
     - payload: /confirm_goal{"goal":"10000"}
       title: "10000 steps (or 100 minutes) per day."
     - payload: /confirm_goal{"goal":"11000"}
-      title: "11000 steps (or 100 minutes) per day."
+      title: "11000 steps (or 110 minutes) per day."
     - payload: /confirm_goal{"goal":"12000"}
       title: "12000 steps (or 120 minutes) per day."
     text: "Please pick one of these options as your goal."
