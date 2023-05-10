@@ -123,7 +123,7 @@ div.chats::-webkit-scrollbar {
 	height: 1.5em;
 	float: left;
 	margin-left: 5px;
-	/* border: 2px solid  #2c53af ; */
+	/* border: 2px solid  #2ed59f ; */
 }
 
 .botMsg {
@@ -184,7 +184,7 @@ textarea-webkit-scrollbar {
 	height: 1.5em;
 	float: right;
 	margin-right: 5px;
-	/* border: 2px solid  #2c53af ; */
+	/* border: 2px solid  #2ed59f ; */
 }
 
 .usrInput {
@@ -407,7 +407,7 @@ textarea-webkit-scrollbar {
 
 .order,
 #closeContents {
-	color: #2c53af;
+	color: #2ed59f;
 }
 
 .metadata_2,
@@ -676,7 +676,7 @@ div.content_data::-webkit-scrollbar {
 	font-size: 15px;
 	/* font-weight: 600; */
 	padding: 5px;
-	/* color: #2c53af; */
+	/* color: #2ed59f; */
 	color: #ffffff;
 	cursor: pointer;
 }
@@ -736,14 +736,14 @@ div.content_data::-webkit-scrollbar {
 
 .chip {
 	background-color: white;
-	border: 1px solid #2c53af;
-	color: #2c53af;
+	border: 1px solid #2ed59f;
+	color: #2ed59f;
 	font-weight: bolder;
 	text-align: center;
 }
 
 .chip:hover {
-	background-color: #2c53af;
+	background-color: #2ed59f;
 	color: white;
 }
 
@@ -797,7 +797,7 @@ div.content_data::-webkit-scrollbar {
 
 .collapsible-header {
 	font-weight: bold;
-	color: #2c53af;
+	color: #2ed59f;
 }
 
 ul.collapsible>li:first-child .collapsible-header {
@@ -805,7 +805,7 @@ ul.collapsible>li:first-child .collapsible-header {
 }
 
 ul.collapsible>li:last-child .collapsible-header {
-	color: #2c53af;
+	color: #2ed59f;
 	border-radius: 0px 0px 20px 20px;
 }
 
@@ -824,7 +824,7 @@ ul.collapsible>li:last-child .collapsible-body {
 	float: left;
 	margin-top: 5px;
 	background: white;
-	color: #2c53af;
+	color: #2ed59f;
 	box-shadow: 2px 3px 9px 0px #9a82847a;
 	margin-left: 0.5em;
 	padding: 15px;
@@ -838,7 +838,7 @@ ul.collapsible>li:last-child .collapsible-body {
 .botTyping>div {
 	width: 10px;
 	height: 10px;
-	background-color: #2c53af;
+	background-color: #2ed59f;
 	border-radius: 100%;
 	display: inline-block;
 	-webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
