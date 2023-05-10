@@ -1227,7 +1227,7 @@ responses:
   - buttons:
     - payload: /confirm_continue_check
       title: "I am done checking the plan after the first two weeks."
-    text: "Moving on, you can also see the third and fourth weeks, but only in terms of how many hours you have to walk and how often. For the next two months, you see only how much you will have to do in the last week of that month, to give you an idea of the effort that you are building up towards. Let me know when you are done reading."
+    text: "Moving on, you can also see the third and fourth weeks, but only in terms of how many hours you have to walk and how often. For the two months after that, you see only how much you will have to do in the last week of that month, to give you an idea of the effort that you are building up towards. Let me know when you are done reading."
 
   utter_check_plan_week_3:
   - text: "Let's do an extra check to make sure everything is clear. How much time will you have to walk on your third week? Please type your answer as a number with one decimal point. For example, if your answer is 1 and a half hours, please type '1.5'"
