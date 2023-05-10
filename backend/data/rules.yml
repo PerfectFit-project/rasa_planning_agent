@@ -98,7 +98,7 @@ rules:
   - action: utter_explain_goal_2  
   - action: utter_explain_goal_3
   - action: utter_explain_goal_4  
-  - action: utter_explain_goal_continue
+  - action: utter_explain_goal_question
 
 - rule: internal motivation
   steps:
