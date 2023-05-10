@@ -691,7 +691,7 @@ class ActionSelectAction(Action):
 
             if num_actions == 2:
 
-                dispatcher.utter_message(text="Here come the three questions about your situation again.")
+                dispatcher.utter_message(text="I am about to ask the three questions regarding your situation again.")
 
             elif num_actions == 4:
 
