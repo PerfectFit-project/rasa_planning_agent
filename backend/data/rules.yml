@@ -130,7 +130,7 @@ rules:
 
 - rule: ask about routines
   steps:
-  - intent: confirm_initial_plan
+  - intent: confirm_motivation
   - action: utter_routines_1
   - action: utter_routines_2
   - action: utter_routines_3
