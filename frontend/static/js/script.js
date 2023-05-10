@@ -126,8 +126,10 @@ $(".usrInput").on("keyup keypress", function (e) {
 				}
 				else{
 					var message = "/confirm_continue_deal_with_barriers_2";
-					barrier = false;
+					
 				}
+
+				barrier = false;
 				
 				setUserResponse(text);
 				send(message);
@@ -142,8 +144,9 @@ $(".usrInput").on("keyup keypress", function (e) {
 				}
 				else{
 					var message = `/confirm_continue_identify_barriers_2{"barrier_description":"${text}"}`;
-					barrier = false;
 				}
+
+				identified_barrier = false;
 
 				setUserResponse(text);
 				send(message);
@@ -158,8 +161,9 @@ $(".usrInput").on("keyup keypress", function (e) {
 				}
 				else{
 					var message = "/confirm_continue_deal_with_barriers_3";
-					barrier_repeat = false;
 				}
+
+				barrier_repeat = false;
 
 				setUserResponse(text);
 				send(message);
@@ -174,8 +178,9 @@ $(".usrInput").on("keyup keypress", function (e) {
 				}
 				else{
 					var message = "/confirm_planning_input";
-					planning = false;
 				}
+
+				planning = false;
 
 				setUserResponse(text);
 				send(message);
