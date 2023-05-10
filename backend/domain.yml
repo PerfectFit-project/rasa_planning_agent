@@ -1202,7 +1202,7 @@ responses:
   utter_present_plan_1:
   - buttons:
     - payload: /confirm_ready_initial_plan
-      title: "Let's proceed."
+      title: "Show me the plan."
     text: "Now, let's see initial plan! Don't worry if it's not entirely to you liking yet. You'll have opportunities to modify it later. Please let me know when you are ready to continue."
 
   utter_present_plan_2:
