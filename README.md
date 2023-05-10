@@ -159,6 +159,7 @@ The project further uses an mysql database to store specific data from the conve
    - When setting up the connection, use "db" for "Database", "root" for "Username", and the password specified in docker-compose.yml. Keep "Port" to 3306. The "Server Host" is the IP address of your instance.
       - You might have to set "allowPublicKeyRetrieval" to "true" in "Driver properties." 
    - To delete the database content, just delete the folder "data_mysql" on your Google Compute Engine instance.
+   - Make sure to use a secure password. This needs to be set in both docker-compose.yml and actions/definitions.py. For example, see [this post](https://www.akamai.com/blog/security/btc-strikes-back-now-attacking-mysql-databases).
 
 
 Some errors I got during the setup:
@@ -410,8 +411,12 @@ You might want to allow also for https traffic:
    - And then you also need to download the language model you use.
    - I personally got package version conflicts with rasa 3.2.8, so I used rasa 3.5.3 for the training.
       - This also means that I updated the Dockerfile for the custom actions to use `FROM rasa/rasa-sdk:3.3.0` and the Dockerfile for the backend to use `FROM rasa/rasa:3.5.3-full`.
-   - Now this setup will allow you to correctly handle responses such as "My name is John" or "Priyanka".
-   - But even with this complicated setup, you will still not be able to extract the name if the user types "My name is Priyanka". So unless you are confident that the user has a common English (or whichever language model you use) name and/or types only their name, I would suggest to not use the user name. In my pilot study, 3 out of 8 people typed more than their name.
+   - Now this setup MIGHT allow you to correctly handle responses such as "My name is John" or "Priyanka":
+      - It is quite difficult to get this setup to work well in all cases:
+	     - For example, the DietClassifier may also extract (wrong) entities, in which case you may need to look through all entities in `tracker.latest_message['entities']` in a custom action and choose the entity for which `entity["extractor"] == "SpacyEntityExtractor"`.
+	     - Sometimes, rasa recognizes "user_name_intent" for "Priyanka" but cannot extract an entity.
+		 - If the user uses the chatbot name in their message, sometimes the chatbot name is extracted as the user name.
+   - Unless you are confident that the user has a common English (or whichever language model you use) name and/or types only their name, I would suggest to not use the user name. In my pilot study, 3 out of 8 people typed more than their name.
    - You could of course also play back to the user what you got as their name and ask them for confirmation, but this might make the virtual coach look rather stupid if what they play back as the user name is "My name is Priyanka".
 
 
@@ -424,6 +429,16 @@ You might want to allow also for https traffic:
 - If you have made changes and they do not reflect on your Google Compute Engine instance, check if you have run `docker-compose down --volumes` and `docker-compose up --build`.
 - If you do not see the result of retraining your rasa model, it can sometimes help to delete all models and retrain from scratch.
 - You might want to prevent people from typing while the chatbot is still sending more messages. You can adapt the file script.js to allow for this using statements such as `$('.usrInput').attr("disabled",true);` and `$(".usrInput").prop('placeholder', "Wait for Mel's response.");`
+- Before running the chatbot on a Google Compute Engine instance for your experiment, make sure to get a paid account. Once the trial period ends or you have used up your free credit your instance will stop. And a billing account will also help to prevent Google from stopping your project when it thinks that you are mining crypto currencies (e.g., see [here](https://groups.google.com/g/gce-discussion/c/5prZHD3DEnQ)).
+- When using the db, pay attention to closing connections. Also pay attention to the kind of cursor you use when you use fetchone(). It may be good to use a buffered cursor then (e.g., see [here](https://stackoverflow.com/questions/29772337/python-mysql-connector-unread-result-found-when-using-fetchone)).
+- You might want to get more detailed logs for your mysql database. See [here](https://stackoverflow.com/questions/39708213/enable-logging-in-docker-mysql-container) for a useful discussion. 
+   - You can add `- ./mysql_log:/var/log/mysql` to your mysql volumes in docker-compose.yml.
+   - Create a file called mysql.log in /var/log/mysql in your mysql container after running `docker exec -it [mysql_container_id] /bin/bash` (e.g., via `cat > mysql.log`).
+   - Give sufficient permissions to this newly created file (e.g., via `chmod a+crw mysql.log`).
+   - Run `SET global general_log = 1;`, `SET global general_log_file='/var/log/mysql/mysql.log';` and `SET global log_output = 'file';` (e.g., via the console in DBeaver under SQL Editor > Open SQL console).
+   - Now you can see the logs on your Google Compute Engine instance in mysql_log/mysql.log.
+- Viewing google activity logs: https://cloud.google.com/compute/docs/logging/activity-logs.
+- Listing sessions/active connections on mysql server: https://dataedo.com/kb/query/mysql/list-database-sessions (e.g., can execute a query in DBeaver).
 
 
 ## License

@@ -1,59 +1,355 @@
 version: "3.1"
 
 intents:
-### Session 1
-- mood_curr_session1
+### Session
 - start_session1
+
+
+# mood
+- confirm_mood_very_good
+- confirm_mood_good
+- confirm_mood_neutral
+- confirm_mood_bad
+- confirm_mood_very_bad
+
+# purpose
+- confirm_continue_purpose_1
+- confirm_continue_purpose_2
 - confirm_purpose
+
+# usage
 - confirm_usage
-- confirm_intro_session1
 
-### Middle sessions (2, 3, 4)
-- start_session_mid
-- mood_curr_session_mid
+# goal
+- confirm_explain_goal
 
-### Not-first sessions (2, 3, 4, 5)
-- confirm_intro_session_notfirst
+- confirm_set_goal_continue
 
-### Last session
-- start_session_last
-- mood_curr_session_last
+# internal motivation
+- confirm_motivation
 
-### activity experience and dropout
-- effort_answer
-- confirm_activity_experience
-- deny_activity_experience
-- confirm_dropout
+# usefulness planning intro
+- confirm_usefulness_planning_intro
 
-### states
-- confirm_state_1
+## free time
 
-# propose new activity
-- confirm_activity_read
+- retry_time_slots
 
-# end session
-- confirm_next_part
+- confirm_energy_levels
+
+# monday
+- confirm_monday
+- confirm_monday_continue
+
+# tuesday
+- confirm_tuesday
+- confirm_tuesday_continue
+
+# wednesday
+- confirm_wednesday
+- confirm_wednesday_continue
+
+# thursday
+- confirm_thursday
+- confirm_thursday_continue
+
+# friday
+- confirm_friday
+- confirm_friday_continue
+
+# saturday
+- confirm_saturday
+- confirm_saturday_continue
+
+# sunday
+- confirm_sunday
+- confirm_sunday_continue
+
+
+## energy levels
+
+- move_to_energy
+
+# weekdays
+- confirm_weekdays_morning
+- confirm_weekdays_midday
+- confirm_weekdays_afternoon
+- confirm_weekdays_evening
+
+# weekends
+- confirm_weekends_morning
+- confirm_weekends_midday
+- confirm_weekends_afternoon
+- confirm_weekends_evening
+
+## goal
+- confirm_goal
+
+## initial plan
+
+- confirm_ready_initial_plan
+- confirm_initial_plan
+- confirm_checked_plan
+
+- confirm_continue_check
+- first_walk_correct
+- first_walk_incorrect
+- week_3_correct
+- week_3_incorrect
+
+## state variables
+
+- confirm_state
+
+
+- confirm_confidence
+- confirm_perceived_usefulness
+- confirm_attitude
+
+## actions
+
+- do_explain_planning
+- do_identify_barriers
+- do_deal_with_barriers
+- do_show_testimonials
+- do_changes_to_plan
+
+- confirm_read_testimonial_1
+- confirm_read_testimonial_2
+
+- confirm_takeaway_1
+- confirm_takeaway_2
+
+- plan_modified
+
+- confirm_continue_explain_planning
+- confirm_planning_input
+- confirm_continue_identify_barriers_1
+- confirm_continue_identify_barriers_2
+- confirm_continue_deal_with_barriers_1
+- confirm_continue_deal_with_barriers_2
+- confirm_continue_deal_with_barriers_3
+
+- confirm_continue_deal_with_barriers_skip_extra
+
+- takeaway_1_short
+- takeaway_2_short
+- barrier_strategy_short
+- barrier_identified_short
+- barrier_repeat_short
+- planning_short
+
+- confirm_actions_done
+
+## reward signal
+
+- confirm_satisfaction
+- confirm_commitment_1
+- confirm_commitment_f
+- confirm_confidence_goal
+
+## end session
 - confirm_goodbye
 
+
 entities:
-- session_num:
+
+- monday_morning:
     influence_conversation: false
 
-- mood:
-    influence_conversation: false
-- mood_quadrant:
+- monday_midday:
     influence_conversation: false
 
-- state_1:
+- monday_afternoon:
     influence_conversation: false
 
-- effort:
-    influence_conversation: false
-- effort_level:
-    influence_conversation: false
-- dropout_response:
+- monday_evening:
     influence_conversation: false
 
+- tuesday_morning:
+    influence_conversation: false
+
+- tuesday_midday:
+    influence_conversation: false
+
+- tuesday_afternoon:
+    influence_conversation: false
+
+- tuesday_evening:
+    influence_conversation: false
+
+
+- wednesday_morning:
+    influence_conversation: false
+
+- wednesday_midday:
+    influence_conversation: false
+
+- wednesday_afternoon:
+    influence_conversation: false
+
+- wednesday_evening:
+    influence_conversation: false
+
+- thursday_morning:
+    influence_conversation: false
+
+- thursday_midday:
+    influence_conversation: false
+
+- thursday_afternoon:
+    influence_conversation: false
+
+- thursday_evening:
+    influence_conversation: false
+
+- friday_morning:
+    influence_conversation: false
+
+- friday_midday:
+    influence_conversation: false
+
+- friday_afternoon:
+    influence_conversation: false
+
+- friday_evening:
+    influence_conversation: false
+
+- saturday_morning:
+    influence_conversation: false
+
+- saturday_midday:
+    influence_conversation: false
+
+- saturday_afternoon:
+    influence_conversation: false
+
+- saturday_evening:
+    influence_conversation: false
+
+- sunday_morning:
+    influence_conversation: false
+
+- sunday_midday:
+    influence_conversation: false
+
+- sunday_afternoon:
+    influence_conversation: false
+
+- sunday_evening:
+    influence_conversation: false
+
+
+
+- weekdays_morning:
+    influence_conversation: false
+
+- weekdays_midday:
+    influence_conversation: false
+
+- weekdays_afternoon:
+    influence_conversation: false
+
+- weekdays_evening:
+    influence_conversation: false
+
+
+- weekends_morning:
+    influence_conversation: false
+
+- weekends_midday:
+    influence_conversation: false
+
+- weekends_afternoon:
+    influence_conversation: false
+
+- weekends_evening:
+    influence_conversation: false
+
+- plan_1:
+    influence_conversation: false
+
+- plan_2:
+    influence_conversation: false
+
+- plan_3:
+    influence_conversation: false
+
+
+- plan_check_week_3:
+    influence_conversation: false
+
+- plan_check_first_walk:
+    influence_conversation: false
+
+- goal:
+    influence_conversation: false
+
+- confidence:
+    influence_conversation: false
+
+- perceived_usefulness:
+    influence_conversation: false
+
+- attitude:
+    influence_conversation: false
+
+- last_action:
+    influence_conversation: false
+
+- changes_to_plan:
+    influence_conversation: false
+
+- explain_planning:
+    influence_conversation: false
+
+- identify_barriers:
+    influence_conversation: false
+
+- deal_with_barriers:
+    influence_conversation: false
+
+- show_testimonials:
+    influence_conversation: false
+
+- identified_barrier:
+    influence_conversation: false
+
+- barrier_description:
+    influence_conversation: false
+
+- planning_relevance:
+    influence_conversation: false
+
+- testimonial_1_intro:
+    influence_conversation: false
+
+- testimonial_1_body:
+    influence_conversation: false
+
+- testimonial_2_intro:
+    influence_conversation: false
+
+- testimonial_2_body:
+    influence_conversation: false
+
+- action:
+    influence_conversation: false
+
+- actions_done:
+    influence_conversation: false
+
+- satisfaction:
+    influence_conversation: false
+
+- commitment_1:
+    influence_conversation: false
+
+- commitment_f:
+    influence_conversation: false
+
+- confidence_goal:
+    influence_conversation: false
 
 slots:
   ### intro/general
@@ -62,1499 +358,1401 @@ slots:
     influence_conversation: true
     mappings:
     - type: custom
-  session_num:
-    type: text
-    initial_value: ''
-    influence_conversation: false
-    mappings:
-    - type: from_entity
-      entity: session_num
-  mood:
-    type: text
-    initial_value: ''
-    influence_conversation: false
-    mappings:
-    - type: from_entity
-      entity: mood
-  mood_quadrant:
-    type: text
-    initial_value: ''
-    influence_conversation: false
-    mappings:
-    - type: from_entity
-      entity: mood_quadrant
-  mood_prev_session:
-    type: text
-    initial_value: ''
-    influence_conversation: false
-    mappings:
-    - type: custom
-  user_name_slot:
-    type: text
-    initial_value: ''
-    influence_conversation: false
-    mappings:
-    - type: from_text
-      conditions:
-        - active_loop: user_name_form
-  # User name in later sessions
-  user_name_slot_not_first:
-    type: text
-    initial_value: ''
-    influence_conversation: false
-    mappings:
-    - type: custom
-        
-  ### states
-  state_1:
-    type: text
-    initial_value: ''
-    influence_conversation: false
-    mappings:
-    - type: from_entity
-      entity: state_1
 
-      
-  ### activity experience
-  # effort
-  effort:
-    type: text
-    initial_value: ''
+
+  ### free time
+  monday_morning:
+    type: bool
+    initial_value: false
     influence_conversation: false
     mappings:
     - type: from_entity
-      entity: effort
-  effort_level:
-    type: text
-    initial_value: ''
+      entity: monday_morning
+
+  monday_midday:
+    type: bool
+    initial_value: false
     influence_conversation: false
     mappings:
     - type: from_entity
-      entity: effort_level
-  # activity experience
-  activity_experience_slot:
-    type: text
-    initial_value: ''
-    influence_conversation: false
-    mappings:
-    - type: from_text
-      conditions:
-        - active_loop: activity_experience_form  
-  activity_experience_mod_slot:
-    type: text
-    initial_value: ''
-    influence_conversation: false
-    mappings:
-    - type: from_text
-      conditions:
-        - active_loop: activity_experience_mod_form  
-  # dropout
-  dropout_response:
-    type: text
-    initial_value: ''
+      entity: monday_midday
+
+  monday_afternoon:
+    type: bool
+    initial_value: false
     influence_conversation: false
     mappings:
     - type: from_entity
-      entity: dropout_response 
+      entity: monday_afternoon
+
+  monday_evening:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: monday_evening
+
+  tuesday_morning:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: tuesday_morning
+
+  tuesday_midday:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: tuesday_midday
+
+  tuesday_afternoon:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: tuesday_afternoon
+
+  tuesday_evening:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: tuesday_evening
+
+  wednesday_morning:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: wednesday_morning
+
+  wednesday_midday:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: wednesday_midday
+
+  wednesday_afternoon:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: wednesday_afternoon
+
+  wednesday_evening:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: wednesday_evening
+
+  thursday_morning:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: thursday_morning
+
+  thursday_midday:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: thursday_midday
+
+  thursday_afternoon:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: thursday_afternoon
+
+  thursday_evening:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: thursday_evening
+
+  friday_morning:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: friday_morning
+
+  friday_midday:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: friday_midday
+
+  friday_afternoon:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: friday_afternoon
+
+  friday_evening:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: friday_evening
+
+  saturday_morning:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: saturday_morning
+
+  saturday_midday:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: saturday_midday
+
+  saturday_afternoon:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: saturday_afternoon
+
+  saturday_evening:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: saturday_evening
+
+  sunday_morning:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: sunday_morning
+
+  sunday_midday:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: sunday_midday
+
+  sunday_afternoon:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: sunday_afternoon
+
+  sunday_evening:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: sunday_evening
+
+  ### energy levels
+
+  weekdays_morning:
+    type: categorical
+    influence_conversation: false
+    values:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+    mappings:
+    - type: from_entity
+      entity: weekdays_morning
+
+  weekdays_midday:
+    type: categorical
+    influence_conversation: false
+    values:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+    mappings:
+    - type: from_entity
+      entity: weekdays_midday
+
+  weekdays_afternoon:
+    type: categorical
+    influence_conversation: false
+    values:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+    mappings:
+    - type: from_entity
+      entity: weekdays_afternoon
+
+  weekdays_evening:
+    type: categorical
+    influence_conversation: false
+    values:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+    mappings:
+    - type: from_entity
+      entity: weekdays_evening
+
+  weekends_morning:
+    type: categorical
+    influence_conversation: false
+    values:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+    mappings:
+    - type: from_entity
+      entity: weekends_morning
+
+  weekends_midday:
+    type: categorical
+    influence_conversation: false
+    values:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+    mappings:
+    - type: from_entity
+      entity: weekends_midday
+
+  weekends_afternoon:
+    type: categorical
+    influence_conversation: false
+    values:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+    mappings:
+    - type: from_entity
+      entity: weekends_afternoon
+
+  weekends_evening:
+    type: categorical
+    influence_conversation: false
+    values:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+    mappings:
+    - type: from_entity
+      entity: weekends_evening
+
+  ### plans
+
+  plan_1:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: plan_1
+
+
+  plan_2:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: plan_2
+
+
+  plan_3:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: plan_3
+
+  plan_check_week_3:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: plan_check_week_3
+
+  plan_check_first_walk:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: plan_check_first_walk
+
+
+  ### goal
+
+  goal:
+    type: categorical
+    influence_conversation: false
+    values:
+      - 10000
+      - 11000
+      - 12000
+    mappings:
+    - type: from_entity
+      entity: goal
+
+  ### state
+
+  confidence:
+    type: categorical
+    influence_conversation: false
+    values:
+      - low
+      - medium
+      - high
+    mappings:
+    - type: from_entity
+      entity: confidence
+
+  perceived_usefulness:
+    type: categorical
+    influence_conversation: false
+    values:
+      - low
+      - high
+    mappings:
+    - type: from_entity
+      entity: perceived_usefulness
+
+  attitude:
+    type: categorical
+    influence_conversation: false
+    values:
+      - low
+      - high
+    mappings:
+    - type: from_entity
+      entity: attitude
+
+  last_action:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: last_action
+
+  action:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: action
+
+  changes_to_plan:
+    type: categorical
+    influence_conversation: false
+    values:
+      - 0
+      - 1
+      - 2
+    mappings:
+    - type: from_entity
+      entity: changes_to_plan
+
+  explain_planning:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: explain_planning
+
+  planning_relevance:
+    type: categorical
+    influence_conversation: false
+    values:
+      - motivation
+      - habit
+      - road
+      - obstacles
+    mappings:
+    - type: from_entity
+      entity: planning_relevance
+
+  identify_barriers:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: identify_barriers
+
+  identified_barrier:
+    type: categorical
+    influence_conversation: false
+    values:
+      - time
+      - energy
+      - people
+      - equipment
+      - family
+      - other
+    mappings:
+    - type: from_entity
+      entity: identified_barrier
+
+  barrier_description:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: barrier_description
+
+  deal_with_barriers:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: deal_with_barriers
+
+  show_testimonials:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: show_testimonials
+
+  testimonial_1_intro:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: testimonial_1_intro
+
+  testimonial_1_body:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: testimonial_1_body
+
+  testimonial_2_intro:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: testimonial_2_intro
+
+  testimonial_2_body:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: testimonial_2_body
+
+
+  actions_done:
+    type: bool
+    initial_value: false
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: actions_done
+
+  satisfaction:
+    type: categorical
+    influence_conversation: false
+    values:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+    mappings:
+    - type: from_entity
+      entity: satisfaction
+
+
+  commitment_1:
+    type: categorical
+    influence_conversation: false
+    values:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+    mappings:
+    - type: from_entity
+      entity: commitment_1
+
+  commitment_f:
+    type: categorical
+    influence_conversation: false
+    values:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+    mappings:
+    - type: from_entity
+      entity: commitment_f
+
+  confidence_goal:
+    type: categorical
+    influence_conversation: false
+    values:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+      - 9
+      - 10
+    mappings:
+    - type: from_entity
+      entity: confidence_goal
+
 
 responses:
 
-  ### Intro first session
-  utter_greet_first_time:
-  - text: "Hey there, I'm your virtual coach Mel."
-  utter_ask_user_name_slot:
-  - text: "How may I call you?"
-  utter_confirm_name:
-  - text: "Hi {user_name_slot}, it's nice to meet you."
-  utter_longer_name:
-  - text: "Please let me know how I can call you. It does not need to be your real name."
-  - text: "Kindly tell me how I can call you. This does not need to be your real name. A nickname works too."
-  utter_purpose_1:
-  - text: "I have mentioned by name, but let me also tell you bit about what I do: My goal is to help people prepare for quitting smoking. And since becoming more physically active may make it easier to quit smoking, I also want to prepare people for becoming more physically active."
-  utter_purpose_2:
-  - text: "Why prepare to quit? Because proper preparation can help to quit successfully."
-  utter_purpose_3:
-  - text: "And how do I prepare people? I propose activities that help build the competencies needed for quitting."
-  utter_purpose_4:
-  - text: "Ultimately, I want to be able to propose activities that match the situation a person is in."
-  utter_purpose_5:
+
+  ### Intro
+  utter_greet_1:
+  - text: "Hey there! I'm Jamie, your virtual coach."
+
+  utter_greet_2:
+  - text: "I'm happy to meet you."
+
+
+  utter_confirm_mood:
   - buttons:
-    - payload: /confirm_purpose
-      title: "I'm ready"
-    text: "And this is why you are here, {user_name_slot}: I want to learn how an activity I propose helps you in your specific situation.\nLet me know when you have read what my purpose is and are ready to continue."
-  utter_prompt_usage:
-  - text: "Okay! Before we start, let me explain how you can communicate with me."
+    - payload: /confirm_mood_very_good
+      title: "I'm doing fantastic today!"
+    - payload: /confirm_mood_good
+      title: "I'm doing good."
+    - payload: /confirm_mood_neutral
+      title: "I'm alright."
+    - payload: /confirm_mood_bad
+      title: "Not so good…"
+    - payload: /confirm_mood_very_bad
+      title: "Quite bad…"
+    text: "How are you doing today?"
+
+  utter_mood_very_good_response:
+  - text: "That's awesome!"
+
+  utter_mood_good_response:
+  - text: "That's good to hear!"
+
+  utter_mood_neutral_response:
+  - text: "Ah, so a pretty regular day, then. Okay."
+
+  utter_mood_bad_response:
+  - text: "I'm sorry to hear that. I hope our conversation might cheer you up a bit."
+
+  utter_mood_very_bad_response:
+  - text: "I'm sorry to hear that. Do talk to someone if you have problems you need help with. For now, I hope our conversation might cheer you up a little bit."
+
+  utter_prompt_usage_1:
+  - text: "Before we start, let me explain how you can communicate with me."
+
+  utter_prompt_usage_2:
+  - text: "You can simply click on one of the buttons, like you already did. Sometimes, you will have to use the chat box bellow to type in your answer."
+
   utter_explain_usage:
   - buttons:
     - payload: /confirm_usage
-      title: "Yes, that's clear"
-    - payload: /confirm_usage
-      title: "Nice, sounds easy enough!"
-    text: "Most of the time, you can just click on one of the buttons like you already did. If no buttons appear, just make use of the text field below."
-  utter_intro_session1_1:
-  - text: "Now, let me tell you what we will do in this session."
-  utter_intro_session1_2:
-  - text: "First, I'll ask you a few questions to learn about your current situation with regard to preparing for quitting smoking."
-  utter_intro_session1_3:
-  - text: "Next, I'll recommend you a preparatory activity to do after this and before the next session, which you'll get invited to about 2 days from now."
-  utter_intro_session1_4:
-  - text: "And in the end, I'll briefly tell you about our next session."
-  utter_intro_session1_5:
-  - text: "And don't worry, I'll also send you your activity in a message on Prolific right after this session ends."
-  utter_intro_session1_6:
-  - text: "Please note that doing your recommended activity after this session is voluntary and does not impact your payment."
-  utter_intro_session1_7:
+      title: "I am ready to continue."
+    text: "Other times, you will need to do something on the left side of the screen. I will tell you when that is the case. Let me know when you are ready to continue by clicking the button."
+
+  utter_button:
+  - text: "Nice. Seems like you're getting familiar with using the buttons."
+
+  utter_purpose_1:
+  - text: "Let me tell you a bit about myself. My goal is to help people create plans for taking walks during the week."
+
+  utter_purpose_2:
+  - text: "Walking is generally regarded as beneficial for both health and mood."
+
+  utter_purpose_3:
+  - text: "Another advantage of taking regular walks is that they are easily accessible for everyone."
+
+  utter_continue_purpose_1:
   - buttons:
-    - payload : /confirm_intro_session1
-      title: "Now"
-    text: "Let me know when you've finished reading our plan for today's session."
-    
+    - payload: /confirm_continue_purpose_1
+      title: "Let's continue."
+    text: "This means that it doesn't take a lot of time like a workout might, nor does it require special equipment. Let me know when you are done reading so we can continue."
 
-  ### Greeting later sessions
-  utter_greet_repeat:
-    - condition:
-        - type: slot
-          name: session_num
-          value: "2"
-      text: "Hi {user_name_slot_not_first}, nice to see you again!"
-    - condition:
-        - type: slot
-          name: session_num
-          value: "3"
-      text: "Hello {user_name_slot_not_first}, welcome back!"
-    - condition:
-        - type: slot
-          name: session_num
-          value: "4"
-      text: "Hello, it's great to see you again {user_name_slot_not_first}!"
-    - condition:
-        - type: slot
-          name: session_num
-          value: "5"
-      text: "Hi {user_name_slot_not_first}, I'm happy to see you again!"
+  utter_purpose_4:
+  - text: "Okay! Let me explain in a bit more detail the kinds of walks we will make a plan for."
 
-    - text: "Hey there, good to see you again!"
-    - text: "Welcome back! It's good to see you again."
-    
-    
-  ### Intro middle sessions
-  utter_intro_session_mid_1:
-    - condition:
-        - type: slot
-          name: session_num
-          value: "2"
-      text: "Before we begin, let me quickly give you an overview of what this session looks like."
-    - condition:
-        - type: slot
-          name: session_num
-          value: "3"
-      text: "Before we dive into the session, I want to take a moment to give you an overview of what it entails."
-    - condition:
-        - type: slot
-          name: session_num
-          value: "4"
-      text: "Let me start by providing you with a quick summary of what you can expect in this session before we get started."
-  utter_intro_session_mid_2:
-    - condition:
-        - type: slot
-          name: session_num
-          value: "2"
-      text: "I'll first ask you about your experience, if you have any, with your activity from last time."
-    - condition:
-        - type: slot
-          name: session_num
-          value: "3"
-      text: "I'd again like to start off by asking about your experience, if any, with the activity from our last session."
-    - condition:
-        - type: slot
-          name: session_num
-          value: "4"
-      text: "First we'll take a look at your experience, if any, with the activity I gave you in our last session."
-  utter_intro_session_mid_3:
-    - condition:
-        - type: slot
-          name: session_num
-          value: "2"
-      text: "Then I'll again ask you a few questions to learn about your current situation regarding preparing for quitting smoking."
-    - condition:
-        - type: slot
-          name: session_num
-          value: "3"
-      text: "Moving on, I'll ask you a few questions to get a better understanding of where you're at in terms of preparing to quit smoking."
-    - condition:
-        - type: slot
-          name: session_num
-          value: "4"
-      text: "Just like last time, I'll then ask you a few questions to understand your current situation and preparation for quitting smoking."
-  utter_intro_session_mid_4:
-    - condition:
-        - type: slot
-          name: session_num
-          value: "2"
-      text: "And finally, I'll recommend you a new preparatory activity to do after this and before the next session, which you'll again get invited to about 2 days from now."
-    - condition:
-        - type: slot
-          name: session_num
-          value: "3"
-      text: "And then I'll give you a new preparatory activity for after this and before the next session."
-    - condition:
-        - type: slot
-          name: session_num
-          value: "4"
-      text: "I'll then use your answers to choose a new preparatory activity for you."    
-  utter_intro_session_mid_5:
-    - condition:
-        - type: slot
-          name: session_num
-          value: "2"
-      text: "Let me know when you've finished reading this session overview."
-      buttons:
-      - payload: /confirm_intro_session_notfirst
-        title: "I've finished"
-    - condition:
-        - type: slot
-          name: session_num
-          value: "3"
-      text: "Once you're done reading this session overview, please give me a heads up."
-      buttons:
-      - payload: /confirm_intro_session_notfirst
-        title: "I'm done"
-    - condition:
-        - type: slot
-          name: session_num
-          value: "4"
-      text: "Kindly let me know when you've finished going through this session overview."
-      buttons:
-      - payload: /confirm_intro_session_notfirst
-        title: "I've finished now"
-          
-  ### Intro last session
-  utter_intro_session_last_1:
-  - text: "So what are we going to do in our last session?"
-  utter_intro_session_last_2:
-  - text: "We are again going to look at your experience, if any, with your activity from last time."
-  utter_intro_session_last_3:
-  - text: "And after asking you some questions about your situation again, I will suggest you one final preparatory activity for after this session."
-  utter_intro_session_last_4:
-  - text: "Once you're done reading this, please let me know."
-    buttons:
-    - payload: /confirm_intro_session_notfirst
-      title: "I'm done"
-    
-  ### Ask activity experience (effort, experience, dropout)
-  utter_last_activity_short:
-  - text: "Great! Last time I suggested you to do an activity."
-  utter_last_activity_effort_intro:
-  - text: "Please rate the overall effort you put into doing this activity."
-  utter_last_activity_effort:
-  - buttons:
-    - payload: /effort_answer{"effort":"0", "effort_level":"low"}
-      title: "0 (nothing)"
-    - payload: /effort_answer{"effort":"1", "effort_level":"low"}
-      title: "1"
-    - payload: /effort_answer{"effort":"2", "effort_level":"low"}
-      title: "2"
-    - payload: /effort_answer{"effort":"3", "effort_level":"low"}
-      title: "3"
-    - payload: /effort_answer{"effort":"4", "effort_level":"medium"}
-      title: "4"
-    - payload: /effort_answer{"effort":"5", "effort_level":"medium"}
-      title: "5"
-    - payload: /effort_answer{"effort":"6", "effort_level":"medium"}
-      title: "6"
-    - payload: /effort_answer{"effort":"7", "effort_level":"high"}
-      title: "7"
-    - payload: /effort_answer{"effort":"8", "effort_level":"high"}
-      title: "8"
-    - payload: /effort_answer{"effort":"9", "effort_level":"high"}
-      title: "9"
-    - payload: /effort_answer{"effort":"10", "effort_level":"high"}
-      title: "10 (extremely strong)"
-    text: 'Please answer honestly. Recall that doing your activity is voluntary and that your answer to this question thus does not impact your payment.'
-  utter_respond_effort:
-  - condition:
-      - type: slot
-        name: effort_level
-        value: "low"
-    text: "That's too bad. This is not uncommon at the start."
-  - condition:
-      - type: slot
-        name: effort_level
-        value: "low"
-    text: "I see, that's a pity. This can happen!"
-  - condition:
-      - type: slot
-        name: effort_level
-        value: "low"
-    text: "Hmm, that's a pity. Maybe you've been busy."
-  - condition:
-      - type: slot
-        name: effort_level
-        value: "low"
-    text: "Ah that's a shame. This can happen at the beginning."
-  - condition:
-      - type: slot
-        name: effort_level
-        value: "low"
-    text: "Ah, I understand. That's unfortunate, but it happens sometimes."
-  - condition:
-      - type: slot
-        name: effort_level
-        value: "low"
-    text: "That's a shame. Don't worry, it's normal in the beginning."
-  - condition:
-      - type: slot
-        name: effort_level
-        value: "low"
-    text: "That's too bad. Maybe you had a lot going on."
-  - condition:
-      - type: slot
-        name: effort_level
-        value: "low"
-    text: "Oh, that's too bad. Perhaps you've had a lot on your plate."
-  - condition:
-      - type: slot
-        name: effort_level
-        value: "medium"
-    text: "Nice that you gave it a try!"
-  - condition:
-      - type: slot
-        name: effort_level
-        value: "medium"
-    text: "Cool, I'm happy to hear that you worked on the activity."
-  - condition:
-      - type: slot
-        name: effort_level
-        value: "medium"
-    text: "Nice to hear that you tried the activity!"
-  - condition:
-      - type: slot
-        name: effort_level
-        value: "medium"
-    text: "Cool, it's nice that you gave it a shot!"
-  - condition:
-      - type: slot
-        name: effort_level
-        value: "medium"
-    text: "I'm happy to hear that you gave the activity a shot."
-  - condition:
-      - type: slot
-        name: effort_level
-        value: "medium"
-    text: "That's good to hear that you worked on the activity."
-  - condition:
-      - type: slot
-        name: effort_level
-        value: "medium"
-    text: "Thanks for giving the activity a go!"
-  - condition:
-      - type: slot
-        name: effort_level
-        value: "high"
-    text: "Yay, congrats!"
-  - condition:
-      - type: slot
-        name: effort_level
-        value: "high"
-    text: "Nice, good job!"
-  - condition:
-      - type: slot
-        name: effort_level
-        value: "high"
-    text: "Awesome, well done!"
-  - condition:
-      - type: slot
-        name: effort_level
-        value: "high"
-    text: "Nice, congratulations!"
-  - condition:
-      - type: slot
-        name: effort_level
-        value: "high"
-    text: "Excellent, way to go!"
-  - condition:
-      - type: slot
-        name: effort_level
-        value: "high"
-    text: "Yay, nice work!"
-  - condition:
-      - type: slot
-        name: effort_level
-        value: "high"
-    text: "Ah nicely done!"
-  utter_ask_activity_experience_slot:
-  - condition:
-      - type: slot
-        name: effort_level
-        value: "high"
-    text: "How did you approach, do, or experience your assigned activity? Use the text field."
-  - condition:
-      - type: slot
-        name: effort_level
-        value: "medium"
-    text: "How did you approach, do, or experience your assigned activity? Use the text field."
-  - condition:
-      - type: slot
-        name: effort_level
-        value: "low"
-    text: "How did you approach, do, or experience your assigned activity? If you have no feedback on the activity, just type 'None' in the text field."
-  utter_repeat_activity_completion_answer:
-    - condition:
-        - type: slot
-          name: session_num
-          value: "2"
-      text: "This is what I got: {activity_experience_slot}\nWould you like to add or change anything?"
-      buttons:
-      - payload: /deny_activity_experience
-        title: Yes
-      - payload: /confirm_activity_experience
-        title: No
-    - condition:
-        - type: slot
-          name: session_num
-          value: "3"
-      text: "I got this: {activity_experience_slot}\nDo you want to add or modify anything?"
-      buttons:
-      - payload: /deny_activity_experience
-        title: Yes
-      - payload: /confirm_activity_experience
-        title: No
-    - condition:
-        - type: slot
-          name: session_num
-          value: "4"
-      text: "I received this: {activity_experience_slot}\nIs there something that you'd like to add or change?"
-      buttons:
-      - payload: /deny_activity_experience
-        title: Yes
-      - payload: /confirm_activity_experience
-        title: No
-    - condition:
-        - type: slot
-          name: session_num
-          value: "5"
-      text: "I got this from you: {activity_experience_slot}\nIs there anything that I should add or modify about your response?"
-      buttons:
-      - payload: /deny_activity_experience
-        title: Yes
-      - payload: /confirm_activity_experience
-        title: No
-        
-    - text: "This is the response I got: {activity_experience_slot}\nDo you want to add or change anything?"
-      buttons:
-      - payload: /deny_activity_experience
-        title: Yes
-      - payload: /confirm_activity_experience
-        title: No
-
-  utter_ask_activity_experience_mod_slot:
-    - condition:
-        - type: slot
-          name: session_num
-          value: "1"
-      text: "Okay, please tell me what you'd like to add or alter."
-    - condition:
-        - type: slot
-          name: session_num
-          value: "2"
-      text: "OK, what would you like to add or change? Use the text field."
-    - condition:
-        - type: slot
-          name: session_num
-          value: "3"
-      text: "Okay, what is it that you'd like to add or alter? Use the text field."
-    - condition:
-        - type: slot
-          name: session_num
-          value: "4"
-      text: "Okay, kindly tell me what it is that you'd like to add or modify."
-    - condition:
-        - type: slot
-          name: session_num
-          value: "5"
-      text: "I see, what do you want to modify or add?"
-      
-    - text: "Alright, can you tell me what modifications or additions you'd like to make?"
-  utter_thank_activity_experience_mod:
-    - condition:
-        - type: slot
-          name: session_num
-          value: "1"
-      text: "Alright, thanks for the clarification!"
-    - condition:
-        - type: slot
-          name: session_num
-          value: "2"
-      text: "Cool, thanks for clarifying that."
-    - condition:
-        - type: slot
-          name: session_num
-          value: "3"
-      text: "Cool, thanks for making that clear."
-    - condition:
-        - type: slot
-          name: session_num
-          value: "4"
-      text: "Alright, good that you point that out!"
-    - condition:
-        - type: slot
-          name: session_num
-          value: "5"
-      text: "I see. Thank you for the clarification."
-      
-    - text: "Got it! Thanks for letting me know."
-
-  utter_ask_dropout:
-  - text: "Currently you are taking part in a paid experiment. Imagine this was an unpaid smoking cessation program.\nHow likely would you then have quit the program or returned to this session?"
-    buttons:
-    - payload: /confirm_dropout{"dropout_response":"-5"}
-      title: "-5 (definitely would have quit the program)"
-    - payload: /confirm_dropout{"dropout_response":"-4"}
-      title: "-4"
-    - payload: /confirm_dropout{"dropout_response":"-3"}
-      title: "-3"
-    - payload: /confirm_dropout{"dropout_response":"-2"}
-      title: "-2"
-    - payload: /confirm_dropout{"dropout_response":"-1"}
-      title: "-1"
-    - payload: /confirm_dropout{"dropout_response":"0"}
-      title: "0 (neutral)"
-    - payload: /confirm_dropout{"dropout_response":"1"}
-      title: "1"
-    - payload: /confirm_dropout{"dropout_response":"2"}
-      title: "2"
-    - payload: /confirm_dropout{"dropout_response":"3"}
-      title: "3"
-    - payload: /confirm_dropout{"dropout_response":"4"}
-      title: "4"
-    - payload: /confirm_dropout{"dropout_response":"5"}
-      title: "5 (definitely would have returned to this session)"
-    
-  ### Ask state questions
-  utter_state_question_intro:
-  - text: "Now I will ask you a question about your current situation regarding preparing for quitting smoking."
-  utter_state_question_1:
-  - buttons:
-    - payload: /confirm_state_1{"state_1":"-5"}
-      title: "-5 (make it a lot harder)"
-    - payload: /confirm_state_1{"state_1":"-4"}
-      title: "-4"
-    - payload: /confirm_state_1{"state_1":"-3"}
-      title: "-3"
-    - payload: /confirm_state_1{"state_1":"-2"}
-      title: "-2"
-    - payload: /confirm_state_1{"state_1":"-1"}
-      title: "-1"
-    - payload: /confirm_state_1{"state_1":"0"}
-      title: "0 (neutral)"
-    - payload: /confirm_state_1{"state_1":"1"}
-      title: "1"
-    - payload: /confirm_state_1{"state_1":"2"}
-      title: "2"
-    - payload: /confirm_state_1{"state_1":"3"}
-      title: "3"
-    - payload: /confirm_state_1{"state_1":"4"}
-      title: "4"
-    - payload: /confirm_state_1{"state_1":"5"}
-      title: "5 (make it a lot easier)"
-    text: "How do you think do self-confidence and motivation affect quitting smoking?"
+  utter_purpose_5:
+  - text: "Unlike leisurely walks, you'll have to walk at moderate intensity for our plan to be effective."
   
-  ### Propose activity
-  utter_transition_new_activity:
-    - condition:
-        - type: slot
-          name: session_num
-          value: "1"
-      text: "Now let's look at a preparatory activity that can help you in your current situation."
-    - condition:
-        - type: slot
-          name: session_num
-          value: "2"
-      text: "Our next step is to look at a new activity that will help you prepare for quitting smoking."
-    - condition:
-        - type: slot
-          name: session_num
-          value: "3"
-      text: "Next, we'll look at a new activity that will help you get ready for quitting smoking."
-    - condition:
-        - type: slot
-          name: session_num
-          value: "4"
-      text: "Let's move on to looking at a new activity that will help you get ready for quitting smoking."
-    - condition:
-        - type: slot
-          name: session_num
-          value: "5"
-      text: "We'll now look at a new preparatory activity that I think is relevant to your current situation."
-      
-    - text: "Now let's turn our attention to an activity that can benefit your current situation."
-    - text: "Let's move on to an activity that can support you in your efforts to prepare for quitting smoking."
-    - text: "Next, we'll take a closer look at an activity that can assist you in preparing to quit smoking."
-  utter_propose_new_activity_intro:
-    - condition:
-        - type: slot
-          name: session_num
-          value: "1"
-      text: "I think that this activity would be beneficial for you:"
-    - condition:
-        - type: slot
-          name: session_num
-          value: "2"
-      text: "This is the new activity that I think would help you:"
-    - condition:
-        - type: slot
-          name: session_num
-          value: "3"
-      text: "Here is the new activity that I think would help you prepare for quitting smoking:"
-    - condition:
-        - type: slot
-          name: session_num
-          value: "4"
-      text: "I believe this new activity would help you:"
-    - condition:
-        - type: slot
-          name: session_num
-          value: "5"
-      text: "I expect that this new activity is helpful for you:"
-      
-    - text: "I think that this activity would be useful for you:"
-  utter_activity:
-    - text: "I suggest you visualize your desired future self."
-  utter_activity_read:
-    - condition:
-        - type: slot
-          name: session_num
-          value: "1"
-      text: "I'll continue when you're done reading about your first activity."
-      buttons:
-      - payload: /confirm_activity_read
-        title: "I'm done"
-    - condition:
-        - type: slot
-          name: session_num
-          value: "2"
-      text: "Let me know once you're done reading your activity."
-      buttons:
-      - payload: /confirm_activity_read
-        title: "I'm done!"
-    - condition:
-        - type: slot
-          name: session_num
-          value: "3"
-      text: "Just use the button below to continue after you've read the activity description."
-      buttons:
-      - payload: /confirm_activity_read
-        title: "I've finished reading"
-    - condition:
-        - type: slot
-          name: session_num
-          value: "4"
-      text: "Please tell me when you've finished reading the description."
-      buttons:
-      - payload: /confirm_activity_read
-        title: "I've read everything"
-    - condition:
-        - type: slot
-          name: session_num
-          value: "5"
-      text: "Once you're done reading about your activity, let me know."
-      buttons:
-      - payload: /confirm_activity_read
-        title: "Done!"
+  utter_purpose_6:
+  - text: "Moderate intensity is characterised by breathing more heavily than usual, while still being able to hold a short conversation."
+  
+  utter_purpose_7:
+  - text: "In other words, you should walk at a pace that makes it somewhat challenging for you to keep going, which is about 100 steps per minute for the average person."
 
-    - text: "Use the button below once you've finished reading, then I'll continue."
-      buttons:
-      - payload: /confirm_activity_read
-        title: "Finished!"
-    - text: "Let me know when you've finished reading the description and we can continue."
-      buttons:
-      - payload: /confirm_activity_read
-        title: "Let's continue"
-    
-    
+  utter_confirm_purpose:
+  - buttons:
+    - payload: /confirm_purpose
+      title: "I am done."
+    text: "Once you are done reading, I will explain how this all ties together with the help of the plan."
+
+  utter_explain_usefulness_planning_1:
+  - text: "Nice. So, how does planning help you make progress towards your goal?"
+
+  utter_explain_usefulness_planning_2:
+  - text: "If you have a clear indication of when you should go for a walk, it will be much easier for you to actually do it."
+
+  utter_explain_usefulness_planning_3:
+  - text: "You'll have a clear schedule set in place, which will make it more difficult to avoid taking a walk or to postpone it."
+
+  utter_explain_usefulness_planning_4:
+  - text: "After all, there is only so much time in a week, so, by making a plan, you integrate walking into your schedule such that you actually have time to do it."
+
+  utter_explain_usefulness_planning_question:
+  - buttons:
+    - payload: /confirm_usefulness_planning_intro
+      title: "Let's continue."
+    text: "Let me know when you are done reading and you want to continue."  
+
+  utter_explain_goal_1:
+  - text: "Okay! In order to create a plan for walking, we should first set a goal for you."
+
+  utter_explain_goal_2:
+  - text: "Having a clear goal to work towards is helpful in keeping you motivated."
+
+  utter_explain_goal_3:
+  - text: "However, for the goal to be most effective, you should pick a goal is both challenging and achievable."
+
+  utter_explain_goal_4:
+  - text: "You should feel like you have to put in the effort to reach your goal, while avoiding aiming for something unrealistic."
+
+  utter_explain_goal_question:
+  - buttons:
+    - payload: /confirm_explain_goal
+      title: "Let's move on."
+    text: "Let me know when you are ready to continue."  
+
+  utter_set_goal_1:
+  - text: "I think we are ready for you to set a goal for walking."
+
+  utter_set_goal_2:
+  - text: "A common way of measuring how much you walk is through counting the number of steps you take in a day."
+
+  utter_set_goal_3:
+  - text: "And a common goal is to aim for 10000 steps per day, as this is beneficial for your health, especially if you are currently inactive."
+
+  utter_set_goal_continue:
+  - buttons:
+    - payload: /confirm_set_goal_continue
+      title: "I am ready."
+    text: "Once you are ready to continue, please click the button."
+
+  utter_set_goal_4:
+  - text: "Okay. I assume you take at least about 2000 steps per day through your regular activities, so one of your options is to increase that amount by 8000 steps to reach a total of 10000 steps per day."
+
+  utter_set_goal_5:
+  - text: "However, you can also pick a higher goal if you want a challenge!"
+
+  utter_set_goal:
+  - buttons:
+    - payload: /confirm_goal{"goal":"10000"}
+      title: "10000 steps (or 100 minutes) per day."
+    - payload: /confirm_goal{"goal":"11000"}
+      title: "11000 steps (or 110 minutes) per day."
+    - payload: /confirm_goal{"goal":"12000"}
+      title: "12000 steps (or 120 minutes) per day."
+    text: "Please pick one of these options as your goal."
+
+  utter_confirm_goal:
+  - buttons:
+    - payload: /confirm_initial_plan
+      title: "I am prepared."
+    text: "Great! Take walks regularly and you'll be able to achieve your goal of {goal} steps per day. Now, tell me when you are ready to continue."
+
+
+  utter_internal_motivation_1:
+  - text: "Okay! An important part of achieving your goal is being motivated."
+
+  utter_internal_motivation_2:
+  - text: "So, I am curious: what motivates you to want to walk regularly?"
+
+  utter_internal_motivation_question:
+  - buttons:
+    - payload: /confirm_motivation
+      title: "Family."
+    - payload: /confirm_motivation
+      title: "Health."
+    - payload: /confirm_motivation
+      title: "Relationships."
+    - payload: /confirm_motivation
+      title: "Personal growth."
+    - payload: /confirm_motivation
+      title: "Work."
+    - payload: /confirm_motivation
+      title: "Friends."
+    text: "Please pick one of the options below:"
+
+  utter_thank_for_motivation:
+  - text: "I see, thank you for letting me know!"
+
+  utter_routines_1:
+  - text: "Alright, let's move on to creating the plan. In order to do that, let's first see when you have free time."
+
+  utter_routines_2:
+  - text: "You don't have to provide me with your exact daily schedule, but let me know if you have any routines in place."
+
+  utter_routines_3:
+  - text: "For example, most people work a day job. But maybe you have things planned on some evenings as well."
+
+  utter_routines_4:
+  - text: "Ideally, we're looking for at least four different times during the week when you have at least 30 minutes to take a walk."
+
+  utter_timeslots:
+  - text: "On the left side of the screen, you can see a table. You can click on a time slot in the table to specify that you are available at that time. Please select all the slots when you are avaialable."
+
+
+  utter_confirm_sunday_slots:
+  - text: "So those are all the times when you are free on Sundays:\n Morning: {sunday_morning},\n Midday: {sunday_midday},\n Afternoon: {sunday_afternoon},\n Evening: {sunday_evening}."
+
+
+  utter_thank_for_times:
+  - text: "Thank you for letting me know when you are available."
+
+  utter_energy_levels:
+  - text: "Now, I want to ask when you have more energy than usual. We could make use of this opportunity to schedule a walk if you are also free at the time."
+
+  utter_energy_instruction:
+  - text: "Like before, I would like you to pay attention to the left side of the sceen. Please specify how much energy you have during the weekdays and during the weekends by clicking the corresponding box for each time of the day."
+
+  utter_energy_levels_weekends_confirm:
+  - text: "So those are your energy levels on weekends:\n Morning: {weekends_morning}, Midday: {weekends_midday}, Afternoon: {weekends_afternoon}, Evening: {weekends_evening}."
+
+
+  utter_thank_for_energy_levels:
+  - text: "Thank you for letting me know when you have more energy than usual."
+
+  utter_present_plan_1:
+  - buttons:
+    - payload: /confirm_ready_initial_plan
+      title: "Show me the plan."
+    text: "Now, let's see initial plan! Don't worry if it's not entirely to you liking yet. You'll have opportunities to modify it later. Please let me know when you are ready to continue."
+
+  utter_present_plan_2:
+  - buttons:
+    - payload: /confirm_checked_plan{"changes_to_plan":"0"}
+      title: "Let's discuss the plan."
+    text: "I'll leave the plan on the left side on the screen so you can take a look at it later. Note that you may need to scroll to see the entire plan, depending on your screen resolution. Let me know when you are prepared to discuss the plan in more detail. "
+
+  utter_present_plan_3:
+  - text: "Okay, let's take a took at the plan. On the left side of your screen, you should see a big table with a view similar to that of a calendar. Time slots when you should take walks are marked with the duration you should walk for. You can also notice that the duration increases each week."
+
+  utter_check_plan_first_walk:
+  - text: "You can see the first two weeks planned in detail. To check that you understand what the plan signifies, let's do a quick pop quiz! When is the first time you have to take a walk? Please type your answer as day_time. For example, if your first walk is on Friday morning, please type 'friday_morning'."
+
+  utter_check_plan_first_walk_correct:
+  - text: "That's right, your first walk is on {plan_check_first_walk}."
+
+  utter_check_plan_first_walk_incorrect:
+  - text: "Unfortunately, you are not right. Please, take another look at the plan. You can see the first two weeks planned in detail. Look for the first day with a time slot selected, then look at what time in that day you should take a walk. Please type your answer as day_time."
+  
+  utter_explain_weeks:
+  - buttons:
+    - payload: /confirm_continue_check
+      title: "I am done checking the plan after the first two weeks."
+    text: "Moving on, you can also see the third and fourth weeks, but only in terms of how many hours you have to walk and how often. For the two months after that, you see only how much you will have to do in the last week of that month, to give you an idea of the effort that you are building up towards. Let me know when you are done reading."
+
+  utter_check_plan_week_3:
+  - text: "Let's do an extra check to make sure everything is clear. How much time will you have to walk on your third week? Please type your answer as a number with one decimal point. For example, if your answer is 1 and a half hours, please type '1.5'"
+
+  utter_check_plan_week_3_correct:
+  - text: "Correct! In your third week, you will have to walk for {plan_check_week_3} hours."
+
+  utter_check_plan_week_3_incorrect:
+  - text: "I'm afraid your answer is not correct. Please look again at the plan. After the first two weeks, the third week only specifies how many hours you have to walk and how often. Please type your answer as a number with one decimal point."
+
+  utter_state_variables_intro_1:
+  - text: "Let's continue. Throughout the dialogue, I will ask you some questions to better understand your situation. Some of these questions might repeat, so do not be alarmed if you see a question you have already seen."
+
+  utter_state_variables_intro_2:
+  - buttons:
+    - payload: /confirm_state
+      title: "I am ready."
+    text: "Let me know when you are ready to continue."
+
+  utter_state_confidence:
+  - buttons:
+    - payload: /confirm_confidence{"confidence":"low"}
+      title: "0 (Not confident at all)"
+    - payload: /confirm_confidence{"confidence":"low"}
+      title: "1"
+    - payload: /confirm_confidence{"confidence":"low"}
+      title: "2"
+    - payload: /confirm_confidence{"confidence":"low"}
+      title: "3"
+    - payload: /confirm_confidence{"confidence":"medium"}
+      title: "4"
+    - payload: /confirm_confidence{"confidence":"medium"}
+      title: "5"
+    - payload: /confirm_confidence{"confidence":"medium"}
+      title: "6"
+    - payload: /confirm_confidence{"confidence":"high"}
+      title: "7"
+    - payload: /confirm_confidence{"confidence":"high"}
+      title: "8"
+    - payload: /confirm_confidence{"confidence":"high"}
+      title: "9"
+    - payload: /confirm_confidence{"confidence":"high"}
+      title: "10 (Very confident)"
+    text: "How confident are you that you can follow the plan?"
+
+  utter_confidence_repeat:
+  - text: "So your confidence is {confidence}."
+
+  utter_thank_for_confidence:
+  - text: "I see. Thank you for telling me."
+  - text: "Okay. Good to know. Thank you."
+  - text: "Okay! Thanks for letting me know."
+  - text: "Good to know. Thanks!"
+  - text: "Got it. Thanks for letting me know!"
+  - text: "Good to know! Thanks a lot!"
+
+  utter_state_perceived_usefulness:
+  - buttons:
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"low"}
+      title: "0 (I don't think it can help me)"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"low"}
+      title: "1"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"low"}
+      title: "2"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"low"}
+      title: "3"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"low"}
+      title: "4"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"high"}
+      title: "5"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"high"}
+      title: "6"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"high"}
+      title: "7"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"high"}
+      title: "8"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"high"}
+      title: "9"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"high"}
+      title: "10 (I think it can help me)"
+    text: "To what extent do you think planning can help you take walks?"
+
+  utter_perceived_usefulness_repeat:
+  - text: "So your perceived usefulness is {perceived_usefulness}."
+
+  utter_thank_for_perceived_usefulness:
+  - text: "I see. Thank you for telling me."
+  - text: "Okay. Good to know. Thank you."
+  - text: "Okay! Thanks for letting me know."
+  - text: "Good to know. Thanks!"
+  - text: "Got it. Thanks for letting me know!"
+  - text: "Good to know! Thanks a lot!"
+
+  utter_state_attitude:
+  - buttons:
+    - payload: /confirm_attitude{"attitude":"low"}
+      title: "0 (Very useless)"
+    - payload: /confirm_attitude{"attitude":"low"}
+      title: "1"
+    - payload: /confirm_attitude{"attitude":"low"}
+      title: "2"
+    - payload: /confirm_attitude{"attitude":"low"}
+      title: "3"
+    - payload: /confirm_attitude{"attitude":"low"}
+      title: "4"
+    - payload: /confirm_attitude{"attitude":"high"}
+      title: "5"
+    - payload: /confirm_attitude{"attitude":"high"}
+      title: "6"
+    - payload: /confirm_attitude{"attitude":"high"}
+      title: "7"
+    - payload: /confirm_attitude{"attitude":"high"}
+      title: "8"
+    - payload: /confirm_attitude{"attitude":"high"}
+      title: "9"
+    - payload: /confirm_attitude{"attitude":"high"}
+      title: "10 (Very useful)"
+    text: "Please complete the following statement: 'For me, planning walks for the next 3 months would be ...'"
+
+  utter_attitude_repeat:
+  - text: "So your attitude is {attitude}."
+
+  utter_thank_for_attitude:
+  - text: "That is good to know. Thank you."
+  - text: "Thanks for telling me!"
+
+  utter_input_too_short_takeaway_1:
+  - text: "It seems like your answer is a bit too short... Please type at least 3 words. The question was: What can you take away from this example for yourself?"
+
+  utter_input_too_short_takeaway_2:
+  - text: "It seems like your answer is a bit too short... Please type at least 3 words. The question was: What can you take away from this second example for yourself?"
+
+  utter_input_too_short_barrier_identified:
+  - text: "It seems like your answer is a bit too short... Please type at least 3 words. The question was: Would you mind briefly describing your barrier to me in the chat?"
+  
+  utter_input_too_short_barrier_strategy:
+  - text: "It seems like your answer is a bit too short... Please type at least 3 words. The question was: How can you overcome this barrier?"
+
+  utter_input_too_short_barrier_repeat:
+  - text: "It seems like your answer is a bit too short... Please type at least 3 words. The question was: How can you overcome this barrier after having read my suggestion?"
+
+  utter_input_too_short_planning:
+  - text: "It seems like your answer is a bit too short... Please type at least 3 words. The question was: How do you think planning can help you do this?"
+
+  utter_explain_planning_1:
+  - text: "Thanks for telling me! \n I think it would be useful to look again at more ways in which planning can help you be more physically active by walking."
+
+  utter_explain_planning_2:
+  - buttons:
+    - payload: /confirm_continue_explain_planning{"planning_relevance":"motivation"}
+      title: "It can help keep me motivated to go for walks."
+    - payload: /confirm_continue_explain_planning{"planning_relevance":"habit"}
+      title: "It can help me create a habit of taking walks regularly."
+    - payload: /confirm_continue_explain_planning{"planning_relevance":"road"}
+      title: "It can help me visualise the road towards the goal."
+    - payload: /confirm_continue_explain_planning{"planning_relevance":"obstacles"}
+      title: "It can help me deal with obstacles."
+    text: "First off, which of these reasons is most relevant for you?"
+
+  utter_explain_planning_3:
+  - text: "Good choice!"
+
+  utter_explain_planning_4:
+  - text: "How do you think planning can help you do this? Let me know by typing in the chat."
+
+  utter_thank_for_planning_explanation:
+  - text: "I see. Thanks for sharing. Here is what I think planning can help with."
+
+  # utter_explain_planning_5:
+  # - text: "By creating a plan that is consistent across different weeks, it will be easier for you to form a habit of when you should go for a walk."
+
+  # utter_explain_planning_6:
+  # - text: "Besides this, the plan shows you what you will be able to achieve in the end, so you have an idea of the goal you are working towards."
+
+  # utter_explain_planning_7:
+  # - text: "Planning can also help you identify and deal with obstacles that might prevent you from going on your walks."
+
+  # utter_explain_planning_8:
+  # - text: "By anticipating these obstacles and devising strategies for overcoming them ahead of time, it will be easier to deal with them when they happen."
+
+
+
+  utter_identify_barriers_1:
+  - text: "That is good to know. Thank you. \n I think it might be useful to think of some barriers, or things that might stop or prevent you from taking walks regularly."
+
+  utter_identify_barriers_2:
+  - text: "Let's first think of what the barriers are and then we'll see how we can deal with them."
+
+  utter_identify_barriers_3:
+  - buttons:
+    - payload: /confirm_continue_identify_barriers_1{"identified_barrier":"time"}
+      title: "Lack of time."
+    - payload: /confirm_continue_identify_barriers_1{"identified_barrier":"energy"}
+      title: "Lack of energy."
+    - payload: /confirm_continue_identify_barriers_1{"identified_barrier":"people"}
+      title: "Disliking being in the presence of others when exercising."
+    - payload: /confirm_continue_identify_barriers_1{"identified_barrier":"equipment"}
+      title: "Lack of equipment."
+    - payload: /confirm_continue_identify_barriers_1{"identified_barrier":"family"}
+      title: "Family obligations."
+    - payload: /confirm_continue_identify_barriers_1{"identified_barrier":"other"}
+      title: "I have a different kind of barrier."
+    text: "Which of these do you think is the biggest barrier for you?"
+
+  utter_identify_barriers_4:
+  - text: "I see. Thank you for informing me. Would you mind briefly describing your barrier to me in the chat?"
+
+  utter_identify_barriers_5:
+  - text: "Thank you for telling me. I'll try to think a way to overcome your barrier. In the meantime..."
+
+  # utter_identify_barriers_7:
+  # - text: "Maybe you don't have shoes that are comfortable to take longer walks in."
+
+  # utter_identify_barriers_8:
+  # - text: "It could also be that you have young children to take care of and that leaves you with little time."
+
+  # utter_identify_barriers_9:
+  # - text: "All of these are barriers which could prevent you from taking a walk. Think if these apply to you specifically."
+
+  # utter_identify_barriers_10:
+  # - text: "You can also try to come up with some things that you know have been barriers in the past. Think about which of these barriers apply to you and let me know when you are ready to proceed."
+
+
+
+  utter_deal_with_barriers_1:
+  - text: "Thank you for telling me. \n We've previously thought of barriers which might prevent you from taking walks regularly."
+
+  utter_deal_with_barriers_2:
+  - text: "Now, let's try to think how you could overcome those barriers."
+
+  utter_deal_with_barriers_3:
+  - text: "Keep in mind that, while I can provide suggestions, it's really up to you to come up with the solution that works best for you."
+
+  utter_deal_with_barriers_continue:
+  - buttons:
+    - payload: /confirm_continue_deal_with_barriers_1
+      title: "Let's continue."
+    text: "Let me know when you are ready to continue."
+
+  utter_repeat_user_barrier:
+  - text: "User barrier: {identified_barrier}"
+
+  utter_deal_with_barriers_4:
+  - text: "Let's first see what you think would be a good way of dealing with your barrier."
+
+  utter_deal_with_barriers_5:
+  - text: "Earlier, you told me that this is your barrier: {barrier_description}"
+
+  utter_deal_with_barriers_6:
+  - text: "Think for yourself: how can you overcome this barrier?"
+
+  utter_deal_with_barriers_7:
+  - text: "Please type your strategy in the chat."
+
+  utter_deal_with_barriers_8:
+  - text: "Now that you have seen my suggestion, maybe you have gotten a different idea for a solution. So, I would like to ask again: how would you overcome this barrier?"
+
+  utter_deal_with_barriers_9:
+  - text: "Great! Thank you for sharing!"
+
+  # utter_deal_with_barriers_10:
+  # - text: "In terms of energy, think back to when we talked about when you feel most energetic during the day. Aim to schedule walks at those times, since it will be easier for you that way."
+
+  # utter_deal_with_barriers_11:
+  # - text: "Try to go to the gym when it's a bit quieter if you don't like it when other people can see you doing physical activity. It is not absolutely necessary to go to a gym, especially if you're only taking walks. Try walking in a park nearby or simply on the sidewalk."
+
+  # utter_deal_with_barriers_12:
+  # - text: "Another common barrier is not having the right equipment. For walking in particular, the only thing you really need are shoes that are comfortable for you, so putting aside some money for that can be a relatively simple strategy."
+
+  # utter_deal_with_barriers_13:
+  # - text: "If you have children to take care of, it might be a good idea to take them on regular walks with you. That way you can fulfill your family obligations and make progress towards your goal."
+
+  utter_show_testimonials_1:
+  - text: "Thanks for letting me know. \n Seeing other people make plans and see how they succeed with regards to their goals is something that might help you."
+
+  utter_show_testimonials_2:
+  - text: "Let's take a look at a few such cases."
+
+  utter_testimonial_1_intro:
+  - text: "{testimonial_1_intro}"
+
+  utter_testimonial_1_body:
+  - text: "{testimonial_1_body}"
+
+  utter_testimonial_2_intro:
+  - text: "{testimonial_2_intro}"
+
+  utter_testimonial_2_body:
+  - text: "{testimonial_2_body}"
+
+  utter_ask_read_testimonial_1:
+  - buttons:
+    - payload: /confirm_read_testimonial_1
+      title: "I am done."
+    text: "Please click the button once you are done reading how planning helped this person."
+
+  utter_ask_read_testimonial_2:
+  - buttons:
+    - payload: /confirm_read_testimonial_2
+      title: "I am done."
+    text: "Please click the button once you are done reading how planning helped this person."
+
+  utter_ask_takeaway_1:
+  - text: "What can you take away from this example for yourself? Please type this in the chat."
+
+  utter_ask_takeaway_2:
+  - text: "How about this example? What can you take away for yourself? Please type this in the chat."
+
+  utter_testimonial_another:
+  - text: "Great! Let's look at another example."
+
+  utter_acknowledge_answer:
+  - text: "Okay, that's good!"
+
+  utter_changes_to_plan_1:
+  - text: "I see. Thank you for informing me. \n I propose we take another look at the plan."
+
+  utter_changes_to_plan_intermediary:
+  - text: "Maybe considering our discussion so far, you realised that you want to change some of the times when you have to go for walks. If you do not want to change anything, please just click the button titled 'I am done adjusting the plan'"
+
+  utter_changes_to_plan_2:
+  - text: "If you take a look at the let side of the screen, you will see the current plan."
+
+  utter_changes_to_plan_3:
+  - text: "You can click on time slots which have an activity scheduled to remove that activity."
+
+  utter_changes_to_plan_4:
+  - text: "You can also click on time slots which have no activity to schedule an activity at that time."
+
+  utter_changes_to_plan_5:
+  - text: "Think about when you would want to go for walks."
+
+  utter_changes_to_plan_6:
+  - text: "Once you are done, please click the button titled 'I am done adjusting the plan'. It is at the bottom of the plan, after Month 3. Note that you may need to scroll to the button depending on your screen resolution."
+
+  utter_changes_to_plan_7:
+  - text: "Oh, and keep in mind that you should have precisely four times for going on a walk scheduled in each of the weeks."
+
+  utter_start_planning:
+  - text: "this is a message for javascript: enable the buttons"
+
+  utter_action_finished_loop_back:
+  - condition:
+      - type: slot
+        name: actions_done
+        value: false
+    buttons:
+      - payload: /confirm_state
+        title: "I am ready."
+    text: "Let me know when you are ready to continue."
+  - buttons:
+    - payload: /confirm_actions_done
+      title: "Let's continue."
+    text: "We're almost done with the dialogue! I just have a few more questions for you. Let me know when you are ready to continue."
+
+  utter_almost_done:
+  - text: "We're almost done with the dialogue! I just have a few more questions for you."
+
+  utter_satisfaction:
+  - buttons:
+    - payload: /confirm_satisfaction{"satisfaction":"0"}
+      title: "0 (I am very dissatisfied)"
+    - payload: /confirm_satisfaction{"satisfaction":"1"}
+      title: "1"
+    - payload: /confirm_satisfaction{"satisfaction":"2"}
+      title: "2"
+    - payload: /confirm_satisfaction{"satisfaction":"3"}
+      title: "3"
+    - payload: /confirm_satisfaction{"satisfaction":"4"}
+      title: "4"
+    - payload: /confirm_satisfaction{"satisfaction":"5"}
+      title: "5"
+    - payload: /confirm_satisfaction{"satisfaction":"6"}
+      title: "6"
+    - payload: /confirm_satisfaction{"satisfaction":"7"}
+      title: "7"
+    - payload: /confirm_satisfaction{"satisfaction":"8"}
+      title: "8"
+    - payload: /confirm_satisfaction{"satisfaction":"9"}
+      title: "9"
+    - payload: /confirm_satisfaction{"satisfaction":"10"}
+      title: "10 (I am very satisfied)"
+    text: "How satisfied were you with the dialogue?"
+
+  utter_commitment_1:
+  - buttons:
+    - payload: /confirm_commitment_1{"commitment_1":"0"}
+      title: "0 (I strongly disagree)"
+    - payload: /confirm_commitment_1{"commitment_1":"1"}
+      title: "1"
+    - payload: /confirm_commitment_1{"commitment_1":"2"}
+      title: "2"
+    - payload: /confirm_commitment_1{"commitment_1":"3"}
+      title: "3"
+    - payload: /confirm_commitment_1{"commitment_1":"4"}
+      title: "4"
+    - payload: /confirm_commitment_1{"commitment_1":"5"}
+      title: "5"
+    - payload: /confirm_commitment_1{"commitment_1":"6"}
+      title: "6"
+    - payload: /confirm_commitment_1{"commitment_1":"7"}
+      title: "7"
+    - payload: /confirm_commitment_1{"commitment_1":"8"}
+      title: "8"
+    - payload: /confirm_commitment_1{"commitment_1":"9"}
+      title: "9"
+    - payload: /confirm_commitment_1{"commitment_1":"10"}
+      title: "10 (I strongly agree)"
+    text: "How much do you agree with the following statement: 'I am committing to being physically active by following the first two weeks of the plan, no matter what feels uncomfortable or challenging about that'?"
+
+  utter_commitment_f:
+  - buttons:
+    - payload: /confirm_commitment_f{"commitment_f":"0"}
+      title: "0 (I strongly disagree)"
+    - payload: /confirm_commitment_f{"commitment_f":"1"}
+      title: "1"
+    - payload: /confirm_commitment_f{"commitment_f":"2"}
+      title: "2"
+    - payload: /confirm_commitment_f{"commitment_f":"3"}
+      title: "3"
+    - payload: /confirm_commitment_f{"commitment_f":"4"}
+      title: "4"
+    - payload: /confirm_commitment_f{"commitment_f":"5"}
+      title: "5"
+    - payload: /confirm_commitment_f{"commitment_f":"6"}
+      title: "6"
+    - payload: /confirm_commitment_f{"commitment_f":"7"}
+      title: "7"
+    - payload: /confirm_commitment_f{"commitment_f":"8"}
+      title: "8"
+    - payload: /confirm_commitment_f{"commitment_f":"9"}
+      title: "9"
+    - payload: /confirm_commitment_f{"commitment_f":"10"}
+      title: "10 (I strongly agree)"
+    text: "How much do you agree with the following statement: 'I am committing to being physically active by following the entire plan, no mater what feels uncomfortable or challenging about that'?"
+
+  utter_confidence_goal:
+  - buttons:
+    - payload: /confirm_confidence_goal{"confidence_goal":"0"}
+      title: "0 (I am not confident at that I can reach my goal)"
+    - payload: /confirm_confidence_goal{"confidence_goal":"1"}
+      title: "1"
+    - payload: /confirm_confidence_goal{"confidence_goal":"2"}
+      title: "2"
+    - payload: /confirm_confidence_goal{"confidence_goal":"3"}
+      title: "3"
+    - payload: /confirm_confidence_goal{"confidence_goal":"4"}
+      title: "4"
+    - payload: /confirm_confidence_goal{"confidence_goal":"5"}
+      title: "5"
+    - payload: /confirm_confidence_goal{"confidence_goal":"6"}
+      title: "6"
+    - payload: /confirm_confidence_goal{"confidence_goal":"7"}
+      title: "7"
+    - payload: /confirm_confidence_goal{"confidence_goal":"8"}
+      title: "8"
+    - payload: /confirm_confidence_goal{"confidence_goal":"9"}
+      title: "9"
+    - payload: /confirm_confidence_goal{"confidence_goal":"10"}
+      title: "10 (I am sure that I can reach my goal)"
+    text: "How confident are you that you can reach your goal of being able to take {goal} steps per day in six months from now?"
+
+  utter_thank:
+    - text: "Thank you for all your answers and for your time!"
+
+
   ### End session
   utter_email_reminder:
-    - condition:
-        - type: slot
-          name: session_num
-          value: "1"
-      text: "This is all for this session. Of course, I'll send you a message with your activity on Prolific."
-    - condition:
-        - type: slot
-          name: session_num
-          value: "2"
-      text: "Then that's it for this session. Naturally, I'll send you a reminder with your activity on Prolific."
-    - condition:
-        - type: slot
-          name: session_num
-          value: "3"
-      text: "I've said all I wanted for this session. Of course, I'll send you a reminder with your activity on Prolific."
-    - condition:
-        - type: slot
-          name: session_num
-          value: "4"
-      text: "You've made it to the end of this session! Needless to say, you'll get a message with your activity on Prolific."
-    - condition:
-        - type: slot
-          name: session_num
-          value: "5"
-      text: "That concludes our session. I'll send you a message shortly with your activity on Prolific."
-    
-    - text: "That's all for this session. I'll be sending you a message with your activity on Prolific right after this session."
-  
-  utter_remind_next_part:
-    - condition:
-        - type: slot
-          name: session_num
-          value: "1"
-      text: "Oh, and besides the activity reminder message, keep an eye out for the invitation to your next session with me."
-      buttons:
-      - payload: /confirm_next_part
-        title: "Sure!"
-      - payload: /confirm_next_part
-        title: "Yes"
-    - condition:
-        - type: slot
-          name: session_num
-          value: "2"
-      text: "Also watch out for the invitation to you next session with me."
-      buttons:
-      - payload: /confirm_next_part
-        title: "Alright!"
-      - payload: /confirm_next_part
-        title: "Sure"
-    - condition:
-        - type: slot
-          name: session_num
-          value: "3"
-      text: "And remember that there's another conversation with me that you'll get invited to."
-      buttons:
-      - payload: /confirm_next_part
-        title: "Yes!"
-      - payload: /confirm_next_part
-        title: "Sounds good"
-    - condition:
-        - type: slot
-          name: session_num
-          value: "4"
-      text: "And recall that you'll also get invited to another session with me."
-      buttons:
-      - payload: /confirm_next_part
-        title: "Yes!"
-      - payload: /confirm_next_part
-        title: "OK!"
-    - condition:
-        - type: slot
-          name: session_num
-          value: "5" 
-      text: "Oh, and besides the activity reminder message, keep an eye out for the invitation to the post-questionnaire. Invitations will be sent about 2 days from now. Okay?"
-      buttons:
-      - payload: /confirm_next_part
-        title: "Alright"
-      - payload: /confirm_next_part
-        title: "Yes!"
-    
-    - text: "And remember to look out for the invitation to your next conversation with me. Alright?"
-      buttons:
-      - payload: /confirm_next_part
-        title: "Sure!"
-      - payload: /confirm_next_part
-        title: "Okay!"
-        
+    - text: "That's all for this session. I'll be sending you a message on Prolific right after this session to confirm that you have completed everything."
+
+
   utter_prolific_link:
-    - condition:
-        - type: slot
-          name: session_num
-          value: "1" 
-      text: "Cool! Here is your Prolific completion link: ... ."
-    - condition:
-        - type: slot
-          name: session_num
-          value: "2" 
-      text: "Cool! And here is your completion link: ... ."
-    - condition:
-        - type: slot
-          name: session_num
-          value: "3" 
-      text: "Perfect! And this is your Prolific completion link: ... ."
-    - condition:
-        - type: slot
-          name: session_num
-          value: "4" 
-      text: "Nice! And here you have your completion link: ... ."
-    - condition:
-        - type: slot
-          name: session_num
-          value: "5" 
-      text: "Perfect! Here is your completion link for this session: ... ."
-     
     - text: "Alright! Then here is your completion link: ... ."
-    
+
+
   utter_goodbye:
-    - condition:
-        - type: slot
-          name: session_num
-          value: "1" 
-      text: "Bye, see you in the next session!"
+    - text: "Have a great day! Goodbye!"
       buttons:
       - payload: /confirm_goodbye
-        title: "Goodbye!"
-      - payload: /confirm_goodbye
-        title: "Bye, see you next time!"
-    - condition:
-        - type: slot
-          name: session_num
-          value: "2" 
-      text: "Bye, see you next time!"
-      buttons:
-      - payload: /confirm_goodbye
-        title: "Goodbye!"
-    - condition:
-        - type: slot
-          name: session_num
-          value: "3" 
-      text: "Goodbye, until next time!"
-      buttons:
-      - payload: /confirm_goodbye
-        title: "Bye!"
-    - condition:
-        - type: slot
-          name: session_num
-          value: "4" 
-      text: "Looking forward to our next session already, bye for now!"
-      buttons:
-      - payload: /confirm_goodbye
-        title: "Until nex time!"
-    - condition:
-        - type: slot
-          name: session_num
-          value: "5" 
-      text: "Thanks for taking the time to talk to me in our 5 sessions together. Goodbye!"
-      buttons:
-      - payload: /confirm_goodbye
-        title: "Bye!"
-        
-    - text: "Bye!"
-      buttons:
-      - payload: /confirm_goodbye
-        title: "Goodbye!"
+        title: "Goodbye, Jamie!"
+
 
   utter_final_close_session:
-  - text: "THIS IS THE END OF THIS SESSION. PLEASE CLOSE THIS WINDOW.\nANY FURTHER TYPING IN THIS CHAT RENDERS THIS SESSION INVALID. IF YOU HAVE QUESTIONS, CONTACT THE RESEARCHER PER MESSAGE ON PROLIFIC."
+  - text: "This is the end of the session. Please close this window.\nAny further typing in this chat renders this session invalid. If you have questions, contact the researcher by message on Prolific."
 
 
-
-  ### Mood
-  utter_ask_for_mood_session1:
-  - buttons:
-    - payload: /mood_curr_session1{"mood":"satisfied", "mood_quadrant":"ha_hv"}
-      title: Satisfied
-    - payload: /mood_curr_session1{"mood":"pleased", "mood_quadrant":"ha_hv"}
-      title: Pleased
-    - payload: /mood_curr_session1{"mood":"delighted", "mood_quadrant":"ha_hv"}
-      title: Delighted
-    - payload: /mood_curr_session1{"mood":"happy", "mood_quadrant":"ha_hv"}
-      title: Happy
-    - payload: /mood_curr_session1{"mood":"glad", "mood_quadrant":"ha_hv"}
-      title: Glad
-    - payload: /mood_curr_session1{"mood":"excited", "mood_quadrant":"ha_hv"}
-      title: Excited
-    - payload: /mood_curr_session1{"mood":"aroused", "mood_quadrant":"ha_hv"}
-      title: Aroused
-    - payload: /mood_curr_session1{"mood":"astonished", "mood_quadrant":"ha_hv"}
-      title: Astonished
-    - payload: /mood_curr_session1{"mood":"alarmed", "mood_quadrant":"ha_lv"}
-      title: Alarmed
-    - payload: /mood_curr_session1{"mood":"angry", "mood_quadrant":"ha_lv"}
-      title: Angry
-    - payload: /mood_curr_session1{"mood":"annoyed", "mood_quadrant":"ha_lv"}
-      title: Annoyed
-    - payload: /mood_curr_session1{"mood":"distressed", "mood_quadrant":"ha_lv"}
-      title: Distressed
-    - payload: /mood_curr_session1{"mood":"afraid", "mood_quadrant":"ha_lv"}
-      title: Afraid
-    - payload: /mood_curr_session1{"mood":"frustrated", "mood_quadrant":"ha_lv"}
-      title: Frustrated
-    - payload: /mood_curr_session1{"mood":"miserable", "mood_quadrant":"la_lv"}
-      title: Miserable
-    - payload: /mood_curr_session1{"mood":"depressed", "mood_quadrant":"la_lv"}
-      title: Depressed
-    - payload: /mood_curr_session1{"mood":"gloomy", "mood_quadrant":"la_lv"}
-      title: Gloomy
-    - payload: /mood_curr_session1{"mood":"tense", "mood_quadrant":"la_lv"}
-      title: Tense
-    - payload: /mood_curr_session1{"mood":"droopy", "mood_quadrant":"la_lv"}
-      title: Droopy
-    - payload: /mood_curr_session1{"mood":"sad", "mood_quadrant":"la_lv"}
-      title: Sad
-    - payload: /mood_curr_session1{"mood":"tired", "mood_quadrant":"la_lv"}
-      title: Tired
-    - payload: /mood_curr_session1{"mood":"bored", "mood_quadrant":"la_lv"}
-      title: Bored
-    - payload: /mood_curr_session1{"mood":"sleepy", "mood_quadrant":"la_lv"}
-      title: Sleepy
-    - payload: /mood_curr_session1{"mood":"serene", "mood_quadrant":"la_hv"}
-      title: Serene
-    - payload: /mood_curr_session1{"mood":"relaxed", "mood_quadrant":"la_hv"}
-      title: Relaxed
-    - payload: /mood_curr_session1{"mood":"calm", "mood_quadrant":"la_hv"}
-      title: Calm
-    - payload: /mood_curr_session1{"mood":"tranquil", "mood_quadrant":"la_hv"}
-      title: Tranquil
-    - payload: /mood_curr_session1{"mood":"content", "mood_quadrant":"la_hv"}
-      title: Content
-    - payload: /mood_curr_session1{"mood":"neutral", "mood_quadrant":"neutral"}
-      title: Neutral
-    text: "How are you feeling today?"
-  utter_ask_for_mood_session_mid:
-    - condition:
-        - type: slot
-          name: session_num
-          value: "2" 
-      text: "Last time you felt {mood_prev_session}. How are you feeling today?"
-      buttons:
-      - payload: /mood_curr_session_mid{"mood":"satisfied", "mood_quadrant":"ha_hv"}
-        title: Satisfied
-      - payload: /mood_curr_session_mid{"mood":"pleased", "mood_quadrant":"ha_hv"}
-        title: Pleased
-      - payload: /mood_curr_session_mid{"mood":"delighted", "mood_quadrant":"ha_hv"}
-        title: Delighted
-      - payload: /mood_curr_session_mid{"mood":"happy", "mood_quadrant":"ha_hv"}
-        title: Happy
-      - payload: /mood_curr_session_mid{"mood":"glad", "mood_quadrant":"ha_hv"}
-        title: Glad
-      - payload: /mood_curr_session_mid{"mood":"excited", "mood_quadrant":"ha_hv"}
-        title: Excited
-      - payload: /mood_curr_session_mid{"mood":"aroused", "mood_quadrant":"ha_hv"}
-        title: Aroused
-      - payload: /mood_curr_session_mid{"mood":"astonished", "mood_quadrant":"ha_hv"}
-        title: Astonished
-      - payload: /mood_curr_session_mid{"mood":"alarmed", "mood_quadrant":"ha_lv"}
-        title: Alarmed
-      - payload: /mood_curr_session_mid{"mood":"angry", "mood_quadrant":"ha_lv"}
-        title: Angry
-      - payload: /mood_curr_session_mid{"mood":"annoyed", "mood_quadrant":"ha_lv"}
-        title: Annoyed
-      - payload: /mood_curr_session_mid{"mood":"distressed", "mood_quadrant":"ha_lv"}
-        title: Distressed
-      - payload: /mood_curr_session_mid{"mood":"afraid", "mood_quadrant":"ha_lv"}
-        title: Afraid
-      - payload: /mood_curr_session_mid{"mood":"frustrated", "mood_quadrant":"ha_lv"}
-        title: Frustrated
-      - payload: /mood_curr_session_mid{"mood":"miserable", "mood_quadrant":"la_lv"}
-        title: Miserable
-      - payload: /mood_curr_session_mid{"mood":"depressed", "mood_quadrant":"la_lv"}
-        title: Depressed
-      - payload: /mood_curr_session_mid{"mood":"gloomy", "mood_quadrant":"la_lv"}
-        title: Gloomy
-      - payload: /mood_curr_session_mid{"mood":"tense", "mood_quadrant":"la_lv"}
-        title: Tense
-      - payload: /mood_curr_session_mid{"mood":"droopy", "mood_quadrant":"la_lv"}
-        title: Droopy
-      - payload: /mood_curr_session_mid{"mood":"sad", "mood_quadrant":"la_lv"}
-        title: Sad
-      - payload: /mood_curr_session_mid{"mood":"tired", "mood_quadrant":"la_lv"}
-        title: Tired
-      - payload: /mood_curr_session_mid{"mood":"bored", "mood_quadrant":"la_lv"}
-        title: Bored
-      - payload: /mood_curr_session_mid{"mood":"sleepy", "mood_quadrant":"la_lv"}
-        title: Sleepy
-      - payload: /mood_curr_session_mid{"mood":"serene", "mood_quadrant":"la_hv"}
-        title: Serene
-      - payload: /mood_curr_session_mid{"mood":"relaxed", "mood_quadrant":"la_hv"}
-        title: Relaxed
-      - payload: /mood_curr_session_mid{"mood":"calm", "mood_quadrant":"la_hv"}
-        title: Calm
-      - payload: /mood_curr_session_mid{"mood":"tranquil", "mood_quadrant":"la_hv"}
-        title: Tranquil
-      - payload: /mood_curr_session_mid{"mood":"content", "mood_quadrant":"la_hv"}
-        title: Content
-      - payload: /mood_curr_session_mid{"mood":"neutral", "mood_quadrant":"neutral"}
-        title: Neutral
-    - condition:
-        - type: slot
-          name: session_num
-          value: "3" 
-      text: "How are you feeling today?"
-      buttons:
-        - payload: /mood_curr_session_mid{"mood":"satisfied", "mood_quadrant":"ha_hv"}
-          title: Satisfied
-        - payload: /mood_curr_session_mid{"mood":"pleased", "mood_quadrant":"ha_hv"}
-          title: Pleased
-        - payload: /mood_curr_session_mid{"mood":"delighted", "mood_quadrant":"ha_hv"}
-          title: Delighted
-        - payload: /mood_curr_session_mid{"mood":"happy", "mood_quadrant":"ha_hv"}
-          title: Happy
-        - payload: /mood_curr_session_mid{"mood":"glad", "mood_quadrant":"ha_hv"}
-          title: Glad
-        - payload: /mood_curr_session_mid{"mood":"excited", "mood_quadrant":"ha_hv"}
-          title: Excited
-        - payload: /mood_curr_session_mid{"mood":"aroused", "mood_quadrant":"ha_hv"}
-          title: Aroused
-        - payload: /mood_curr_session_mid{"mood":"astonished", "mood_quadrant":"ha_hv"}
-          title: Astonished
-        - payload: /mood_curr_session_mid{"mood":"alarmed", "mood_quadrant":"ha_lv"}
-          title: Alarmed
-        - payload: /mood_curr_session_mid{"mood":"angry", "mood_quadrant":"ha_lv"}
-          title: Angry
-        - payload: /mood_curr_session_mid{"mood":"annoyed", "mood_quadrant":"ha_lv"}
-          title: Annoyed
-        - payload: /mood_curr_session_mid{"mood":"distressed", "mood_quadrant":"ha_lv"}
-          title: Distressed
-        - payload: /mood_curr_session_mid{"mood":"afraid", "mood_quadrant":"ha_lv"}
-          title: Afraid
-        - payload: /mood_curr_session_mid{"mood":"frustrated", "mood_quadrant":"ha_lv"}
-          title: Frustrated
-        - payload: /mood_curr_session_mid{"mood":"miserable", "mood_quadrant":"la_lv"}
-          title: Miserable
-        - payload: /mood_curr_session_mid{"mood":"depressed", "mood_quadrant":"la_lv"}
-          title: Depressed
-        - payload: /mood_curr_session_mid{"mood":"gloomy", "mood_quadrant":"la_lv"}
-          title: Gloomy
-        - payload: /mood_curr_session_mid{"mood":"tense", "mood_quadrant":"la_lv"}
-          title: Tense
-        - payload: /mood_curr_session_mid{"mood":"droopy", "mood_quadrant":"la_lv"}
-          title: Droopy
-        - payload: /mood_curr_session_mid{"mood":"sad", "mood_quadrant":"la_lv"}
-          title: Sad
-        - payload: /mood_curr_session_mid{"mood":"tired", "mood_quadrant":"la_lv"}
-          title: Tired
-        - payload: /mood_curr_session_mid{"mood":"bored", "mood_quadrant":"la_lv"}
-          title: Bored
-        - payload: /mood_curr_session_mid{"mood":"sleepy", "mood_quadrant":"la_lv"}
-          title: Sleepy
-        - payload: /mood_curr_session_mid{"mood":"serene", "mood_quadrant":"la_hv"}
-          title: Serene
-        - payload: /mood_curr_session_mid{"mood":"relaxed", "mood_quadrant":"la_hv"}
-          title: Relaxed
-        - payload: /mood_curr_session_mid{"mood":"calm", "mood_quadrant":"la_hv"}
-          title: Calm
-        - payload: /mood_curr_session_mid{"mood":"tranquil", "mood_quadrant":"la_hv"}
-          title: Tranquil
-        - payload: /mood_curr_session_mid{"mood":"content", "mood_quadrant":"la_hv"}
-          title: Content
-        - payload: /mood_curr_session_mid{"mood":"neutral", "mood_quadrant":"neutral"}
-          title: Neutral
-    - condition:
-        - type: slot
-          name: session_num
-          value: "4" 
-      text: "Last session you were feeling {mood_prev_session}. How are you feeling today?"
-      buttons:
-        - payload: /mood_curr_session_mid{"mood":"satisfied", "mood_quadrant":"ha_hv"}
-          title: Satisfied
-        - payload: /mood_curr_session_mid{"mood":"pleased", "mood_quadrant":"ha_hv"}
-          title: Pleased
-        - payload: /mood_curr_session_mid{"mood":"delighted", "mood_quadrant":"ha_hv"}
-          title: Delighted
-        - payload: /mood_curr_session_mid{"mood":"happy", "mood_quadrant":"ha_hv"}
-          title: Happy
-        - payload: /mood_curr_session_mid{"mood":"glad", "mood_quadrant":"ha_hv"}
-          title: Glad
-        - payload: /mood_curr_session_mid{"mood":"excited", "mood_quadrant":"ha_hv"}
-          title: Excited
-        - payload: /mood_curr_session_mid{"mood":"aroused", "mood_quadrant":"ha_hv"}
-          title: Aroused
-        - payload: /mood_curr_session_mid{"mood":"astonished", "mood_quadrant":"ha_hv"}
-          title: Astonished
-        - payload: /mood_curr_session_mid{"mood":"alarmed", "mood_quadrant":"ha_lv"}
-          title: Alarmed
-        - payload: /mood_curr_session_mid{"mood":"angry", "mood_quadrant":"ha_lv"}
-          title: Angry
-        - payload: /mood_curr_session_mid{"mood":"annoyed", "mood_quadrant":"ha_lv"}
-          title: Annoyed
-        - payload: /mood_curr_session_mid{"mood":"distressed", "mood_quadrant":"ha_lv"}
-          title: Distressed
-        - payload: /mood_curr_session_mid{"mood":"afraid", "mood_quadrant":"ha_lv"}
-          title: Afraid
-        - payload: /mood_curr_session_mid{"mood":"frustrated", "mood_quadrant":"ha_lv"}
-          title: Frustrated
-        - payload: /mood_curr_session_mid{"mood":"miserable", "mood_quadrant":"la_lv"}
-          title: Miserable
-        - payload: /mood_curr_session_mid{"mood":"depressed", "mood_quadrant":"la_lv"}
-          title: Depressed
-        - payload: /mood_curr_session_mid{"mood":"gloomy", "mood_quadrant":"la_lv"}
-          title: Gloomy
-        - payload: /mood_curr_session_mid{"mood":"tense", "mood_quadrant":"la_lv"}
-          title: Tense
-        - payload: /mood_curr_session_mid{"mood":"droopy", "mood_quadrant":"la_lv"}
-          title: Droopy
-        - payload: /mood_curr_session_mid{"mood":"sad", "mood_quadrant":"la_lv"}
-          title: Sad
-        - payload: /mood_curr_session_mid{"mood":"tired", "mood_quadrant":"la_lv"}
-          title: Tired
-        - payload: /mood_curr_session_mid{"mood":"bored", "mood_quadrant":"la_lv"}
-          title: Bored
-        - payload: /mood_curr_session_mid{"mood":"sleepy", "mood_quadrant":"la_lv"}
-          title: Sleepy
-        - payload: /mood_curr_session_mid{"mood":"serene", "mood_quadrant":"la_hv"}
-          title: Serene
-        - payload: /mood_curr_session_mid{"mood":"relaxed", "mood_quadrant":"la_hv"}
-          title: Relaxed
-        - payload: /mood_curr_session_mid{"mood":"calm", "mood_quadrant":"la_hv"}
-          title: Calm
-        - payload: /mood_curr_session_mid{"mood":"tranquil", "mood_quadrant":"la_hv"}
-          title: Tranquil
-        - payload: /mood_curr_session_mid{"mood":"content", "mood_quadrant":"la_hv"}
-          title: Content
-        - payload: /mood_curr_session_mid{"mood":"neutral", "mood_quadrant":"neutral"}
-          title: Neutral
-  utter_ask_for_mood_session_last:
-  - buttons:
-    - payload: /mood_curr_session_last{"mood":"satisfied", "mood_quadrant":"ha_hv"}
-      title: Satisfied
-    - payload: /mood_curr_session_last{"mood":"pleased", "mood_quadrant":"ha_hv"}
-      title: Pleased
-    - payload: /mood_curr_session_last{"mood":"delighted", "mood_quadrant":"ha_hv"}
-      title: Delighted
-    - payload: /mood_curr_session_last{"mood":"happy", "mood_quadrant":"ha_hv"}
-      title: Happy
-    - payload: /mood_curr_session_last{"mood":"glad", "mood_quadrant":"ha_hv"}
-      title: Glad
-    - payload: /mood_curr_session_last{"mood":"excited", "mood_quadrant":"ha_hv"}
-      title: Excited
-    - payload: /mood_curr_session_last{"mood":"aroused", "mood_quadrant":"ha_hv"}
-      title: Aroused
-    - payload: /mood_curr_session_last{"mood":"astonished", "mood_quadrant":"ha_hv"}
-      title: Astonished
-    - payload: /mood_curr_session_last{"mood":"alarmed", "mood_quadrant":"ha_lv"}
-      title: Alarmed
-    - payload: /mood_curr_session_last{"mood":"angry", "mood_quadrant":"ha_lv"}
-      title: Angry
-    - payload: /mood_curr_session_last{"mood":"annoyed", "mood_quadrant":"ha_lv"}
-      title: Annoyed
-    - payload: /mood_curr_session_last{"mood":"distressed", "mood_quadrant":"ha_lv"}
-      title: Distressed
-    - payload: /mood_curr_session_last{"mood":"afraid", "mood_quadrant":"ha_lv"}
-      title: Afraid
-    - payload: /mood_curr_session_last{"mood":"frustrated", "mood_quadrant":"ha_lv"}
-      title: Frustrated
-    - payload: /mood_curr_session_last{"mood":"miserable", "mood_quadrant":"la_lv"}
-      title: Miserable
-    - payload: /mood_curr_session_last{"mood":"depressed", "mood_quadrant":"la_lv"}
-      title: Depressed
-    - payload: /mood_curr_session_last{"mood":"gloomy", "mood_quadrant":"la_lv"}
-      title: Gloomy
-    - payload: /mood_curr_session_last{"mood":"tense", "mood_quadrant":"la_lv"}
-      title: Tense
-    - payload: /mood_curr_session_last{"mood":"droopy", "mood_quadrant":"la_lv"}
-      title: Droopy
-    - payload: /mood_curr_session_last{"mood":"sad", "mood_quadrant":"la_lv"}
-      title: Sad
-    - payload: /mood_curr_session_last{"mood":"tired", "mood_quadrant":"la_lv"}
-      title: Tired
-    - payload: /mood_curr_session_last{"mood":"bored", "mood_quadrant":"la_lv"}
-      title: Bored
-    - payload: /mood_curr_session_last{"mood":"sleepy", "mood_quadrant":"la_lv"}
-      title: Sleepy
-    - payload: /mood_curr_session_last{"mood":"serene", "mood_quadrant":"la_hv"}
-      title: Serene
-    - payload: /mood_curr_session_last{"mood":"relaxed", "mood_quadrant":"la_hv"}
-      title: Relaxed
-    - payload: /mood_curr_session_last{"mood":"calm", "mood_quadrant":"la_hv"}
-      title: Calm
-    - payload: /mood_curr_session_last{"mood":"tranquil", "mood_quadrant":"la_hv"}
-      title: Tranquil
-    - payload: /mood_curr_session_last{"mood":"content", "mood_quadrant":"la_hv"}
-      title: Content
-    - payload: /mood_curr_session_last{"mood":"neutral", "mood_quadrant":"neutral"}
-      title: Neutral
-    text: "Welcome to your last session! How are you feeling today?"
-  # Response depends on quadrant that mood falls in
-  utter_mood_response:
-  # high arousal, high valence
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "ha_hv"
-      text: "Yay, always good to hear that somebody is feeling {mood}!"
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "ha_hv"
-      text: "Awesome, you must be having a good day!"
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "ha_hv"
-      text: "Fantastic, that's very good to hear!"
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "ha_hv"
-      text: "Great, I'm happy to hear that that you're feeling {mood}!"
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "ha_hv"
-      text: "Fantastic, I'm happy to hear that!"
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "ha_hv"
-      text: "That's great news, I'm so happy that you're feeling {mood}!"
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "ha_hv"
-      text: "Good for you, I'm glad you're feeling {mood}!"
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "ha_hv"
-      text: "Excellent, it's good to hear that you're feeling {mood}!"
-    # low arousal, high valence
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "la_hv"
-      text: "Nice, that's good to hear."
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "la_hv"
-      text: "Nice, I'm glad to hear that you're feeling {mood}."
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "la_hv"
-      text: "Nice, I'm glad to hear that."
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "la_hv"
-      text: "Nice, that's always good to hear."
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "la_hv"
-      text: "Nice, glad you're feeling {mood}."
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "la_hv"
-      text: "That's good, I'm glad that you're {mood}."
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "la_hv"
-      text: "Nice, it's good to see you're {mood}."
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "la_hv"
-      text: "Good to hear, so things are going well for you."
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "la_hv"
-      text: 'Good to know, you seem to be doing well.'
-    # low valence, low arousal
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "la_lv"
-      text: "I hate to hear that you're feeling {mood}. I hope you feel better soon! Meanwhile, maybe this session can help to cheer you up a bit."
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "la_lv"
-      text: "I'm sorry to hear that you're feeling {mood}. Here's hoping this chat will bring some cheer and comfort to you."
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "la_lv"
-      text: "Aww I feel for you, let's chat and try to turn that frown upside down."
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "la_lv"
-      text: "I hope you're feeling better soon. In the meantime, let's see if we can brighten your day a bit with this chat."
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "la_lv"
-      text: "Oh I'm so sorry that you're not having a good day. I hope it gets better soon and that I can cheer you up a little!"
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "la_lv"
-      text: "Oh this doesn't feel good to hear. I'm sending positive vibes your way and hoping this session will make you feel a bit better."
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "la_lv"
-      text: "So sorry about that! Feel better soon - hopefully talking about preparing to quit smoking and becoming more physically active can help a bit."
-    # High arousal, low valence
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "ha_lv"
-      text: "I'm really sorry to hear that you're feeling {mood}. I hope you feel better soon!"
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "ha_lv"
-      text: "Aww I'm so sorry to hear this. Hopefully you feel less {mood} soon!"
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "ha_lv"
-      text: "Oh that's a shame that you're not having a good day. I hope it gets better soon and that I can distract you a bit."
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "ha_lv"
-      text: "I hate to hear that today isn't a good day for you. Hopefully you feel better soon and that it's okay to proceed with this session!"
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "ha_lv"
-      text: "Aww what a shame. Hopefully you feel less {mood} soon!"
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "ha_lv"
-      text: "Oh that's unfortunate, let's hope for a brighter tomorrow."
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "ha_lv"
-      text: "Aww, I hope things look up for you soon."
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "ha_lv"
-      text: "That's not good news, I hope you feel better soon and that you're up for continuing with this session."
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "ha_lv"
-      text: "I'm sorry you're having a tough day, I hope it gets better soon. I hope you feel okay to move forward with this session."
-    # Neutral
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "neutral"
-      text: "Ah, sounds like you're having a pretty average day."
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "neutral"
-      text: "Sounds like things are going fine for you."
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "neutral"
-      text: "I see, seems like you're doing okay then."
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "neutral"
-      text: "I see, just a normal day for you then."
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "neutral"
-      text: "Just an average day, got it."
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "neutral"
-      text: "Fair enough, you're having a day that's neither here nor there."
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "neutral"
-      text: "Okay, a day like any other."
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "neutral"
-      text: "Okay, so nothing out of the ordinary."
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "neutral"
-      text: "I see, not too bad, not too good, just an average day."
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "neutral"
-      text: "Ah, a typical day, I understand."
-    - condition:
-        - type: slot
-          name: mood_quadrant
-          value: "neutral"
-      text: "Ah nothing special, just a regular day for you."
-  
-  
-  ### General
-  utter_great:
-  - text: Great!
-  - text: Perfect!
-  - text: Awesome!
-  
-  utter_cool:
-  - text: Nice!
-  - text: Cool!
-  - text: Perfect!
-  
-  utter_thanks:
-  - text: "Thanks!"
-  - text: "Thanks for letting me know!"
-  - text: "Okay thanks!"
-  - text: "Thanks for sharing that with me!"
-  
-  utter_provide_more_detail:
-  - text: "Hmm, can you describe this in a bit more detail?"
-  - text: "I see, could you elaborate a little more on this?"
-  - text: "I'd like to understand better, can you give me more details on this?"
-  - text: "I'm not quite following, could you provide more details?"
-  
-  
   utter_default:
   - text: "There is a problem with this session."
-  
+
+
   utter_default_close_session:
-  - text: "PLEASE CLOSE THIS WINDOW AND CONTACT THE RESEARCHER ON PROLIFIC."
-  
+  - text: "Please close this window and contact the researcher on prolific."
+
+
   utter_error_close_session:
-  - text: "PLEASE CLOSE THIS WINDOW. ANY FURTHER TYPING IN THIS CHAT RENDERS THIS SESSION INVALID."
- 
+  - text: "Please close this window. Any further typing in this chat renders this session invalid."
+
 
 session_config:
-  session_expiration_time: 5  # these are minutes
+  session_expiration_time: 33  # these are minutes (33 is max. time in Prolific for 6-minute study)
   carry_over_slots_to_new_session: false
 
 
-# Needed so that slots can be set via buttons  
+# Needed so that slots can be set via buttons
 config:
   store_entities_as_slots: true
-  
-  
-forms:
-  user_name_form:
-    required_slots:
-        - user_name_slot
-  activity_experience_form:
-    required_slots:
-        - activity_experience_slot
-  activity_experience_mod_form:
-    required_slots:
-        - activity_experience_mod_slot
 
 
 actions:
 - action_load_session_first
-- action_load_session_not_first
-- action_save_activity_experience
-- action_save_name_to_db
-- action_save_session
-
-- validate_user_name_form
-- validate_activity_experience_form
-- validate_activity_experience_mod_form
-
 - action_end_dialog
 - action_default_fallback_end_dialog
+- action_check_number_of_slots
+- action_create_initial_plan
+- action_show_testimonials
+- action_utter_corresponding_strategy_for_barrier
+- action_utter_corresponding_message_for_planning_relevance
+- action_save_event_state
+- action_select_action
+- action_save_action
+- action_save_goal_plans_and_reward
+- action_rearrange_db

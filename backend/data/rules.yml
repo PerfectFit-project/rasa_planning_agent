@@ -11,18 +11,17 @@ rules:
   - action: action_end_dialog
 
 
-- rule: start session 1 and successful session load
+- rule: start session and successful session load
   steps:
   - intent: start_session1
   - action: action_load_session_first
   - slot_was_set:
     - session_loaded: true
-  - action: utter_greet_first_time
-  - action: user_name_form
-  - active_loop: user_name_form
-  wait_for_user_input: false
-  
-- rule: start session 1 and unsuccessful session load
+  - action: utter_greet_1
+  - action: utter_greet_2
+  - action: utter_confirm_mood
+
+- rule: start session and unsuccessful session load
   steps:
   - intent: start_session1
   - action: action_load_session_first
@@ -30,192 +29,397 @@ rules:
     - session_loaded: false
   - action: utter_default_close_session
   - action: action_end_dialog
-    
-  
-- rule: name session 1
-  condition:
-    - active_loop: user_name_form
+
+- rule: mood very good explain usage
   steps:
-  - action: user_name_form
-  - active_loop: null
-  - action: utter_confirm_name
-  - action: utter_ask_for_mood_session1
-  
-- rule: mood session 1 
+  - intent: confirm_mood_very_good
+  - action: utter_mood_very_good_response
+  - action: utter_prompt_usage_1
+  - action: utter_prompt_usage_2
+  - action: utter_explain_usage
+
+- rule: mood good explain usage
   steps:
-  - intent: mood_curr_session1
-  - action: utter_mood_response
-  - action: action_save_name_to_db
+  - intent: confirm_mood_good
+  - action: utter_mood_good_response  
+  - action: utter_prompt_usage_1
+  - action: utter_prompt_usage_2
+  - action: utter_explain_usage
+
+- rule: mood neutral explain usage 
+  steps:
+  - intent: confirm_mood_neutral
+  - action: utter_mood_neutral_response
+  - action: utter_prompt_usage_1
+  - action: utter_prompt_usage_2
+  - action: utter_explain_usage
+
+- rule: mood bad explain usage
+  steps:
+  - intent: confirm_mood_bad
+  - action: utter_mood_bad_response
+  - action: utter_prompt_usage_1
+  - action: utter_prompt_usage_2
+  - action: utter_explain_usage
+
+- rule: mood very bad explain usage
+  steps:
+  - intent: confirm_mood_very_bad
+  - action: utter_mood_very_bad_response
+  - action: utter_prompt_usage_1
+  - action: utter_prompt_usage_2
+  - action: utter_explain_usage
+
+- rule: confirm usage explain purpose
+  steps:
+  - intent: confirm_usage
+  - action: utter_button
   - action: utter_purpose_1
   - action: utter_purpose_2
   - action: utter_purpose_3
+  - action: utter_continue_purpose_1
+
+- rule: continue purpose 1
+  steps:
+  - intent: confirm_continue_purpose_1
   - action: utter_purpose_4
   - action: utter_purpose_5
-  
-- rule: usage session 1
+  - action: utter_purpose_6
+  - action: utter_confirm_purpose
+
+- rule: confirm purpose explain planning
   steps:
   - intent: confirm_purpose
-  - action: utter_prompt_usage
-  - action: utter_explain_usage
-  
-- rule: intro session 1
+  - action: utter_explain_usefulness_planning_1
+  - action: utter_explain_usefulness_planning_2
+  - action: utter_explain_usefulness_planning_3
+  - action: utter_explain_usefulness_planning_4
+  - action: utter_explain_usefulness_planning_question
+
+
+- rule: confirm usefulness planning explain goal
   steps:
-  - intent: confirm_usage
-  - action: utter_intro_session1_1
-  - action: utter_intro_session1_2
-  - action: utter_intro_session1_3
-  - action: utter_intro_session1_4
-  - action: utter_intro_session1_5
-  - action: utter_intro_session1_6
-  - action: utter_intro_session1_7
-  
-- rule: state questions session 1
+  - intent: confirm_usefulness_planning_intro
+  - action: utter_explain_goal_1
+  - action: utter_explain_goal_2  
+  - action: utter_explain_goal_3
+  - action: utter_explain_goal_4  
+  - action: utter_explain_goal_question
+
+- rule: set goal
   steps:
-  - intent: confirm_intro_session1
-  - action: utter_state_question_intro
-  - action: utter_state_question_1
+  - intent: confirm_explain_goal
+  - action: utter_set_goal_1
+  - action: utter_set_goal_2
+  - action: utter_set_goal_3
+  - action: utter_set_goal_continue
+
+- rule: set goal continue
+  steps:
+  - intent: confirm_set_goal_continue
+  - action: utter_set_goal_4
+  - action: utter_set_goal_5
+  - action: utter_set_goal
+
+- rule: confirm goal
+  steps:
+  - intent: confirm_goal
+  - action: utter_confirm_goal
+
+- rule: internal motivation
+  steps:
+  - intent: confirm_initial_plan
+  - action: utter_internal_motivation_1
+  - action: utter_internal_motivation_2
+  - action: utter_internal_motivation_question
+
+- rule: ask about routines
+  steps:
+  - intent: confirm_motivation
+  - action: utter_thank_for_motivation
+  - action: utter_routines_1
+  - action: utter_routines_2
+  - action: utter_routines_3
+  - action: utter_routines_4
+  - action: utter_timeslots
   
 
-- rule: start session mid (2, 3, 4) session loaded
+- rule: ask about energy levels
   steps:
-  - intent: start_session_mid
-  - action: action_load_session_not_first
-  - slot_was_set: 
-    - session_loaded: true
-  - action: utter_greet_repeat
-  - action: utter_ask_for_mood_session_mid
-  
-- rule: start session mid (2, 3, 4) session not loaded so end dialog
-  steps:
-  - intent: start_session_mid
-  - action: action_load_session_not_first
-  - slot_was_set: 
-    - session_loaded: false
-  - action: utter_default_close_session
-  - action: action_end_dialog
-  
+  - intent: move_to_energy
+  - action: utter_energy_levels
+  - action: utter_energy_instruction
 
-- rule: start session last session loaded
-  steps:
-  - intent: start_session_last
-  - action: action_load_session_not_first
-  - slot_was_set: 
-    - session_loaded: true
-  - action: utter_greet_repeat
-  - action: utter_ask_for_mood_session_last
-  
-- rule: start session last session not loaded so end dialog
-  steps:
-  - intent: start_session_last
-  - action: action_load_session_not_first
-  - slot_was_set: 
-    - session_loaded: false
-  - action: utter_default_close_session
-  - action: action_end_dialog
-  
-  
-- rule: mood and intro session mid
-  steps:
-  - intent: mood_curr_session_mid
-  - action: utter_mood_response
-  - action: utter_intro_session_mid_1
-  - action: utter_intro_session_mid_2
-  - action: utter_intro_session_mid_3
-  - action: utter_intro_session_mid_4
-  - action: utter_intro_session_mid_5
-  
-  
-- rule: mood and intro session last
-  steps:
-  - intent: mood_curr_session_last
-  - action: utter_mood_response
-  - action: utter_intro_session_last_1
-  - action: utter_intro_session_last_2
-  - action: utter_intro_session_last_3
-  - action: utter_intro_session_last_4
-  
+- rule: confirm energy levels 
+  steps: 
+  - intent: confirm_energy_levels
+  - action: utter_thank_for_energy_levels
+  - action: utter_present_plan_1
 
-- rule: activity effort session notfirst
-  steps:
-  - intent: confirm_intro_session_notfirst
-  - action: utter_last_activity_short
-  - action: utter_last_activity_effort_intro
-  - action: utter_last_activity_effort
-  
+- rule: create initial plan
+  steps: 
+  - intent: confirm_ready_initial_plan
+  - action: action_create_initial_plan
+  - action: utter_present_plan_2
 
-- rule: activity experience
+- rule: check plan understanding first walk
   steps:
-  - intent: effort_answer
-  - action: utter_respond_effort
-  - action: activity_experience_form
-  - active_loop: activity_experience_form
-  wait_for_user_input: false
-  
-- rule: activity experience ask add or change
-  condition:
-    - active_loop: activity_experience_form
-  steps:
-  - action: activity_experience_form
-  - active_loop: null
-  - action: utter_repeat_activity_completion_answer
-  
-- rule: activity experience confirmed so give dropout question
-  steps:
-  - intent: confirm_activity_experience
-  - action: utter_great
-  - action: utter_ask_dropout
-  
-- rule: response dropout question and start state questions
-  steps:
-  - intent: confirm_dropout
-  - action: action_save_activity_experience
-  - action: utter_thanks
-  - action: utter_state_question_intro
-  - action: utter_state_question_1
-  
-- rule: activity experience denied
-  steps:
-  - intent: deny_activity_experience
-  - action: activity_experience_mod_form
-  - active_loop: activity_experience_mod_form
-  wait_for_user_input: false
-  
-  
-- rule: activity experience modified so give dropout question
-  condition:
-    - active_loop: activity_experience_mod_form
-  steps:
-  - action: activity_experience_mod_form
-  - active_loop: null
-  - action: utter_thank_activity_experience_mod
-  - action: utter_ask_dropout
+  - intent: confirm_checked_plan
+  - action: utter_check_plan_first_walk
 
-  
-- rule: end state answering
+- rule: check plan understanding first walk correct
   steps:
-  - intent: confirm_state_1
-  - action: utter_transition_new_activity
-  - action: utter_propose_new_activity_intro
-  - action: utter_activity
-  - action: utter_activity_read
-  
-- rule: read activity
+  - intent: first_walk_correct
+  - action: utter_check_plan_first_walk_correct
+  - action: utter_explain_weeks
+
+- rule: check plan understanding first walk incorrect
   steps:
-  - intent: confirm_activity_read
-  - action: utter_cool
+  - intent: first_walk_incorrect
+  - action: utter_check_plan_first_walk_incorrect
+
+- rule: check plan understanding week 3
+  steps:
+  - intent: confirm_continue_check
+  - action: utter_check_plan_week_3
+
+- rule: check plan understanding week 3 correct
+  steps:
+  - intent: week_3_correct
+  - action: utter_check_plan_week_3_correct
+  - action: utter_state_variables_intro_1
+  - action: utter_state_variables_intro_2
+
+- rule: check plan understanding week 3 incorrect
+  steps:
+  - intent: week_3_incorrect
+  - action: utter_check_plan_week_3_incorrect
+
+
+- rule: loop asking for state and doing actions
+  steps:
+  - intent: confirm_state
+  - action: utter_state_confidence
+
+- rule: confirm confidence ask perceived usefulness
+  steps:
+  - intent: confirm_confidence
+  # - action: utter_confidence_repeat
+  - action: utter_thank_for_confidence
+  - action: utter_state_perceived_usefulness
+
+- rule: confirm perceived usefulness ask attitude
+  steps:
+  - intent: confirm_perceived_usefulness
+  # - action: utter_perceived_usefulness_repeat
+  - action: utter_thank_for_perceived_usefulness
+  - action: utter_state_attitude
+
+- rule: confirm attitude do action ask confidence
+  steps:
+  - intent: confirm_attitude
+  # - action: utter_attitude_repeat\
+  # - action: utter_thank_for_attitude
+  - action: action_save_event_state
+  - action: action_select_action
+
+- rule: explain planning
+  steps:
+  - intent: do_explain_planning
+  - action: utter_explain_planning_1
+  - action: utter_explain_planning_2
+
+- rule: explain planning continue
+  steps:
+  - intent: confirm_continue_explain_planning
+  - action: utter_explain_planning_3
+  - action: utter_explain_planning_4
+
+- rule: explain planning conclude
+  steps:
+  - intent: confirm_planning_input
+  - action: utter_thank_for_planning_explanation
+  - action: action_utter_corresponding_message_for_planning_relevance
+  - action: action_save_action
+  - action: utter_action_finished_loop_back
+
+- rule: identify barriers
+  steps:
+  - intent: do_identify_barriers
+  - action: utter_identify_barriers_1
+  - action: utter_identify_barriers_2
+  - action: utter_identify_barriers_3
+
+- rule: identify barriers continue 1
+  steps:
+  - intent: confirm_continue_identify_barriers_1
+  - action: utter_identify_barriers_4
+
+- rule: identify barriers continue 2
+  steps:
+  - intent: confirm_continue_identify_barriers_2
+  - action: utter_identify_barriers_5
+  - action: action_save_action
+  - action: utter_action_finished_loop_back
+
+- rule: deal with barriers
+  steps:
+  - intent: do_deal_with_barriers
+  - action: utter_deal_with_barriers_1
+  - action: utter_deal_with_barriers_2
+  - action: utter_deal_with_barriers_3
+  - action: utter_deal_with_barriers_continue
+
+- rule: deal with barriers continue 1
+  steps:
+  - intent: confirm_continue_deal_with_barriers_1
+  - action: utter_repeat_user_barrier
+  - action: utter_deal_with_barriers_4
+  - action: utter_deal_with_barriers_5
+  - action: utter_deal_with_barriers_6
+  - action: utter_deal_with_barriers_7
+
+- rule: deal with barriers continue 2
+  steps:
+  - intent: confirm_continue_deal_with_barriers_2
+  - action: action_utter_corresponding_strategy_for_barrier
+  - action: utter_deal_with_barriers_8
+
+- rule: deal with barriers continue 3
+  steps:
+  - intent: confirm_continue_deal_with_barriers_3
+  - action: utter_deal_with_barriers_9
+  - action: action_save_action
+  - action: utter_action_finished_loop_back
+
+- rule: deal with barriers skip repeat because no strategy
+  steps:
+  - intent: confirm_continue_deal_with_barriers_skip_extra
+  - action: action_utter_corresponding_strategy_for_barrier
+  - action: action_save_action
+  - action: utter_action_finished_loop_back
+
+
+- rule: show testimonial 1
+  steps:
+  - intent: do_show_testimonials
+  - action: utter_show_testimonials_1
+  - action: utter_show_testimonials_2
+  - action: action_show_testimonials
+  - action: utter_testimonial_1_intro
+  - action: utter_testimonial_1_body
+  - action: utter_ask_read_testimonial_1
+
+- rule: confirm read testimonial 1
+  steps:
+  - intent: confirm_read_testimonial_1
+  - action: utter_ask_takeaway_1
+
+- rule: show testimonial 2
+  steps:
+  - intent: confirm_takeaway_1
+  - action: utter_testimonial_another
+  - action: utter_testimonial_2_intro
+  - action: utter_testimonial_2_body
+  - action: utter_ask_read_testimonial_2
+
+- rule: confirm read testimonial 2
+  steps:
+  - intent: confirm_read_testimonial_2
+  - action: utter_ask_takeaway_2
+  
+  
+- rule: finish testimonails
+  steps:
+  - intent: confirm_takeaway_2
+  - action: utter_acknowledge_answer
+  - action: action_save_action
+  - action: utter_action_finished_loop_back
+
+- rule: takeaway 1 too short
+  steps:
+  - intent: takeaway_1_short
+  - action: utter_input_too_short_takeaway_1
+
+- rule: takeaway 2 too short
+  steps:
+  - intent: takeaway_2_short
+  - action: utter_input_too_short_takeaway_2
+
+- rule: barrier strategy too short
+  steps:
+  - intent: barrier_strategy_short
+  - action: utter_input_too_short_barrier_strategy
+
+- rule: barrier identified too short
+  steps:
+  - intent: barrier_identified_short
+  - action: utter_input_too_short_barrier_identified
+
+- rule: barrier repeat too short
+  steps:
+  - intent: barrier_repeat_short
+  - action: utter_input_too_short_barrier_repeat
+
+- rule: planning usefulness too short
+  steps:
+  - intent: planning_short
+  - action: utter_input_too_short_planning
+
+- rule: changes to plan
+  steps:
+  - intent: do_changes_to_plan
+  - action: utter_start_planning
+  - action: utter_changes_to_plan_1
+  - action: utter_changes_to_plan_intermediary
+  - action: utter_changes_to_plan_2
+  - action: utter_changes_to_plan_3
+  - action: utter_changes_to_plan_4
+  - action: utter_changes_to_plan_5
+  - action: utter_changes_to_plan_6
+  # - action: utter_changes_to_plan_7
+
+
+- rule: receive modified plan
+  steps:
+  - intent: plan_modified
+  - action: action_save_action
+  - action: utter_action_finished_loop_back
+
+- rule: confirm actions done
+  steps:
+  - intent: confirm_actions_done
+  - action: utter_almost_done
+  - action: utter_satisfaction
+
+- rule: confirm satisfaction ask commitment first week
+  steps:
+  - intent: confirm_satisfaction
+  - action: utter_commitment_1
+
+- rule: confirm commitment first week ask commitment whole plan
+  steps:
+  - intent: confirm_commitment_1
+  - action: utter_commitment_f
+
+- rule: confirm commitment whole plan ask confidence goal
+  steps:
+  - intent: confirm_commitment_f
+  - action: utter_confidence_goal
+
+- rule: confirm confidence goal utter end and save to db
+  steps:
+  - intent: confirm_confidence_goal
+  - action: utter_thank
   - action: utter_email_reminder
-  - action: utter_remind_next_part
-  
-- rule: confirm next part and save states to db
-  steps:
-  - intent: confirm_next_part
-  - action: action_save_session
   - action: utter_prolific_link
   - action: utter_goodbye
-  
+  - action: action_save_goal_plans_and_reward
+  - action: action_rearrange_db
+
+
 - rule: end
   steps:
   - intent: confirm_goodbye
   - action: utter_final_close_session
   - action: action_end_dialog
-  
