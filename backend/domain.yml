@@ -1190,7 +1190,7 @@ responses:
   - text: "Now, I want to ask when you have more energy than usual. We could make use of this opportunity to schedule a walk if you are also free at the time."
 
   utter_energy_instruction:
-  - text: "Like before, I would like you to pay attention to the left side of the sceen. Please specify how much energy you have during the weekdays and during the weekend by clicking the corresponding box."
+  - text: "Like before, I would like you to pay attention to the left side of the sceen. Please specify how much energy you have during the weekdays and during the weekends by clicking the corresponding box."
 
   utter_energy_levels_weekends_confirm:
   - text: "So those are your energy levels on weekends:\n Morning: {weekends_morning}, Midday: {weekends_midday}, Afternoon: {weekends_afternoon}, Evening: {weekends_evening}."
