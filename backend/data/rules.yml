@@ -78,38 +78,31 @@ rules:
   - intent: confirm_continue_purpose_1
   - action: utter_purpose_4
   - action: utter_purpose_5
-  - action: utter_continue_purpose_2
-
-- rule: continue purpose 2
-  steps:
-  - intent: confirm_continue_purpose_2
   - action: utter_purpose_6
-  - action: utter_purpose_7
-  - action: utter_purpose_8
   - action: utter_confirm_purpose
 
-
-- rule: confirm purpose explain goal
+- rule: confirm purpose explain planning
   steps:
   - intent: confirm_purpose
-  - action: utter_explain_goal_1
-  - action: utter_explain_goal_2  
-  - action: utter_explain_goal_3
-  - action: utter_explain_goal_4  
-  - action: utter_explain_goal_continue
-
-- rule: confirm goal explain planning
-  steps:
-  - intent: confirm_continue_goal
   - action: utter_explain_usefulness_planning_1
   - action: utter_explain_usefulness_planning_2
   - action: utter_explain_usefulness_planning_3
   - action: utter_explain_usefulness_planning_4
   - action: utter_explain_usefulness_planning_question
 
-- rule: internal motivation
+
+- rule: confirm usefulness planning explain goal
   steps:
   - intent: confirm_usefulness_planning_intro
+  - action: utter_explain_goal_1
+  - action: utter_explain_goal_2  
+  - action: utter_explain_goal_3
+  - action: utter_explain_goal_4  
+  - action: utter_explain_goal_continue
+
+- rule: internal motivation
+  steps:
+  - intent: confirm_explain_goal
   - action: utter_internal_motivation_1
   - action: utter_internal_motivation_2
   - action: utter_internal_motivation_question

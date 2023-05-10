@@ -977,54 +977,8 @@ responses:
   utter_mood_very_bad_response:
   - text: "I'm sorry to hear that. Do talk to someone if you have problems you need help with. For now, I hope our conversation might cheer you up a little bit."
 
-
-  utter_purpose_1:
-  - text: "Let me tell you a bit about myself. My goal is to help people create plans for becoming more physically active. Do keep in mind that I'm not asking you to do any physical activity. The purpose of this chat is to only create a plan."
-
-  utter_purpose_2:
-  - text: "Being physically active is generally regarded as beneficial for both health and mood."
-
-  utter_purpose_3:
-  - text: "To be a bit more specific, we will create a plan for taking walks during the week."
-
-  utter_continue_purpose_1:
-  - buttons:
-    - payload: /confirm_continue_purpose_1
-      title: "Let's continue."
-    text: "I'll explain a bit more about the plan later. For now, let me know when you are done reading so we can continue."
-
-
-  utter_purpose_4:
-  - text: "Walking is a great way to start being more active, since it's easily accessible for everyone."
-
-  utter_purpose_5:
-  - text: "This means that it doesn't take a lot of time like a workout might, nor does it require special equipment."
-
-  utter_continue_purpose_2:
-  - buttons:
-    - payload: /confirm_continue_purpose_2
-      title: "Yes."
-    text: "Additionally, you can easily build up by slightly increasing the amount of time you walk for. Are you ready to continue?"
-
-  utter_purpose_6:
-  - text: "Now, you may be thingking that just walking can't possibly help you be more active. Unlike leisurely walks though, you'll have to walk at moderate intensity for our plan to be effective."
-  
-  utter_purpose_7:
-  - text: "Moderate intensity is characterised by breathing more heavily than usual, while still being able to hold a short conversation."
-  
-  utter_purpose_8:
-  - text: "In other words, you should walk at a pace that makes it somewhat challenging for you to keep going, which is about 100 steps per minute for the average person."
-
-  utter_confirm_purpose:
-  - buttons:
-    - payload: /confirm_purpose
-      title: "I am ready."
-    text: "It might be a bit more or less for you, so see what works best for you. Please let me know when you are ready to continue."
-
-
   utter_prompt_usage:
   - text: "Before we start, let me explain how you can communicate with me."
-
 
   utter_explain_usage:
   - buttons:
@@ -1032,22 +986,36 @@ responses:
       title: "Yes."
     text: "You can simply click on one of the buttons, like you already did. Sometimes, you will have to use the chat box bellow to type your answer. Other times, you will need to do something on the left side of the screen. I will tell you when that is the case. Shall we continue?"
 
+  utter_purpose_1:
+  - text: "Let me tell you a bit about myself. My goal is to help people create plans for becoming more physically active. To be a bit more specific, we will create a plan for taking walks during the week."
 
-  utter_explain_goal_1:
-  - text: "In order to create a plan for walking, we should first set a goal for you."
+  utter_purpose_2:
+  - text: "Being physically active is generally regarded as beneficial for both health and mood."
 
-  utter_explain_goal_2:
-  - text: "Having a clear goal to work towards is helpful in keeping you motivated."
+  utter_purpose_3:
+  - text: "And a good way of doing that is by taking regular walks, since that's easily accessible for everyone."
 
-  utter_explain_goal_3:
-  - text: "However, for the goal to be most effective, you should pick a goal is both challenging and achievable."
-
-  utter_explain_goal_4:
-  - text: "You should feel like you have to put in the effort to reach your goal, while avoiding aiming for something unrealistic."
-
-  utter_explain_goal_continue:
+  utter_continue_purpose_1:
   - buttons:
-    - payload: /confirm_continue_goal
+    - payload: /confirm_continue_purpose_1
+      title: "Let's continue."
+    text: "This means that it doesn't take a lot of time like a workout might, nor does it require special equipment. Let me know when you are done reading so we can continue."
+
+  utter_purpose_4:
+  - text: "Okay! Let me explain in a bit more detail tha kinds of walks we will make a plan for."
+
+  utter_purpose_5:
+  - text: "Unlike leisurely walks, you'll have to walk at moderate intensity for our plan to be effective."
+  
+  utter_purpose_6:
+  - text: "Moderate intensity is characterised by breathing more heavily than usual, while still being able to hold a short conversation."
+  
+  utter_purpose_7:
+  - text: "In other words, you should walk at a pace that makes it somewhat challenging for you to keep going, which is about 100 steps per minute for the average person."
+
+  utter_confirm_purpose:
+  - buttons:
+    - payload: /confirm_purpose
       title: "I am done."
     text: "Once you are done reading, I will explain how this all ties together with the help of the plan."
 
@@ -1066,9 +1034,27 @@ responses:
   utter_explain_usefulness_planning_question:
   - buttons:
     - payload: /confirm_usefulness_planning_intro
-      title: "Yes."
-    text: "Are you ready to continue?"
+      title: "Let's continue."
+    text: "Let me know when you are done reading and you want to continue."  
 
+  utter_explain_goal_1:
+  - text: "Okay! In order to create a plan for walking, we should first set a goal for you."
+
+  utter_explain_goal_2:
+  - text: "Having a clear goal to work towards is helpful in keeping you motivated."
+
+  utter_explain_goal_3:
+  - text: "However, for the goal to be most effective, you should pick a goal is both challenging and achievable."
+
+  utter_explain_goal_4:
+  - text: "You should feel like you have to put in the effort to reach your goal, while avoiding aiming for something unrealistic."
+
+  utter_explain_goal_question:
+  - buttons:
+    - payload: /confirm_explain_goal
+      title: "Let's move on."
+    text: "Let me know when you are ready to continue."  
+  
   utter_internal_motivation_1:
   - text: "Okay! Another important part of achieving your goal is being motivated."
 
