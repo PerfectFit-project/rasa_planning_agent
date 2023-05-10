@@ -416,6 +416,7 @@ function setBotResponse(response) {
 						
 						$('.usrInput').attr("disabled",false);
 						$(".usrInput").prop('placeholder', "Type something...");
+						barrier = true;
 						barrier_type = response_text[j].split("User barrier: ")[1];
 					}
 					else if(response_text[j].includes("The question was: How can you overcome this barrier?")){
