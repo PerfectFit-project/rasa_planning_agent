@@ -964,7 +964,7 @@ responses:
       title: "I'm alright."
     - payload: /confirm_mood_bad
       title: "Not so good…"
-    - payload: /confirm_mood_bad
+    - payload: /confirm_mood_very_bad
       title: "Quite bad…"
     text: "How are you doing today?"
 
