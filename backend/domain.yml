@@ -1135,7 +1135,7 @@ responses:
   - buttons:
     - payload: /confirm_initial_plan
       title: "I am prepared."
-    text: "Great! Take walks regularly and you'll be able to achieve your goal of {goal} steps per day. Now, tell me when you are ready to create a plan that can help you reach this goal."
+    text: "Great! Take walks regularly and you'll be able to achieve your goal of {goal} steps per day. Now, tell me when you are ready to continue."
 
 
   utter_internal_motivation_1:
