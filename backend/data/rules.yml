@@ -365,6 +365,7 @@ rules:
   - intent: do_changes_to_plan
   - action: utter_start_planning
   - action: utter_changes_to_plan_1
+  - action: utter_changes_to_plan_intermediary
   - action: utter_changes_to_plan_2
   - action: utter_changes_to_plan_3
   - action: utter_changes_to_plan_4

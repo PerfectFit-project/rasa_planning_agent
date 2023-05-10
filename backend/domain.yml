@@ -1543,7 +1543,10 @@ responses:
   - text: "Okay, that's good!"
 
   utter_changes_to_plan_1:
-  - text: "I see. Thank you for informing me. I propose we take another look at the plan. Maybe considering our discussion so far, you realised that you want to change some of the times when you have to go for walks. If you do not want to change anything, please just click the button titled 'I am done adjusting the plan'"
+  - text: "I see. Thank you for informing me. I propose we take another look at the plan."
+
+  utter_changes_to_plan_intermediary:
+  - text: "Maybe considering our discussion so far, you realised that you want to change some of the times when you have to go for walks. If you do not want to change anything, please just click the button titled 'I am done adjusting the plan'"
 
   utter_changes_to_plan_2:
   - text: "If you take a look at the let side of the screen, you will see the current plan."
