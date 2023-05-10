@@ -118,7 +118,7 @@ $(".usrInput").on("keyup keypress", function (e) {
 
 				$('.usrInput').attr("disabled",true);
 			}
-			else if(barrier!= "other"){
+			else if(barrier== "time" || barrier == "energy" || barrier == "people" || barrier == "equipment" || barrier == "family"){
 				var num_words = text.split(' ').length;
 
 				if(num_words<3){
