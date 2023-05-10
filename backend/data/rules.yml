@@ -322,6 +322,36 @@ rules:
   - action: action_save_action
   - action: utter_action_finished_loop_back
 
+- rule: takeaway 1 too short
+  steps:
+  - intent: takeaway_1_short
+  - action: utter_input_too_short_takeaway_1
+
+- rule: takeaway 2 too short
+  steps:
+  - intent: takeaway_2_short
+  - action: utter_input_too_short_takeaway_2
+
+- rule: barrier strategy too short
+  steps:
+  - intent: barrier_strategy_short
+  - action: utter_input_too_short_barrier_strategy
+
+- rule: barrier identified too short
+  steps:
+  - intent: barrier_identified_short
+  - action: utter_input_too_short_barrier_identified
+
+- rule: barrier repeat too short
+  steps:
+  - intent: barrier_repeat_short
+  - action: utter_input_too_short_barrier_repeat
+
+- rule:planning usefulness too short
+  steps:
+  - intent: planning_short
+  - action: utter_input_too_short_planning
+
 - rule: changes to plan
   steps:
   - intent: do_changes_to_plan

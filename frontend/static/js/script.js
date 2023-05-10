@@ -53,18 +53,33 @@ $(".usrInput").on("keyup keypress", function (e) {
 			$(".usrInput").blur();
 
 			if(current_takeaway == 1){
-				var message = "/confirm_takeaway_1";
+				var num_words = text.split(' ').length;
+
+				if(num_words<3){
+					var message = "/takeaway_1_short";
+				}
+				else{
+					var message = "/confirm_takeaway_1";
+				}
+				
 				setUserResponse(text);
 				send(message);
 
 				$('.usrInput').attr("disabled",true);
 			}
 			else if(current_takeaway == 2){
-				var message = "/confirm_takeaway_2";
+				var num_words = text.split(' ').length;
+
+				if(num_words<3){
+					var message = "/takeaway_2_short";
+				}
+				else{
+					var message = "/confirm_takeaway_2";
+					current_takeaway = 99;
+				}
+
 				setUserResponse(text);
 				send(message);
-
-				current_takeaway = 99;
 
 				$('.usrInput').attr("disabled",true);
 			}
@@ -104,38 +119,66 @@ $(".usrInput").on("keyup keypress", function (e) {
 				$('.usrInput').attr("disabled",true);
 			}
 			else if(barrier){
-				var message = "/confirm_continue_deal_with_barriers_2";
+				var num_words = text.split(' ').length;
+
+				if(num_words<3){
+					var message = "/barrier_strategy_short";
+				}
+				else{
+					var message = "/confirm_continue_deal_with_barriers_2";
+					barrier = false;
+				}
+				
 				setUserResponse(text);
 				send(message);
-
-				barrier = false;
 
 				$('.usrInput').attr("disabled",true);
 			}
 			else if(identified_barrier){
-				var message = `/confirm_continue_identify_barriers_2{"barrier_description":"${text}"}`;
+				var num_words = text.split(' ').length;
+
+				if(num_words<3){
+					var message = "/barrier_identified_short";
+				}
+				else{
+					var message = `/confirm_continue_identify_barriers_2{"barrier_description":"${text}"}`;
+					barrier = false;
+				}
+
 				setUserResponse(text);
 				send(message);
-
-				identified_barrier = false;
 
 				$('.usrInput').attr("disabled",true);
 			}
 			else if(barrier_repeat){
-				var message = "/confirm_continue_deal_with_barriers_3";
+				var num_words = text.split(' ').length;
+
+				if(num_words<3){
+					var message = "/barrier_repeat_short";
+				}
+				else{
+					var message = "/confirm_continue_deal_with_barriers_3";
+					barrier_repeat = false;
+				}
+
 				setUserResponse(text);
 				send(message);
-
-				barrier_repeat = false;
 
 				$('.usrInput').attr("disabled",true);
 			}
 			else if(planning){
-				var message = "/confirm_planning_input";
+				var num_words = text.split(' ').length;
+
+				if(num_words<3){
+					var message = "/planning_short";
+				}
+				else{
+					var message = "/confirm_planning_input";
+					planning = false;
+				}
+
 				setUserResponse(text);
 				send(message);
-
-				barrier_repeat = false;
 
 				$('.usrInput').attr("disabled",true);
 			}
@@ -324,7 +367,7 @@ function setBotResponse(response) {
 						button.style.display = "table";
 
 					}
-					else if(response_text[j].includes("What can you take away from this example for yourself? Please type this in the chat.")){
+					else if(response_text[j].includes("What can you take away from this example for yourself? Please type this in the chat.") || response_text[j].includes("The question was: What can you take away from this example for yourself?")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
 						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
 						
@@ -332,7 +375,7 @@ function setBotResponse(response) {
 						$(".usrInput").prop('placeholder', "Type something...");
 						current_takeaway = 1;
 					}
-					else if(response_text[j].includes("How about this example? What can you take away for yourself? Please type this in the chat.")){
+					else if(response_text[j].includes("How about this example? What can you take away for yourself? Please type this in the chat.") || response_text[j].includes("The question was: What can you take away from this second example for yourself?")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
 						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
 						
@@ -357,7 +400,7 @@ function setBotResponse(response) {
 						$(".usrInput").prop('placeholder', "Type something...");
 						check_first_walk = true;
 					}
-					else if(response_text[j].includes("Let's first see what you think would be a good way of dealing with your barrier.")){
+					else if(response_text[j].includes("Let's first see what you think would be a good way of dealing with your barrier.") || response_text[j].includes("The question was: How can you overcome this barrier?")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
 						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
 						
@@ -365,7 +408,7 @@ function setBotResponse(response) {
 						$(".usrInput").prop('placeholder', "Type something...");
 						barrier = true;
 					}
-					else if(response_text[j].includes("I see. Thank you for sharing. Would you mind briefly describing your barrier to me in the chat?")){
+					else if(response_text[j].includes("I see. Thank you for sharing. Would you mind briefly describing your barrier to me in the chat?") || response_text[j].includes("The question was: Would you mind briefly describing your barrier to me in the chat?")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
 						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
 						
@@ -373,7 +416,7 @@ function setBotResponse(response) {
 						$(".usrInput").prop('placeholder', "Type something...");
 						identified_barrier = true;
 					}
-					else if(response_text[j].includes("Okay! Now, you have your approach to this barrier.")){
+					else if(response_text[j].includes("Okay! Now, you have your approach to this barrier.") || response_text[j].includes("The question was: How can you overcome this barrier after having read my suggestion?")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
 						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
 						
@@ -381,7 +424,7 @@ function setBotResponse(response) {
 						$(".usrInput").prop('placeholder', "Type something...");
 						barrier_repeat = true;
 					}
-					else if(response_text[j].includes("Good choice!")){
+					else if(response_text[j].includes("Good choice!") || response_text[j].includes("The question was: How do you think planning can help you do this?")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
 						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
 						

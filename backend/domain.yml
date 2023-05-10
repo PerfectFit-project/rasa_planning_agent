@@ -130,6 +130,13 @@ intents:
 - confirm_continue_deal_with_barriers_2
 - confirm_continue_deal_with_barriers_3
 
+- takeaway_1_short
+- takeaway_2_short
+- barrier_strategy_short
+- barrier_identified_short
+- barrier_repeat_short
+- planning_short
+
 - confirm_actions_done
 
 ## reward signal
@@ -1344,6 +1351,24 @@ responses:
   utter_thank_for_attitude:
   - text: "That is good to know. Thank you."
   - text: "Thanks for telling me!"
+
+  utter_input_too_short_takeaway_1:
+  - text: "It seems like your answer is a bit too short... Please type at least 3 words. The question was: What can you take away from this example for yourself?"
+
+  utter_input_too_short_takeaway_2:
+  - text: "It seems like your answer is a bit too short... Please type at least 3 words. The question was: What can you take away from this second example for yourself?"
+
+  utter_input_too_short_barrier_identified:
+  - text: "It seems like your answer is a bit too short... Please type at least 3 words. The question was: Would you mind briefly describing your barrier to me in the chat?"
+  
+  utter_input_too_short_barrier_strategy:
+  - text: "It seems like your answer is a bit too short... Please type at least 3 words. The question was: How can you overcome this barrier?"
+
+  utter_input_too_short_barrier_repeat:
+  - text: "It seems like your answer is a bit too short... Please type at least 3 words. The question was: How can you overcome this barrier after having read my suggestion?"
+
+  utter_input_too_short_planning:
+  - text: "It seems like your answer is a bit too short... Please type at least 3 words. The question was: How do you think planning can help you do this?"
 
   utter_explain_planning_1:
   - text: "Thanks for telling me! I think it would be useful to look again at more ways in which planning can help you be more physically active by walking."
