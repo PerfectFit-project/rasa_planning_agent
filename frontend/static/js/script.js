@@ -128,10 +128,10 @@ $(".usrInput").on("keyup keypress", function (e) {
 				}
 				else{
 					if(barrier_type != "time" && barrier_type != "energy" && barrier_type != "people" && barrier_type != "equipment" && barrier_type != "family"){
-						var message = "/confirm_continue_deal_with_barriers_2";
+						var message = "/confirm_continue_deal_with_barriers_skip_extra";
 					}
 					else{
-						var message = "/confirm_continue_deal_with_barriers_skip_extra";
+						var message = "/confirm_continue_deal_with_barriers_2";
 					}
 					
 				}
