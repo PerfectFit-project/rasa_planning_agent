@@ -171,7 +171,6 @@ rules:
   steps:
   - intent: first_walk_incorrect
   - action: utter_check_plan_first_walk_incorrect
-  - action: utter_explain_weeks
 
 - rule: check plan understanding week 3
   steps:
