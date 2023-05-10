@@ -1119,7 +1119,7 @@ responses:
   - text: "I see, thank you for letting me know!"
 
   utter_routines_1:
-  - text: "Alright! In order to started with creating the plan, let's see when you have free time."
+  - text: "Alright! In order to get started with creating the plan, let's see when you have free time."
 
   utter_routines_2:
   - text: "You don't have to provide me with your exact daily schedule, but let me know if you have any routines in place."
