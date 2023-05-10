@@ -1067,8 +1067,8 @@ responses:
   utter_set_goal_continue:
   - buttons:
     - payload: /confirm_set_goal_continue
-      title: "Yes."
-    text: "Shall we move on?"
+      title: "I am ready."
+    text: "Once you are ready to continue, please click the button."
 
   utter_set_goal_4:
   - text: "Okay. I assume you take at least about 2000 steps per day through your regular activities, so one of your options is to increase that amount by 8000 steps to reach a total of 10000 steps per day."
@@ -1089,8 +1089,8 @@ responses:
   utter_confirm_goal:
   - buttons:
     - payload: /confirm_initial_plan
-      title: "Let's do that."
-    text: "Great! Take walks regularly and you'll be able to achieve your goal of {goal} steps per day. Now, let's create a plan that can help you reach this goal."
+      title: "I am prepared."
+    text: "Great! Take walks regularly and you'll be able to achieve your goal of {goal} steps per day. Now, tell me when you are ready to create a plan that can help you reach this goal."
 
 
   utter_internal_motivation_1:
@@ -1152,22 +1152,22 @@ responses:
 
 
   utter_thank_for_energy_levels:
-  - text: "Thank you for letting me know when you are energetic."
+  - text: "Thank you for letting me know when you have more energy than usual."
 
   utter_present_plan_1:
   - buttons:
     - payload: /confirm_ready_initial_plan
-      title: "Okay."
-    text: "Now, let's see initial plan! Don't worry if it's not entirely to you liking yet. You'll have opportunities to modify it later."
+      title: "Let's proceed."
+    text: "Now, let's see initial plan! Don't worry if it's not entirely to you liking yet. You'll have opportunities to modify it later. Please let me know when you are ready to continue."
 
   utter_present_plan_2:
   - buttons:
     - payload: /confirm_checked_plan{"changes_to_plan":"0"}
-      title: "Yes."
-    text: "I'll leave the plan on the left side on the screen so you can take a look at it later. Note that you may need to scroll to see the entire plan, depending on your screen resolution. Are you ready to continue?"
+      title: "Let's discuss the plan."
+    text: "I'll leave the plan on the left side on the screen so you can take a look at it later. Note that you may need to scroll to see the entire plan, depending on your screen resolution. Let me know when you are prepared to discuss the plan in more detail. "
 
   utter_present_plan_3:
-  - text: "Before we move on, let's took a bit at the plan. On the left side of your screen, you should see a big table with a view similar to that of a calendar. Time slots when you should take walks are marked with the duration you should walk for. You can also notice that the duration increases each week."
+  - text: "Okay, let's take a took at the plan. On the left side of your screen, you should see a big table with a view similar to that of a calendar. Time slots when you should take walks are marked with the duration you should walk for. You can also notice that the duration increases each week."
 
   utter_check_plan_first_walk:
   - text: "You can see the first two weeks planned in detail. To check that you understand what the plan signifies, let's do a quick pop quiz! When is the first time you have to take a walk? Please type your answer as day_time. For example, if your first walk is on Friday morning, please type 'friday_morning'."
@@ -1181,8 +1181,8 @@ responses:
   utter_explain_weeks:
   - buttons:
     - payload: /confirm_continue_check
-      title: "Yes."
-    text: "Moving on, you can also see the third and fourth weeks, but only in terms of how many hours you have to walk and how often. For the next two months, you see only how much you will have to do in the last week of that month, to give you an idea of the effort that you are building up towards. Are you ready to continue?"
+      title: "I am done checking the plan after the first two weeks."
+    text: "Moving on, you can also see the third and fourth weeks, but only in terms of how many hours you have to walk and how often. For the next two months, you see only how much you will have to do in the last week of that month, to give you an idea of the effort that you are building up towards. Let me know when you are done reading."
 
   utter_check_plan_week_3:
   - text: "Let's do an extra check to make sure everything is clear. How much time will you have to walk on your third week? Please type your answer as a number with one decimal point. For example, if your answer is 1 and a half hours, please type '1.5'"
@@ -1199,8 +1199,8 @@ responses:
   utter_state_variables_intro_2:
   - buttons:
     - payload: /confirm_state
-      title: "Yes."
-    text: "Are you prepared?"
+      title: "I am ready."
+    text: "Let me know when you are ready to continue."
 
   utter_state_confidence:
   - buttons:
@@ -1444,14 +1444,14 @@ responses:
   utter_ask_read_testimonial_1:
   - buttons:
     - payload: /confirm_read_testimonial_1
-      title: "Yes."
-    text: "Have you finished reading how planning helped this person?"
+      title: "I am done."
+    text: "Please click the button once you are done reading how planning helped this person."
 
   utter_ask_read_testimonial_2:
   - buttons:
     - payload: /confirm_read_testimonial_2
-      title: "Yes."
-    text: "Have you finished reading how planning helped this person?"
+      title: "I am done."
+    text: "Please click the button once you are done reading how planning helped this person."
 
   utter_ask_takeaway_1:
   - text: "What can you take away from this example for yourself? Please type this in the chat."
