@@ -987,13 +987,13 @@ responses:
     text: "You can simply click on one of the buttons, like you already did. Sometimes, you will have to use the chat box bellow to type your answer. Other times, you will need to do something on the left side of the screen. I will tell you when that is the case. Shall we continue?"
 
   utter_purpose_1:
-  - text: "Let me tell you a bit about myself. My goal is to help people create plans for becoming more physically active. To be a bit more specific, we will create a plan for taking walks during the week."
+  - text: "Let me tell you a bit about myself. My goal is to help people create plans for taking walks during the week."
 
   utter_purpose_2:
-  - text: "Being physically active is generally regarded as beneficial for both health and mood."
+  - text: "Walking is generally regarded as beneficial for both health and mood."
 
   utter_purpose_3:
-  - text: "And a good way of doing that is by taking regular walks, since that's easily accessible for everyone."
+  - text: "Another advantage of taking regular walks is that they are easily accessible for everyone."
 
   utter_continue_purpose_1:
   - buttons:
