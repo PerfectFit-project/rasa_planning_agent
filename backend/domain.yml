@@ -21,7 +21,7 @@ intents:
 - confirm_usage
 
 # goal
-- confirm_continue_goal
+- confirm_explain_goal
 
 - confirm_set_goal_continue
 
