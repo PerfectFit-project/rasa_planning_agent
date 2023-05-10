@@ -842,19 +842,33 @@ slots:
     - type: from_entity
       entity: show_testimonials
 
-  testimonial_1:
+  testimonial_1_intro:
     type: text
     influence_conversation: false
     mappings:
     - type: from_entity
-      entity: testimonial_1
+      entity: testimonial_1_intro
 
-  testimonial_2:
+  testimonial_1_body:
     type: text
     influence_conversation: false
     mappings:
     - type: from_entity
-      entity: testimonial_2
+      entity: testimonial_1_body
+
+  testimonial_2_intro:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: testimonial_2_intro
+
+  testimonial_2_body:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: testimonial_2_body
 
 
   actions_done:
