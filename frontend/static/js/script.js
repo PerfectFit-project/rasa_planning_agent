@@ -592,13 +592,13 @@ function toggle_slot_energy(clicked_id){
 			document.getElementById(element).style.backgroundColor = "white";
 		});
 
-		setlect_energy(clicked_id);
+		select_energy(clicked_id);
 
 		
 	}
 }
 
-function setlect_energy(clicked_id){
+function select_energy(clicked_id){
 
 	var time_slot = document.getElementById(clicked_id);
 
