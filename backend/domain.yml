@@ -1068,10 +1068,10 @@ responses:
   - text: "Nice. So, how does planning help you make progress towards your goal?"
 
   utter_explain_usefulness_planning_2:
-  - text: "If you have a clear indication of when you should do an activity, it will be much easier for you to actually do it."
+  - text: "If you have a clear indication of when you should go for a walk, it will be much easier for you to actually do it."
 
   utter_explain_usefulness_planning_3:
-  - text: "You'll have a clear schedule set in place, which will make it more difficult to avoid doing exercise or to postpone it."
+  - text: "You'll have a clear schedule set in place, which will make it more difficult to avoid taking a walk or to postpone it."
 
   utter_explain_usefulness_planning_4:
   - text: "After all, there is only so much time in a week, so, by making a plan, you integrate walking into your schedule such that you actually have time to do it."
