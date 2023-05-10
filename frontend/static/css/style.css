@@ -512,13 +512,13 @@ div.content_data::-webkit-scrollbar {
 	display: block;
 	background: #2ed59f;
 	color: #fff;
-	padding: 5px;
+	padding: 2px;
 	text-align: center;
 	margin-bottom: 1px;
 	cursor: pointer;
 	border-radius: 50px;
-	font-size: 14px;
-	margin: 5px;
+	font-size: 12px;
+	margin: 2px;
 	word-wrap: break-word;
 }
 
