@@ -10,9 +10,11 @@ var check_first_walk = false;
 
 var check_week_3 = false;
 
-var barrier = "";
+var barrier_strategy = false;
 
 var identified_barrier = false;
+
+var barrier_type = "";
 
 var barrier_repeat = false;
 
@@ -118,18 +120,23 @@ $(".usrInput").on("keyup keypress", function (e) {
 
 				$('.usrInput').attr("disabled",true);
 			}
-			else if(barrier== "time" || barrier == "energy" || barrier == "people" || barrier == "equipment" || barrier == "family"){
+			else if(barrier_strategy){
 				var num_words = text.split(' ').length;
 
 				if(num_words<3){
 					var message = "/barrier_strategy_short";
 				}
 				else{
-					var message = "/confirm_continue_deal_with_barriers_2";
+					if(barrier_type != "time" && barrier_type != "energy" && barrier_type != "people" && barrier_type != "equipment" && barrier_type != "family"){
+						var message = "/confirm_continue_deal_with_barriers_2";
+					}
+					else{
+						var message = "/confirm_continue_deal_with_barriers_skip_extra";
+					}
 					
 				}
 
-				barrier = "none";
+				barrier_strategy = false;
 				
 				setUserResponse(text);
 				send(message);
@@ -409,7 +416,7 @@ function setBotResponse(response) {
 						
 						$('.usrInput').attr("disabled",false);
 						$(".usrInput").prop('placeholder', "Type something...");
-						barrier = response_text[j].split("User barrier: ")[1];
+						barrier_type = response_text[j].split("User barrier: ")[1];
 					}
 					else if(response_text[j].includes("The question was: How can you overcome this barrier?")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
@@ -427,7 +434,7 @@ function setBotResponse(response) {
 						$(".usrInput").prop('placeholder', "Type something...");
 						identified_barrier = true;
 					}
-					else if(response_text[j].includes("Okay! Now, you have your approach to this barrier.") || response_text[j].includes("The question was: How can you overcome this barrier after having read my suggestion?")){
+					else if(response_text[j].includes("Okay! Now, you have your approach to this barrier. Here is a strategy I thought about.") || response_text[j].includes("The question was: How can you overcome this barrier after having read my suggestion?")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
 						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
 						

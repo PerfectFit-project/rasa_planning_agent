@@ -130,6 +130,8 @@ intents:
 - confirm_continue_deal_with_barriers_2
 - confirm_continue_deal_with_barriers_3
 
+- confirm_continue_deal_with_barriers_skip_extra
+
 - takeaway_1_short
 - takeaway_2_short
 - barrier_strategy_short

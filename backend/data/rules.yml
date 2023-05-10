@@ -286,6 +286,13 @@ rules:
   - action: action_save_action
   - action: utter_action_finished_loop_back
 
+- rule: deal with barriers skip repeat because no strategy
+  steps:
+  - intent: confirm_continue_deal_with_barriers_skip_extra
+  - action: action_utter_corresponding_strategy_for_barrier
+  - action: action_save_action
+  - action: utter_action_finished_loop_back
+
 
 - rule: show testimonial 1
   steps:
