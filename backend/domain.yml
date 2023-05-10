@@ -1176,7 +1176,7 @@ responses:
   - text: "That's right, your first walk is on {plan_check_first_walk}."
 
   utter_check_plan_first_walk_incorrect:
-  - text: "Unfortunately, you are not right. If you take another look at the plan, you will see that your first walk is on {plan_check_first_walk}."
+  - text: "Unfortunately, you are not right. Please, take another look at the plan. You can see the first two weeks planned in detail. Look for the first day with a time slot selected, then look at what time in that day you should take a walk. Please type your answer as day_time."
   
   utter_explain_weeks:
   - buttons:
