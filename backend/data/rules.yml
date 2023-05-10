@@ -30,6 +30,14 @@ rules:
   - action: utter_default_close_session
   - action: action_end_dialog
 
+- rule: mood very good explain purpose
+  steps:
+  - intent: confirm_mood_good
+  - action: utter_mood_very_good_response  
+  - action: utter_purpose_1
+  - action: utter_purpose_2
+  - action: utter_purpose_3
+  - action: utter_continue_purpose_1
 
 - rule: mood good explain purpose
   steps:
@@ -52,6 +60,15 @@ rules:
 - rule: mood bad explain purpose
   steps:
   - intent: confirm_mood_bad
+  - action: utter_mood_bad_response
+  - action: utter_purpose_1
+  - action: utter_purpose_2
+  - action: utter_purpose_3
+  - action: utter_continue_purpose_1
+
+- rule: mood bad explain purpose
+  steps:
+  - intent: confirm_mood_very_bad
   - action: utter_mood_bad_response
   - action: utter_purpose_1
   - action: utter_purpose_2
