@@ -202,13 +202,13 @@ class ActionUtterCorrespondingMessageForPlanningRelevance(Action):
         relevance = tracker.get_slot('planning_relevance')
 
         if relevance == "motivation":
-            dispatcher.utter_message(text=f"Ultimately, the plan is meant to help you take walks regularly. Rather than relying on spontaneous bursts motivation, having a plan can help give you the cue to start.")
+            dispatcher.utter_message(text=f"Ultimately, the plan is meant to help you take walks regularly. According to studies in planning for physical activity, rather than relying on spontaneous bursts motivation, having a plan can help give you the cue to start.")
         elif relevance == "habit":
-            dispatcher.utter_message(text=f"By creating a plan that is consistent across different weeks, it will be easier for you to form a habit of when you should go for a walk.")
+            dispatcher.utter_message(text=f"By creating a plan that is consistent across different weeks, it will be easier for you to form a habit of when you should go for a walk. According to experts in health psychology, a habit can help you reach your goal.")
         elif relevance == "road":
-            dispatcher.utter_message(text=f"The plan shows you what you will be able to achieve in the end, so you have an idea of the goal you are working towards.")
+            dispatcher.utter_message(text=f"The plan shows you what you will be able to achieve in the end, so you have an idea of the goal you are working towards. This is helpful in terms of staying consistent with your walking schedule, according to experts in health psychology.")
         elif relevance == "obstacles":
-            dispatcher.utter_message(text=f"Planning can help you identify and deal with obstacles that might prevent you from going on your walks.")
+            dispatcher.utter_message(text=f"According to several different studies, planning can help you identify and deal with obstacles that might prevent you from going on your walks.")
             dispatcher.utter_message(text=f"By anticipating these obstacles and devising strategies for overcoming them ahead of time, it will be easier to deal with them when they happen.")
                 
         return []
