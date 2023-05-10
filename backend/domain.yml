@@ -953,7 +953,7 @@ responses:
     - payload: /confirm_mood_very_good
       title: "I'm doing fantastic today!"
     - payload: /confirm_mood_good
-      title: "I'm doing great."
+      title: "I'm doing good."
     - payload: /confirm_mood_neutral
       title: "I'm alright."
     - payload: /confirm_mood_bad
