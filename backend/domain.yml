@@ -1577,10 +1577,8 @@ responses:
     text: "Let me know when you are ready to continue."
   - buttons:
     - payload: /confirm_actions_done
-      title: "Okay!"
-    - payload: /confirm_actions_done
-      title: "Nice!"
-    text: "We're almost done with the dialogue! I just have a few more questions for you."
+      title: "Let's continue."
+    text: "We're almost done with the dialogue! I just have a few more questions for you. Let me know when you are ready to continue."
 
   utter_almost_done:
   - text: "We're almost done with the dialogue! I just have a few more questions for you."

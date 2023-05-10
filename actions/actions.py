@@ -674,6 +674,31 @@ class ActionSelectAction(Action):
 
             conn.close()
 
+            # check how many actions have been done
+            # after actions 2 and 4, show a meta utterance saying that we repeat the state questions
+
+            changes_to_plan = int(tracker.get_slot("changes_to_plan"))
+
+            explain_planning = tracker.get_slot("explain_planning")
+
+            identify_barriers = tracker.get_slot("identify_barriers")
+
+            deal_with_barriers = tracker.get_slot("deal_with_barriers")
+
+            show_testimonials = tracker.get_slot("show_testimonials")
+
+            num_actions = changes_to_plan + explain_planning + identify_barriers + deal_with_barriers + show_testimonials
+
+            if num_actions == 2
+
+                dispatcher.utter_message(text="Here come the three questions about your situation again.")
+
+            elif num_actions == 4:
+
+                dispatcher.utter_message(text="I will once again ask you about your situation through three questions.")
+            
+
+
             if action == "changes_to_plan":
                 
                 changes_to_plan += 1
