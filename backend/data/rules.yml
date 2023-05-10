@@ -228,10 +228,11 @@ rules:
   - intent: confirm_continue_explain_planning
   - action: utter_explain_planning_3
   - action: utter_explain_planning_4
-  - action: utter_explain_planning_5
-  - action: utter_explain_planning_6
-  - action: utter_explain_planning_7
-  - action: utter_explain_planning_8
+
+- rule: explain planning conclude
+  steps:
+  - intent: confirm_planning_input
+  - action: action_utter_corresponding_message_for_planning_relevance
   - action: action_save_action
   - action: utter_action_finished_loop_back
 

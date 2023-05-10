@@ -190,6 +190,29 @@ class ActionUtterCorrespondingStrategyForBarrier(Action):
                 
         return []
 
+class ActionUtterCorrespondingMessageForPlanningRelevance(Action):
+
+    def name(self) -> Text:
+        return "action_utter_corresponding_message_for_planning_relevance"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        relevance = tracker.get_slot('planning_relevance')
+
+        if relevance == "motivation":
+            dispatcher.utter_message(text=f"Ultimately, the plan is meant to help you take walks regularly. Rather than relying on spontaneous bursts motivation, having a plan can help give you the cue to start.")
+        elif relevance == "habit":
+            dispatcher.utter_message(text=f"By creating a plan that is consistent across different weeks, it will be easier for you to form a habit of when you should go for a walk.")
+        elif relevance == "road":
+            dispatcher.utter_message(text=f"The plan shows you what you will be able to achieve in the end, so you have an idea of the goal you are working towards.")
+        elif relevance == "obstacles":
+            dispatcher.utter_message(text=f"Planning can help you identify and deal with obstacles that might prevent you from going on your walks.")
+            dispatcher.utter_message(text=f"By anticipating these obstacles and devising strategies for overcoming them ahead of time, it will be easier to deal with them when they happen.")
+                
+        return []
+
 def round_to_nearest_5(n):
     return 5 * round(n / 5)
 

@@ -123,6 +123,7 @@ intents:
 - plan_modified
 
 - confirm_continue_explain_planning
+- confirm_planning_input
 - confirm_continue_identify_barriers_1
 - confirm_continue_identify_barriers_2
 - confirm_continue_deal_with_barriers_1
@@ -306,6 +307,9 @@ entities:
     influence_conversation: false
 
 - barrier_description:
+    influence_conversation: false
+
+- planning_relevance:
     influence_conversation: false
 
 - testimonial_1_intro:
@@ -796,6 +800,18 @@ slots:
     mappings:
     - type: from_entity
       entity: explain_planning
+
+  planning_relevance:
+    type: categorical
+    influence_conversation: false
+    values:
+      - motivation
+      - habit
+      - road
+      - obstacles
+    mappings:
+    - type: from_entity
+      entity: planning_relevance
 
   identify_barriers:
     type: bool
@@ -1334,33 +1350,35 @@ responses:
 
   utter_explain_planning_2:
   - buttons:
-    - payload: /confirm_continue_explain_planning
-      title: "It can help increase my motivation."
-    - payload: /confirm_continue_explain_planning
-      title: "It can help me create a habit."
-    - payload: /confirm_continue_explain_planning
+    - payload: /confirm_continue_explain_planning{"planning_relevance":"motivation"}
+      title: "It can help keep me motivated to go for walks."
+    - payload: /confirm_continue_explain_planning{"planning_relevance":"habit"}
+      title: "It can help me create a habit of taking walks regularly."
+    - payload: /confirm_continue_explain_planning{"planning_relevance":"road"}
       title: "It can help me visualise the road towards the goal."
-    - payload: /confirm_continue_explain_planning
+    - payload: /confirm_continue_explain_planning{"planning_relevance":"obstacles"}
       title: "It can help me deal with obstacles."
-    text: "First off, why do you think planning can help you?"
+    text: "First off, which of these reasons is most relevant for you?"
 
   utter_explain_planning_3:
-  - text: "That's right!"
+  - text: "Good choice!"
 
   utter_explain_planning_4:
-  - text: "Ultimately, the plan is meant to help you take walks regularly. Rather than relying on spontaneous bursts motivation, having a plan can help give you the cue to start."
+  - text: "How do you think planning can help you do this? Let me know by typing in the chat."
 
-  utter_explain_planning_5:
-  - text: "By creating a plan that is consistent across different weeks, it will be easier for you to form a habit of when you should go for a walk."
+  # utter_explain_planning_5:
+  # - text: "By creating a plan that is consistent across different weeks, it will be easier for you to form a habit of when you should go for a walk."
 
-  utter_explain_planning_6:
-  - text: "Besides this, the plan shows you what you will be able to achieve in the end, so you have an idea of the goal you are working towards."
+  # utter_explain_planning_6:
+  # - text: "Besides this, the plan shows you what you will be able to achieve in the end, so you have an idea of the goal you are working towards."
 
-  utter_explain_planning_7:
-  - text: "Planning can also help you identify and deal with obstacles that might prevent you from going on your walks."
+  # utter_explain_planning_7:
+  # - text: "Planning can also help you identify and deal with obstacles that might prevent you from going on your walks."
 
-  utter_explain_planning_8:
-  - text: "By anticipating these obstacles and devising strategies for overcoming them ahead of time, it will be easier to deal with them when they happen."
+  # utter_explain_planning_8:
+  # - text: "By anticipating these obstacles and devising strategies for overcoming them ahead of time, it will be easier to deal with them when they happen."
+
+
 
   utter_identify_barriers_1:
   - text: "That is good to know. Thank you. I think it might be useful to think of some barriers, or things that might stop or prevent you from taking walks regularly."
@@ -1692,6 +1710,7 @@ actions:
 - action_create_initial_plan
 - action_show_testimonials
 - action_utter_corresponding_strategy_for_barrier
+- action_utter_corresponding_message_for_planning_relevance
 - action_save_event_state
 - action_select_action
 - action_save_action
