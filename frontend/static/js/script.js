@@ -129,7 +129,7 @@ $(".usrInput").on("keyup keypress", function (e) {
 					
 				}
 
-				barrier = false;
+				barrier = "none";
 				
 				setUserResponse(text);
 				send(message);
