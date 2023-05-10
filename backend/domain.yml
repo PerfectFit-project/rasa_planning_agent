@@ -1465,6 +1465,9 @@ responses:
       title: "Let's continue."
     text: "Let me know when you are ready to continue."
 
+  utter_repeat_user_barrier:
+  - text: "User barrier: {identified_barrier}"
+
   utter_deal_with_barriers_4:
   - text: "Let's first see what you think would be a good way of dealing with your barrier."
 

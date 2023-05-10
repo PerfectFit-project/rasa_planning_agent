@@ -267,6 +267,7 @@ rules:
 - rule: deal with barriers continue 1
   steps:
   - intent: confirm_continue_deal_with_barriers_1
+  - action: utter_repeat_user_barrier
   - action: utter_deal_with_barriers_4
   - action: utter_deal_with_barriers_5
   - action: utter_deal_with_barriers_6

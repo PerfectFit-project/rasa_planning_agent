@@ -10,7 +10,7 @@ var check_first_walk = false;
 
 var check_week_3 = false;
 
-var barrier = false;
+var barrier = "";
 
 var identified_barrier = false;
 
@@ -118,7 +118,7 @@ $(".usrInput").on("keyup keypress", function (e) {
 
 				$('.usrInput').attr("disabled",true);
 			}
-			else if(barrier){
+			else if(barrier!= "other"){
 				var num_words = text.split(' ').length;
 
 				if(num_words<3){
@@ -405,7 +405,13 @@ function setBotResponse(response) {
 						$(".usrInput").prop('placeholder', "Type something...");
 						check_first_walk = true;
 					}
-					else if(response_text[j].includes("Let's first see what you think would be a good way of dealing with your barrier.") || response_text[j].includes("The question was: How can you overcome this barrier?")){
+					else if(response_text[j].includes("User barrier: ")){
+						
+						$('.usrInput').attr("disabled",false);
+						$(".usrInput").prop('placeholder', "Type something...");
+						barrier = response_text[j].split("User barrier: ")[1];
+					}
+					else if(response_text[j].includes("The question was: How can you overcome this barrier?")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
 						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
 						
