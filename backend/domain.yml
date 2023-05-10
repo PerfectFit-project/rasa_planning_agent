@@ -1022,14 +1022,20 @@ responses:
   utter_mood_very_bad_response:
   - text: "I'm sorry to hear that. Do talk to someone if you have problems you need help with. For now, I hope our conversation might cheer you up a little bit."
 
-  utter_prompt_usage:
+  utter_prompt_usage_1:
   - text: "Before we start, let me explain how you can communicate with me."
+
+  utter_prompt_usage_2:
+  - text: "You can simply click on one of the buttons, like you already did. Sometimes, you will have to use the chat box bellow to type in your answer."
 
   utter_explain_usage:
   - buttons:
     - payload: /confirm_usage
-      title: "Yes."
-    text: "You can simply click on one of the buttons, like you already did. Sometimes, you will have to use the chat box bellow to type your answer. Other times, you will need to do something on the left side of the screen. I will tell you when that is the case. Shall we continue?"
+      title: "I am ready to continue."
+    text: "Other times, you will need to do something on the left side of the screen. I will tell you when that is the case. Let me know when you are ready to continue by clicking the button."
+
+  utter_button:
+  - text: "Nice. Seems like you're getting familiar with using the buttons."
 
   utter_purpose_1:
   - text: "Let me tell you a bit about myself. My goal is to help people create plans for taking walks during the week."

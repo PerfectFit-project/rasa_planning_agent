@@ -34,40 +34,46 @@ rules:
   steps:
   - intent: confirm_mood_very_good
   - action: utter_mood_very_good_response
-  - action: utter_prompt_usage
+  - action: utter_prompt_usage_1
+  - action: utter_prompt_usage_2
   - action: utter_explain_usage
 
 - rule: mood good explain usage
   steps:
   - intent: confirm_mood_good
   - action: utter_mood_good_response  
-  - action: utter_prompt_usage
+  - action: utter_prompt_usage_1
+  - action: utter_prompt_usage_2
   - action: utter_explain_usage
 
 - rule: mood neutral explain usage 
   steps:
   - intent: confirm_mood_neutral
   - action: utter_mood_neutral_response
-  - action: utter_prompt_usage
+  - action: utter_prompt_usage_1
+  - action: utter_prompt_usage_2
   - action: utter_explain_usage
 
 - rule: mood bad explain usage
   steps:
   - intent: confirm_mood_bad
   - action: utter_mood_bad_response
-  - action: utter_prompt_usage
+  - action: utter_prompt_usage_1
+  - action: utter_prompt_usage_2
   - action: utter_explain_usage
 
 - rule: mood very bad explain usage
   steps:
   - intent: confirm_mood_very_bad
   - action: utter_mood_very_bad_response
-  - action: utter_prompt_usage
+  - action: utter_prompt_usage_1
+  - action: utter_prompt_usage_2
   - action: utter_explain_usage
 
 - rule: confirm usage explain purpose
   steps:
   - intent: confirm_usage
+  - action: utter_button
   - action: utter_purpose_1
   - action: utter_purpose_2
   - action: utter_purpose_3
