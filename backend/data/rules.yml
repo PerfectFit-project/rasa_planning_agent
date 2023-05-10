@@ -347,7 +347,7 @@ rules:
   - intent: barrier_repeat_short
   - action: utter_input_too_short_barrier_repeat
 
-- rule:planning usefulness too short
+- rule: planning usefulness too short
   steps:
   - intent: planning_short
   - action: utter_input_too_short_planning
