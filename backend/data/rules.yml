@@ -100,16 +100,9 @@ rules:
   - action: utter_explain_goal_4  
   - action: utter_explain_goal_question
 
-- rule: internal motivation
-  steps:
-  - intent: confirm_explain_goal
-  - action: utter_internal_motivation_1
-  - action: utter_internal_motivation_2
-  - action: utter_internal_motivation_question
-
 - rule: set goal
   steps:
-  - intent: confirm_motivation
+  - intent: confirm_explain_goal
   - action: utter_thank_for_motivation
   - action: utter_set_goal_1
   - action: utter_set_goal_2
@@ -123,6 +116,12 @@ rules:
   - action: utter_set_goal_5
   - action: utter_set_goal
 
+- rule: internal motivation
+  steps:
+  - intent: confirm_goal
+  - action: utter_internal_motivation_1
+  - action: utter_internal_motivation_2
+  - action: utter_internal_motivation_question
 
 - rule: confirm goal
   steps:

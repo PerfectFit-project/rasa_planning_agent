@@ -1054,9 +1054,47 @@ responses:
     - payload: /confirm_explain_goal
       title: "Let's move on."
     text: "Let me know when you are ready to continue."  
-  
+
+  utter_set_goal_1:
+  - text: "I think we are ready for you to set a goal for walking."
+
+  utter_set_goal_2:
+  - text: "A common way of measuring how much you walk is through counting the number of steps you take in a day."
+
+  utter_set_goal_3:
+  - text: "And a common goal is to aim for 10000 steps per day, as this is beneficial for your health, especially if you are currently inactive."
+
+  utter_set_goal_continue:
+  - buttons:
+    - payload: /confirm_set_goal_continue
+      title: "Yes."
+    text: "Shall we move on?"
+
+  utter_set_goal_4:
+  - text: "Okay. I assume you take at least about 2000 steps per day through your regular activities, so one of your options is to increase that amount by 8000 steps to reach a total of 10000 steps per day."
+
+  utter_set_goal_5:
+  - text: "However, you can also pick a higher goal if you want a challenge!"
+
+  utter_set_goal:
+  - buttons:
+    - payload: /confirm_goal{"goal":"10000"}
+      title: "10000 steps (or 100 minutes) per day."
+    - payload: /confirm_goal{"goal":"11000"}
+      title: "11000 steps (or 110 minutes) per day."
+    - payload: /confirm_goal{"goal":"12000"}
+      title: "12000 steps (or 120 minutes) per day."
+    text: "Please pick one of these options as your goal."
+
+  utter_confirm_goal:
+  - buttons:
+    - payload: /confirm_initial_plan
+      title: "Let's do that."
+    text: "Great! Take walks regularly and you'll be able to achieve your goal of {goal} steps per day. Now, let's create a plan that can help you reach this goal."
+
+
   utter_internal_motivation_1:
-  - text: "Okay! Another important part of achieving your goal is being motivated."
+  - text: "Okay! An important part of achieving your goal is being motivated."
 
   utter_internal_motivation_2:
   - text: "So, I am curious: what motivates you to want to walk regularly?"
@@ -1080,47 +1118,8 @@ responses:
   utter_thank_for_motivation:
   - text: "I see, thank you for letting me know!"
 
-  utter_set_goal_1:
-  - text: "I think we are almost ready for you to set a goal for walking."
-
-  utter_set_goal_2:
-  - text: "A common way of measuring how much you walk is through counting the number of steps you take in a day."
-
-  utter_set_goal_3:
-  - text: "And a common goal is to aim for 10000 steps per day, as this is beneficial for your health, especially if you are currently inactive."
-
-  utter_set_goal_continue:
-  - buttons:
-    - payload: /confirm_set_goal_continue
-      title: "Yes."
-    text: "Shall we move on?"
-
-  utter_set_goal_4:
-  - text: "Okay. I assume you take at least about 2000 steps per day through your regular activities, so one of your options is to increase that amount by 8000 steps."
-
-  utter_set_goal_5:
-  - text: "However, you can also pick a higher goal if you want a challenge!"
-
-  utter_set_goal:
-  - buttons:
-    - payload: /confirm_goal{"goal":"10000"}
-      title: "10000 steps (or 100 minutes) per day."
-    - payload: /confirm_goal{"goal":"11000"}
-      title: "11000 steps (or 110 minutes) per day."
-    - payload: /confirm_goal{"goal":"12000"}
-      title: "12000 steps (or 120 minutes) per day."
-    text: "Please pick one of these options as your goal."
-
-  utter_confirm_goal:
-  - buttons:
-    - payload: /confirm_initial_plan
-      title: "Let's do that."
-    text: "Great! Take walks regularly and you'll be able to achieve your goal of {goal} steps per day. Now, let's create a plan that can help you reach this goal."
-
-
-
   utter_routines_1:
-  - text: "Alright! In order to started, let's see when you have free time."
+  - text: "Alright! In order to started with creating the plan, let's see when you have free time."
 
   utter_routines_2:
   - text: "You don't have to provide me with your exact daily schedule, but let me know if you have any routines in place."
