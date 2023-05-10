@@ -1366,6 +1366,9 @@ responses:
   utter_explain_planning_4:
   - text: "How do you think planning can help you do this? Let me know by typing in the chat."
 
+  utter_thank_for_planning_explanation:
+  - text: "I see. Thanks for sharing. Here is what I think planning can help with."
+
   # utter_explain_planning_5:
   # - text: "By creating a plan that is consistent across different weeks, it will be easier for you to form a habit of when you should go for a walk."
 
