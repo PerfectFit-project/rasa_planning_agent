@@ -330,7 +330,7 @@ function setBotResponse(response) {
 						current_takeaway = 2;
 					}
 
-					else if(response_text[j].includes("Let's do an extra check to make sure everything is clear.")){
+					else if(response_text[j].includes("Please type your answer as a number with one decimal point.")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
 						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
 						

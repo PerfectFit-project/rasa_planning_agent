@@ -1191,7 +1191,7 @@ responses:
   - text: "Correct! In your third week, you will have to walk for {plan_check_week_3} hours."
 
   utter_check_plan_week_3_incorrect:
-  - text: "I'm afraid your answer is not correct. If you take a look at the plan, you can see that, in your third week, you will have to walk for {plan_check_week_3} hours."
+  - text: "I'm afraid your answer is not correct. Please look again at the plan. After the first two weeks, the third week only specifies how many hours you have to walk and how often. Please type your answer as a number with one decimal point."
 
   utter_state_variables_intro_1:
   - text: "Let's continue. Throughout the dialogue, I will ask you some questions to better understand your situation. Some of these questions might repeat, so do not be alarmed if you see a question you have already seen."

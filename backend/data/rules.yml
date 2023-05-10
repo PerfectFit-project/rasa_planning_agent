@@ -188,8 +188,6 @@ rules:
   steps:
   - intent: week_3_incorrect
   - action: utter_check_plan_week_3_incorrect
-  - action: utter_state_variables_intro_1
-  - action: utter_state_variables_intro_2
 
 
 - rule: loop asking for state and doing actions
