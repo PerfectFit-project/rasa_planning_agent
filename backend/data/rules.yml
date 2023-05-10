@@ -116,17 +116,17 @@ rules:
   - action: utter_set_goal_5
   - action: utter_set_goal
 
-- rule: internal motivation
-  steps:
-  - intent: confirm_goal
-  - action: utter_internal_motivation_1
-  - action: utter_internal_motivation_2
-  - action: utter_internal_motivation_question
-
 - rule: confirm goal
   steps:
   - intent: confirm_goal
   - action: utter_confirm_goal
+
+- rule: internal motivation
+  steps:
+  - intent: confirm_initial_plan
+  - action: utter_internal_motivation_1
+  - action: utter_internal_motivation_2
+  - action: utter_internal_motivation_question
 
 - rule: ask about routines
   steps:
