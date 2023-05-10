@@ -689,7 +689,7 @@ class ActionSelectAction(Action):
 
             num_actions = changes_to_plan + explain_planning + identify_barriers + deal_with_barriers + show_testimonials
 
-            if num_actions == 2
+            if num_actions == 2:
 
                 dispatcher.utter_message(text="Here come the three questions about your situation again.")
 
