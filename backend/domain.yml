@@ -1047,7 +1047,7 @@ responses:
     text: "This means that it doesn't take a lot of time like a workout might, nor does it require special equipment. Let me know when you are done reading so we can continue."
 
   utter_purpose_4:
-  - text: "Okay! Let me explain in a bit more detail tha kinds of walks we will make a plan for."
+  - text: "Okay! Let me explain in a bit more detail the kinds of walks we will make a plan for."
 
   utter_purpose_5:
   - text: "Unlike leisurely walks, you'll have to walk at moderate intensity for our plan to be effective."
