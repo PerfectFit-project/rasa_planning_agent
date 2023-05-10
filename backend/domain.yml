@@ -1373,7 +1373,7 @@ responses:
   - text: "It seems like your answer is a bit too short... Please type at least 3 words. The question was: How do you think planning can help you do this?"
 
   utter_explain_planning_1:
-  - text: "Thanks for telling me! I think it would be useful to look again at more ways in which planning can help you be more physically active by walking."
+  - text: "Thanks for telling me! \n I think it would be useful to look again at more ways in which planning can help you be more physically active by walking."
 
   utter_explain_planning_2:
   - buttons:
@@ -1411,7 +1411,7 @@ responses:
 
 
   utter_identify_barriers_1:
-  - text: "That is good to know. Thank you. I think it might be useful to think of some barriers, or things that might stop or prevent you from taking walks regularly."
+  - text: "That is good to know. Thank you. \n I think it might be useful to think of some barriers, or things that might stop or prevent you from taking walks regularly."
 
   utter_identify_barriers_2:
   - text: "Let's first think of what the barriers are and then we'll see how we can deal with them."
@@ -1453,7 +1453,7 @@ responses:
 
 
   utter_deal_with_barriers_1:
-  - text: "Thank you for telling me. We've previously thought of barriers which might prevent you from taking walks regularly."
+  - text: "Thank you for telling me. \n We've previously thought of barriers which might prevent you from taking walks regularly."
 
   utter_deal_with_barriers_2:
   - text: "Now, let's try to think how you could overcome those barriers."
@@ -1501,7 +1501,7 @@ responses:
   # - text: "If you have children to take care of, it might be a good idea to take them on regular walks with you. That way you can fulfill your family obligations and make progress towards your goal."
 
   utter_show_testimonials_1:
-  - text: "Thanks for letting me know. Seeing other people make plans and see how they succeed with regards to their goals is something that might help you."
+  - text: "Thanks for letting me know. \n Seeing other people make plans and see how they succeed with regards to their goals is something that might help you."
 
   utter_show_testimonials_2:
   - text: "Let's take a look at a few such cases."
@@ -1543,7 +1543,7 @@ responses:
   - text: "Okay, that's good!"
 
   utter_changes_to_plan_1:
-  - text: "I see. Thank you for informing me. I propose we take another look at the plan."
+  - text: "I see. Thank you for informing me. \n I propose we take another look at the plan."
 
   utter_changes_to_plan_intermediary:
   - text: "Maybe considering our discussion so far, you realised that you want to change some of the times when you have to go for walks. If you do not want to change anything, please just click the button titled 'I am done adjusting the plan'"
