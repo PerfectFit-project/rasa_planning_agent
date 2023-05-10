@@ -32,7 +32,7 @@ rules:
 
 - rule: mood very good explain purpose
   steps:
-  - intent: confirm_mood_good
+  - intent: confirm_mood_very_good
   - action: utter_mood_very_good_response  
   - action: utter_purpose_1
   - action: utter_purpose_2
@@ -66,10 +66,10 @@ rules:
   - action: utter_purpose_3
   - action: utter_continue_purpose_1
 
-- rule: mood bad explain purpose
+- rule: mood very bad explain purpose
   steps:
   - intent: confirm_mood_very_bad
-  - action: utter_mood_bad_response
+  - action: utter_mood_very_bad_response
   - action: utter_purpose_1
   - action: utter_purpose_2
   - action: utter_purpose_3
