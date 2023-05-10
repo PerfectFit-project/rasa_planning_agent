@@ -1023,7 +1023,7 @@ responses:
 
 
   utter_prompt_usage:
-  - text: "Okay! Before we start, let me explain how you can communicate with me."
+  - text: "Before we start, let me explain how you can communicate with me."
 
 
   utter_explain_usage:
