@@ -1279,7 +1279,7 @@ responses:
   utter_thank_for_confidence:
   - text: "I see. Thank you for telling me."
   - text: "Okay. Good to know. Thank you."
-  - text: "Okay! Thanks for letting me know"
+  - text: "Okay! Thanks for letting me know."
   - text: "Good to know. Thanks!"
   - text: "Got it. Thanks for letting me know!"
   - text: "Good to know! Thanks a lot!"
@@ -1316,7 +1316,7 @@ responses:
   utter_thank_for_perceived_usefulness:
   - text: "I see. Thank you for telling me."
   - text: "Okay. Good to know. Thank you."
-  - text: "Okay! Thanks for letting me know"
+  - text: "Okay! Thanks for letting me know."
   - text: "Good to know. Thanks!"
   - text: "Got it. Thanks for letting me know!"
   - text: "Good to know! Thanks a lot!"
