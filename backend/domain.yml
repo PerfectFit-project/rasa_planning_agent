@@ -308,10 +308,16 @@ entities:
 - barrier_description:
     influence_conversation: false
 
-- testimonial_1:
+- testimonial_1_intro:
     influence_conversation: false
 
-- testimonial_2:
+- testimonial_1_body:
+    influence_conversation: false
+
+- testimonial_2_intro:
+    influence_conversation: false
+
+- testimonial_2_body:
     influence_conversation: false
 
 - action:
@@ -1435,11 +1441,17 @@ responses:
   utter_show_testimonials_2:
   - text: "Let's take a look at a few such cases."
 
-  utter_testimonial_1:
-  - text: "{testimonial_1}"
+  utter_testimonial_1_intro:
+  - text: "{testimonial_1_intro}"
 
-  utter_testimonial_2:
-  - text: "{testimonial_2}"
+  utter_testimonial_1_body:
+  - text: "{testimonial_1_body}"
+
+  utter_testimonial_2_intro:
+  - text: "{testimonial_2_intro}"
+
+  utter_testimonial_2_body:
+  - text: "{testimonial_2_body}"
 
   utter_ask_read_testimonial_1:
   - buttons:
