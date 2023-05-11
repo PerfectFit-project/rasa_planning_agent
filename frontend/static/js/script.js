@@ -485,7 +485,7 @@ function setBotResponse(response) {
 		for (var i = 1; i < response.length; i++){
 			
 			//Add delay based on the length of the next message
-			summed_timeout += Math.min(Math.max(response[i].text.length * 45, 800), 5000);
+			// summed_timeout += Math.min(Math.max(response[i].text.length * 45, 800), 5000);
 			doScaledTimeout(i, response, summed_timeout)
 			
 		}
