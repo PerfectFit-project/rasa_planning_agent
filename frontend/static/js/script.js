@@ -304,7 +304,11 @@ function setBotResponse(response) {
 					}
 
 					else if(response_text[j].includes("Now, I want to ask when you have more energy than usual. We could make use of this opportunity to schedule a walk if you are also free at the time.")){
-						$(".energy_levels_table").toggle();
+												
+						setTimeout(()=> {
+							$(".energy_levels_table").toggle();
+						 }
+						 ,10000);
 
 
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
