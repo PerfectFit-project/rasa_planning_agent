@@ -300,7 +300,7 @@ function setBotResponse(response) {
 						setTimeout(()=> {
 							$(".timeslots_table").toggle();
 						 }
-						 ,7000);
+						 ,30000);
 					}
 
 					else if(response_text[j].includes("Now, I want to ask when you have more energy than usual. We could make use of this opportunity to schedule a walk if you are also free at the time.")){
