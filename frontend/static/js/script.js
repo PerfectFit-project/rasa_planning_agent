@@ -481,8 +481,8 @@ function setBotResponse(response) {
 	//if there is more than 1 message from the bot
 	if (response.length > 1){
 		//show typing symbol again
-		var delay_typing = 600 + delay_first_message;
-		// var delay_typing = 20;
+		// var delay_typing = 600 + delay_first_message;
+		var delay_typing = 20;
 		setTimeout(function () {
 		showBotTyping();
 		}, delay_typing)
@@ -492,7 +492,7 @@ function setBotResponse(response) {
 		for (var i = 1; i < response.length; i++){
 			
 			//Add delay based on the length of the next message
-			summed_timeout += Math.min(Math.max(response[i].text.length * 45, 800), 5000);
+			// summed_timeout += Math.min(Math.max(response[i].text.length * 45, 800), 5000);
 			doScaledTimeout(i, response, summed_timeout)
 			
 		}
