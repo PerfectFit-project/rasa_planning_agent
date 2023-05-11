@@ -611,22 +611,25 @@ function select_energy(clicked_id){
 
 	var time_slot = document.getElementById(clicked_id);
 
-	time_slot.style.backgroundColor = "#82e876";
-
 	if(clicked_id.includes("0")){
-		time_slot.innerHTML = "None at all"
+		time_slot.innerHTML = "None at all";
+		time_slot.style.backgroundColor = "#D3D3D3";
 	}
 	else if (clicked_id.includes("1")){
-		time_slot.innerHTML = "Less than usual"
+		time_slot.innerHTML = "Less than usual";
+		time_slot.style.backgroundColor = "#ADD8E6";
 	}
 	else if (clicked_id.includes("2")){
-		time_slot.innerHTML = "An average amount"
+		time_slot.innerHTML = "An average amount";
+		time_slot.style.backgroundColor = "#3cb371";
 	}
 	else if (clicked_id.includes("3")){
-		time_slot.innerHTML = "More than average"
+		time_slot.innerHTML = "More than average";
+		time_slot.style.backgroundColor = "#FFA500";
 	}
 	else if (clicked_id.includes("4")){
-		time_slot.innerHTML = "Much more than average"
+		time_slot.innerHTML = "Much more than average";
+		time_slot.style.backgroundColor = "#3a243b";
 	}
 }
 
