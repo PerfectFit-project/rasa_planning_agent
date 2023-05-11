@@ -613,23 +613,23 @@ function select_energy(clicked_id){
 
 	if(clicked_id.includes("0")){
 		time_slot.innerHTML = "None at all";
-		time_slot.style.backgroundColor = "#D3D3D3";
+		time_slot.style.backgroundColor = "#F7F97A";
 	}
 	else if (clicked_id.includes("1")){
 		time_slot.innerHTML = "Less than usual";
-		time_slot.style.backgroundColor = "#ADD8E6";
+		time_slot.style.backgroundColor = "#B1F97D";
 	}
 	else if (clicked_id.includes("2")){
 		time_slot.innerHTML = "An average amount";
-		time_slot.style.backgroundColor = "#3cb371";
+		time_slot.style.backgroundColor = "#82E876";
 	}
 	else if (clicked_id.includes("3")){
 		time_slot.innerHTML = "More than average";
-		time_slot.style.backgroundColor = "#FFA500";
+		time_slot.style.backgroundColor = "#21E4AE";
 	}
 	else if (clicked_id.includes("4")){
 		time_slot.innerHTML = "Much more than average";
-		time_slot.style.backgroundColor = "#3a243b";
+		time_slot.style.backgroundColor = "#4EB3F5";
 	}
 }
 
