@@ -294,11 +294,13 @@ function setBotResponse(response) {
 				for (j = 0; j < response_text.length; j++){
 					
 					if(response_text[j].includes("I see, thank you for letting me know!")){
-						$(".timeslots_table").toggle();
-
-
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
 						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
+
+						setTimeout(()=> {
+							$(".timeslots_table").toggle();
+						 }
+						 ,7000);
 					}
 
 					else if(response_text[j].includes("Now, I want to ask when you have more energy than usual. We could make use of this opportunity to schedule a walk if you are also free at the time.")){
