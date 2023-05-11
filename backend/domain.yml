@@ -1462,7 +1462,7 @@ responses:
   - text: "Thank you for telling me. \n We've previously thought of barriers which might prevent you from taking walks regularly."
 
   utter_deal_with_barriers_2:
-  - text: "Now, let's try to think how you could overcome those barriers."
+  - text: "Now, let's try to think of how you could overcome those barriers."
 
   utter_deal_with_barriers_3:
   - text: "Keep in mind that, while I can provide suggestions, it's really up to you to come up with the solution that works best for you."
