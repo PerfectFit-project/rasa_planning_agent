@@ -272,8 +272,8 @@ function setBotResponse(response) {
 	//display bot response after the number of miliseconds caputred by the variable 'delay_first_message'
 	var delay_first_message = 500;
 	if (response.length >=1) {
-		// delay_first_message = Math.min(Math.max(response[0].text.length * 45, 800), 5000);
-		delay_first_message = 20;
+		delay_first_message = Math.min(Math.max(response[0].text.length * 45, 800), 5000);
+		// delay_first_message = 20;
 	}
 	setTimeout(function () {
 		hideBotTyping();
@@ -485,7 +485,7 @@ function setBotResponse(response) {
 		for (var i = 1; i < response.length; i++){
 			
 			//Add delay based on the length of the next message
-			// summed_timeout += Math.min(Math.max(response[i].text.length * 45, 800), 5000);
+			summed_timeout += Math.min(Math.max(response[i].text.length * 45, 800), 5000);
 			doScaledTimeout(i, response, summed_timeout)
 			
 		}
