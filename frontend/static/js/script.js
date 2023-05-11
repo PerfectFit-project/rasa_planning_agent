@@ -382,7 +382,10 @@ function setBotResponse(response) {
 
 						days.forEach(element => document.getElementById(element).classList.add("toggleable"));
 
-						button.style.display = "table";
+						setTimeout(function(){
+							button.style.display = "table";
+						 }
+						 ,15000);
 
 					}
 					else if(response_text[j].includes("What can you take away from this example for yourself? Please type this in the chat.") || response_text[j].includes("The question was: What can you take away from this example for yourself?")){
