@@ -1442,7 +1442,7 @@ responses:
   - text: "I see. Thank you for informing me. Would you mind briefly describing your barrier to me in the chat?"
 
   utter_identify_barriers_5:
-  - text: "Thank you for telling me. I'll try to think a way to overcome your barrier. In the meantime..."
+  - text: "Thank you for telling me."
 
   # utter_identify_barriers_7:
   # - text: "Maybe you don't have shoes that are comfortable to take longer walks in."
