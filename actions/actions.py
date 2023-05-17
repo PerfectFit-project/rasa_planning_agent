@@ -506,8 +506,6 @@ class ActionCheckDialogueDone(Action):
         # check how many actions have been done
         # after 2 actions, we can end the dialogue if states are good
 
-        dispatcher.utter_message(text= "I got here")
-
         changes_to_plan = int(tracker.get_slot("changes_to_plan"))
 
         explain_planning = tracker.get_slot("explain_planning")
@@ -537,13 +535,9 @@ class ActionCheckDialogueDone(Action):
             
             if end:
 
-                return [ActionExecuted("action_listen"), UserUttered(text="/confirm_actions_done", parse_data={"intent": {"name": "confirm_actions_done", "confidence": 1.0}})]
-
-            else:
-
-                return[ActionExecuted("action_listen"), UserUttered(text="/confirm_continue_dialogue", parse_data={"intent": {"name": "confirm_continue_dialogue", "confidence": 1.0}})]
+                return [ActionExecuted("action_listen"), UserUttered(text="/confirm_actions_done", parse_data={"intent": {"name": "confirm_actions_done", "confidence": 1.0}})] 
         
-        return []
+        return[ActionExecuted("action_listen"), UserUttered(text="/confirm_continue_dialogue", parse_data={"intent": {"name": "confirm_continue_dialogue", "confidence": 1.0}})]
 
 class ActionSelectAction(Action):
     def name(self):
