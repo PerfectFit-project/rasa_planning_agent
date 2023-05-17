@@ -1111,7 +1111,7 @@ responses:
     text: "Please pick one of these options as your goal."
 
   utter_confirm_goal:
-  - text: "Great! Take walks regularly and you'll be able to achieve your goal of {goal} steps per day."aasd
+  - text: "Great! Take walks regularly and you'll be able to achieve your goal of {goal} steps per day."
 
   utter_routines_1:
   - text: "Let's move on to creating the plan. In order to do that, let's first see when you have free time."
@@ -1156,7 +1156,7 @@ responses:
   - buttons:
     - payload: /confirm_checked_plan{"changes_to_plan":"0"}
       title: "Let's discuss the plan."
-    text: "I'll leave the plan on the left side on the screen so you can take a look at it later. Note that you may need to scroll to see the entire plan, depending on your screen resolution. Let me know when you are prepared to discuss the plan in more detail. "
+    text: "I'll leave the plan on the left side on the screen so you can take a look at it later. Note that you may need to scroll to see the entire plan, depending on your screen resolution. Let me know when you are prepared to discuss the plan in more detail."
 
   utter_present_plan_3:
   - text: "Okay, let's take a took at the plan. On the left side of your screen, you should see a big table with a view similar to that of a calendar. Time slots when you should take walks are marked with the duration you should walk for. You can also notice that the duration increases each week."
