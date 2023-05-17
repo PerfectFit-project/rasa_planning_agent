@@ -494,7 +494,7 @@ class ActionSaveEventState(Action):
         
         return []
 
-class ActionSaveAction(Action):
+class ActionCheckDialogueDone(Action):
     def name(self):
         return "action_check_dialogue_done"
 
@@ -505,6 +505,8 @@ class ActionSaveAction(Action):
 
         # check how many actions have been done
         # after 2 actions, we can end the dialogue if states are good
+
+        dispatcher.utter_message(text= "I got here")
 
         changes_to_plan = int(tracker.get_slot("changes_to_plan"))
 
