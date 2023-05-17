@@ -365,8 +365,11 @@ function setBotResponse(response) {
 					else if(response_text[j].includes("That's right, your first walk is on")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
 						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
-						const collection = document.getElementsByClassName("plan_after_week_2");
-						Array.from(collection).forEach(el => el.style.removeProperty('display'));
+
+						document.getElementById("plan_week_3").style.removeProperty('display');
+						document.getElementById("plan_week_4").style.removeProperty('display');
+						document.getElementById("plan_month_2").style.removeProperty('display');
+						document.getElementById("plan_month_3").style.removeProperty('display');
 					}
 					else if(response_text[j].includes("this is a message for javascript: enable the buttons")){
 
