@@ -1120,7 +1120,7 @@ responses:
   - text: "Ideally, we're looking for at least four different times during the week when you have at least 30 minutes to take a walk."
 
   utter_timeslots_1:
-  - text: "On the left side of the screen, you can see a table. You can click on a time slot in the table to specify that you are available at that time. By clicking that slot again, you indicate that you are not available. Please select all the slots when you are avaialable. Once you are done, click the button that says 'I'm done selecting time slots when I am free.' You might need to scroll to see theis button."
+  - text: "On the left side of the screen, you can see a table. You can click on a time slot in the table to specify that you are available at that time. By clicking that slot again, you indicate that you are not available."
 
   utter_timeslots_2:
   - text: "Please select all the slots when you are avaialable. Once you are done, click the button that says 'I'm done selecting time slots when I am free.' You may need to scroll to see theis button."
