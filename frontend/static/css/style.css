@@ -64,14 +64,14 @@ body {
 	border:none;
 }
 
-.plan{
+#plan_first_2_weeks{
 	display: none;
 	width: 800px;
 	height: 350px;
 	margin: 0 auto;
 }
 
-.plan_after_week_2{
+#plan_after_week_2{
 	display: none;
 	width: 800px;
 	height: 150px;
