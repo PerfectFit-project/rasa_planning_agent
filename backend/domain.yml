@@ -1050,7 +1050,7 @@ responses:
     text: "Let me know when you are done reading so we can continue."
 
   utter_purpose_3:
-  - text: "Okay! For uor plan, you'll have to walk at moderate intensity, whch means you should be breathing more heavily than usual, while still being able to hold a short conversation."
+  - text: "Okay! For our plan, you'll have to walk at moderate intensity, whch means you should be breathing more heavily than usual, while still being able to hold a short conversation."
 
   utter_confirm_purpose:
   - buttons:
