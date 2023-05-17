@@ -89,6 +89,10 @@ body {
 	overflow: auto;
 }
 
+.timeslots_table td{
+	cursor: pointer;
+}
+
 .time_table{
 	width: 750px;
 	height: 300px;
@@ -104,6 +108,10 @@ body {
 	top: 2%;
 	position: fixed;
 	overflow: auto;
+}
+
+.energy_levels_table td{
+	cursor: pointer;
 }
 
 .energy_table{
