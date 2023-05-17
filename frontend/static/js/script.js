@@ -363,6 +363,8 @@ function setBotResponse(response) {
 						number_plan = 1;
 					}
 					else if(response_text[j].includes("That's right, your first walk is on")){
+						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
+						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
 						$("#plan_after_week_2").toggle();
 					}
 					else if(response_text[j].includes("this is a message for javascript: enable the buttons")){
