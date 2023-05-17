@@ -996,22 +996,22 @@ responses:
   utter_confirm_mood:
   - buttons:
     - payload: /confirm_mood_very_good
-      title: "I'm doing fantastic today!"
+      title: "😄"
     - payload: /confirm_mood_good
-      title: "I'm doing good."
+      title: "🙂"
     - payload: /confirm_mood_neutral
-      title: "I'm alright."
+      title: "😐"
     - payload: /confirm_mood_bad
-      title: "Not so good…"
+      title: "🙁"
     - payload: /confirm_mood_very_bad
-      title: "Quite bad…"
-    text: "How are you doing today?"
+      title: "😔"
+    text: "How are you doing today? Pick one of the emojis to let me know how you feel."
 
   utter_mood_very_good_response:
-  - text: "That's awesome!"
+  - text: "That's awesome! I'm glad you're in a great mood."
 
   utter_mood_good_response:
-  - text: "That's good to hear!"
+  - text: "That's good to hear! I'm glad you're in a good mood."
 
   utter_mood_neutral_response:
   - text: "Ah, so a pretty regular day, then. Okay."
