@@ -1129,12 +1129,6 @@ responses:
   - text: "Alright, let's move on to creating the plan. In order to do that, let's first see when you have free time."
 
   utter_routines_2:
-  - text: "You don't have to provide me with your exact daily schedule, but let me know if you have any routines in place."
-
-  utter_routines_3:
-  - text: "For example, most people work a day job. But maybe you have things planned on some evenings as well."
-
-  utter_routines_4:
   - text: "Ideally, we're looking for at least four different times during the week when you have at least 30 minutes to take a walk."
 
   utter_timeslots:

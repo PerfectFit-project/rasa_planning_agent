@@ -127,8 +127,6 @@ rules:
   - action: utter_thank_for_motivation
   - action: utter_routines_1
   - action: utter_routines_2
-  - action: utter_routines_3
-  - action: utter_routines_4
   - action: utter_timeslots
   
 
