@@ -65,6 +65,9 @@ body {
 }
 
 .plan{
+	left: 3%;
+	top: 5%;
+	position:fixed;
 	width: 800px;
 	height: 500px;
 	margin: 0 auto;
