@@ -518,24 +518,26 @@ class ActionCheckDialogueDone(Action):
 
         num_actions = changes_to_plan + explain_planning + identify_barriers + deal_with_barriers + show_testimonials
 
-        if num_actions >= 2:
+        if num_actions >= 3:
 
-            c = tracker.get_slot("confidence")
+            if identify_barriers and deal_with_barriers or not identify_barriers:
 
-            pu = tracker.get_slot("perceived_usefulness")
+                c = tracker.get_slot("confidence")
 
-            a = tracker.get_slot("attitude")
+                pu = tracker.get_slot("perceived_usefulness")
 
-            if c in ["medium", "high"] and (pu == "high" or a == "high"):
+                a = tracker.get_slot("attitude")
+
+                if c in ["medium", "high"] and (pu == "high" or a == "high"):
+                    
+                    end = True
+
+                else:
+                    end = False
                 
-                end = True
+                if end:
 
-            else:
-                end = False
-            
-            if end:
-
-                return [ActionExecuted("action_listen"), UserUttered(text="/confirm_actions_done", parse_data={"intent": {"name": "confirm_actions_done", "confidence": 1.0}})] 
+                    return [ActionExecuted("action_listen"), UserUttered(text="/confirm_actions_done", parse_data={"intent": {"name": "confirm_actions_done", "confidence": 1.0}})] 
         
         return[ActionExecuted("action_listen"), UserUttered(text="/confirm_continue_dialogue", parse_data={"intent": {"name": "confirm_continue_dialogue", "confidence": 1.0}})]
 
@@ -579,15 +581,20 @@ class ActionSelectAction(Action):
 
             possible_actions = []
 
-            # this corresponds to having done 3 actions, none of which were changes to the plan
-            # if we do the 4th action that is not a change to the plan, then we have to do changes to plans in turns 5 and 6
-            # that shouldn't happen, since we don't want to make changes to plans twice in a row
-            if number_actions == 3 and changes_to_plan == 0:
+            # this corresponds to having done 2 actions, none of which were changes to the plan
+            # we want to give people the chance to change the plan at least once before ending the dialogue
+            if number_actions == 2 and changes_to_plan == 0:
                 possible_actions = ["changes_to_plan"]
+            elif number_actions == 3 and identify_barriers and not deal_with_barriers:
+                possible_actions = ["deal_with_barriers"]
             else:
                 # we want to make at most 2 changes to the initial plan and to not change the plan twice in a row
                 if last_action != "changes_to_plan" and changes_to_plan<=1:
                     possible_actions.append("changes_to_plan")
+                # we want to avoid a situation where people change the plan, do a different action, change the plan again, and then end
+                if changes_to_plan == 1 and number_actions == 2:
+                    if "changes_to_plan" in possible_actions:
+                        possible_actions.remove("changes_to_plan")
                 # we want to explain planning only once
                 if explain_planning == False:
                     possible_actions.append("explain_planning")
