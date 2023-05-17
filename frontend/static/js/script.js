@@ -403,6 +403,7 @@ function setBotResponse(response) {
 						$('.usrInput').attr("disabled",false);
 						$(".usrInput").prop('placeholder', "Type something...");
 						current_takeaway = 1;
+						blink_and_select();
 					}
 					else if(response_text[j].includes("How about this example? What can you take away for yourself? Please type this in the chat.") || response_text[j].includes("The question was: What can you take away from this second example for yourself?")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
@@ -411,6 +412,7 @@ function setBotResponse(response) {
 						$('.usrInput').attr("disabled",false);
 						$(".usrInput").prop('placeholder', "Type something...");
 						current_takeaway = 2;
+						blink_and_select();
 					}
 
 					else if(response_text[j].includes("Please type your answer as a number with one decimal point.")){
@@ -420,6 +422,7 @@ function setBotResponse(response) {
 						$('.usrInput').attr("disabled",false);
 						$(".usrInput").prop('placeholder', "Type something...");
 						check_week_3 = true;
+						blink_and_select();
 					}
 					else if(response_text[j].includes("You can see the first two weeks planned in detail.")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
@@ -428,6 +431,7 @@ function setBotResponse(response) {
 						$('.usrInput').attr("disabled",false);
 						$(".usrInput").prop('placeholder', "Type something...");
 						check_first_walk = true;
+						blink_and_select();
 					}
 					else if(response_text[j].includes("User barrier: ")){
 						
@@ -435,6 +439,7 @@ function setBotResponse(response) {
 						$(".usrInput").prop('placeholder', "Type something...");
 						barrier_strategy = true;
 						barrier_type = response_text[j].split("User barrier: ")[1];
+						blink_and_select();
 					}
 					else if(response_text[j].includes("The question was: How can you overcome this barrier?")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
@@ -443,6 +448,7 @@ function setBotResponse(response) {
 						$('.usrInput').attr("disabled",false);
 						$(".usrInput").prop('placeholder', "Type something...");
 						barrier_strategy = true;
+						blink_and_select();
 					}
 					else if(response_text[j].includes("I see. Thank you for informing me. Would you mind briefly describing your barrier to me in the chat?") || response_text[j].includes("The question was: Would you mind briefly describing your barrier to me in the chat?")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
@@ -451,6 +457,7 @@ function setBotResponse(response) {
 						$('.usrInput').attr("disabled",false);
 						$(".usrInput").prop('placeholder', "Type something...");
 						identified_barrier = true;
+						blink_and_select();
 					}
 					else if(response_text[j].includes("Okay! Now, you have your approach to this barrier. Here is a strategy I thought about.") || response_text[j].includes("The question was: How can you overcome this barrier after having read my suggestion?")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
@@ -459,6 +466,7 @@ function setBotResponse(response) {
 						$('.usrInput').attr("disabled",false);
 						$(".usrInput").prop('placeholder', "Type something...");
 						barrier_repeat = true;
+						blink_and_select();
 					}
 					else if(response_text[j].includes("Good choice!") || response_text[j].includes("The question was: How do you think planning can help you do this?")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
@@ -467,6 +475,7 @@ function setBotResponse(response) {
 						$('.usrInput').attr("disabled",false);
 						$(".usrInput").prop('placeholder', "Type something...");
 						planning = true;
+						blink_and_select();
 					}
 					// otherwise, display the message
 					else{
