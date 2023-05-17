@@ -316,19 +316,22 @@ textarea-webkit-scrollbar {
 	0% {
 	  box-shadow: 5px 5px 20px #09ff00;
 	}
-	25% {
+	20% {
 	  box-shadow: 5px 5px 20px #09ff00;
 	}
-	50% {
-	  box-shadow: 5px 5px 50px #09ff00;
+	40% {
+	  box-shadow: 5px 5px 50px white;
 	}
-	75% {
+	60% {
+	  box-shadow: 5px 5px 50px white;
+	}
+	80% {
 	  box-shadow: 5px 5px 20px #09ff00;
 	}
 	100% {
 	  box-shadow: 5px 5px 20px #09ff00;
 	}
-  }
+}
 
 
 /*========== css related to chats elements============= */
