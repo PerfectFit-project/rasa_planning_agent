@@ -312,12 +312,12 @@ textarea-webkit-scrollbar {
 	}
 }
 
-@keyframes border-flicker-green {
+@keyframes border-flicker-yellow {
 	0% {
-	  box-shadow: 5px 5px 20px #09ff00;
+	  box-shadow: 5px 5px 20px #F7F97A;
 	}
 	20% {
-	  box-shadow: 5px 5px 20px #09ff00;
+	  box-shadow: 5px 5px 20px #F7F97A;
 	}
 	40% {
 	  box-shadow: 5px 5px 50px white;
@@ -326,10 +326,10 @@ textarea-webkit-scrollbar {
 	  box-shadow: 5px 5px 50px white;
 	}
 	80% {
-	  box-shadow: 5px 5px 20px #09ff00;
+	  box-shadow: 5px 5px 20px #F7F97A;
 	}
 	100% {
-	  box-shadow: 5px 5px 20px #09ff00;
+	  box-shadow: 5px 5px 20px #F7F97A;
 	}
 }
 

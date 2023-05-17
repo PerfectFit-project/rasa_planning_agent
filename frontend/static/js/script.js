@@ -540,7 +540,7 @@ function doScaledTimeout(i, response, summed_timeout) {
 
 function blink() {
 	var f = document.getElementById('keypad');
-	f.style.animation = 'border-flicker-green 10s linear';
+	f.style.animation = 'border-flicker-yellow linear';
 }
 
 
