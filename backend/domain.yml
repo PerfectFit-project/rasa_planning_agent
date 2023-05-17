@@ -1041,10 +1041,7 @@ responses:
   - text: "Let me tell you a bit about myself. My goal is to help people create plans for taking walks during the week."
 
   utter_purpose_2:
-  - text: "Walking is generally regarded as beneficial for both health and mood."
-
-  utter_purpose_3:
-  - text: "Another advantage of taking regular walks is that they are easily accessible for everyone."
+  - text: "Walking is generally regarded as beneficial for both health and mood, and it's also easily accessible for everyone."
 
   utter_continue_purpose_1:
   - buttons:
@@ -1052,17 +1049,14 @@ responses:
       title: "Let's continue."
     text: "This means that it doesn't take a lot of time like a workout might, nor does it require special equipment. Let me know when you are done reading so we can continue."
 
-  utter_purpose_4:
+  utter_purpose_3:
   - text: "Okay! Let me explain in a bit more detail the kinds of walks we will make a plan for."
 
-  utter_purpose_5:
+  utter_purpose_4:
   - text: "Unlike leisurely walks, you'll have to walk at moderate intensity for our plan to be effective."
   
-  utter_purpose_6:
+  utter_purpose_5:
   - text: "Moderate intensity is characterised by breathing more heavily than usual, while still being able to hold a short conversation."
-  
-  utter_purpose_7:
-  - text: "In other words, you should walk at a pace that makes it somewhat challenging for you to keep going, which is about 100 steps per minute for the average person."
 
   utter_confirm_purpose:
   - buttons:
@@ -1074,13 +1068,7 @@ responses:
   - text: "Nice. So, how does planning help you make progress towards your goal?"
 
   utter_explain_usefulness_planning_2:
-  - text: "If you have a clear indication of when you should go for a walk, it will be much easier for you to actually do it."
-
-  utter_explain_usefulness_planning_3:
-  - text: "You'll have a clear schedule set in place, which will make it more difficult to avoid taking a walk or to postpone it."
-
-  utter_explain_usefulness_planning_4:
-  - text: "After all, there is only so much time in a week, so, by making a plan, you integrate walking into your schedule such that you actually have time to do it."
+  - text: "If you have a clear indication of when you should go for a walk, you integrate walking into your schedule such that you actually have time to do it and."
 
   utter_explain_usefulness_planning_question:
   - buttons:
@@ -1097,22 +1085,16 @@ responses:
   utter_explain_goal_3:
   - text: "However, for the goal to be most effective, you should pick a goal that is both challenging and achievable."
 
-  utter_explain_goal_4:
-  - text: "You should feel like you have to put in the effort to reach your goal, while avoiding aiming for something unrealistic."
-
   utter_explain_goal_question:
   - buttons:
     - payload: /confirm_explain_goal
       title: "Let's move on."
-    text: "Let me know when you are ready to continue."  
+    text: "Let me know when you are ready to continue with setting a goal."  
 
   utter_set_goal_1:
-  - text: "I think we are ready for you to set a goal for walking."
+  - text: "Okay! A common way of measuring how much you walk is through counting the number of steps you take in a day."
 
   utter_set_goal_2:
-  - text: "A common way of measuring how much you walk is through counting the number of steps you take in a day."
-
-  utter_set_goal_3:
   - text: "And a common goal is to aim for 10000 steps per day, as this is beneficial for your health, especially if you are currently inactive."
 
   utter_set_goal_continue:
@@ -1121,10 +1103,10 @@ responses:
       title: "I am ready."
     text: "Once you are ready to continue, please click the button."
 
-  utter_set_goal_4:
+  utter_set_goal_3:
   - text: "Okay. I assume you take at least about 2000 steps per day through your regular activities, so one of your options is to increase that amount by 8000 steps to reach a total of 10000 steps per day."
 
-  utter_set_goal_5:
+  utter_set_goal_4:
   - text: "However, you can also pick a higher goal if you want a challenge!"
 
   utter_set_goal:
@@ -1142,32 +1124,6 @@ responses:
     - payload: /confirm_initial_plan
       title: "I am prepared."
     text: "Great! Take walks regularly and you'll be able to achieve your goal of {goal} steps per day. Now, tell me when you are ready to continue."
-
-
-  utter_internal_motivation_1:
-  - text: "Okay! An important part of achieving your goal is being motivated."
-
-  utter_internal_motivation_2:
-  - text: "So, I am curious: what motivates you to want to walk regularly?"
-
-  utter_internal_motivation_question:
-  - buttons:
-    - payload: /confirm_motivation
-      title: "Family."
-    - payload: /confirm_motivation
-      title: "Health."
-    - payload: /confirm_motivation
-      title: "Relationships."
-    - payload: /confirm_motivation
-      title: "Personal growth."
-    - payload: /confirm_motivation
-      title: "Work."
-    - payload: /confirm_motivation
-      title: "Friends."
-    text: "Please pick one of the options below:"
-
-  utter_thank_for_motivation:
-  - text: "I see, thank you for letting me know!"
 
   utter_routines_1:
   - text: "Alright, let's move on to creating the plan. In order to do that, let's first see when you have free time."

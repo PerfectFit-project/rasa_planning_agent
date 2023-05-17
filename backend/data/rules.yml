@@ -76,15 +76,14 @@ rules:
   - action: utter_button
   - action: utter_purpose_1
   - action: utter_purpose_2
-  - action: utter_purpose_3
   - action: utter_continue_purpose_1
 
 - rule: continue purpose 1
   steps:
   - intent: confirm_continue_purpose_1
+  - action: utter_purpose_3
   - action: utter_purpose_4
   - action: utter_purpose_5
-  - action: utter_purpose_6
   - action: utter_confirm_purpose
 
 - rule: confirm purpose explain planning
@@ -92,8 +91,6 @@ rules:
   - intent: confirm_purpose
   - action: utter_explain_usefulness_planning_1
   - action: utter_explain_usefulness_planning_2
-  - action: utter_explain_usefulness_planning_3
-  - action: utter_explain_usefulness_planning_4
   - action: utter_explain_usefulness_planning_question
 
 
@@ -103,7 +100,6 @@ rules:
   - action: utter_explain_goal_1
   - action: utter_explain_goal_2  
   - action: utter_explain_goal_3
-  - action: utter_explain_goal_4  
   - action: utter_explain_goal_question
 
 - rule: set goal
@@ -111,14 +107,13 @@ rules:
   - intent: confirm_explain_goal
   - action: utter_set_goal_1
   - action: utter_set_goal_2
-  - action: utter_set_goal_3
   - action: utter_set_goal_continue
 
 - rule: set goal continue
   steps:
   - intent: confirm_set_goal_continue
+  - action: utter_set_goal_3
   - action: utter_set_goal_4
-  - action: utter_set_goal_5
   - action: utter_set_goal
 
 - rule: confirm goal
@@ -126,16 +121,9 @@ rules:
   - intent: confirm_goal
   - action: utter_confirm_goal
 
-- rule: internal motivation
-  steps:
-  - intent: confirm_initial_plan
-  - action: utter_internal_motivation_1
-  - action: utter_internal_motivation_2
-  - action: utter_internal_motivation_question
-
 - rule: ask about routines
   steps:
-  - intent: confirm_motivation
+  - intent: confirm_initial_plan
   - action: utter_thank_for_motivation
   - action: utter_routines_1
   - action: utter_routines_2
