@@ -366,10 +366,7 @@ function setBotResponse(response) {
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
 						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
 
-						document.getElementById("plan_week_3").style.removeProperty('display');
-						document.getElementById("plan_week_4").style.removeProperty('display');
-						document.getElementById("plan_month_2").style.removeProperty('display');
-						document.getElementById("plan_month_3").style.removeProperty('display');
+						$(".plan_after_week_2").css("display", "inherit");
 					}
 					else if(response_text[j].includes("this is a message for javascript: enable the buttons")){
 
