@@ -200,6 +200,11 @@ rules:
   # - action: utter_attitude_repeat\
   # - action: utter_thank_for_attitude
   - action: action_save_event_state
+  - action: action_check_dialogue_done
+
+- rule: confirm attitude do action ask confidence
+  steps:
+  - intent: confirm_continue_dialogue
   - action: action_select_action
 
 - rule: explain planning

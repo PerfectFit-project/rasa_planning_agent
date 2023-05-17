@@ -108,6 +108,8 @@ intents:
 
 ## actions
 
+- confirm_continue_dialogue
+
 - do_explain_planning
 - do_identify_barriers
 - do_deal_with_barriers
@@ -1697,3 +1699,4 @@ actions:
 - action_save_action
 - action_save_goal_plans_and_reward
 - action_rearrange_db
+- action_check_dialogue_done

@@ -494,6 +494,54 @@ class ActionSaveEventState(Action):
         
         return []
 
+class ActionSaveAction(Action):
+    def name(self):
+        return "action_check_dialogue_done"
+
+    async def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+
+        # check how many actions have been done
+        # after 2 actions, we can end the dialogue if states are good
+
+        changes_to_plan = int(tracker.get_slot("changes_to_plan"))
+
+        explain_planning = tracker.get_slot("explain_planning")
+
+        identify_barriers = tracker.get_slot("identify_barriers")
+
+        deal_with_barriers = tracker.get_slot("deal_with_barriers")
+
+        show_testimonials = tracker.get_slot("show_testimonials")
+
+        num_actions = changes_to_plan + explain_planning + identify_barriers + deal_with_barriers + show_testimonials
+
+        if num_actions >= 2:
+
+            c = tracker.get_slot("confidence")
+
+            pu = tracker.get_slot("perceived_usefulness")
+
+            a = tracker.get_slot("attitude")
+
+            if c in ["medium", "high"] and (pu == "high" or a == "high"):
+                
+                end = True
+
+            else:
+                end = False
+            
+            if end:
+
+                return [ActionExecuted("action_listen"), UserUttered(text="/confirm_actions_done", parse_data={"intent": {"name": "confirm_actions_done", "confidence": 1.0}})]
+
+            else:
+
+                return[ActionExecuted("action_listen"), UserUttered(text="/confirm_continue_dialogue", parse_data={"intent": {"name": "confirm_continue_dialogue", "confidence": 1.0}})]
+        
+        return []
 
 class ActionSelectAction(Action):
     def name(self):
@@ -642,7 +690,7 @@ class ActionSelectAction(Action):
         return []
 
 
-class ActionSelectAction(Action):
+class ActionSaveAction(Action):
     def name(self):
         return "action_save_action"
 
