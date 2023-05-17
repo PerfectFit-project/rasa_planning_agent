@@ -538,9 +538,18 @@ function doScaledTimeout(i, response, summed_timeout) {
 	}, summed_timeout);
 }
 
-function blink() {
+function blink_and_select() {
+	document.getElementById("userInput").focus();
+	document.getElementById("userInput").select();
+
 	var f = document.getElementById('keypad');
-	f.style.animation = 'border-flicker-yellow 3s linear';
+	f.style.animation = 'border-flicker-yellow 3s ease-out';
+	setTimeout(function() {
+      f.style.animation = 'none';
+   }, 5000);
+
+   
+	
 }
 
 
