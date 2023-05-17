@@ -1041,22 +1041,16 @@ responses:
   - text: "Let me tell you a bit about myself. My goal is to help people create plans for taking walks during the week."
 
   utter_purpose_2:
-  - text: "Walking is generally regarded as beneficial for both health and mood, and it's also easily accessible for everyone."
+  - text: "Walking is generally regarded as beneficial for both health and mood, and it's also easily accessible for everyone, since it doesn't take a lot of time like a workout might, nor does it require special equipment."
 
   utter_continue_purpose_1:
   - buttons:
     - payload: /confirm_continue_purpose_1
       title: "Let's continue."
-    text: "This means that it doesn't take a lot of time like a workout might, nor does it require special equipment. Let me know when you are done reading so we can continue."
+    text: "Let me know when you are done reading so we can continue."
 
   utter_purpose_3:
-  - text: "Okay! Let me explain in a bit more detail the kinds of walks we will make a plan for."
-
-  utter_purpose_4:
-  - text: "Unlike leisurely walks, you'll have to walk at moderate intensity for our plan to be effective."
-  
-  utter_purpose_5:
-  - text: "Moderate intensity is characterised by breathing more heavily than usual, while still being able to hold a short conversation."
+  - text: "Okay! For uor plan, you'll have to walk at moderate intensity, whch means you should be breathing more heavily than usual, while still being able to hold a short conversation."
 
   utter_confirm_purpose:
   - buttons:
@@ -1080,10 +1074,7 @@ responses:
   - text: "Okay! In order to create a plan for walking, we should first set a goal for you."
 
   utter_explain_goal_2:
-  - text: "Having a clear goal to work towards is helpful in keeping you motivated."
-
-  utter_explain_goal_3:
-  - text: "However, for the goal to be most effective, you should pick a goal that is both challenging and achievable."
+  - text: "Having a clear goal that is both challenging and achievable is helpful in keeping you motivated."
 
   utter_explain_goal_question:
   - buttons:

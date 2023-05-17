@@ -82,8 +82,6 @@ rules:
   steps:
   - intent: confirm_continue_purpose_1
   - action: utter_purpose_3
-  - action: utter_purpose_4
-  - action: utter_purpose_5
   - action: utter_confirm_purpose
 
 - rule: confirm purpose explain planning
@@ -99,7 +97,6 @@ rules:
   - intent: confirm_usefulness_planning_intro
   - action: utter_explain_goal_1
   - action: utter_explain_goal_2  
-  - action: utter_explain_goal_3
   - action: utter_explain_goal_question
 
 - rule: set goal
