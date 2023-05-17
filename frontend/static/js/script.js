@@ -293,7 +293,7 @@ function setBotResponse(response) {
 				var response_text = response[0].text.split("\n")
 				for (j = 0; j < response_text.length; j++){
 					
-					if(response_text[j].includes("Alright, let's move on to creating the plan. In order to do that, let's first see when you have free time.")){
+					if(response_text[j].includes("Great! Take walks regularly and you'll be able to achieve your goal")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
 						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
 

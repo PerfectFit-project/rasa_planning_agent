@@ -117,10 +117,6 @@ rules:
   steps:
   - intent: confirm_goal
   - action: utter_confirm_goal
-
-- rule: ask about routines
-  steps:
-  - intent: confirm_initial_plan
   - action: utter_routines_1
   - action: utter_routines_2
   - action: utter_timeslots_1
