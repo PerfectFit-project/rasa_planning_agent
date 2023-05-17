@@ -356,9 +356,12 @@ function setBotResponse(response) {
 
 						document.getElementById("month_3").innerHTML = "Walking for up to " + month_3 + " hours per week, distributed across 6 time slots each week";
 
-						$(".plan_table").toggle();
+						$(".plan").toggle();
 
 						number_plan = 1;
+					}
+					else if(response_text[j].includes("That's right, your first walk is on")){
+						$(".plan_after_week_2").toggle();
 					}
 					else if(response_text[j].includes("this is a message for javascript: enable the buttons")){
 
