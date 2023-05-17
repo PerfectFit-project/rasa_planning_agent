@@ -585,7 +585,7 @@ class ActionSelectAction(Action):
             # we want to give people the chance to change the plan at least once before ending the dialogue
             if number_actions == 2 and changes_to_plan == 0:
                 possible_actions = ["changes_to_plan"]
-            elif number_actions == 3 and identify_barriers and not deal_with_barriers:
+            elif number_actions >= 3 and identify_barriers and not deal_with_barriers:
                 possible_actions = ["deal_with_barriers"]
             else:
                 # we want to make at most 2 changes to the initial plan and to not change the plan twice in a row
