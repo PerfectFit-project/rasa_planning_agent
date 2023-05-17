@@ -1062,7 +1062,7 @@ responses:
   - text: "Nice. So, how does planning help you make progress towards your goal?"
 
   utter_explain_usefulness_planning_2:
-  - text: "If you have a clear indication of when you should go for a walk, you integrate walking into your schedule such that you actually have time to do it and."
+  - text: "If you have a clear indication of when you should go for a walk, you can integrate walking into your schedule such that you actually have time to do it and."
 
   utter_explain_usefulness_planning_question:
   - buttons:
