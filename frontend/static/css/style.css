@@ -64,17 +64,9 @@ body {
 	border:none;
 }
 
-#plan_first_2_weeks{
-	display: none;
+.plan{
 	width: 800px;
-	height: 350px;
-	margin: 0 auto;
-}
-
-.plan_after_week_2{
-	display: none;
-	width: 800px;
-	height: 150px;
+	height: 500px;
 	margin: 0 auto;
 }
 
@@ -104,10 +96,6 @@ body {
 	top: 2%;
 	position: fixed;
 	overflow: auto;
-}
-
-.clickable{
-	cursor: pointer;
 }
 
 .energy_table{
@@ -217,6 +205,7 @@ textarea-webkit-scrollbar {
 	width: 100%;
 	padding: 5px;
 	border-radius: 0px 0px 10px 10px;
+	animation: border-flicker-green 0.5s linear;
 }
 
 #sendButton {
@@ -323,6 +312,24 @@ textarea-webkit-scrollbar {
 		transform: translate(0px, 0px);
 	}
 }
+
+@keyframes border-flicker-green {
+	0% {
+	  box-shadow: 5px 5px 20px #09ff00;
+	}
+	25% {
+	  box-shadow: 5px 5px 20px #09ff00;
+	}
+	50% {
+	  box-shadow: 5px 5px 50px #09ff00;
+	}
+	75% {
+	  box-shadow: 5px 5px 20px #09ff00;
+	}
+	100% {
+	  box-shadow: 5px 5px 20px #09ff00;
+	}
+  }
 
 
 /*========== css related to chats elements============= */

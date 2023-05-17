@@ -538,6 +538,16 @@ function doScaledTimeout(i, response, summed_timeout) {
 	}, summed_timeout);
 }
 
+function blink() {
+	var f = document.getElementById('keypad');
+	setTimeout(function() {
+	   f.style.boxShadow = '5px 5px 50px #09ff00';
+		setTimeout(function() {
+		   f.style.boxShadow = 'none';
+		}, 1000);
+	}, 1000);
+ }
+
 
 //====================================== Toggle chatbot =======================================
 $("#profile_div").click(function () {
