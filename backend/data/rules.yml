@@ -73,6 +73,7 @@ rules:
 - rule: intro
   steps:
   - intent: confirm_usage
+  - action: utter_button
   - action: utter_intro_1
   - action: utter_intro_2
   - action: utter_intro_3
