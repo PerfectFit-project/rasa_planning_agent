@@ -1044,7 +1044,7 @@ responses:
   - text: "Nice. Seems like you're getting familiar with using the buttons."
 
   utter_intro_1:
-  - text: "Let me first reiterate what you previously read to Qualtrics."
+  - text: "Let me briefly reiterate what you previously read to Qualtrics."
 
   utter_intro_2:
   - text: "My goal is to help people create plans for taking walks."
