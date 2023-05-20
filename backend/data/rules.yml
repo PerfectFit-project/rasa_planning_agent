@@ -101,12 +101,12 @@ rules:
 #   - action: utter_explain_usefulness_planning_question
 
 
-# - rule: confirm usefulness planning explain goal
-#   steps:
-#   - intent: confirm_usefulness_planning_intro
-#   - action: utter_explain_goal_1
-#   - action: utter_explain_goal_2  
-#   - action: utter_explain_goal_question
+- rule: confirm usefulness planning explain goal
+  steps:
+  - intent: confirm_intro
+  - action: utter_explain_goal_1
+  - action: utter_explain_goal_2  
+  - action: utter_explain_goal_question
 
 - rule: set goal
   steps:

@@ -20,6 +20,10 @@ intents:
 # usage
 - confirm_usage
 
+# intro
+
+- confirm_intro
+
 # goal
 - confirm_explain_goal
 
@@ -1050,7 +1054,7 @@ responses:
 
   utter_intro_4:
   - buttons:
-    - payload: /confirm_explain_goal
+    - payload: /confirm_intro
       title: "Let's continue."
     text: "Let me know when you are ready to continue."
 
@@ -1167,7 +1171,7 @@ responses:
   - buttons:
     - payload: /confirm_ready_initial_plan
       title: "Show me the plan."
-    text: "Now, let's see initial plan! Don't worry if it's not entirely to you liking yet. You'll have opportunities to modify it later. Please let me know when you are ready to continue."
+    text: "Now, let's see the initial plan! It is based on the free times and energy levels you specified, but don't worry if it's not entirely to you liking yet. You'll have opportunities to modify it later. Please let me know when you are ready to continue."
 
   utter_present_plan_2:
   - buttons:
