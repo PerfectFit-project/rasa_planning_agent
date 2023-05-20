@@ -70,34 +70,43 @@ rules:
   - action: utter_prompt_usage_2
   - action: utter_explain_usage
 
-- rule: confirm usage explain purpose
+- rule: intro
   steps:
   - intent: confirm_usage
-  - action: utter_button
-  - action: utter_purpose_1
-  - action: utter_purpose_2
-  - action: utter_continue_purpose_1
-
-- rule: continue purpose 1
-  steps:
-  - intent: confirm_continue_purpose_1
-  - action: utter_purpose_3
-  - action: utter_confirm_purpose
-
-- rule: confirm purpose explain planning
-  steps:
-  - intent: confirm_purpose
-  - action: utter_explain_usefulness_planning_1
-  - action: utter_explain_usefulness_planning_2
-  - action: utter_explain_usefulness_planning_question
+  - action: utter_intro_1
+  - action: utter_intro_2
+  - action: utter_intro_3
+  - action: utter_intro_4
 
 
-- rule: confirm usefulness planning explain goal
-  steps:
-  - intent: confirm_usefulness_planning_intro
-  - action: utter_explain_goal_1
-  - action: utter_explain_goal_2  
-  - action: utter_explain_goal_question
+# - rule: confirm usage explain purpose
+#   steps:
+#   - intent: confirm_usage
+#   - action: utter_button
+#   - action: utter_purpose_1
+#   - action: utter_purpose_2
+#   - action: utter_continue_purpose_1
+
+# - rule: continue purpose 1
+#   steps:
+#   - intent: confirm_continue_purpose_1
+#   - action: utter_purpose_3
+#   - action: utter_confirm_purpose
+
+# - rule: confirm purpose explain planning
+#   steps:
+#   - intent: confirm_purpose
+#   - action: utter_explain_usefulness_planning_1
+#   - action: utter_explain_usefulness_planning_2
+#   - action: utter_explain_usefulness_planning_question
+
+
+# - rule: confirm usefulness planning explain goal
+#   steps:
+#   - intent: confirm_usefulness_planning_intro
+#   - action: utter_explain_goal_1
+#   - action: utter_explain_goal_2  
+#   - action: utter_explain_goal_question
 
 - rule: set goal
   steps:
