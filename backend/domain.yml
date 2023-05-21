@@ -1092,7 +1092,7 @@ responses:
     text: "Let me know when you are done reading and you want to continue."  
 
   utter_explain_goal_1:
-  - text: "Okay! In order to create a plan for walking, we should first set a goal for you."
+  - text: "Alright, let's keep going. In order to create a plan for walking, we should first set a goal for you."
 
   utter_explain_goal_2:
   - text: "Having a clear goal that is both challenging and achievable is helpful in keeping you motivated."
@@ -1104,7 +1104,7 @@ responses:
     text: "Let me know when you are ready to continue with setting a goal."  
 
   utter_set_goal_1:
-  - text: "Okay! A common way of measuring how much you walk is through counting the number of steps you take in a day."
+  - text: "Great, let's carry on. A common way of measuring how much you walk is through counting the number of steps you take in a day."
 
   utter_set_goal_2:
   - text: "And a common goal is to aim for 10000 steps per day, as this is beneficial for your health, especially if you are currently inactive."
@@ -1116,7 +1116,7 @@ responses:
     text: "Once you are ready to continue, please click the button."
 
   utter_set_goal_3:
-  - text: "Okay. I assume you take at least about 2000 steps per day through your regular activities, so one of your options is to increase that amount by 8000 steps to reach a total of 10000 steps per day."
+  - text: "Okay, let's proceed. I assume you take at least about 2000 steps per day through your regular activities, so one of your options is to increase that amount by 8000 steps to reach a total of 10000 steps per day."
 
   utter_set_goal_4:
   - text: "However, you can also pick a higher goal if you want a challenge!"
