@@ -995,6 +995,9 @@ responses:
   utter_greet_1:
   - text: "Hey there! I'm Jamie, your virtual coach."
 
+  utter_greet_2:
+  - text: "I'm happy to meet you."
+
   utter_confirm_mood:
   - buttons:
     - payload: /confirm_mood_very_good
