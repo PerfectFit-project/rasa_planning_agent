@@ -942,7 +942,7 @@ function addSuggestion(textToAdd) {
 		
 		console.log(typeof suggestions[0]);
 
-		if (suggestions.includes("happy")){
+		if (suggestions[0].title == "happy"){
 
 
 			for (i = 0; i < suggLength; i++) {
