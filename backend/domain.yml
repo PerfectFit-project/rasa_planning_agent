@@ -995,23 +995,65 @@ responses:
   utter_greet_1:
   - text: "Hey there! I'm Jamie, your virtual coach."
 
-  utter_greet_2:
-  - text: "I'm happy to meet you."
-
-
   utter_confirm_mood:
   - buttons:
     - payload: /confirm_mood_very_good
-      title: "😄"
+      title: 'happy'
+    - payload:/confirm_mood_very_good
+      title: "glad"
+    - payload: /confirm_mood_very_good
+      title: "pleased"
+    - payload: /confirm_mood_very_good
+      title: "delighted"
+    - payload: /confirm_mood_very_good
+      title: "serene"
+    - payload: /confirm_mood_very_good
+      title: 'content'
+    - payload: /confirm_mood_very_good
+      title: "satisfied"
+    - payload: /confirm_mood_very_good
+      title: "relaxed"
+    - payload: /confirm_mood_very_good
+      title: "calm"
     - payload: /confirm_mood_good
-      title: "🙂"
+      title: "excited"
+    - payload: /confirm_mood_good
+      title: "astonished"
+    - payload: /confirm_mood_good
+      title: "aroused"
     - payload: /confirm_mood_neutral
-      title: "😐"
+      title: "sleepy"
+    - payload: /confirm_mood_neutral
+      title: "neutral"
+    - payload: /confirm_mood_neutral
+      title: "tired"
+    - payload: /confirm_mood_neutral
+      title: "tense"
+    - payload: /confirm_mood_neutral
+      title: "alarmed"
+    - payload: /confirm_mood_neutral
+      title: "afraid"
     - payload: /confirm_mood_bad
-      title: "🙁"
+      title: "droopy"
+    - payload: /confirm_mood_bad
+      title: "bored"
+    - payload: /confirm_mood_bad
+      title: "angry"
+    - payload: /confirm_mood_bad
+      title: "annoyed"
+    - payload: /confirm_mood_bad
+      title: "frustrated"
     - payload: /confirm_mood_very_bad
-      title: "😔"
-    text: "How are you doing today? Pick one of the emojis to let me know how you feel."
+      title: "distressed"
+    - payload: /confirm_mood_very_bad
+      title: "depressed"
+    - payload: /confirm_mood_very_bad
+      title: "sad"
+    - payload: /confirm_mood_very_bad
+      title: "gloomy"
+    - payload: /confirm_mood_very_bad
+      title: "miserable"
+    text: "How are you doing today? Pick one of the options below to let me know how you feel."
 
   utter_mood_very_good_response:
   - text: "That's awesome! I'm glad you're in a great mood."
