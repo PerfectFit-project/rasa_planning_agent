@@ -64,12 +64,17 @@ body {
 	border:none;
 }
 
-.plan{
-	left: 3.5%;
-	top: 5%;
-	position:fixed;
+#plan_first_2_weeks{
+	display: none;
 	width: 800px;
-	height: 500px;
+	height: 350px;
+	margin: 0 auto;
+}
+
+.plan_after_week_2{
+	display: none;
+	width: 800px;
+	height: 150px;
 	margin: 0 auto;
 }
 
@@ -182,6 +187,7 @@ textarea-webkit-scrollbar {
 .userAvatar {
 	animation: animateElement linear 0.3s;
 	animation-iteration-count: 1;
+	border-radius: 50%;
 	width: 1.5em;
 	height: 1.5em;
 	float: right;
@@ -910,4 +916,3 @@ input:focus {
 video:focus {
 	outline: none;
 }
-
