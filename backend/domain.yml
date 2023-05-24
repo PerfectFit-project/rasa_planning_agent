@@ -1255,7 +1255,7 @@ responses:
   utter_state_perceived_usefulness:
   - buttons:
     - payload: /confirm_perceived_usefulness{"perceived_usefulness":"low"}
-      title: "0 (I don't think it can help me)"
+      title: "0 (I think it can hinder me very much)"
     - payload: /confirm_perceived_usefulness{"perceived_usefulness":"low"}
       title: "1"
     - payload: /confirm_perceived_usefulness{"perceived_usefulness":"low"}
@@ -1275,8 +1275,8 @@ responses:
     - payload: /confirm_perceived_usefulness{"perceived_usefulness":"high"}
       title: "9"
     - payload: /confirm_perceived_usefulness{"perceived_usefulness":"high"}
-      title: "10 (I think it can help me)"
-    text: "To what extent do you think planning can help you take walks?"
+      title: "10 (I think it can help me very much)"
+    text: "To what extent do you think planning can help or hinder you in terms of taking walks?"
 
   utter_perceived_usefulness_repeat:
   - text: "So your perceived usefulness is {perceived_usefulness}."
@@ -1292,7 +1292,7 @@ responses:
   utter_state_attitude:
   - buttons:
     - payload: /confirm_attitude{"attitude":"low"}
-      title: "0 (Very useless)"
+      title: "0 (Bad)"
     - payload: /confirm_attitude{"attitude":"low"}
       title: "1"
     - payload: /confirm_attitude{"attitude":"low"}
@@ -1312,8 +1312,8 @@ responses:
     - payload: /confirm_attitude{"attitude":"high"}
       title: "9"
     - payload: /confirm_attitude{"attitude":"high"}
-      title: "10 (Very useful)"
-    text: "Please complete the following statement: 'For me, planning walks for the next 3 months would be ...'"
+      title: "10 (Good)"
+    text: "Please complete the following statement: 'Making plans for taking walks is ...'"
 
   utter_attitude_repeat:
   - text: "So your attitude is {attitude}."
