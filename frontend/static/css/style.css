@@ -64,6 +64,14 @@ body {
 	border:none;
 }
 
+.plan{
+	left: 3.5%;
+	top: 5%;
+	position:fixed;
+	width: 800px;
+	height: 500px;
+}
+
 #plan_first_2_weeks{
 	display: none;
 	width: 800px;
