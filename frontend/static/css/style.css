@@ -73,6 +73,13 @@ body {
 	margin: 0 auto;
 }
 
+.plan_after_week_2{
+	display: none;
+	width: 800px;
+	height: 150px;
+	margin: 0 auto;
+}
+
 .timeslots_table{
 	display: none;
 	width: 57%;
