@@ -488,6 +488,8 @@ function setBotResponse(response) {
 			//check if the response contains "buttons" 
 			if (response[0].hasOwnProperty("buttons")) {
 				addSuggestion(response[0].buttons);
+				var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
+				$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
 			}
 
 		scrollToBottomOfResults();
@@ -932,13 +934,26 @@ function addSuggestion(textToAdd) {
 	setTimeout(function () {
 
 		$(".usrInput").prop('placeholder', "Use one of the buttons to answer.");
+
 		var suggestions = textToAdd;
 		var suggLength = textToAdd.length;
+
 		$(' <div class="singleCard"> <div class="suggestions"><div class="menu"></div></div></diV>').appendTo(".chats").hide().fadeIn(1000);
-		// Loop through suggestions
-		for (i = 0; i < suggLength; i++) {
-			$('<div class="menuChips" data-payload=\'' + (suggestions[i].payload) + '\'>' + suggestions[i].title + "</div>").appendTo(".menu");
+		
+		if (suggestions.includes("happy")){
+			for (i = 0; i < suggLength; i++) {
+				$('<div class="menuChipsCustom" data-payload=\'' + (suggestions[i].payload) + '\'>' + suggestions[i].title + "</div>").appendTo(".menu");
+			}
 		}
+		else{
+			// Loop through suggestions
+			for (i = 0; i < suggLength; i++) {
+				$('<div class="menuChips" data-payload=\'' + (suggestions[i].payload) + '\'>' + suggestions[i].title + "</div>").appendTo(".menu");
+			}
+		}
+
+
+
 		scrollToBottomOfResults();
 	}, 1000);
 }

@@ -554,6 +554,20 @@ div.content_data::-webkit-scrollbar {
 	word-wrap: break-word;
 }
 
+.menuChipsCustom {
+	display: block;
+	background: #ccd132;
+	color: #fff;
+	padding: 2px;
+	text-align: center;
+	margin-bottom: 1px;
+	cursor: pointer;
+	border-radius: 50px;
+	font-size: 13px;
+	margin: 2px;
+	word-wrap: break-word;
+}
+
 
 /* cards carousels */
 
