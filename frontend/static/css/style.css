@@ -190,7 +190,6 @@ textarea-webkit-scrollbar {
 .userAvatar {
 	animation: animateElement linear 0.3s;
 	animation-iteration-count: 1;
-	border-radius: 50%;
 	width: 1.5em;
 	height: 1.5em;
 	float: right;
