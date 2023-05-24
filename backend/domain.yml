@@ -998,8 +998,8 @@ responses:
   utter_confirm_mood:
   - buttons:
     - payload: /confirm_mood_very_good
-      title: 'happy'
-    - payload:/confirm_mood_very_good
+      title: "happy"
+    - payload: /confirm_mood_very_good
       title: "glad"
     - payload: /confirm_mood_very_good
       title: "pleased"
