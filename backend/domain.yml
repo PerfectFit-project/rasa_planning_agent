@@ -1032,7 +1032,7 @@ responses:
   - text: "Before we start, let me explain how you can communicate with me."
 
   utter_prompt_usage_2:
-  - text: "You can simply click on one of the buttons, like you already did. Sometimes, you will have to use the chat box bellow to type in your answer."
+  - text: "You can simply click on one of the buttons like you already did. Sometimes, you will have to use the chat box below to type in your answer."
 
   utter_explain_usage:
   - buttons:
@@ -1071,7 +1071,7 @@ responses:
     text: "Let me know when you are done reading so we can continue."
 
   utter_purpose_3:
-  - text: "Okay! For our plan, you'll have to walk at moderate intensity, whch means you should be breathing more heavily than usual, while still being able to hold a short conversation."
+  - text: "Okay! For our plan, you'll have to walk at moderate intensity, which means you should be breathing more heavily than usual, while still being able to hold a short conversation."
 
   utter_confirm_purpose:
   - buttons:
@@ -1080,10 +1080,10 @@ responses:
     text: "Once you are done reading, I will explain how this all ties together with the help of the plan."
 
   utter_explain_usefulness_planning_1:
-  - text: "Nice. So, how does planning help you make progress towards your goal?"
+  - text: "Nice. So, how does planning help you make progress toward your goal?"
 
   utter_explain_usefulness_planning_2:
-  - text: "If you have a clear indication of when you should go for a walk, you can integrate walking into your schedule such that you actually have time to do it and."
+  - text: "If you have a clear indication of when you should go for a walk, you can integrate walking into your schedule such that you actually have time to do it."
 
   utter_explain_usefulness_planning_question:
   - buttons:
@@ -1092,10 +1092,10 @@ responses:
     text: "Let me know when you are done reading and you want to continue."  
 
   utter_explain_goal_1:
-  - text: "Alright, let's keep going. In order to create a plan for walking, we should first set a goal for you."
+  - text: "Alright, let's keep going. To create a plan for walking, we should first set a goal for you."
 
   utter_explain_goal_2:
-  - text: "Having a clear goal that is both challenging and achievable is helpful in keeping you motivated."
+  - text: "Having a clear goal that is both challenging and achievable helps keep you motivated."
 
   utter_explain_goal_question:
   - buttons:
@@ -1135,7 +1135,7 @@ responses:
   - text: "Great! Take walks regularly and you'll be able to achieve your goal of {goal} steps per day."
 
   utter_routines_1:
-  - text: "Let's move on to creating the plan. In order to do that, let's first see when you have free time."
+  - text: "Let's move on to creating the plan. To do that, let's first see when you have free time."
 
   utter_routines_2:
   - text: "Ideally, we're looking for at least four different times during the week when you have at least 30 minutes to take a walk."
@@ -1158,7 +1158,7 @@ responses:
   - text: "Now, I want to ask when you have more energy than usual. We could make use of this opportunity to schedule a walk if you are also free at the time."
 
   utter_energy_instruction:
-  - text: "Like before, I would like you to pay attention to the left side of the sceen. Please specify how much energy you have during the weekdays and during the weekends by clicking the corresponding box for each time of the day. Note again that you may need to scroll to see the button which confirms that you are done."
+  - text: "Like before, I would like you to pay attention to the left side of the screen. Please specify how much energy you have during the weekdays and during the weekends by clicking the corresponding box for each time of the day. Note again that you may need to scroll to see the button which confirms that you are done."
 
   utter_energy_levels_weekends_confirm:
   - text: "So those are your energy levels on weekends:\n Morning: {weekends_morning}, Midday: {weekends_midday}, Afternoon: {weekends_afternoon}, Evening: {weekends_evening}."
@@ -1171,16 +1171,16 @@ responses:
   - buttons:
     - payload: /confirm_ready_initial_plan
       title: "Show me the plan."
-    text: "Now, let's see the initial plan! It is based on the free times and energy levels you specified, but don't worry if it's not entirely to you liking yet. You'll have opportunities to modify it later. Please let me know when you are ready to continue."
+    text: "Now, let's see the initial plan! It is based on the times when you are free and the energy levels you specified, but don't worry if it's not entirely to your liking yet. You'll have opportunities to modify it later. Please let me know when you are ready to continue."
 
   utter_present_plan_2:
   - buttons:
     - payload: /confirm_checked_plan{"changes_to_plan":"0"}
       title: "Let's discuss the plan."
-    text: "I'll leave the plan on the left side on the screen so you can take a look at it later. Note that you may need to scroll to see the entire plan, depending on your screen resolution. Let me know when you are prepared to discuss the plan in more detail."
+    text: "I'll leave the plan on the left side of the screen so you can take a look at it later. Note that you may need to scroll to see the entire plan, depending on your screen resolution. Let me know when you are prepared to discuss the plan in more detail."
 
   utter_present_plan_3:
-  - text: "Okay, let's take a took at the plan. On the left side of your screen, you should see a big table with a view similar to that of a calendar. Time slots when you should take walks are marked with the duration you should walk for. You can also notice that the duration increases each week."
+  - text: "Okay, let's take a look at the plan. On the left side of your screen, you should see a big table with a view similar to that of a calendar. Time slots when you should take walks are marked with the duration you should walk for. You can also notice that the duration increases each week."
 
   utter_check_plan_first_walk:
   - text: "You can see the first two weeks planned in detail. To check that you understand what the plan signifies, let's do a quick pop quiz! When is the first time you have to take a walk? Please type your answer as day_time. For example, if your first walk is on Friday morning, please type 'friday_morning'."
@@ -1189,7 +1189,7 @@ responses:
   - text: "That's right, your first walk is on {plan_check_first_walk}."
 
   utter_check_plan_first_walk_incorrect:
-  - text: "Unfortunately, you are not right. Please, take another look at the plan. You can see the first two weeks planned in detail. Look for the first day with a time slot selected, then look at what time in that day you should take a walk. Please type your answer as day_time."
+  - text: "Unfortunately, you are not right. Please, take another look at the plan. You can see the first two weeks planned in detail. Look for the first day with a time slot selected, then look at what time during that day you should take a walk. Please type your answer as day_time."
   
   utter_explain_weeks:
   - buttons:
@@ -1198,7 +1198,7 @@ responses:
     text: "Moving on, you can also see the third and fourth weeks, but only in terms of how many hours you have to walk and how often. For the two months after that, you see only how much you will have to do in the last week of that month, to give you an idea of the effort that you are building up towards. Let me know when you are done reading."
 
   utter_check_plan_week_3:
-  - text: "Let's do an extra check to make sure everything is clear. How much time will you have to walk on your third week? Please type your answer as a number with one decimal point. For example, if your answer is 1 and a half hours, please type '1.5'"
+  - text: "Let's do an extra check to make sure everything is clear. How much time will you have to walk in your third week? Please type your answer as a number with one decimal point. For example, if your answer is 1 and a half hours, please type '1.5'"
 
   utter_check_plan_week_3_correct:
   - text: "Correct! In your third week, you will have to walk for {plan_check_week_3} hours."
@@ -1635,7 +1635,7 @@ responses:
   utter_confidence_goal:
   - buttons:
     - payload: /confirm_confidence_goal{"confidence_goal":"0"}
-      title: "0 (I am not confident at that I can reach my goal)"
+      title: "0 (I am not confident at all that I can reach my goal)"
     - payload: /confirm_confidence_goal{"confidence_goal":"1"}
       title: "1"
     - payload: /confirm_confidence_goal{"confidence_goal":"2"}
