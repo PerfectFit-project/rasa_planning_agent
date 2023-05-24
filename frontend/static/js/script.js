@@ -940,7 +940,7 @@ function addSuggestion(textToAdd) {
 
 		$(' <div class="singleCard"> <div class="suggestions"><div class="menu"></div></div></diV>').appendTo(".chats").hide().fadeIn(1000);
 		
-		console.log(typeof suggestions[0]);
+		console.log(suggestions[0].title);
 
 		if (suggestions[0].title == "happy"){
 
