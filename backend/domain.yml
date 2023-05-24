@@ -1021,7 +1021,7 @@ responses:
     - payload: /confirm_mood_good
       title: "Excited"
     - payload: /confirm_mood_good
-      title: "Aastonished"
+      title: "Astonished"
     - payload: /confirm_mood_good
       title: "Aroused"
     - payload: /confirm_mood_neutral
