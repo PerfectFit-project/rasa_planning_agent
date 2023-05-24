@@ -536,6 +536,17 @@ div.content_data::-webkit-scrollbar {
 }
 
 .menu {
+	padding: 10px;
+}
+
+.menuCustom {
+	padding: 2px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.menuCustom {
 	padding: 2px;
 	display: flex;
 	flex-wrap: wrap;

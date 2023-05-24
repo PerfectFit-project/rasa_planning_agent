@@ -938,14 +938,14 @@ function addSuggestion(textToAdd) {
 		var suggestions = textToAdd;
 		var suggLength = textToAdd.length;
 
-		$(' <div class="singleCard"> <div class="suggestions"><div class="menu"></div></div></diV>').appendTo(".chats").hide().fadeIn(1000);
+		$(' <div class="singleCard"> <div class="suggestions"><div class="menu"><div class="menuCustom"></div></div></div></diV>').appendTo(".chats").hide().fadeIn(1000);
 	
 
 		if (suggestions[0].title == "Happy"){
 
 
 			for (i = 0; i < suggLength; i++) {
-				$('<div class="menuChipsCustom" data-payload=\'' + (suggestions[i].payload) + '\'>' + suggestions[i].title + "</div>").appendTo(".menu");
+				$('<div class="menuChipsCustom" data-payload=\'' + (suggestions[i].payload) + '\'>' + suggestions[i].title + "</div>").appendTo(".menuCustom");
 			}
 		}
 		else{
