@@ -48,8 +48,8 @@ body {
 
 .plan_table{
 	display: none;
-	width: 57%;
-	height: 95%;
+	width: 875px;
+	height: 700 px;
 	left: 1%;
 	bottom: 2%;
 	top: 2%;
@@ -66,18 +66,10 @@ body {
 
 .plan{
 	display: none;
-	left: 3.5%;
-	top: 5%;
-	position:fixed;
+	top: 3%;
+	position: relative;
 	width: 800px;
 	height: 500px;
-	margin: 0 auto;
-}
-
-.plan_after_week_2{
-	display: none;
-	width: 800px;
-	height: 150px;
 	margin: 0 auto;
 }
 
@@ -236,6 +228,8 @@ textarea-webkit-scrollbar {
 	width: 250px;
 	text-align: center;
 	margin: 10 auto;
+	position: relative;
+	top: 5%;
 	cursor: pointer;
 	border: 2px solid  #000000;
 	background-color: #2ed59f61
