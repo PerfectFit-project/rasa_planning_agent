@@ -558,9 +558,9 @@ div.content_data::-webkit-scrollbar {
 
 .menuChipsCustom {
 	display: block;
-	background: #ccd132;
+	background: #2ed59f;
 	color: #fff;
-	padding: 2px;
+	padding:7px;
 	text-align: center;
 	margin-bottom: 1px;
 	cursor: pointer;
