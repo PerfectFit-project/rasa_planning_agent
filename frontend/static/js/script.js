@@ -978,7 +978,7 @@ $(document).on("click", ".menu .menuChips", function () {
 
 
 // on click of suggestions, get the value and send to rasa
-$(document).on("click", ".menu .menuChipsCustom", function () {
+$(document).on("click", ".menuCustom .menuChipsCustom", function () {
 	// $('.usrInput').attr("disabled",false);
 	$(".usrInput").prop('placeholder', "Use the buttons to communicate with Jamie.");
 	var text = this.innerText;
