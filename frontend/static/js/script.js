@@ -358,7 +358,7 @@ function setBotResponse(response) {
 
 						$(".plan_table").css("display","block");
 
-						$("#plan_first_2_weeks").css("display","table");
+						$(".plan").css("display","table");
 
 						number_plan = 1;
 					}
