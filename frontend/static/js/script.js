@@ -488,8 +488,6 @@ function setBotResponse(response) {
 			//check if the response contains "buttons" 
 			if (response[0].hasOwnProperty("buttons")) {
 				addSuggestion(response[0].buttons);
-				var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
-				$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
 			}
 
 		scrollToBottomOfResults();
