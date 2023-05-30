@@ -1011,7 +1011,7 @@ responses:
     - payload: /confirm_mood_very_good
       title: "Serene"
     - payload: /confirm_mood_very_good
-      title: 'Content'
+      title: "Content"
     - payload: /confirm_mood_very_good
       title: "Satisfied"
     - payload: /confirm_mood_very_good
