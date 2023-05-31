@@ -772,15 +772,17 @@ function check_selected_timeslots_initial(){
 	days.forEach(function(element_id) {
 		count+= check_inner_HTML(element_id);
 		selected_slots.push(slots_selected_initial(element_id));
-        if (!selected_slots_day_only.includes(day_only(element_id))) {
-            selected_slots_day_only.push(day_only(element_id))
-        }
     });
 
 	var selected_slots = selected_slots.filter(function (el) {
 		return el != "";
 	});
 
+	selected_slots.forEach(function(element_id) {
+        if (!selected_slots_day_only.includes(day_only(element_id))) {
+            selected_slots_day_only.push(day_only(element_id))
+        }
+    });
 
 	if(selected_slots_day_only.length >= 4 || selected_slots_day_only.length == 3 && count >=4){
 		button.style.display = "none";
