@@ -1012,11 +1012,11 @@ responses:
       title: "Serene"
     - payload: /confirm_mood_very_good
       title: "Content"
-    - payload: /confirm_mood_very_good
+    - payload: /confirm_mood_good
       title: "Satisfied"
-    - payload: /confirm_mood_very_good
+    - payload: /confirm_mood_good
       title: "Relaxed"
-    - payload: /confirm_mood_very_good
+    - payload: /confirm_mood_good
       title: "Calm"
     - payload: /confirm_mood_good
       title: "Excited"
@@ -1032,19 +1032,19 @@ responses:
       title: "Tired"
     - payload: /confirm_mood_neutral
       title: "Tense"
-    - payload: /confirm_mood_neutral
+    - payload: /confirm_mood_bad
       title: "Alarmed"
-    - payload: /confirm_mood_neutral
+    - payload: /confirm_mood_bad
       title: "Afraid"
     - payload: /confirm_mood_bad
       title: "Droopy"
     - payload: /confirm_mood_bad
       title: "Bored"
-    - payload: /confirm_mood_bad
+    - payload: /confirm_mood_very_bad
       title: "Angry"
-    - payload: /confirm_mood_bad
+    - payload: /confirm_mood_very_bad
       title: "Annoyed"
-    - payload: /confirm_mood_bad
+    - payload: /confirm_mood_very_bad
       title: "Frustrated"
     - payload: /confirm_mood_very_bad
       title: "Distressed"
