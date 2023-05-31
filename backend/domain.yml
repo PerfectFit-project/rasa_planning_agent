@@ -1386,7 +1386,7 @@ responses:
   - text: "It seems like your answer is a bit too short... Please type at least 3 words. The question was: How do you think planning can help you do this?"
 
   utter_explain_planning_1:
-  - text: "Thanks for telling me! \n I think it would be useful to look again at more ways in which planning can help you be more physically active by walking."
+  - text: "Thanks for telling me! \n I think it would be useful to look at ways in which planning can help you be more physically active by walking."
 
   utter_explain_planning_2:
   - buttons:
