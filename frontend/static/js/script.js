@@ -763,14 +763,15 @@ function check_selected_timeslots_initial(){
 	"sunday_morning_slot", "sunday_midday_slot", "sunday_afternoon_slot", "sunday_evening_slot"
 	]
 
+	var count = 0;
 
 	var selected_slots = [];
-
-	days.forEach(element_id => selected_slots.push(slots_selected_initial(element_id)));
 
 	var selected_slots_day_only = [];
 
 	days.forEach(function(element_id) {
+		count+= check_inner_HTML(element_id);
+		selected_slots.push(slots_selected_initial(element_id));
         if (!selected_slots_day_only.includes(day_only(element_id))) {
             selected_slots_day_only.push(day_only(element_id))
         }
@@ -781,7 +782,7 @@ function check_selected_timeslots_initial(){
 	});
 
 
-	if(len(selected_slots_day_only) >= 4){
+	if(selected_slots_day_only.length >= 4 || selected_slots_day_only.length == 3 && count >=4){
 		button.style.display = "none";
 		table.style.display = "none";
 
