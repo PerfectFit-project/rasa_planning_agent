@@ -743,6 +743,11 @@ function check_selected_timeslots(){
 	}
 }
 
+function day_only(id){
+    const day = id.split('_')[0];
+    return day;
+}
+
 function check_selected_timeslots_initial(){
 
 	var button = document.getElementById("submit_timeslots_button");
@@ -759,20 +764,24 @@ function check_selected_timeslots_initial(){
 	]
 
 
-	var count = 0;
-
-	days.forEach(element_id => count+= check_inner_HTML(element_id));
-
 	var selected_slots = [];
 
 	days.forEach(element_id => selected_slots.push(slots_selected_initial(element_id)));
+
+	var selected_slots_day_only = [];
+
+	days.forEach(function(element_id) {
+        if (!selected_slots_day_only.includes(day_only(element_id))) {
+            selected_slots_day_only.push(day_only(element_id))
+        }
+    });
 
 	var selected_slots = selected_slots.filter(function (el) {
 		return el != "";
 	});
 
 
-	if(count >= 4){
+	if(len(selected_slots_day_only) >= 4){
 		button.style.display = "none";
 		table.style.display = "none";
 
@@ -792,7 +801,7 @@ function check_selected_timeslots_initial(){
 		
 	}
 	else{
-		window.alert("Please select at least four time slots.");
+		window.alert("Please select at least four time slots and at least four different days.");
 	}
 }
 

@@ -1183,7 +1183,7 @@ responses:
   - text: "Let's move on to creating the plan. To do that, let's first see when you have free time."
 
   utter_routines_2:
-  - text: "Ideally, we're looking for at least four different times during the week when you have at least 30 minutes to take a walk."
+  - text: "Ideally, we're looking for at least four different days during the week when you have at least 30 minutes to take a walk."
 
   utter_timeslots_1:
   - text: "On the left side of the screen, you can see a table. You can click on a time slot in the table to specify that you are available at that time. By clicking that slot again, you indicate that you are not available."
