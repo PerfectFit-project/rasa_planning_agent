@@ -528,7 +528,7 @@ class ActionCheckDialogueDone(Action):
 
                 a = tracker.get_slot("attitude")
 
-                if c == "high" and pu == "high" and a == "high":
+                if c >= 8 and pu >= 8 and a >= 8:
                     
                     end = True
 
