@@ -660,21 +660,21 @@ class ActionSelectAction(Action):
             for (userid,date,state,action,next_state) in result:
                 split = state.split(", ")
 
-                if split[1] in [0,1,2,3]:
+                if int(split[1]) in [0,1,2,3]:
                     db_c = "low"
-                elif split[1] in [4,5,6]:
+                elif int(split[1]) in [4,5,6]:
                     db_c = "medium"
-                elif split[1] in [7,8,9,10]:
+                elif int(split[1]) in [7,8,9,10]:
                     db_c = "high"
 
-                if pu in [0,1,2,3,4]:
+                if int(split[2]) in [0,1,2,3,4]:
                     db_pu = "low"
-                elif pu in [5,6,7,8,9,10]:
+                elif int(split[2]) in [5,6,7,8,9,10]:
                     db_pu = "high"
 
-                if a in [0,1,2,3,4]:
+                if int(split[2]) in [0,1,2,3,4]:
                     db_a = "low"
-                elif a in [5,6,7,8,9,10]:
+                elif int(split[2]) in [5,6,7,8,9,10]:
                     db_a = "high"
 
                 db_state = f"{ch}, {db_c}, {db_pu}, {db_a}, {explain_planning}, {identify_barriers}, {deal_with_barriers}, {show_testimonials}" 
