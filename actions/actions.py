@@ -522,11 +522,11 @@ class ActionCheckDialogueDone(Action):
 
             if identify_barriers and deal_with_barriers or not identify_barriers:
 
-                c = tracker.get_slot("confidence")
+                c = int(tracker.get_slot("confidence"))
 
-                pu = tracker.get_slot("perceived_usefulness")
+                pu = int(tracker.get_slot("perceived_usefulness"))
 
-                a = tracker.get_slot("attitude")
+                a = int(tracker.get_slot("attitude"))
 
                 if c >= 8 and pu >= 8 and a >= 8:
                     
