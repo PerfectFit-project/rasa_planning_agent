@@ -617,24 +617,73 @@ class ActionSelectAction(Action):
 
             ch = tracker.get_slot("changes_to_plan")
 
-            c = tracker.get_slot("confidence")
+            c = int(tracker.get_slot("confidence"))
 
-            pu = tracker.get_slot("perceived_usefulness")
+            pu = int(tracker.get_slot("perceived_usefulness"))
 
-            a = tracker.get_slot("attitude")
+            a = int(tracker.get_slot("attitude"))
+
+            
+
+            if c in [0,1,2,3]:
+                current_c = "low"
+            elif c in [4,5,6]:
+                current_c = "medium"
+            elif c in [7,8,9,10]:
+                current_c = "high"
+
+            if pu in [0,1,2,3,4]:
+                current_pu = "low"
+            elif pu in [5,6,7,8,9,10]:
+                current_pu = "high"
+
+            if a in [0,1,2,3,4]:
+                current_a = "low"
+            elif a in [5,6,7,8,9,10]:
+                current_a = "high"
 
             # build current state
             state = f"{ch}, {c}, {pu}, {a}, {explain_planning}, {identify_barriers}, {deal_with_barriers}, {show_testimonials}"
 
-            query = ("SELECT * FROM state_action_state WHERE state_before = %s")
+            current_state = f"{ch}, {current_c}, {current_pu}, {current_a}, {explain_planning}, {identify_barriers}, {deal_with_barriers}, {show_testimonials}"
             
-            cur.execute(query, [state])
+            query = ("SELECT * FROM state_action_state")
             
-            # retrieve all database entries which have an action taken from this state
+            cur.execute(query)
+            
+            # retrieve all database entries
             result = cur.fetchall()
 
-        # select only the actions in the database results
-            actions = [f"{action}" for (userid,date,state,action,next_state) in result]
+            # select all entries with a similar state
+            similar = []
+
+            for (userid,date,state,action,next_state) in result:
+                split = state.split(", ")
+
+                if split[1] in [0,1,2,3]:
+                    db_c = "low"
+                elif split[1] in [4,5,6]:
+                    db_c = "medium"
+                elif split[1] in [7,8,9,10]:
+                    db_c = "high"
+
+                if pu in [0,1,2,3,4]:
+                    db_pu = "low"
+                elif pu in [5,6,7,8,9,10]:
+                    db_pu = "high"
+
+                if a in [0,1,2,3,4]:
+                    db_a = "low"
+                elif a in [5,6,7,8,9,10]:
+                    db_a = "high"
+
+                db_state = f"{ch}, {db_c}, {db_pu}, {db_a}, {explain_planning}, {identify_barriers}, {deal_with_barriers}, {show_testimonials}" 
+
+                if db_state == current_state:
+                    similar.append((userid,date,state,action,next_state))
+
+            # select only the actions in the database results
+            actions = [f"{action}" for (userid,date,state,action,next_state) in similar]
 
             # count how many times each action was done
             count = collections.Counter(actions)
