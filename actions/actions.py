@@ -321,30 +321,6 @@ class ActionCreateInitialPlan(Action):
         "sunday_evening" : [sunday_evening, weekends_evening]
         }
 
-        available_timeslots = [[day, days[day][1]] for day in days if days[day][0] == True]
-
-        number_of_timeslots = len(available_timeslots) 
-
-        very_high_energy_timeslots = [[available, energy] for [available, energy] in available_timeslots if energy == '4']
-
-        high_energy_timeslots = [[available, energy] for [available, energy] in available_timeslots if energy == '3']
-
-        medium_energy_timeslots = [[available, energy] for [available, energy] in available_timeslots if energy == '2']
-
-        low_energy_timeslots = [[available, energy] for [available, energy] in available_timeslots if energy == '1']
-
-        very_low_energy_timeslots = [[available, energy] for [available, energy] in available_timeslots if energy == '0']
-
-        number_of_very_high_energy_timeslots = len(very_high_energy_timeslots)
-
-        number_of_high_energy_timeslots = len(high_energy_timeslots)
-
-        number_of_medium_energy_timeslots = len(medium_energy_timeslots)
-
-        number_of_low_energy_timeslots = len(low_energy_timeslots)
-
-        number_of_very_low_energy_timeslots = len(very_low_energy_timeslots)
-
         minutes_week_1 = 120
 
         if goal == "10000":
@@ -353,61 +329,72 @@ class ActionCreateInitialPlan(Action):
             weekly_increase = 22
         elif goal == "12000":
             weekly_increase = 25
-        
-        if number_of_timeslots == 4:
 
-            selected =  available_timeslots
+        available_timeslots = [[day, days[day][1]] for day in days if days[day][0] == True]
 
-        else: 
-
-            select_slots = 4
-
-            if number_of_very_high_energy_timeslots > select_slots:
-
-                selected = random.sample(very_high_energy_timeslots, select_slots)
-
-            else: 
-
-                selected = very_high_energy_timeslots
-
-                select_slots -= number_of_very_high_energy_timeslots
-
-                if number_of_high_energy_timeslots > select_slots:
-
-                    selected += random.sample(high_energy_timeslots, select_slots)
-
-                else:
-
-                    selected += high_energy_timeslots
-
-                    select_slots -= number_of_high_energy_timeslots
-
-                    if number_of_medium_energy_timeslots > select_slots:
-
-                        selected += random.sample(medium_energy_timeslots, select_slots)
-
-                    else:
-
-                        selected += medium_energy_timeslots
-
-                        select_slots -= number_of_medium_energy_timeslots
-
-                        if number_of_low_energy_timeslots > select_slots:
-
-                            selected += random.sample(low_energy_timeslots, select_slots)
-
-                        else:
-
-                            selected += low_energy_timeslots
-
-                            select_slots -= number_of_low_energy_timeslots
-
-                            if select_slots is not 0:
-                            
-                                selected += random.sample(very_low_energy_timeslots, select_slots)
+        possibilities = list(combinations(available_timeslots, 4))
 
 
-        # dispatcher.utter_message(text=f"Available slots: {available_timeslots},  Selected slots: {selected}")
+        with_three_days = []
+
+        for possibility in possibilities:
+            if has_days(possibility) >=3:
+                with_three_days.append(possibility)
+
+        energies = {}
+                
+        for possibility in with_three_days:
+
+            energy = energy_levels(possibility)
+            
+            energies[str(possibility)] = energy
+            
+        for i in range(4):
+            
+            backup = energies.copy()
+            
+            without_i = {}
+                
+            for k,v in energies.items():
+                
+                if f'{i}' not in v:
+                    without_i[k] = v
+
+            if (len(without_i) == 0):
+                energies = backup.copy()
+            else:
+                energies = without_i.copy()
+
+            
+        largest_possible_energy = 0
+
+        for k,v in energies.items():
+            
+            energy = 0
+            
+            for i in range(5):
+                if f'{i}' in v:
+                    energy += i * v[f'{i}']
+            
+            
+            if energy > largest_possible_energy:
+                largest_possible_energy = energy
+                
+        best_possibilities = []
+                
+        for k,v in energies.items():
+            
+            energy = 0
+            
+            for i in range(5):
+                if f'{i}' in v:
+                    energy += i * v[f'{i}']
+            
+            if energy == largest_possible_energy:
+                best_possibilities.append(k)
+            
+            
+        selected = random.choice(best_possibilities)
 
         duration_per_timeslot_week_1 = math.ceil(minutes_week_1/4)
 
