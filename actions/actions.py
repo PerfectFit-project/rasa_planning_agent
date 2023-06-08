@@ -8,6 +8,7 @@
 from datetime import datetime
 from definitions import (DATABASE_HOST, DATABASE_PASSWORD, 
                          DATABASE_PORT, DATABASE_USER)
+from itertools import combinations
 from rasa_sdk import Action, FormValidationAction, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import FollowupAction, SlotSet, UserUttered, ActionExecuted
