@@ -220,6 +220,34 @@ def round_to_nearest_5(n):
 def round_to_nearest_half(n):
     return round(n * 2.0) / 2.0
 
+def has_days(combination):
+    
+    days = []
+    
+    for [time, energy] in combination:
+
+        day = time.split("_")[0]
+        if day not in days:
+            days.append(day)
+
+    return len(days)
+    
+def energy_levels(combination):
+    
+    energy_levels = {}
+    
+    # for i in range(5):
+    #     energy_levels[f"{i}"] = 0
+    
+    for [time, energy] in combination:
+        
+        if energy not in energy_levels:
+            energy_levels[energy] = 1
+        else:
+            energy_levels[energy] += 1
+
+    return energy_levels
+
 
 class ActionCreateInitialPlan(Action):
 
