@@ -1760,7 +1760,7 @@ responses:
 
 
   utter_default_close_session:
-  - text: "Please close this window and contact the researcher on prolific."
+  - text: "Please close this window and contact the researcher on Prolific."
 
 
   utter_error_close_session:
@@ -1768,7 +1768,7 @@ responses:
 
 
 session_config:
-  session_expiration_time: 33  # these are minutes (33 is max. time in Prolific for 6-minute study)
+  session_expiration_time: 56  # these are minutes (56 is max. time in Prolific for 15-minute study)
   carry_over_slots_to_new_session: false
 
 
