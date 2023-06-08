@@ -423,11 +423,28 @@ class ActionCreateInitialPlan(Action):
                 best_possibilities.append(k)
             
             
-        selected = random.choice(best_possibilities)
+        picked = random.choice(best_possibilities)
 
-        duration_per_timeslot_week_1 = math.ceil(minutes_week_1/4)
+        picked = picked[1:-1]
 
-        selected_times = [time_energy[0] for time_energy in selected]
+        split = picked.split(", [")
+
+        selected_times = []
+
+
+        for item in split:
+            item = item.split(", ")[0]
+            
+            if "[" in item:
+                item = item[1:]
+                
+            item = item[1:-1]
+                
+            
+            selected_times.append(item)
+
+
+
 
         custom_order = {
             "monday_morning": 0, "monday_midday": 1, "monday_afternoon": 2, "monday_evening": 3,
@@ -442,6 +459,7 @@ class ActionCreateInitialPlan(Action):
         selected_times.sort(key=lambda x:custom_order[x])
 
         first = selected_times[0]
+
 
         message = f"""Plan 1: Week 1 - {round_to_nearest_5(duration_per_timeslot_week_1)} minutes at these time slots: {selected_times}. Week 2 - {round_to_nearest_5(math.ceil((minutes_week_1 + weekly_increase)/4))} minutes at these time slots: {selected_times}. Week 3 - Walking for {round_to_nearest_half((minutes_week_1 + 2* weekly_increase)/60.0)} hours, distributed across 4 time slots. Week 4 - Walking for {round_to_nearest_half((minutes_week_1 + 3* weekly_increase)/60.0)} hours, distributed across 4 time slots. Month 2 - Walking for up to {round_to_nearest_half((minutes_week_1 + 7* weekly_increase)/60.0)} hours per week, distributed across 5 time slots. Month 3 - Walking for up to {round_to_nearest_half((minutes_week_1 + 11* weekly_increase)/60.0)} hours per week, distributed across 6 time slots."""
 
