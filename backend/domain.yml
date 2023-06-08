@@ -1200,7 +1200,7 @@ responses:
       title: "11000 steps (or 110 minutes) per day."
     - payload: /confirm_goal{"goal":"12000"}
       title: "12000 steps (or 120 minutes) per day."
-    text: "Please pick one of these options as your goal."
+    text: "Please pick one of these options as your goal. Remember that this goal represents how many steps you will be able to do in six months from know."
 
   utter_confirm_goal:
   - text: "Great! Take walks regularly and you'll be able to achieve your goal of {goal} steps per day."
