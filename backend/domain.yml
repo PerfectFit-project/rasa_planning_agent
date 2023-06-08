@@ -1732,14 +1732,16 @@ responses:
   utter_thank:
     - text: "Thank you for all your answers and for your time!"
 
+  utter_prolific_link:
+    - text: "Here is your completion link: ... ."
+
 
   ### End session
-  utter_email_reminder:
-    - text: "That's all for this session. I'll be sending you a message on Prolific right after this session to confirm that you have completed everything."
+  utter_post:
+    - text: "That's all for this session. You will soon get invited on Prolific to complete the post questionnaire."
 
 
-  utter_prolific_link:
-    - text: "Alright! Then here is your completion link: ... ."
+
 
 
   utter_goodbye:
