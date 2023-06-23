@@ -309,6 +309,9 @@ entities:
 - explain_planning:
     influence_conversation: false
 
+- planning_importance_explanation:
+    influence_conversation: false
+
 - identify_barriers:
     influence_conversation: false
 
@@ -324,6 +327,12 @@ entities:
 - barrier_description:
     influence_conversation: false
 
+- barrier_strategy_1:
+    influence_conversation: false
+
+- barrier_strategy_2:
+    influence_conversation: false
+
 - planning_relevance:
     influence_conversation: false
 
@@ -337,6 +346,12 @@ entities:
     influence_conversation: false
 
 - testimonial_2_body:
+    influence_conversation: false
+
+- takeaway_1:
+    influence_conversation: false
+
+- takeaway_2:
     influence_conversation: false
 
 - action:
@@ -874,6 +889,13 @@ slots:
     - type: from_entity
       entity: planning_relevance
 
+  planning_importance_explanation:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: planning_importance_explanation
+
   identify_barriers:
     type: bool
     initial_value: false
@@ -902,6 +924,20 @@ slots:
     mappings:
     - type: from_entity
       entity: barrier_description
+
+  barrier_strategy_1:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: barrier_strategy_1
+
+  barrier_strategy_2:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: barrier_strategy_2
 
   deal_with_barriers:
     type: bool
@@ -946,6 +982,20 @@ slots:
     mappings:
     - type: from_entity
       entity: testimonial_2_body
+
+  takeaway_1:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: takeaway_1
+
+  takeaway_2:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: takeaway_2
 
 
   actions_done:

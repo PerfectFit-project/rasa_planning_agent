@@ -61,7 +61,7 @@ $(".usrInput").on("keyup keypress", function (e) {
 					var message = "/takeaway_1_short";
 				}
 				else{
-					var message = "/confirm_takeaway_1";
+					var message = `/confirm_takeaway_1{"takeaway_1":"${text}"}`;
 				}
 				
 				setUserResponse(text);
@@ -76,7 +76,7 @@ $(".usrInput").on("keyup keypress", function (e) {
 					var message = "/takeaway_2_short";
 				}
 				else{
-					var message = "/confirm_takeaway_2";
+					var message = `/confirm_takeaway_2{"takeaway_2":"${text}"}`;
 					current_takeaway = 99;
 				}
 
@@ -128,10 +128,10 @@ $(".usrInput").on("keyup keypress", function (e) {
 				}
 				else{
 					if(barrier_type != "time" && barrier_type != "energy" && barrier_type != "people" && barrier_type != "equipment" && barrier_type != "family"){
-						var message = "/confirm_continue_deal_with_barriers_skip_extra";
+						var message = `/confirm_continue_deal_with_barriers_skip_extra{"barrier_strategy_1":"${text}"}`;
 					}
 					else{
-						var message = "/confirm_continue_deal_with_barriers_2";
+						var message = `/confirm_continue_deal_with_barriers_2{"barrier_strategy_1":"${text}"}`;
 					}
 					
 				}
@@ -167,7 +167,7 @@ $(".usrInput").on("keyup keypress", function (e) {
 					var message = "/barrier_repeat_short";
 				}
 				else{
-					var message = "/confirm_continue_deal_with_barriers_3";
+					var message = `/confirm_continue_deal_with_barriers_3{"barrier_strategy_2":"${text}"}`;
 				}
 
 				barrier_repeat = false;
@@ -184,7 +184,7 @@ $(".usrInput").on("keyup keypress", function (e) {
 					var message = "/planning_short";
 				}
 				else{
-					var message = "/confirm_planning_input";
+					var message = `/confirm_planning_input{"planning_importance_explanation":"${text}"}`;
 				}
 
 				planning = false;
