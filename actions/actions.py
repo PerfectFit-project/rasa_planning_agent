@@ -855,9 +855,9 @@ class ActionSaveAction(Action):
         return []
 
 
-def save_goal_plans_and_reward_to_db(cur, conn, prolific_id, time, goal, plan_1, plan_2, plan_3, reward):
-    query = "INSERT INTO users(prolific_id, time, goal, plan_1, plan_2, plan_3, reward) VALUES(%s, %s, %s, %s, %s, %s, %s)"
-    cur.execute(query, [prolific_id, time, goal, plan_1, plan_2, plan_3, reward])
+def save_goal_plans_and_reward_to_db(cur, conn, prolific_id, time, goal, plan_1, plan_2, plan_3, reward, testimonial_1, takeaway_1, testimonial_2, takeaway_2, identified_barrier, barrier_descripion, barrier_strategy_1, barrier_strategy_2, planning_relevance, planning_importance_explanation):
+    query = "INSERT INTO users(prolific_id, time, goal, plan_1, plan_2, plan_3, reward, testimonial_1, takeaway_1, testimonial_2, takeaway_2, identified_barrier, barrier_descripion, barrier_strategy_1, barrier_strategy_2, planning_relevance, planning_importance_explanation) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+    cur.execute(query, [prolific_id, time, goal, plan_1, plan_2, plan_3, reward, testimonial_1, takeaway_1, testimonial_2, takeaway_2, identified_barrier, barrier_descripion, barrier_strategy_1, barrier_strategy_2, planning_relevance, planning_importance_explanation])
     conn.commit()
 
 class ActionSaveGoalPlansAndReward(Action):
@@ -900,9 +900,38 @@ class ActionSaveGoalPlansAndReward(Action):
 
             confidence_goal = tracker.get_slot("confidence_goal")
 
+            testimonial_1_intro = tracker.get_slot("testimonial_1_intro")
+
+            testimonial_1_body = tracker.get_slot("testimonial_1_body")
+
+            testimonial_2_intro = tracker.get_slot("testimonial_2_intro")
+
+            testimonial_2_body = tracker.get_slot("testimonial_2_body")
+
+            testimonial_1 = f"{testimonial_1_intro} {testimonial_1_body}"
+
+            testimonial_2 = f"{testimonial_2_intro} {testimonial_2_body}"
+
+            takeaway_1 = tracker.get_slot("takeaway_1")
+
+            takeaway_2 = tracker.get_slot("takeaway_2")
+
+            identified_barrier = tracker.get_slot("identified_barrier")
+
+            barrier_descripion = tracker.get_slot("barrier_description")
+
+            barrier_strategy_1 = tracker.get_slot("barrier_strategy_1")
+
+            barrier_strategy_2 = tracker.get_slot("barrier_strategy_2")
+
+            planning_relevance = tracker.get_slot("planning_relevance")
+
+            planning_importance_explanation = tracker.get_slot("planning_importance_explanation")
+
+
             reward = f"Reward: satifaction = {satisfaction}, commitment_1 = {commitment_1}, commitment_f = {commitment_f}, confidence_goal = {confidence_goal}"
 
-            save_goal_plans_and_reward_to_db(cur, conn, prolific_id, formatted_date, goal, plan_1, plan_2, plan_3, reward)
+            save_goal_plans_and_reward_to_db(cur, conn, prolific_id, formatted_date, goal, plan_1, plan_2, plan_3, reward, testimonial_1, takeaway_1, testimonial_2, takeaway_2, identified_barrier, barrier_descripion, barrier_strategy_1, barrier_strategy_2, planning_relevance, planning_importance_explanation)
 
         except mysql.connector.Error as error:
             logging.info("Error in saving name to db: " + str(error))
