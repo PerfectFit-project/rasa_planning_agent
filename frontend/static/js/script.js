@@ -444,6 +444,7 @@ function setBotResponse(response) {
 						setTimeout(function(){
 							$('.usrInput').attr("disabled",false);
 							$(".usrInput").prop('placeholder', "Type something...");
+							console.log(response_text[j]);
 							barrier_type = response_text[j].split("User barrier: ")[1];
 							barrier_strategy = true;
 							blink_and_select();
