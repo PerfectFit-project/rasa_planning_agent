@@ -880,6 +880,8 @@ class ActionSaveGoalPlansAndReward(Action):
                 port=DATABASE_PORT,
                 database='db'
             )
+
+            dispatcher.utter_message(text=f"I am saving to db")
             cur = conn.cursor(prepared=True)
             
             prolific_id = tracker.current_state()['sender_id']
