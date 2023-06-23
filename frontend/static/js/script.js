@@ -967,7 +967,7 @@ function addSuggestion(textToAdd) {
 		$(' <div class="singleCard"> <div class="suggestions"><div class="menu"><div class="menuCustom"></div></div></div></diV>').appendTo(".chats").hide().fadeIn(1000);
 	
 
-		if (suggestions[0].title == "Happy"){
+		if (suggestions[0].title == "Happy" || suggestions[0].title == "-10 (I think it can hinder me very much)" || suggestions[0].title == "-10 (Bad)" || suggestions[0].title == "-10 (I am very dissatisfied)" || suggestions[0].title == "-10 (I strongly disagree)"){
 
 
 			for (i = 0; i < suggLength; i++) {
