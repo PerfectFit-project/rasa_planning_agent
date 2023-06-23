@@ -291,6 +291,8 @@ function setBotResponse(response) {
 			if (response[0].hasOwnProperty("text")) {
 				var response_text = response[0].text.split("\n")
 				for (j = 0; j < response_text.length; j++){
+
+					console.log(response_text[j]);
 					
 					if(response_text[j].includes("Great! Take walks regularly and you'll be able to achieve your goal")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
@@ -441,6 +443,7 @@ function setBotResponse(response) {
 						,5000);
 					}
 					else if(response_text[j].includes("User barrier: ")){
+						console.log(response_text[j]);
 						setTimeout(function(){
 							$('.usrInput').attr("disabled",false);
 							$(".usrInput").prop('placeholder', "Type something...");
