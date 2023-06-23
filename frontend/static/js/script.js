@@ -444,11 +444,11 @@ function setBotResponse(response) {
 					}
 					else if(response_text[j].includes("User barrier: ")){
 						console.log(response_text[j]);
+						barrier_type = response_text[j].split("User barrier: ")[1];
 						setTimeout(function(){
 							$('.usrInput').attr("disabled",false);
 							$(".usrInput").prop('placeholder', "Type something...");
-							console.log(response_text[j]);
-							barrier_type = response_text[j].split("User barrier: ")[1];
+							console.log(response_text[j]);							
 							barrier_strategy = true;
 							blink_and_select();
 						}
