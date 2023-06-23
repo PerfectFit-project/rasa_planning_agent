@@ -1168,7 +1168,7 @@ responses:
   - text: "Let me briefly reiterate what you previously read in the introduction part of this session."
 
   utter_intro_2:
-  - text: "My goal is to help people create plans for taking walks."
+  - text: "My objective is to help people create plans for taking walks."
 
   utter_intro_3:
   - text: "We'll set a goal for you to reach in 6 months from now, and then create a plan for doing so."
