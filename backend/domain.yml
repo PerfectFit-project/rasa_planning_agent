@@ -775,6 +775,16 @@ slots:
     type: categorical
     influence_conversation: false
     values:
+      - -10
+      - -9
+      - -8
+      - -7
+      - -6
+      - -5
+      - -4
+      - -3
+      - -2
+      - -1
       - 0
       - 1
       - 2
@@ -794,6 +804,16 @@ slots:
     type: categorical
     influence_conversation: false
     values:
+      - -10
+      - -9
+      - -8
+      - -7
+      - -6
+      - -5
+      - -4
+      - -3
+      - -2
+      - -1
       - 0
       - 1
       - 2
@@ -940,6 +960,16 @@ slots:
     type: categorical
     influence_conversation: false
     values:
+      - -10
+      - -9
+      - -8
+      - -7
+      - -6
+      - -5
+      - -4
+      - -3
+      - -2
+      - -1
       - 0
       - 1
       - 2
@@ -960,6 +990,16 @@ slots:
     type: categorical
     influence_conversation: false
     values:
+      - -10
+      - -9
+      - -8
+      - -7
+      - -6
+      - -5
+      - -4
+      - -3
+      - -2
+      - -1
       - 0
       - 1
       - 2
@@ -979,6 +1019,16 @@ slots:
     type: categorical
     influence_conversation: false
     values:
+      - -10
+      - -9
+      - -8
+      - -7
+      - -6
+      - -5
+      - -4
+      - -3
+      - -2
+      - -1
       - 0
       - 1
       - 2
@@ -1325,8 +1375,28 @@ responses:
 
   utter_state_perceived_usefulness:
   - buttons:
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"-10"}
+      title: "-10 (I think it can hinder me very much)"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"-9"}
+      title: "-9"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"-8"}
+      title: "-8"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"-7"}
+      title: "-7"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"-6"}
+      title: "-6"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"-5"}
+      title: "-5"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"-4"}
+      title: "-4"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"-3"}
+      title: "-3"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"-2"}
+      title: "-2"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"-1"}
+      title: "-1"
     - payload: /confirm_perceived_usefulness{"perceived_usefulness":"0"}
-      title: "0 (I think it can hinder me very much)"
+      title: "0"
     - payload: /confirm_perceived_usefulness{"perceived_usefulness":"1"}
       title: "1"
     - payload: /confirm_perceived_usefulness{"perceived_usefulness":"2"}
@@ -1362,8 +1432,28 @@ responses:
 
   utter_state_attitude:
   - buttons:
+    - payload: /confirm_attitude{"attitude":"-10"}
+      title: "-10 (Bad)"
+    - payload: /confirm_attitude{"attitude":"-9"}
+      title: "-9"
+    - payload: /confirm_attitude{"attitude":"-8"}
+      title: "-8"
+    - payload: /confirm_attitude{"attitude":"-7"}
+      title: "-7"
+    - payload: /confirm_attitude{"attitude":"-6"}
+      title: "-6"
+    - payload: /confirm_attitude{"attitude":"-5"}
+      title: "-5"
+    - payload: /confirm_attitude{"attitude":"-4"}
+      title: "-4"
+    - payload: /confirm_attitude{"attitude":"-3"}
+      title: "-3"
+    - payload: /confirm_attitude{"attitude":"-2"}
+      title: "-2"
+    - payload: /confirm_attitude{"attitude":"-1"}
+      title: "-1"
     - payload: /confirm_attitude{"attitude":"0"}
-      title: "0 (Bad)"
+      title: "0"
     - payload: /confirm_attitude{"attitude":"1"}
       title: "1"
     - payload: /confirm_attitude{"attitude":"2"}
@@ -1627,8 +1717,28 @@ responses:
 
   utter_satisfaction:
   - buttons:
+    - payload: /confirm_satisfaction{"satisfaction":"-10"}
+      title: "-10 (I am very dissatisfied)"
+    - payload: /confirm_satisfaction{"satisfaction":"-9"}
+      title: "-9"
+    - payload: /confirm_satisfaction{"satisfaction":"-8"}
+      title: "-8"
+    - payload: /confirm_satisfaction{"satisfaction":"-7"}
+      title: "-7"
+    - payload: /confirm_satisfaction{"satisfaction":"-6"}
+      title: "-6"
+    - payload: /confirm_satisfaction{"satisfaction":"-5"}
+      title: "-5"
+    - payload: /confirm_satisfaction{"satisfaction":"-4"}
+      title: "-4"
+    - payload: /confirm_satisfaction{"satisfaction":"-3"}
+      title: "-3"
+    - payload: /confirm_satisfaction{"satisfaction":"-2"}
+      title: "-2"
+    - payload: /confirm_satisfaction{"satisfaction":"-1"}
+      title: "-1"
     - payload: /confirm_satisfaction{"satisfaction":"0"}
-      title: "0 (I am very dissatisfied)"
+      title: "0"
     - payload: /confirm_satisfaction{"satisfaction":"1"}
       title: "1"
     - payload: /confirm_satisfaction{"satisfaction":"2"}
@@ -1653,8 +1763,28 @@ responses:
 
   utter_commitment_1:
   - buttons:
+    - payload: /confirm_commitment_1{"commitment_1":"-10"}
+      title: "-10 (I strongly disagree)"
+    - payload: /confirm_commitment_1{"commitment_1":"-9"}
+      title: "-9"
+    - payload: /confirm_commitment_1{"commitment_1":"-8"}
+      title: "-8"
+    - payload: /confirm_commitment_1{"commitment_1":"-7"}
+      title: "-7"
+    - payload: /confirm_commitment_1{"commitment_1":"-6"}
+      title: "-6"
+    - payload: /confirm_commitment_1{"commitment_1":"-5"}
+      title: "-5"
+    - payload: /confirm_commitment_1{"commitment_1":"-4"}
+      title: "-4"
+    - payload: /confirm_commitment_1{"commitment_1":"-3"}
+      title: "-3"
+    - payload: /confirm_commitment_1{"commitment_1":"-2"}
+      title: "-2"
+    - payload: /confirm_commitment_1{"commitment_1":"-1"}
+      title: "-1"
     - payload: /confirm_commitment_1{"commitment_1":"0"}
-      title: "0 (I strongly disagree)"
+      title: "0"
     - payload: /confirm_commitment_1{"commitment_1":"1"}
       title: "1"
     - payload: /confirm_commitment_1{"commitment_1":"2"}
@@ -1679,8 +1809,28 @@ responses:
 
   utter_commitment_f:
   - buttons:
+    - payload: /confirm_commitment_f{"commitment_f":"-10"}
+      title: "-10 (I strongly disagree)"
+    - payload: /confirm_commitment_f{"commitment_f":"-9"}
+      title: "-9"
+    - payload: /confirm_commitment_f{"commitment_f":"-8"}
+      title: "-8"
+    - payload: /confirm_commitment_f{"commitment_f":"-7"}
+      title: "-7"
+    - payload: /confirm_commitment_f{"commitment_f":"-6"}
+      title: "-6"
+    - payload: /confirm_commitment_f{"commitment_f":"-5"}
+      title: "-5"
+    - payload: /confirm_commitment_f{"commitment_f":"-4"}
+      title: "-4"
+    - payload: /confirm_commitment_f{"commitment_f":"-3"}
+      title: "-3"
+    - payload: /confirm_commitment_f{"commitment_f":"-2"}
+      title: "-2"
+    - payload: /confirm_commitment_f{"commitment_f":"-1"}
+      title: "-1"
     - payload: /confirm_commitment_f{"commitment_f":"0"}
-      title: "0 (I strongly disagree)"
+      title: "0"
     - payload: /confirm_commitment_f{"commitment_f":"1"}
       title: "1"
     - payload: /confirm_commitment_f{"commitment_f":"2"}
@@ -1726,8 +1876,8 @@ responses:
     - payload: /confirm_confidence_goal{"confidence_goal":"9"}
       title: "9"
     - payload: /confirm_confidence_goal{"confidence_goal":"10"}
-      title: "10 (I am sure that I can reach my goal)"
-    text: "How confident or unconfident are you that you can reach your goal of being able to take {goal} steps per day in six months from now?"
+      title: "10 (I am very confident that I can reach my goal)"
+    text: "How confident are you that you can reach your goal of being able to take {goal} steps per day in six months from now?"
 
   utter_thank:
     - text: "Thank you for all your answers and for your time!"
