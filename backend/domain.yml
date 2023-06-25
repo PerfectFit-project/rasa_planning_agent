@@ -1420,7 +1420,7 @@ responses:
       title: "9"
     - payload: /confirm_confidence{"confidence":"10"}
       title: "10 (Very confident)"
-    text: "How confident are you that you can follow the plan for taking walks?"
+    text: "How confident are you that you can follow the whole plan for 3 months?"
 
   utter_confidence_repeat:
   - text: "So your confidence is {confidence}."
