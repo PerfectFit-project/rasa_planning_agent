@@ -933,8 +933,6 @@ class ActionSaveGoalPlansAndReward(Action):
 
             reward = f"Reward: satifaction = {satisfaction}, commitment_1 = {commitment_1}, commitment_f = {commitment_f}, confidence_goal = {confidence_goal}"
 
-            dispatcher.utter_message(text=f"{prolific_id}, {formatted_date}, {goal}, {plan_1}, {plan_2}, {plan_3}, {reward}, {testimonial_1}, {takeaway_1}, {testimonial_2}, {takeaway_2}, {identified_barrier}, {barrier_description}, {barrier_strategy_1}, {barrier_strategy_2}, {planning_relevance}, {planning_importance_explanation}")
-
             save_goal_plans_and_reward_to_db(cur, conn, prolific_id, formatted_date, goal, plan_1, plan_2, plan_3, reward, testimonial_1, takeaway_1, testimonial_2, takeaway_2, identified_barrier, barrier_description, barrier_strategy_1, barrier_strategy_2, planning_relevance, planning_importance_explanation)
 
         except mysql.connector.Error as error:
