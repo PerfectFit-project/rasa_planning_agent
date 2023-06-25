@@ -288,6 +288,10 @@ entities:
 - plan_check_first_walk:
     influence_conversation: false
 
+
+- first_walk:
+    influence_conversation: false
+
 - goal:
     influence_conversation: false
 
@@ -843,6 +847,13 @@ slots:
     mappings:
     - type: from_entity
       entity: attitude
+
+  first_walk:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: first_walk
 
   last_action:
     type: text

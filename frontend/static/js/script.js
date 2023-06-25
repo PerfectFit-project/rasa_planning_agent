@@ -89,10 +89,10 @@ $(".usrInput").on("keyup keypress", function (e) {
 
 
 				if(text==first_walk){
-					var message = "/first_walk_correct";
+					var message = `/first_walk_correct{"first_walk":"${text}"}`;
 				}
 				else{
-					var message = "/first_walk_incorrect";
+					var message = `/first_walk_incorrect{"first_walk":"${text}"}`;
 				}
 				setUserResponse(text);
 				send(message);
