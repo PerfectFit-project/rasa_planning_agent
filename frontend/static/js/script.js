@@ -107,10 +107,10 @@ $(".usrInput").on("keyup keypress", function (e) {
 				text = parseFloat(text).toFixed(1);
 
 				if(text==week_3_time){
-					var message = "/week_3_correct";
+					var message = `/week_3_correct{"week_3":"${text}"}`;
 				}
 				else{
-					var message = "/week_3_incorrect";
+					var message = `/week_3_incorrect{"week_3":"${text}"}`;
 				}
 				
 				setUserResponse(text);
