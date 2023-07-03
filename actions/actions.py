@@ -667,12 +667,12 @@ class ActionSelectAction(Action):
             elif c in [7,8,9,10]:
                 current_c = "high"
 
-            if pu in range(-10,1):
+            if pu in range(-10,0):
                 current_pu = "low"
             elif pu in range(0,11):
                 current_pu = "high"
 
-            if a in range(-10,1):
+            if a in range(-10,0):
                 current_a = "low"
             elif a in range(0,11):
                 current_a = "high"
