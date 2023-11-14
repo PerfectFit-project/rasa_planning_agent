@@ -1559,6 +1559,7 @@ responses:
       title: "10 (Good)"
     text: "Please complete the following statement: 'Making plans for taking walks is...'"
 
+
   utter_attitude_repeat:
   - text: "So your attitude is {attitude}."
 

@@ -562,6 +562,7 @@ function doScaledTimeout(i, response, summed_timeout) {
 	}, summed_timeout);
 }
 
+
 function blink_and_select() {
 	document.getElementById("userInput").focus();
 	document.getElementById("userInput").select();
@@ -572,9 +573,6 @@ function blink_and_select() {
       f.style.animation = 'none';
    }, 5000);
 
-   
-	
-}
 
 
 //====================================== Toggle chatbot =======================================
