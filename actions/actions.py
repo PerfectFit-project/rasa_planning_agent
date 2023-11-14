@@ -8,6 +8,7 @@
 from datetime import datetime
 from definitions import (DATABASE_HOST, DATABASE_PASSWORD, 
                          DATABASE_PORT, DATABASE_USER)
+from itertools import combinations
 from rasa_sdk import Action, FormValidationAction, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import FollowupAction, SlotSet, UserUttered, ActionExecuted
@@ -219,6 +220,31 @@ def round_to_nearest_5(n):
 def round_to_nearest_half(n):
     return round(n * 2.0) / 2.0
 
+def has_days(combination):
+    
+    days = []
+    
+    for [time, energy] in combination:
+
+        day = time.split("_")[0]
+        if day not in days:
+            days.append(day)
+
+    return len(days)
+    
+def energy_levels(combination):
+    
+    energy_levels = {}
+    
+    for [time, energy] in combination:
+        
+        if energy not in energy_levels:
+            energy_levels[energy] = 1
+        else:
+            energy_levels[energy] += 1
+
+    return energy_levels
+
 
 class ActionCreateInitialPlan(Action):
 
@@ -321,30 +347,6 @@ class ActionCreateInitialPlan(Action):
         "sunday_evening" : [sunday_evening, weekends_evening]
         }
 
-        available_timeslots = [[day, days[day][1]] for day in days if days[day][0] == True]
-
-        number_of_timeslots = len(available_timeslots) 
-
-        very_high_energy_timeslots = [[available, energy] for [available, energy] in available_timeslots if energy == '4']
-
-        high_energy_timeslots = [[available, energy] for [available, energy] in available_timeslots if energy == '3']
-
-        medium_energy_timeslots = [[available, energy] for [available, energy] in available_timeslots if energy == '2']
-
-        low_energy_timeslots = [[available, energy] for [available, energy] in available_timeslots if energy == '1']
-
-        very_low_energy_timeslots = [[available, energy] for [available, energy] in available_timeslots if energy == '0']
-
-        number_of_very_high_energy_timeslots = len(very_high_energy_timeslots)
-
-        number_of_high_energy_timeslots = len(high_energy_timeslots)
-
-        number_of_medium_energy_timeslots = len(medium_energy_timeslots)
-
-        number_of_low_energy_timeslots = len(low_energy_timeslots)
-
-        number_of_very_low_energy_timeslots = len(very_low_energy_timeslots)
-
         minutes_week_1 = 120
 
         if goal == "10000":
@@ -353,65 +355,93 @@ class ActionCreateInitialPlan(Action):
             weekly_increase = 22
         elif goal == "12000":
             weekly_increase = 25
-        
-        if number_of_timeslots == 4:
 
-            selected =  available_timeslots
+        available_timeslots = [[day, days[day][1]] for day in days if days[day][0] == True]
 
-        else: 
-
-            select_slots = 4
-
-            if number_of_very_high_energy_timeslots > select_slots:
-
-                selected = random.sample(very_high_energy_timeslots, select_slots)
-
-            else: 
-
-                selected = very_high_energy_timeslots
-
-                select_slots -= number_of_very_high_energy_timeslots
-
-                if number_of_high_energy_timeslots > select_slots:
-
-                    selected += random.sample(high_energy_timeslots, select_slots)
-
-                else:
-
-                    selected += high_energy_timeslots
-
-                    select_slots -= number_of_high_energy_timeslots
-
-                    if number_of_medium_energy_timeslots > select_slots:
-
-                        selected += random.sample(medium_energy_timeslots, select_slots)
-
-                    else:
-
-                        selected += medium_energy_timeslots
-
-                        select_slots -= number_of_medium_energy_timeslots
-
-                        if number_of_low_energy_timeslots > select_slots:
-
-                            selected += random.sample(low_energy_timeslots, select_slots)
-
-                        else:
-
-                            selected += low_energy_timeslots
-
-                            select_slots -= number_of_low_energy_timeslots
-
-                            if select_slots is not 0:
-                            
-                                selected += random.sample(very_low_energy_timeslots, select_slots)
+        possibilities = list(combinations(available_timeslots, 4))
 
 
-        # dispatcher.utter_message(text=f"Available slots: {available_timeslots},  Selected slots: {selected}")
+        with_three_days = []
 
-        duration_per_timeslot_week_1 = math.ceil(minutes_week_1/4)
+        for possibility in possibilities:
+            if has_days(possibility) >=3:
+                with_three_days.append(possibility)
 
-        selected_times = [time_energy[0] for time_energy in selected]
+        energies = {}
+                
+        for possibility in with_three_days:
+
+            energy = energy_levels(possibility)
+            
+            energies[str(possibility)] = energy
+            
+        for i in range(4):
+            
+            backup = energies.copy()
+            
+            without_i = {}
+                
+            for k,v in energies.items():
+                
+                if f'{i}' not in v:
+                    without_i[k] = v
+
+            if (len(without_i) == 0):
+                energies = backup.copy()
+            else:
+                energies = without_i.copy()
+
+            
+        largest_possible_energy = 0
+
+        for k,v in energies.items():
+            
+            energy = 0
+            
+            for i in range(5):
+                if f'{i}' in v:
+                    energy += i * v[f'{i}']
+            
+            
+            if energy > largest_possible_energy:
+                largest_possible_energy = energy
+                
+        best_possibilities = []
+                
+        for k,v in energies.items():
+            
+            energy = 0
+            
+            for i in range(5):
+                if f'{i}' in v:
+                    energy += i * v[f'{i}']
+            
+            if energy == largest_possible_energy:
+                best_possibilities.append(k)
+            
+            
+        picked = random.choice(best_possibilities)
+
+        picked = picked[1:-1]
+
+        split = picked.split(", [")
+
+        selected_times = []
+
+
+        for item in split:
+            item = item.split(", ")[0]
+            
+            if "[" in item:
+                item = item[1:]
+                
+            item = item[1:-1]
+                
+            
+            selected_times.append(item)
+
+
+
 
         custom_order = {
             "monday_morning": 0, "monday_midday": 1, "monday_afternoon": 2, "monday_evening": 3,
@@ -426,6 +456,8 @@ class ActionCreateInitialPlan(Action):
         selected_times.sort(key=lambda x:custom_order[x])
 
         first = selected_times[0]
+
+        duration_per_timeslot_week_1 = math.ceil(minutes_week_1/4)
 
         message = f"""Plan 1: Week 1 - {round_to_nearest_5(duration_per_timeslot_week_1)} minutes at these time slots: {selected_times}. Week 2 - {round_to_nearest_5(math.ceil((minutes_week_1 + weekly_increase)/4))} minutes at these time slots: {selected_times}. Week 3 - Walking for {round_to_nearest_half((minutes_week_1 + 2* weekly_increase)/60.0)} hours, distributed across 4 time slots. Week 4 - Walking for {round_to_nearest_half((minutes_week_1 + 3* weekly_increase)/60.0)} hours, distributed across 4 time slots. Month 2 - Walking for up to {round_to_nearest_half((minutes_week_1 + 7* weekly_increase)/60.0)} hours per week, distributed across 5 time slots. Month 3 - Walking for up to {round_to_nearest_half((minutes_week_1 + 11* weekly_increase)/60.0)} hours per week, distributed across 6 time slots."""
 
@@ -494,6 +526,52 @@ class ActionSaveEventState(Action):
         
         return []
 
+class ActionCheckDialogueDone(Action):
+    def name(self):
+        return "action_check_dialogue_done"
+
+    async def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+
+        # check how many actions have been done
+        # after 2 actions, we can end the dialogue if states are good
+
+        changes_to_plan = int(tracker.get_slot("changes_to_plan"))
+
+        explain_planning = tracker.get_slot("explain_planning")
+
+        identify_barriers = tracker.get_slot("identify_barriers")
+
+        deal_with_barriers = tracker.get_slot("deal_with_barriers")
+
+        show_testimonials = tracker.get_slot("show_testimonials")
+
+        num_actions = changes_to_plan + explain_planning + identify_barriers + deal_with_barriers + show_testimonials
+
+        if num_actions >= 2:
+
+            if identify_barriers and deal_with_barriers or not identify_barriers:
+
+                c = int(tracker.get_slot("confidence"))
+
+                pu = int(tracker.get_slot("perceived_usefulness"))
+
+                a = int(tracker.get_slot("attitude"))
+
+                if c >= 8 and pu >= 8 and a >= 8:
+                    
+                    end = True
+
+                else:
+                    end = False
+                
+                if end:
+
+                    return [ActionExecuted("action_listen"), UserUttered(text="/confirm_actions_done", parse_data={"intent": {"name": "confirm_actions_done", "confidence": 1.0}})] 
+        
+        return[ActionExecuted("action_listen"), UserUttered(text="/confirm_continue_dialogue", parse_data={"intent": {"name": "confirm_continue_dialogue", "confidence": 1.0}})]
 
 class ActionSelectAction(Action):
     def name(self):
@@ -535,11 +613,12 @@ class ActionSelectAction(Action):
 
             possible_actions = []
 
-            # this corresponds to having done 3 actions, none of which were changes to the plan
-            # if we do the 4th action that is not a change to the plan, then we have to do changes to plans in turns 5 and 6
-            # that shouldn't happen, since we don't want to make changes to plans twice in a row
-            if number_actions == 3 and changes_to_plan == 0:
+            # this corresponds to having done 1 action, which was not changes to the plan
+            # we want to give people the chance to change the plan at least once before ending the dialogue
+            if number_actions == 1 and changes_to_plan == 0:
                 possible_actions = ["changes_to_plan"]
+            elif number_actions >= 2 and identify_barriers and not deal_with_barriers:
+                possible_actions = ["deal_with_barriers"]
             else:
                 # we want to make at most 2 changes to the initial plan and to not change the plan twice in a row
                 if last_action != "changes_to_plan" and changes_to_plan<=1:
@@ -566,24 +645,73 @@ class ActionSelectAction(Action):
 
             ch = tracker.get_slot("changes_to_plan")
 
-            c = tracker.get_slot("confidence")
+            c = int(tracker.get_slot("confidence"))
 
-            pu = tracker.get_slot("perceived_usefulness")
+            pu = int(tracker.get_slot("perceived_usefulness"))
 
-            a = tracker.get_slot("attitude")
+            a = int(tracker.get_slot("attitude"))
+
+            
+
+            if c in [0,1,2,3]:
+                current_c = "low"
+            elif c in [4,5,6]:
+                current_c = "medium"
+            elif c in [7,8,9,10]:
+                current_c = "high"
+
+            if pu in range(-10,0):
+                current_pu = "low"
+            elif pu in range(0,11):
+                current_pu = "high"
+
+            if a in range(-10,0):
+                current_a = "low"
+            elif a in range(0,11):
+                current_a = "high"
 
             # build current state
             state = f"{ch}, {c}, {pu}, {a}, {explain_planning}, {identify_barriers}, {deal_with_barriers}, {show_testimonials}"
 
-            query = ("SELECT * FROM state_action_state WHERE state_before = %s")
+            current_state = f"{ch}, {current_c}, {current_pu}, {current_a}, {explain_planning}, {identify_barriers}, {deal_with_barriers}, {show_testimonials}"
             
-            cur.execute(query, [state])
+            query = ("SELECT * FROM state_action_state")
             
-            # retrieve all database entries which have an action taken from this state
+            cur.execute(query)
+            
+            # retrieve all database entries
             result = cur.fetchall()
 
-        # select only the actions in the database results
-            actions = [f"{action}" for (userid,date,state,action,next_state) in result]
+            # select all entries with a similar state
+            similar = []
+
+            for (userid,date,state,action,next_state) in result:
+                split = state.split(", ")
+
+                if int(split[1]) in [0,1,2,3]:
+                    db_c = "low"
+                elif int(split[1]) in [4,5,6]:
+                    db_c = "medium"
+                elif int(split[1]) in [7,8,9,10]:
+                    db_c = "high"
+
+                if int(split[2]) in [0,1,2,3,4]:
+                    db_pu = "low"
+                elif int(split[2]) in [5,6,7,8,9,10]:
+                    db_pu = "high"
+
+                if int(split[2]) in [0,1,2,3,4]:
+                    db_a = "low"
+                elif int(split[2]) in [5,6,7,8,9,10]:
+                    db_a = "high"
+
+                db_state = f"{ch}, {db_c}, {db_pu}, {db_a}, {explain_planning}, {identify_barriers}, {deal_with_barriers}, {show_testimonials}" 
+
+                if db_state == current_state:
+                    similar.append((userid,date,state,action,next_state))
+
+            # select only the actions in the database results
+            actions = [f"{action}" for (userid,date,state,action,next_state) in similar]
 
             # count how many times each action was done
             count = collections.Counter(actions)
@@ -642,7 +770,7 @@ class ActionSelectAction(Action):
         return []
 
 
-class ActionSelectAction(Action):
+class ActionSaveAction(Action):
     def name(self):
         return "action_save_action"
 
@@ -720,9 +848,9 @@ class ActionSelectAction(Action):
         return []
 
 
-def save_goal_plans_and_reward_to_db(cur, conn, prolific_id, time, goal, plan_1, plan_2, plan_3, reward):
-    query = "INSERT INTO users(prolific_id, time, goal, plan_1, plan_2, plan_3, reward) VALUES(%s, %s, %s, %s, %s, %s, %s)"
-    cur.execute(query, [prolific_id, time, goal, plan_1, plan_2, plan_3, reward])
+def save_goal_plans_and_reward_to_db(cur, conn, prolific_id, time, goal, plan_1, plan_2, plan_3, reward, testimonial_1, takeaway_1, testimonial_2, takeaway_2, identified_barrier, barrier_description, barrier_strategy_1, barrier_strategy_2, planning_relevance, planning_importance_explanation):
+    query = "INSERT INTO users(prolific_id, time, goal, plan_1, plan_2, plan_3, reward, testimonial_1, takeaway_1, testimonial_2, takeaway_2, identified_barrier, barrier_description, barrier_strategy_1, barrier_strategy_2, planning_relevance, planning_importance_explanation) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+    cur.execute(query, [prolific_id, time, goal, plan_1, plan_2, plan_3, reward, testimonial_1, takeaway_1, testimonial_2, takeaway_2, identified_barrier, barrier_description, barrier_strategy_1, barrier_strategy_2, planning_relevance, planning_importance_explanation])
     conn.commit()
 
 class ActionSaveGoalPlansAndReward(Action):
@@ -745,6 +873,7 @@ class ActionSaveGoalPlansAndReward(Action):
                 port=DATABASE_PORT,
                 database='db'
             )
+
             cur = conn.cursor(prepared=True)
             
             prolific_id = tracker.current_state()['sender_id']
@@ -765,9 +894,39 @@ class ActionSaveGoalPlansAndReward(Action):
 
             confidence_goal = tracker.get_slot("confidence_goal")
 
+            testimonial_1_intro = tracker.get_slot("testimonial_1_intro")
+
+            testimonial_1_body = tracker.get_slot("testimonial_1_body")
+
+            testimonial_2_intro = tracker.get_slot("testimonial_2_intro")
+
+            testimonial_2_body = tracker.get_slot("testimonial_2_body")
+
+            testimonial_1 = f"{testimonial_1_intro} {testimonial_1_body}"
+
+            testimonial_2 = f"{testimonial_2_intro} {testimonial_2_body}"
+
+            takeaway_1 = tracker.get_slot("takeaway_1")
+
+            takeaway_2 = tracker.get_slot("takeaway_2")
+
+            identified_barrier = tracker.get_slot("identified_barrier")
+
+            barrier_description = tracker.get_slot("barrier_description")
+
+            barrier_strategy_1 = tracker.get_slot("barrier_strategy_1")
+
+            barrier_strategy_2 = tracker.get_slot("barrier_strategy_2")
+
+            planning_relevance = tracker.get_slot("planning_relevance")
+
+            planning_importance_explanation = tracker.get_slot("planning_importance_explanation")
+
+
+
             reward = f"Reward: satifaction = {satisfaction}, commitment_1 = {commitment_1}, commitment_f = {commitment_f}, confidence_goal = {confidence_goal}"
 
-            save_goal_plans_and_reward_to_db(cur, conn, prolific_id, formatted_date, goal, plan_1, plan_2, plan_3, reward)
+            save_goal_plans_and_reward_to_db(cur, conn, prolific_id, formatted_date, goal, plan_1, plan_2, plan_3, reward, testimonial_1, takeaway_1, testimonial_2, takeaway_2, identified_barrier, barrier_description, barrier_strategy_1, barrier_strategy_2, planning_relevance, planning_importance_explanation)
 
         except mysql.connector.Error as error:
             logging.info("Error in saving name to db: " + str(error))

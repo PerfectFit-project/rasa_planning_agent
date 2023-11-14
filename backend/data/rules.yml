@@ -70,40 +70,22 @@ rules:
   - action: utter_prompt_usage_2
   - action: utter_explain_usage
 
-- rule: confirm usage explain purpose
+- rule: intro
   steps:
   - intent: confirm_usage
   - action: utter_button
-  - action: utter_purpose_1
-  - action: utter_purpose_2
-  - action: utter_purpose_3
-  - action: utter_continue_purpose_1
+  - action: utter_intro_1
+  - action: utter_intro_2
+  - action: utter_intro_3
+  - action: utter_intro_4
 
-- rule: continue purpose 1
-  steps:
-  - intent: confirm_continue_purpose_1
-  - action: utter_purpose_4
-  - action: utter_purpose_5
-  - action: utter_purpose_6
-  - action: utter_confirm_purpose
-
-- rule: confirm purpose explain planning
-  steps:
-  - intent: confirm_purpose
-  - action: utter_explain_usefulness_planning_1
-  - action: utter_explain_usefulness_planning_2
-  - action: utter_explain_usefulness_planning_3
-  - action: utter_explain_usefulness_planning_4
-  - action: utter_explain_usefulness_planning_question
 
 
 - rule: confirm usefulness planning explain goal
   steps:
-  - intent: confirm_usefulness_planning_intro
+  - intent: confirm_intro
   - action: utter_explain_goal_1
   - action: utter_explain_goal_2  
-  - action: utter_explain_goal_3
-  - action: utter_explain_goal_4  
   - action: utter_explain_goal_question
 
 - rule: set goal
@@ -111,37 +93,23 @@ rules:
   - intent: confirm_explain_goal
   - action: utter_set_goal_1
   - action: utter_set_goal_2
-  - action: utter_set_goal_3
   - action: utter_set_goal_continue
 
 - rule: set goal continue
   steps:
   - intent: confirm_set_goal_continue
+  - action: utter_set_goal_3
   - action: utter_set_goal_4
-  - action: utter_set_goal_5
   - action: utter_set_goal
 
 - rule: confirm goal
   steps:
   - intent: confirm_goal
   - action: utter_confirm_goal
-
-- rule: internal motivation
-  steps:
-  - intent: confirm_initial_plan
-  - action: utter_internal_motivation_1
-  - action: utter_internal_motivation_2
-  - action: utter_internal_motivation_question
-
-- rule: ask about routines
-  steps:
-  - intent: confirm_motivation
-  - action: utter_thank_for_motivation
   - action: utter_routines_1
   - action: utter_routines_2
-  - action: utter_routines_3
-  - action: utter_routines_4
-  - action: utter_timeslots
+  - action: utter_timeslots_1
+  - action: utter_timeslots_2
   
 
 - rule: ask about energy levels
@@ -204,23 +172,24 @@ rules:
 - rule: confirm confidence ask perceived usefulness
   steps:
   - intent: confirm_confidence
-  # - action: utter_confidence_repeat
   - action: utter_thank_for_confidence
   - action: utter_state_perceived_usefulness
 
 - rule: confirm perceived usefulness ask attitude
   steps:
   - intent: confirm_perceived_usefulness
-  # - action: utter_perceived_usefulness_repeat
   - action: utter_thank_for_perceived_usefulness
   - action: utter_state_attitude
 
 - rule: confirm attitude do action ask confidence
   steps:
   - intent: confirm_attitude
-  # - action: utter_attitude_repeat\
-  # - action: utter_thank_for_attitude
   - action: action_save_event_state
+  - action: action_check_dialogue_done
+
+- rule: confirm attitude do action ask confidence
+  steps:
+  - intent: confirm_continue_dialogue
   - action: action_select_action
 
 - rule: explain planning
@@ -377,7 +346,6 @@ rules:
   - action: utter_changes_to_plan_4
   - action: utter_changes_to_plan_5
   - action: utter_changes_to_plan_6
-  # - action: utter_changes_to_plan_7
 
 
 - rule: receive modified plan
@@ -411,8 +379,8 @@ rules:
   steps:
   - intent: confirm_confidence_goal
   - action: utter_thank
-  - action: utter_email_reminder
   - action: utter_prolific_link
+  - action: utter_post
   - action: utter_goodbye
   - action: action_save_goal_plans_and_reward
   - action: action_rearrange_db

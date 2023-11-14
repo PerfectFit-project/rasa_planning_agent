@@ -34,7 +34,6 @@ body {
 }
 
 .chats {
-	/* display: none; */
 	/* Set height of chat area within window in fullscreen mode*/
 	height: 81%;
 	padding: 2px;
@@ -65,8 +64,18 @@ body {
 }
 
 .plan{
+	display: none;
+	top: 3%;
+	position: relative;
 	width: 800px;
 	height: 500px;
+	margin: 0 auto;
+}
+
+.plan_after_week_2{
+	display: none;
+	width: 800px;
+	height: 150px;
 	margin: 0 auto;
 }
 
@@ -107,9 +116,6 @@ body {
 div.chats::-webkit-scrollbar {
 	overflow-y: hidden;
 	width: 0px;
-	/* remove scrollbar space /
-    background: transparent;
-    / optional: just make scrollbar invisible */
 }
 
 .clearfix {
@@ -118,12 +124,10 @@ div.chats::-webkit-scrollbar {
 }
 
 .botAvatar {
-/* 	border-radius: 50%; */
 	width: 1.5em;
 	height: 1.5em;
 	float: left;
 	margin-left: 5px;
-	/* border: 2px solid  #2ed59f ; */
 }
 
 .botMsg {
@@ -179,12 +183,10 @@ textarea-webkit-scrollbar {
 .userAvatar {
 	animation: animateElement linear 0.3s;
 	animation-iteration-count: 1;
-	border-radius: 50%;
 	width: 1.5em;
 	height: 1.5em;
 	float: right;
 	margin-right: 5px;
-	/* border: 2px solid  #2ed59f ; */
 }
 
 .usrInput {
@@ -197,7 +199,6 @@ textarea-webkit-scrollbar {
 }
 
 .keypad {
-	/* display: none;  */
 	background: white;
 	height: 50px;
 	position: absolute;
@@ -227,6 +228,8 @@ textarea-webkit-scrollbar {
 	width: 250px;
 	text-align: center;
 	margin: 10 auto;
+	position: relative;
+	top: 5%;
 	cursor: pointer;
 	border: 2px solid  #000000;
 	background-color: #2ed59f61
@@ -313,23 +316,26 @@ textarea-webkit-scrollbar {
 	}
 }
 
-@keyframes border-flicker-green {
+@keyframes border-flicker-yellow {
 	0% {
-	  box-shadow: 5px 5px 20px #09ff00;
+	  box-shadow: 5px 5px 20px #F7F97A;
 	}
-	25% {
-	  box-shadow: 5px 5px 20px #09ff00;
+	20% {
+	  box-shadow: 5px 5px 20px #F7F97A;
 	}
-	50% {
-	  box-shadow: 5px 5px 50px #09ff00;
+	40% {
+	  box-shadow: 5px 5px 50px white;
 	}
-	75% {
-	  box-shadow: 5px 5px 20px #09ff00;
+	60% {
+	  box-shadow: 5px 5px 50px white;
+	}
+	80% {
+	  box-shadow: 5px 5px 20px #F7F97A;
 	}
 	100% {
-	  box-shadow: 5px 5px 20px #09ff00;
+	  box-shadow: 5px 5px 20px #F7F97A;
 	}
-  }
+}
 
 
 /*========== css related to chats elements============= */
@@ -482,9 +488,6 @@ div.content::-webkit-scrollbar {
 div.content_data::-webkit-scrollbar {
 	overflow-y: hidden;
 	width: 0px;
-	/* remove scrollbar space /
-    background: transparent;
-    / optional: just make scrollbar invisible */
 }
 
 
@@ -527,11 +530,39 @@ div.content_data::-webkit-scrollbar {
 	padding: 10px;
 }
 
+.menuCustom {
+	padding: 2px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.menuCustom {
+	padding: 2px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
 .menuChips {
 	display: block;
 	background: #2ed59f;
 	color: #fff;
 	padding: 2px;
+	text-align: center;
+	margin-bottom: 1px;
+	cursor: pointer;
+	border-radius: 50px;
+	font-size: 13px;
+	margin: 2px;
+	word-wrap: break-word;
+}
+
+.menuChipsCustom {
+	display: block;
+	background: #2ed59f;
+	color: #fff;
+	padding:7px;
 	text-align: center;
 	margin-bottom: 1px;
 	cursor: pointer;
@@ -693,9 +724,7 @@ div.content_data::-webkit-scrollbar {
 	display: inline-block;
 	margin-bottom: 1px;
 	font-size: 15px;
-	/* font-weight: 600; */
 	padding: 5px;
-	/* color: #2ed59f; */
 	color: #ffffff;
 	cursor: pointer;
 }
@@ -906,4 +935,3 @@ input:focus {
 video:focus {
 	outline: none;
 }
-

@@ -61,7 +61,7 @@ $(".usrInput").on("keyup keypress", function (e) {
 					var message = "/takeaway_1_short";
 				}
 				else{
-					var message = "/confirm_takeaway_1";
+					var message = `/confirm_takeaway_1{"takeaway_1":"${text}"}`;
 				}
 				
 				setUserResponse(text);
@@ -76,7 +76,7 @@ $(".usrInput").on("keyup keypress", function (e) {
 					var message = "/takeaway_2_short";
 				}
 				else{
-					var message = "/confirm_takeaway_2";
+					var message = `/confirm_takeaway_2{"takeaway_2":"${text}"}`;
 					current_takeaway = 99;
 				}
 
@@ -89,10 +89,10 @@ $(".usrInput").on("keyup keypress", function (e) {
 
 
 				if(text==first_walk){
-					var message = "/first_walk_correct";
+					var message = `/first_walk_correct{"first_walk":"${text}"}`;
 				}
 				else{
-					var message = "/first_walk_incorrect";
+					var message = `/first_walk_incorrect{"first_walk":"${text}"}`;
 				}
 				setUserResponse(text);
 				send(message);
@@ -107,10 +107,10 @@ $(".usrInput").on("keyup keypress", function (e) {
 				text = parseFloat(text).toFixed(1);
 
 				if(text==week_3_time){
-					var message = "/week_3_correct";
+					var message = `/week_3_correct{"week_3":"${text}"}`;
 				}
 				else{
-					var message = "/week_3_incorrect";
+					var message = `/week_3_incorrect{"week_3":"${text}"}`;
 				}
 				
 				setUserResponse(text);
@@ -128,10 +128,10 @@ $(".usrInput").on("keyup keypress", function (e) {
 				}
 				else{
 					if(barrier_type != "time" && barrier_type != "energy" && barrier_type != "people" && barrier_type != "equipment" && barrier_type != "family"){
-						var message = "/confirm_continue_deal_with_barriers_skip_extra";
+						var message = `/confirm_continue_deal_with_barriers_skip_extra{"barrier_strategy_1":"${text}"}`;
 					}
 					else{
-						var message = "/confirm_continue_deal_with_barriers_2";
+						var message = `/confirm_continue_deal_with_barriers_2{"barrier_strategy_1":"${text}"}`;
 					}
 					
 				}
@@ -167,7 +167,7 @@ $(".usrInput").on("keyup keypress", function (e) {
 					var message = "/barrier_repeat_short";
 				}
 				else{
-					var message = "/confirm_continue_deal_with_barriers_3";
+					var message = `/confirm_continue_deal_with_barriers_3{"barrier_strategy_2":"${text}"}`;
 				}
 
 				barrier_repeat = false;
@@ -184,7 +184,7 @@ $(".usrInput").on("keyup keypress", function (e) {
 					var message = "/planning_short";
 				}
 				else{
-					var message = "/confirm_planning_input";
+					var message = `/confirm_planning_input{"planning_importance_explanation":"${text}"}`;
 				}
 
 				planning = false;
@@ -272,8 +272,6 @@ function setBotResponse(response) {
 	//display bot response after the number of miliseconds caputred by the variable 'delay_first_message'
 	var delay_first_message = 500;
 	if (response.length >=1) {
-		// delay_first_message = Math.min(Math.max(response[0].text.length * 45, 800), 5000);
-		delay_first_message = 20;
 	}
 	setTimeout(function () {
 		hideBotTyping();
@@ -293,16 +291,22 @@ function setBotResponse(response) {
 				var response_text = response[0].text.split("\n")
 				for (j = 0; j < response_text.length; j++){
 					
-					if(response_text[j].includes("I see, thank you for letting me know!")){
-						$(".timeslots_table").toggle();
-
-
+					if(response_text[j].includes("Great! Take walks regularly and you'll be able to achieve your goal")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
 						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
+
+						setTimeout(()=> {
+							$(".timeslots_table").toggle();
+						 }
+						 ,20000);
 					}
 
 					else if(response_text[j].includes("Now, I want to ask when you have more energy than usual. We could make use of this opportunity to schedule a walk if you are also free at the time.")){
-						$(".energy_levels_table").toggle();
+												
+						setTimeout(()=> {
+							$(".energy_levels_table").toggle();
+						 }
+						 ,10000);
 
 
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
@@ -350,9 +354,17 @@ function setBotResponse(response) {
 
 						document.getElementById("month_3").innerHTML = "Walking for up to " + month_3 + " hours per week, distributed across 6 time slots each week";
 
-						$(".plan_table").toggle();
+						$(".plan_table").css("display","block");
+
+						$(".plan").css("display","table");
 
 						number_plan = 1;
+					}
+					else if(response_text[j].includes("That's right, your first walk is on")){
+						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
+						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
+
+						$(".plan_after_week_2").css("display", "table-row");
 					}
 					else if(response_text[j].includes("this is a message for javascript: enable the buttons")){
 
@@ -376,80 +388,110 @@ function setBotResponse(response) {
 
 						days.forEach(element => document.getElementById(element).classList.add("toggleable"));
 
-						button.style.display = "table";
+						setTimeout(function(){
+							button.style.display = "table";
+						 }
+						 ,35000);
 
 					}
 					else if(response_text[j].includes("What can you take away from this example for yourself? Please type this in the chat.") || response_text[j].includes("The question was: What can you take away from this example for yourself?")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
 						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
-						
-						$('.usrInput').attr("disabled",false);
-						$(".usrInput").prop('placeholder', "Type something...");
-						current_takeaway = 1;
+						setTimeout(function(){
+							$('.usrInput').attr("disabled",false);
+							$(".usrInput").prop('placeholder', "Type something...");
+							current_takeaway = 1;
+							blink_and_select();
+						}
+						,5000);
 					}
 					else if(response_text[j].includes("How about this example? What can you take away for yourself? Please type this in the chat.") || response_text[j].includes("The question was: What can you take away from this second example for yourself?")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
 						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
-						
-						$('.usrInput').attr("disabled",false);
-						$(".usrInput").prop('placeholder', "Type something...");
-						current_takeaway = 2;
+						setTimeout(function(){
+							$('.usrInput').attr("disabled",false);
+							$(".usrInput").prop('placeholder', "Type something...");
+							current_takeaway = 2;
+							blink_and_select();
+						}
+						,5000);
 					}
 
 					else if(response_text[j].includes("Please type your answer as a number with one decimal point.")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
 						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
-						
-						$('.usrInput').attr("disabled",false);
-						$(".usrInput").prop('placeholder', "Type something...");
-						check_week_3 = true;
+						setTimeout(function(){
+							$('.usrInput').attr("disabled",false);
+							$(".usrInput").prop('placeholder', "Type something...");
+							check_week_3 = true;
+							blink_and_select();
+						}
+						,5000);
 					}
 					else if(response_text[j].includes("You can see the first two weeks planned in detail.")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
 						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
-						
-						$('.usrInput').attr("disabled",false);
-						$(".usrInput").prop('placeholder', "Type something...");
-						check_first_walk = true;
+						setTimeout(function(){
+							$('.usrInput').attr("disabled",false);
+							$(".usrInput").prop('placeholder', "Type something...");
+							check_first_walk = true;
+							blink_and_select();
+						}
+						,5000);
 					}
 					else if(response_text[j].includes("User barrier: ")){
-						
-						$('.usrInput').attr("disabled",false);
-						$(".usrInput").prop('placeholder', "Type something...");
-						barrier_strategy = true;
 						barrier_type = response_text[j].split("User barrier: ")[1];
+						setTimeout(function(){
+							$('.usrInput').attr("disabled",false);
+							$(".usrInput").prop('placeholder', "Type something...");						
+							barrier_strategy = true;
+							blink_and_select();
+						}
+						,5000);
 					}
 					else if(response_text[j].includes("The question was: How can you overcome this barrier?")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
 						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
-						
-						$('.usrInput').attr("disabled",false);
-						$(".usrInput").prop('placeholder', "Type something...");
-						barrier_strategy = true;
+						setTimeout(function(){
+							$('.usrInput').attr("disabled",false);
+							$(".usrInput").prop('placeholder', "Type something...");
+							barrier_strategy = true;
+							blink_and_select();
+						}
+						,5000);
 					}
-					else if(response_text[j].includes("I see. Thank you for informing me. Would you mind briefly describing your barrier to me in the chat?") || response_text[j].includes("The question was: Would you mind briefly describing your barrier to me in the chat?")){
+					else if(response_text[j].includes("Would you mind briefly describing your barrier to me in the chat?") || response_text[j].includes("The question was: Would you mind briefly describing your barrier to me in the chat?")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
 						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
-						
-						$('.usrInput').attr("disabled",false);
-						$(".usrInput").prop('placeholder', "Type something...");
-						identified_barrier = true;
+						setTimeout(function(){
+							$('.usrInput').attr("disabled",false);
+							$(".usrInput").prop('placeholder', "Type something...");
+							identified_barrier = true;
+							blink_and_select();
+						}
+						,5000);
 					}
 					else if(response_text[j].includes("Okay! Now, you have your approach to this barrier. Here is a strategy I thought about.") || response_text[j].includes("The question was: How can you overcome this barrier after having read my suggestion?")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
 						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
-						
-						$('.usrInput').attr("disabled",false);
-						$(".usrInput").prop('placeholder', "Type something...");
-						barrier_repeat = true;
+						setTimeout(function(){
+							$('.usrInput').attr("disabled",false);
+							$(".usrInput").prop('placeholder', "Type something...");
+							barrier_repeat = true;
+							blink_and_select();
+						}
+						,5000);
 					}
 					else if(response_text[j].includes("Good choice!") || response_text[j].includes("The question was: How do you think planning can help you do this?")){
 						var BotResponse = '<img class="botAvatar" src="/img/chatbot_picture.png"/><p class="botMsg">' + response_text[j] + '</p><div class="clearfix"></div>';
 						$(BotResponse).appendTo(".chats").hide().fadeIn(1000);
-						
-						$('.usrInput').attr("disabled",false);
-						$(".usrInput").prop('placeholder', "Type something...");
-						planning = true;
+						setTimeout(function(){
+							$('.usrInput').attr("disabled",false);
+							$(".usrInput").prop('placeholder', "Type something...");
+							planning = true;
+							blink_and_select();
+						}
+						,5000);
 					}
 					// otherwise, display the message
 					else{
@@ -473,7 +515,6 @@ function setBotResponse(response) {
 	if (response.length > 1){
 		//show typing symbol again
 		var delay_typing = 600 + delay_first_message;
-		// var delay_typing = 20;
 		setTimeout(function () {
 		showBotTyping();
 		}, delay_typing)
@@ -521,15 +562,17 @@ function doScaledTimeout(i, response, summed_timeout) {
 	}, summed_timeout);
 }
 
-function blink() {
+
+function blink_and_select() {
+	document.getElementById("userInput").focus();
+	document.getElementById("userInput").select();
+
 	var f = document.getElementById('keypad');
+	f.style.animation = 'border-flicker-yellow 3s ease-out';
 	setTimeout(function() {
-	   f.style.boxShadow = '5px 5px 50px #09ff00';
-		setTimeout(function() {
-		   f.style.boxShadow = 'none';
-		}, 1000);
-	}, 1000);
- }
+      f.style.animation = 'none';
+   }, 5000);
+
 
 
 //====================================== Toggle chatbot =======================================
@@ -612,22 +655,25 @@ function select_energy(clicked_id){
 
 	var time_slot = document.getElementById(clicked_id);
 
-	time_slot.style.backgroundColor = "#82e876";
-
 	if(clicked_id.includes("0")){
-		time_slot.innerHTML = "None at all"
+		time_slot.innerHTML = "None at all";
+		time_slot.style.backgroundColor = "#F7F97A";
 	}
 	else if (clicked_id.includes("1")){
-		time_slot.innerHTML = "Less than usual"
+		time_slot.innerHTML = "Less than usual";
+		time_slot.style.backgroundColor = "#B1F97D";
 	}
 	else if (clicked_id.includes("2")){
-		time_slot.innerHTML = "An average amount"
+		time_slot.innerHTML = "An average amount";
+		time_slot.style.backgroundColor = "#82E876";
 	}
 	else if (clicked_id.includes("3")){
-		time_slot.innerHTML = "More than average"
+		time_slot.innerHTML = "More than average";
+		time_slot.style.backgroundColor = "#21E4AE";
 	}
 	else if (clicked_id.includes("4")){
-		time_slot.innerHTML = "Much more than average"
+		time_slot.innerHTML = "Much more than average";
+		time_slot.style.backgroundColor = "#4EB3F5";
 	}
 }
 
@@ -710,6 +756,11 @@ function check_selected_timeslots(){
 	}
 }
 
+function day_only(id){
+    const day = id.split('_')[0];
+    return day;
+}
+
 function check_selected_timeslots_initial(){
 
 	var button = document.getElementById("submit_timeslots_button");
@@ -725,21 +776,28 @@ function check_selected_timeslots_initial(){
 	"sunday_morning_slot", "sunday_midday_slot", "sunday_afternoon_slot", "sunday_evening_slot"
 	]
 
-
 	var count = 0;
-
-	days.forEach(element_id => count+= check_inner_HTML(element_id));
 
 	var selected_slots = [];
 
-	days.forEach(element_id => selected_slots.push(slots_selected_initial(element_id)));
+	var selected_slots_day_only = [];
+
+	days.forEach(function(element_id) {
+		count+= check_inner_HTML(element_id);
+		selected_slots.push(slots_selected_initial(element_id));
+    });
 
 	var selected_slots = selected_slots.filter(function (el) {
 		return el != "";
 	});
 
+	selected_slots.forEach(function(element_id) {
+        if (!selected_slots_day_only.includes(day_only(element_id))) {
+            selected_slots_day_only.push(day_only(element_id))
+        }
+    });
 
-	if(count >= 4){
+	if(selected_slots_day_only.length >= 4 || selected_slots_day_only.length == 3 && count >=4){
 		button.style.display = "none";
 		table.style.display = "none";
 
@@ -759,7 +817,7 @@ function check_selected_timeslots_initial(){
 		
 	}
 	else{
-		window.alert("Please select at least four time slots.");
+		window.alert("Please select at least four time slots and at least four different days.");
 	}
 }
 
@@ -899,20 +957,50 @@ function addSuggestion(textToAdd) {
 	setTimeout(function () {
 
 		$(".usrInput").prop('placeholder', "Use one of the buttons to answer.");
+
 		var suggestions = textToAdd;
 		var suggLength = textToAdd.length;
-		$(' <div class="singleCard"> <div class="suggestions"><div class="menu"></div></div></diV>').appendTo(".chats").hide().fadeIn(1000);
-		// Loop through suggestions
-		for (i = 0; i < suggLength; i++) {
-			$('<div class="menuChips" data-payload=\'' + (suggestions[i].payload) + '\'>' + suggestions[i].title + "</div>").appendTo(".menu");
+
+		$(' <div class="singleCard"> <div class="suggestions"><div class="menu"><div class="menuCustom"></div></div></div></diV>').appendTo(".chats").hide().fadeIn(1000);
+	
+
+		if (suggestions[0].title == "Happy" || suggestions[0].title == "-10 (I think it can hinder me very much)" || suggestions[0].title == "-10 (Bad)" || suggestions[0].title == "-10 (I am very dissatisfied)" || suggestions[0].title == "-10 (I strongly disagree)"){
+
+
+			for (i = 0; i < suggLength; i++) {
+				$('<div class="menuChipsCustom" data-payload=\'' + (suggestions[i].payload) + '\'>' + suggestions[i].title + "</div>").appendTo(".menuCustom");
+			}
 		}
+		else{
+			// Loop through suggestions
+			for (i = 0; i < suggLength; i++) {
+				$('<div class="menuChips" data-payload=\'' + (suggestions[i].payload) + '\'>' + suggestions[i].title + "</div>").appendTo(".menu");
+			}
+		}
+
+
+
 		scrollToBottomOfResults();
 	}, 1000);
 }
 
 // on click of suggestions, get the value and send to rasa
 $(document).on("click", ".menu .menuChips", function () {
-	// $('.usrInput').attr("disabled",false);
+	$(".usrInput").prop('placeholder', "Use the buttons to communicate with Jamie.");
+	var text = this.innerText;
+	var payload = this.getAttribute('data-payload');
+	console.log("payload: ", this.getAttribute('data-payload'))
+	setUserResponse(text);
+	send(payload);
+
+	//delete the suggestions once user click on it
+	$(".suggestions").remove();
+
+});
+
+
+// on click of suggestions, get the value and send to rasa
+$(document).on("click", ".menuCustom .menuChipsCustom", function () {
 	$(".usrInput").prop('placeholder', "Use the buttons to communicate with Jamie.");
 	var text = this.innerText;
 	var payload = this.getAttribute('data-payload');

@@ -20,6 +20,10 @@ intents:
 # usage
 - confirm_usage
 
+# intro
+
+- confirm_intro
+
 # goal
 - confirm_explain_goal
 
@@ -107,6 +111,8 @@ intents:
 - confirm_attitude
 
 ## actions
+
+- confirm_continue_dialogue
 
 - do_explain_planning
 - do_identify_barriers
@@ -282,6 +288,14 @@ entities:
 - plan_check_first_walk:
     influence_conversation: false
 
+
+- first_walk:
+    influence_conversation: false
+
+
+- week_3:
+    influence_conversation: false
+
 - goal:
     influence_conversation: false
 
@@ -303,6 +317,9 @@ entities:
 - explain_planning:
     influence_conversation: false
 
+- planning_importance_explanation:
+    influence_conversation: false
+
 - identify_barriers:
     influence_conversation: false
 
@@ -318,6 +335,12 @@ entities:
 - barrier_description:
     influence_conversation: false
 
+- barrier_strategy_1:
+    influence_conversation: false
+
+- barrier_strategy_2:
+    influence_conversation: false
+
 - planning_relevance:
     influence_conversation: false
 
@@ -331,6 +354,12 @@ entities:
     influence_conversation: false
 
 - testimonial_2_body:
+    influence_conversation: false
+
+- takeaway_1:
+    influence_conversation: false
+
+- takeaway_2:
     influence_conversation: false
 
 - action:
@@ -769,6 +798,16 @@ slots:
     type: categorical
     influence_conversation: false
     values:
+      - -10
+      - -9
+      - -8
+      - -7
+      - -6
+      - -5
+      - -4
+      - -3
+      - -2
+      - -1
       - 0
       - 1
       - 2
@@ -788,6 +827,16 @@ slots:
     type: categorical
     influence_conversation: false
     values:
+      - -10
+      - -9
+      - -8
+      - -7
+      - -6
+      - -5
+      - -4
+      - -3
+      - -2
+      - -1
       - 0
       - 1
       - 2
@@ -802,6 +851,21 @@ slots:
     mappings:
     - type: from_entity
       entity: attitude
+
+  first_walk:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: first_walk
+
+  
+  week_3:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: week_3
 
   last_action:
     type: text
@@ -848,6 +912,14 @@ slots:
     - type: from_entity
       entity: planning_relevance
 
+  planning_importance_explanation:
+    type: text
+    initial_value: ''
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: planning_importance_explanation
+
   identify_barriers:
     type: bool
     initial_value: false
@@ -872,10 +944,27 @@ slots:
 
   barrier_description:
     type: text
+    initial_value: ''
     influence_conversation: false
     mappings:
     - type: from_entity
       entity: barrier_description
+
+  barrier_strategy_1:
+    type: text
+    initial_value: ''
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: barrier_strategy_1
+
+  barrier_strategy_2:
+    type: text
+    initial_value: ''
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: barrier_strategy_2
 
   deal_with_barriers:
     type: bool
@@ -895,6 +984,7 @@ slots:
 
   testimonial_1_intro:
     type: text
+    initial_value: ''
     influence_conversation: false
     mappings:
     - type: from_entity
@@ -902,6 +992,7 @@ slots:
 
   testimonial_1_body:
     type: text
+    initial_value: ''
     influence_conversation: false
     mappings:
     - type: from_entity
@@ -909,6 +1000,7 @@ slots:
 
   testimonial_2_intro:
     type: text
+    initial_value: ''
     influence_conversation: false
     mappings:
     - type: from_entity
@@ -916,10 +1008,27 @@ slots:
 
   testimonial_2_body:
     type: text
+    initial_value: ''
     influence_conversation: false
     mappings:
     - type: from_entity
       entity: testimonial_2_body
+
+  takeaway_1:
+    type: text
+    initial_value: ''
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: takeaway_1
+
+  takeaway_2:
+    type: text
+    initial_value: ''
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: takeaway_2
 
 
   actions_done:
@@ -934,6 +1043,16 @@ slots:
     type: categorical
     influence_conversation: false
     values:
+      - -10
+      - -9
+      - -8
+      - -7
+      - -6
+      - -5
+      - -4
+      - -3
+      - -2
+      - -1
       - 0
       - 1
       - 2
@@ -954,6 +1073,16 @@ slots:
     type: categorical
     influence_conversation: false
     values:
+      - -10
+      - -9
+      - -8
+      - -7
+      - -6
+      - -5
+      - -4
+      - -3
+      - -2
+      - -1
       - 0
       - 1
       - 2
@@ -973,6 +1102,16 @@ slots:
     type: categorical
     influence_conversation: false
     values:
+      - -10
+      - -9
+      - -8
+      - -7
+      - -6
+      - -5
+      - -4
+      - -3
+      - -2
+      - -1
       - 0
       - 1
       - 2
@@ -1018,41 +1157,86 @@ responses:
   utter_greet_2:
   - text: "I'm happy to meet you."
 
-
   utter_confirm_mood:
   - buttons:
     - payload: /confirm_mood_very_good
-      title: "I'm doing fantastic today!"
+      title: "Happy"
+    - payload: /confirm_mood_very_good
+      title: "Glad"
+    - payload: /confirm_mood_very_good
+      title: "Pleased"
+    - payload: /confirm_mood_very_good
+      title: "Delighted"
+    - payload: /confirm_mood_very_good
+      title: "Serene"
+    - payload: /confirm_mood_very_good
+      title: "Content"
     - payload: /confirm_mood_good
-      title: "I'm doing good."
+      title: "Satisfied"
+    - payload: /confirm_mood_good
+      title: "Relaxed"
+    - payload: /confirm_mood_good
+      title: "Calm"
+    - payload: /confirm_mood_good
+      title: "Excited"
+    - payload: /confirm_mood_good
+      title: "Astonished"
+    - payload: /confirm_mood_good
+      title: "Aroused"
     - payload: /confirm_mood_neutral
-      title: "I'm alright."
+      title: "Sleepy"
+    - payload: /confirm_mood_neutral
+      title: "Neutral"
+    - payload: /confirm_mood_neutral
+      title: "Tired"
+    - payload: /confirm_mood_neutral
+      title: "Tense"
     - payload: /confirm_mood_bad
-      title: "Not so good…"
+      title: "Alarmed"
+    - payload: /confirm_mood_bad
+      title: "Afraid"
+    - payload: /confirm_mood_bad
+      title: "Droopy"
+    - payload: /confirm_mood_bad
+      title: "Bored"
     - payload: /confirm_mood_very_bad
-      title: "Quite bad…"
-    text: "How are you doing today?"
+      title: "Angry"
+    - payload: /confirm_mood_very_bad
+      title: "Annoyed"
+    - payload: /confirm_mood_very_bad
+      title: "Frustrated"
+    - payload: /confirm_mood_very_bad
+      title: "Distressed"
+    - payload: /confirm_mood_very_bad
+      title: "Depressed"
+    - payload: /confirm_mood_very_bad
+      title: "Sad"
+    - payload: /confirm_mood_very_bad
+      title: "Gloomy"
+    - payload: /confirm_mood_very_bad
+      title: "Miserable"
+    text: "How are you doing today? Pick one of the options below to let me know how you feel."
 
   utter_mood_very_good_response:
-  - text: "That's awesome!"
+  - text: "That's awesome! I'm glad you're in a great mood."
 
   utter_mood_good_response:
-  - text: "That's good to hear!"
+  - text: "That's good to hear! I'm glad you're in a good mood."
 
   utter_mood_neutral_response:
-  - text: "Ah, so a pretty regular day, then. Okay."
+  - text: "Ah, so a pretty regular day, then. Okay!"
 
   utter_mood_bad_response:
-  - text: "I'm sorry to hear that. I hope our conversation might cheer you up a bit."
+  - text: "I'm sorry to hear that! I hope our conversation might cheer you up a bit."
 
   utter_mood_very_bad_response:
-  - text: "I'm sorry to hear that. Do talk to someone if you have problems you need help with. For now, I hope our conversation might cheer you up a little bit."
+  - text: "I'm sorry to hear that! Do talk to someone if you have problems you need help with. For now, I hope our conversation might cheer you up a little bit."
 
   utter_prompt_usage_1:
   - text: "Before we start, let me explain how you can communicate with me."
 
   utter_prompt_usage_2:
-  - text: "You can simply click on one of the buttons, like you already did. Sometimes, you will have to use the chat box bellow to type in your answer."
+  - text: "You can simply click on one of the buttons like you already did. Sometimes, you will have to use the chat box below to type in your answer."
 
   utter_explain_usage:
   - buttons:
@@ -1061,34 +1245,37 @@ responses:
     text: "Other times, you will need to do something on the left side of the screen. I will tell you when that is the case. Let me know when you are ready to continue by clicking the button."
 
   utter_button:
-  - text: "Nice. Seems like you're getting familiar with using the buttons."
+  - text: "Nice! Seems like you're getting familiar with using the buttons."
+
+  utter_intro_1:
+  - text: "Let me briefly reiterate what you previously read in the introduction part of this session."
+
+  utter_intro_2:
+  - text: "My objective is to help people create plans for taking walks."
+
+  utter_intro_3:
+  - text: "We'll set a goal for you to reach in 6 months from now, and then create a plan for doing so."
+
+  utter_intro_4:
+  - buttons:
+    - payload: /confirm_intro
+      title: "Let's continue."
+    text: "Let me know when you are ready to continue."
 
   utter_purpose_1:
-  - text: "Let me tell you a bit about myself. My goal is to help people create plans for taking walks during the week."
+  - text: "Let me tell you a bit about myself. My goal is to help people create plans for taking walks."
 
   utter_purpose_2:
-  - text: "Walking is generally regarded as beneficial for both health and mood."
-
-  utter_purpose_3:
-  - text: "Another advantage of taking regular walks is that they are easily accessible for everyone."
+  - text: "Walking is generally regarded as beneficial for both health and mood, and it's also easily accessible for everyone, since it doesn't take a lot of time like a workout might, nor does it require special equipment."
 
   utter_continue_purpose_1:
   - buttons:
     - payload: /confirm_continue_purpose_1
       title: "Let's continue."
-    text: "This means that it doesn't take a lot of time like a workout might, nor does it require special equipment. Let me know when you are done reading so we can continue."
+    text: "Let me know when you are done reading so we can continue."
 
-  utter_purpose_4:
-  - text: "Okay! Let me explain in a bit more detail the kinds of walks we will make a plan for."
-
-  utter_purpose_5:
-  - text: "Unlike leisurely walks, you'll have to walk at moderate intensity for our plan to be effective."
-  
-  utter_purpose_6:
-  - text: "Moderate intensity is characterised by breathing more heavily than usual, while still being able to hold a short conversation."
-  
-  utter_purpose_7:
-  - text: "In other words, you should walk at a pace that makes it somewhat challenging for you to keep going, which is about 100 steps per minute for the average person."
+  utter_purpose_3:
+  - text: "Okay! For our plan, you'll have to walk at moderate intensity, which means you should be breathing more heavily than usual, while still being able to hold a short conversation."
 
   utter_confirm_purpose:
   - buttons:
@@ -1097,16 +1284,10 @@ responses:
     text: "Once you are done reading, I will explain how this all ties together with the help of the plan."
 
   utter_explain_usefulness_planning_1:
-  - text: "Nice. So, how does planning help you make progress towards your goal?"
+  - text: "Nice. So, how does planning help you make progress toward your goal?"
 
   utter_explain_usefulness_planning_2:
-  - text: "If you have a clear indication of when you should go for a walk, it will be much easier for you to actually do it."
-
-  utter_explain_usefulness_planning_3:
-  - text: "You'll have a clear schedule set in place, which will make it more difficult to avoid taking a walk or to postpone it."
-
-  utter_explain_usefulness_planning_4:
-  - text: "After all, there is only so much time in a week, so, by making a plan, you integrate walking into your schedule such that you actually have time to do it."
+  - text: "If you have a clear indication of when you should go for a walk, you can integrate walking into your schedule such that you actually have time to do it."
 
   utter_explain_usefulness_planning_question:
   - buttons:
@@ -1115,30 +1296,21 @@ responses:
     text: "Let me know when you are done reading and you want to continue."  
 
   utter_explain_goal_1:
-  - text: "Okay! In order to create a plan for walking, we should first set a goal for you."
+  - text: "Alright, let's keep going. To create a plan for walking, we should first set a goal for you."
 
   utter_explain_goal_2:
-  - text: "Having a clear goal to work towards is helpful in keeping you motivated."
-
-  utter_explain_goal_3:
-  - text: "However, for the goal to be most effective, you should pick a goal is both challenging and achievable."
-
-  utter_explain_goal_4:
-  - text: "You should feel like you have to put in the effort to reach your goal, while avoiding aiming for something unrealistic."
+  - text: "Having a clear goal that is both challenging and achievable helps keep you motivated."
 
   utter_explain_goal_question:
   - buttons:
     - payload: /confirm_explain_goal
       title: "Let's move on."
-    text: "Let me know when you are ready to continue."  
+    text: "Let me know when you are ready to continue with setting a goal."  
 
   utter_set_goal_1:
-  - text: "I think we are ready for you to set a goal for walking."
+  - text: "Great, let's carry on! A common way of measuring how much you walk is through counting the number of steps you take in a day."
 
   utter_set_goal_2:
-  - text: "A common way of measuring how much you walk is through counting the number of steps you take in a day."
-
-  utter_set_goal_3:
   - text: "And a common goal is to aim for 10000 steps per day, as this is beneficial for your health, especially if you are currently inactive."
 
   utter_set_goal_continue:
@@ -1147,10 +1319,10 @@ responses:
       title: "I am ready."
     text: "Once you are ready to continue, please click the button."
 
-  utter_set_goal_4:
-  - text: "Okay. I assume you take at least about 2000 steps per day through your regular activities, so one of your options is to increase that amount by 8000 steps to reach a total of 10000 steps per day."
+  utter_set_goal_3:
+  - text: "Okay, let's proceed! I assume you take at least about 2000 steps per day through your regular activities, so one of your options is to increase that amount by 8000 steps to reach a total of 10000 steps per day."
 
-  utter_set_goal_5:
+  utter_set_goal_4:
   - text: "However, you can also pick a higher goal if you want a challenge!"
 
   utter_set_goal:
@@ -1161,54 +1333,22 @@ responses:
       title: "11000 steps (or 110 minutes) per day."
     - payload: /confirm_goal{"goal":"12000"}
       title: "12000 steps (or 120 minutes) per day."
-    text: "Please pick one of these options as your goal."
+    text: "Please pick one of these options as your goal. Remember that this goal represents how many steps you will be able to do in six months from know."
 
   utter_confirm_goal:
-  - buttons:
-    - payload: /confirm_initial_plan
-      title: "I am prepared."
-    text: "Great! Take walks regularly and you'll be able to achieve your goal of {goal} steps per day. Now, tell me when you are ready to continue."
-
-
-  utter_internal_motivation_1:
-  - text: "Okay! An important part of achieving your goal is being motivated."
-
-  utter_internal_motivation_2:
-  - text: "So, I am curious: what motivates you to want to walk regularly?"
-
-  utter_internal_motivation_question:
-  - buttons:
-    - payload: /confirm_motivation
-      title: "Family."
-    - payload: /confirm_motivation
-      title: "Health."
-    - payload: /confirm_motivation
-      title: "Relationships."
-    - payload: /confirm_motivation
-      title: "Personal growth."
-    - payload: /confirm_motivation
-      title: "Work."
-    - payload: /confirm_motivation
-      title: "Friends."
-    text: "Please pick one of the options below:"
-
-  utter_thank_for_motivation:
-  - text: "I see, thank you for letting me know!"
+  - text: "Great! Take walks regularly and you'll be able to achieve your goal of {goal} steps per day."
 
   utter_routines_1:
-  - text: "Alright, let's move on to creating the plan. In order to do that, let's first see when you have free time."
+  - text: "Let's move on to creating the plan. To do that, let's first see when you have free time."
 
   utter_routines_2:
-  - text: "You don't have to provide me with your exact daily schedule, but let me know if you have any routines in place."
+  - text: "Ideally, we're looking for at least four different days during the week when you have at least 30 minutes to take a walk."
 
-  utter_routines_3:
-  - text: "For example, most people work a day job. But maybe you have things planned on some evenings as well."
+  utter_timeslots_1:
+  - text: "On the left side of the screen, you can see a table. You can click on a time slot in the table to specify that you are available at that time. By clicking that slot again, you indicate that you are not available."
 
-  utter_routines_4:
-  - text: "Ideally, we're looking for at least four different times during the week when you have at least 30 minutes to take a walk."
-
-  utter_timeslots:
-  - text: "On the left side of the screen, you can see a table. You can click on a time slot in the table to specify that you are available at that time. Please select all the slots when you are avaialable."
+  utter_timeslots_2:
+  - text: "Please select all the slots when you are available. Once you are done, click the button that says 'I'm done selecting time slots when I am free.' You may need to scroll to see this button."
 
 
   utter_confirm_sunday_slots:
@@ -1216,44 +1356,44 @@ responses:
 
 
   utter_thank_for_times:
-  - text: "Thank you for letting me know when you are available."
+  - text: "Thank you for letting me know when you are available!"
 
   utter_energy_levels:
   - text: "Now, I want to ask when you have more energy than usual. We could make use of this opportunity to schedule a walk if you are also free at the time."
 
   utter_energy_instruction:
-  - text: "Like before, I would like you to pay attention to the left side of the sceen. Please specify how much energy you have during the weekdays and during the weekends by clicking the corresponding box for each time of the day."
+  - text: "Like before, I would like you to pay attention to the left side of the screen. Please specify how much energy you have during the weekdays and during the weekends by clicking the corresponding box for each time of the day. Note again that you may need to scroll to see the button which confirms that you are done."
 
   utter_energy_levels_weekends_confirm:
   - text: "So those are your energy levels on weekends:\n Morning: {weekends_morning}, Midday: {weekends_midday}, Afternoon: {weekends_afternoon}, Evening: {weekends_evening}."
 
 
   utter_thank_for_energy_levels:
-  - text: "Thank you for letting me know when you have more energy than usual."
+  - text: "Thank you for letting me know about your energy levels!"
 
   utter_present_plan_1:
   - buttons:
     - payload: /confirm_ready_initial_plan
       title: "Show me the plan."
-    text: "Now, let's see initial plan! Don't worry if it's not entirely to you liking yet. You'll have opportunities to modify it later. Please let me know when you are ready to continue."
+    text: "Now, let's see the initial plan! It is based on the times when you are free and the energy levels you specified, but don't worry if it's not entirely to your liking yet. You'll have opportunities to modify it later. Please let me know when you are ready to continue."
 
   utter_present_plan_2:
   - buttons:
     - payload: /confirm_checked_plan{"changes_to_plan":"0"}
       title: "Let's discuss the plan."
-    text: "I'll leave the plan on the left side on the screen so you can take a look at it later. Note that you may need to scroll to see the entire plan, depending on your screen resolution. Let me know when you are prepared to discuss the plan in more detail. "
+    text: "I'll leave the plan on the left side of the screen so you can take a look at it later. Note that you may need to scroll to see the entire plan, depending on your screen resolution. Let me know when you are prepared to discuss the plan in more detail."
 
   utter_present_plan_3:
-  - text: "Okay, let's take a took at the plan. On the left side of your screen, you should see a big table with a view similar to that of a calendar. Time slots when you should take walks are marked with the duration you should walk for. You can also notice that the duration increases each week."
+  - text: "Okay, let's take a look at the plan! On the left side of your screen, you should see a big table with a view similar to that of a calendar. Time slots when you should take walks are marked with the duration you should walk for. You can also notice that the duration increases each week."
 
   utter_check_plan_first_walk:
   - text: "You can see the first two weeks planned in detail. To check that you understand what the plan signifies, let's do a quick pop quiz! When is the first time you have to take a walk? Please type your answer as day_time. For example, if your first walk is on Friday morning, please type 'friday_morning'."
 
   utter_check_plan_first_walk_correct:
-  - text: "That's right, your first walk is on {plan_check_first_walk}."
+  - text: "That's right, your first walk is on {plan_check_first_walk}!"
 
   utter_check_plan_first_walk_incorrect:
-  - text: "Unfortunately, you are not right. Please, take another look at the plan. You can see the first two weeks planned in detail. Look for the first day with a time slot selected, then look at what time in that day you should take a walk. Please type your answer as day_time."
+  - text: "Unfortunately, you are not right. Please, take another look at the plan. You can see the first two weeks planned in detail. Look for the first day with a time slot selected, then look at what time during that day you should take a walk. Please type your answer as day_time."
   
   utter_explain_weeks:
   - buttons:
@@ -1262,7 +1402,7 @@ responses:
     text: "Moving on, you can also see the third and fourth weeks, but only in terms of how many hours you have to walk and how often. For the two months after that, you see only how much you will have to do in the last week of that month, to give you an idea of the effort that you are building up towards. Let me know when you are done reading."
 
   utter_check_plan_week_3:
-  - text: "Let's do an extra check to make sure everything is clear. How much time will you have to walk on your third week? Please type your answer as a number with one decimal point. For example, if your answer is 1 and a half hours, please type '1.5'"
+  - text: "Let's do an extra check to make sure everything is clear. How much time will you have to walk in your third week? Please type your answer as a number with one decimal point. For example, if your answer is 1 and a half hours, please type '1.5'"
 
   utter_check_plan_week_3_correct:
   - text: "Correct! In your third week, you will have to walk for {plan_check_week_3} hours."
@@ -1303,14 +1443,14 @@ responses:
       title: "9"
     - payload: /confirm_confidence{"confidence":"10"}
       title: "10 (Very confident)"
-    text: "How confident are you that you can follow the plan?"
+    text: "How confident are you that you can follow the whole plan for 3 months?"
 
   utter_confidence_repeat:
   - text: "So your confidence is {confidence}."
 
   utter_thank_for_confidence:
-  - text: "I see. Thank you for telling me."
-  - text: "Okay. Good to know. Thank you."
+  - text: "I see. Thank you for telling me!"
+  - text: "Okay! Good to know. Thank you."
   - text: "Okay! Thanks for letting me know."
   - text: "Good to know. Thanks!"
   - text: "Got it. Thanks for letting me know!"
@@ -1318,8 +1458,28 @@ responses:
 
   utter_state_perceived_usefulness:
   - buttons:
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"-10"}
+      title: "-10 (I think it can hinder me very much)"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"-9"}
+      title: "-9"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"-8"}
+      title: "-8"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"-7"}
+      title: "-7"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"-6"}
+      title: "-6"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"-5"}
+      title: "-5"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"-4"}
+      title: "-4"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"-3"}
+      title: "-3"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"-2"}
+      title: "-2"
+    - payload: /confirm_perceived_usefulness{"perceived_usefulness":"-1"}
+      title: "-1"
     - payload: /confirm_perceived_usefulness{"perceived_usefulness":"0"}
-      title: "0 (I don't think it can help me)"
+      title: "0"
     - payload: /confirm_perceived_usefulness{"perceived_usefulness":"1"}
       title: "1"
     - payload: /confirm_perceived_usefulness{"perceived_usefulness":"2"}
@@ -1339,15 +1499,15 @@ responses:
     - payload: /confirm_perceived_usefulness{"perceived_usefulness":"9"}
       title: "9"
     - payload: /confirm_perceived_usefulness{"perceived_usefulness":"10"}
-      title: "10 (I think it can help me)"
-    text: "To what extent do you think planning can help you take walks?"
+      title: "10 (I think it can help me very much)"
+    text: "To what extent do you think planning can help or hinder you in terms of taking walks?"
 
   utter_perceived_usefulness_repeat:
   - text: "So your perceived usefulness is {perceived_usefulness}."
 
   utter_thank_for_perceived_usefulness:
-  - text: "I see. Thank you for telling me."
-  - text: "Okay. Good to know. Thank you."
+  - text: "I see. Thank you for telling me!"
+  - text: "Okay! Good to know. Thank you."
   - text: "Okay! Thanks for letting me know."
   - text: "Good to know. Thanks!"
   - text: "Got it. Thanks for letting me know!"
@@ -1355,8 +1515,28 @@ responses:
 
   utter_state_attitude:
   - buttons:
+    - payload: /confirm_attitude{"attitude":"-10"}
+      title: "-10 (Bad)"
+    - payload: /confirm_attitude{"attitude":"-9"}
+      title: "-9"
+    - payload: /confirm_attitude{"attitude":"-8"}
+      title: "-8"
+    - payload: /confirm_attitude{"attitude":"-7"}
+      title: "-7"
+    - payload: /confirm_attitude{"attitude":"-6"}
+      title: "-6"
+    - payload: /confirm_attitude{"attitude":"-5"}
+      title: "-5"
+    - payload: /confirm_attitude{"attitude":"-4"}
+      title: "-4"
+    - payload: /confirm_attitude{"attitude":"-3"}
+      title: "-3"
+    - payload: /confirm_attitude{"attitude":"-2"}
+      title: "-2"
+    - payload: /confirm_attitude{"attitude":"-1"}
+      title: "-1"
     - payload: /confirm_attitude{"attitude":"0"}
-      title: "0 (Very useless)"
+      title: "0"
     - payload: /confirm_attitude{"attitude":"1"}
       title: "1"
     - payload: /confirm_attitude{"attitude":"2"}
@@ -1376,14 +1556,15 @@ responses:
     - payload: /confirm_attitude{"attitude":"9"}
       title: "9"
     - payload: /confirm_attitude{"attitude":"10"}
-      title: "10 (Very useful)"
-    text: "Please complete the following statement: 'For me, planning walks for the next 3 months would be ...'"
+      title: "10 (Good)"
+    text: "Please complete the following statement: 'Making plans for taking walks is...'"
+
 
   utter_attitude_repeat:
   - text: "So your attitude is {attitude}."
 
   utter_thank_for_attitude:
-  - text: "That is good to know. Thank you."
+  - text: "That is good to know. Thank you!"
   - text: "Thanks for telling me!"
 
   utter_input_too_short_takeaway_1:
@@ -1405,7 +1586,7 @@ responses:
   - text: "It seems like your answer is a bit too short... Please type at least 3 words. The question was: How do you think planning can help you do this?"
 
   utter_explain_planning_1:
-  - text: "Thanks for telling me! \n I think it would be useful to look again at more ways in which planning can help you be more physically active by walking."
+  - text: "Thanks for telling me! \n I think it would be useful to look at ways in which planning can help you be more physically active by walking."
 
   utter_explain_planning_2:
   - buttons:
@@ -1427,20 +1608,6 @@ responses:
 
   utter_thank_for_planning_explanation:
   - text: "I see. Thanks for sharing. Here is what I think planning can help with."
-
-  # utter_explain_planning_5:
-  # - text: "By creating a plan that is consistent across different weeks, it will be easier for you to form a habit of when you should go for a walk."
-
-  # utter_explain_planning_6:
-  # - text: "Besides this, the plan shows you what you will be able to achieve in the end, so you have an idea of the goal you are working towards."
-
-  # utter_explain_planning_7:
-  # - text: "Planning can also help you identify and deal with obstacles that might prevent you from going on your walks."
-
-  # utter_explain_planning_8:
-  # - text: "By anticipating these obstacles and devising strategies for overcoming them ahead of time, it will be easier to deal with them when they happen."
-
-
 
   utter_identify_barriers_1:
   - text: "That is good to know. Thank you. \n I think it might be useful to think of some barriers, or things that might stop or prevent you from taking walks regularly."
@@ -1465,30 +1632,16 @@ responses:
     text: "Which of these do you think is the biggest barrier for you?"
 
   utter_identify_barriers_4:
-  - text: "I see. Thank you for informing me. Would you mind briefly describing your barrier to me in the chat?"
+  - text: "I see. Thank you for informing me! Would you mind briefly describing your barrier to me in the chat?"
 
   utter_identify_barriers_5:
-  - text: "Thank you for telling me. I'll try to think a way to overcome your barrier. In the meantime..."
-
-  # utter_identify_barriers_7:
-  # - text: "Maybe you don't have shoes that are comfortable to take longer walks in."
-
-  # utter_identify_barriers_8:
-  # - text: "It could also be that you have young children to take care of and that leaves you with little time."
-
-  # utter_identify_barriers_9:
-  # - text: "All of these are barriers which could prevent you from taking a walk. Think if these apply to you specifically."
-
-  # utter_identify_barriers_10:
-  # - text: "You can also try to come up with some things that you know have been barriers in the past. Think about which of these barriers apply to you and let me know when you are ready to proceed."
-
-
+  - text: "Thank you for telling me!"
 
   utter_deal_with_barriers_1:
-  - text: "Thank you for telling me. \n We've previously thought of barriers which might prevent you from taking walks regularly."
+  - text: "Thank you for telling me! \n We've previously thought of barriers which might prevent you from taking walks regularly."
 
   utter_deal_with_barriers_2:
-  - text: "Now, let's try to think how you could overcome those barriers."
+  - text: "Now, let's try to think of how you could overcome those barriers."
 
   utter_deal_with_barriers_3:
   - text: "Keep in mind that, while I can provide suggestions, it's really up to you to come up with the solution that works best for you."
@@ -1519,18 +1672,6 @@ responses:
 
   utter_deal_with_barriers_9:
   - text: "Great! Thank you for sharing!"
-
-  # utter_deal_with_barriers_10:
-  # - text: "In terms of energy, think back to when we talked about when you feel most energetic during the day. Aim to schedule walks at those times, since it will be easier for you that way."
-
-  # utter_deal_with_barriers_11:
-  # - text: "Try to go to the gym when it's a bit quieter if you don't like it when other people can see you doing physical activity. It is not absolutely necessary to go to a gym, especially if you're only taking walks. Try walking in a park nearby or simply on the sidewalk."
-
-  # utter_deal_with_barriers_12:
-  # - text: "Another common barrier is not having the right equipment. For walking in particular, the only thing you really need are shoes that are comfortable for you, so putting aside some money for that can be a relatively simple strategy."
-
-  # utter_deal_with_barriers_13:
-  # - text: "If you have children to take care of, it might be a good idea to take them on regular walks with you. That way you can fulfill your family obligations and make progress towards your goal."
 
   utter_show_testimonials_1:
   - text: "Thanks for letting me know. \n Seeing other people make plans and see how they succeed with regards to their goals is something that might help you."
@@ -1575,7 +1716,7 @@ responses:
   - text: "Okay, that's good!"
 
   utter_changes_to_plan_1:
-  - text: "I see. Thank you for informing me. \n I propose we take another look at the plan."
+  - text: "I see. Thank you for informing me! \n I propose we take another look at the plan."
 
   utter_changes_to_plan_intermediary:
   - text: "Maybe considering our discussion so far, you realised that you want to change some of the times when you have to go for walks. If you do not want to change anything, please just click the button titled 'I am done adjusting the plan'"
@@ -1620,8 +1761,28 @@ responses:
 
   utter_satisfaction:
   - buttons:
+    - payload: /confirm_satisfaction{"satisfaction":"-10"}
+      title: "-10 (I am very dissatisfied)"
+    - payload: /confirm_satisfaction{"satisfaction":"-9"}
+      title: "-9"
+    - payload: /confirm_satisfaction{"satisfaction":"-8"}
+      title: "-8"
+    - payload: /confirm_satisfaction{"satisfaction":"-7"}
+      title: "-7"
+    - payload: /confirm_satisfaction{"satisfaction":"-6"}
+      title: "-6"
+    - payload: /confirm_satisfaction{"satisfaction":"-5"}
+      title: "-5"
+    - payload: /confirm_satisfaction{"satisfaction":"-4"}
+      title: "-4"
+    - payload: /confirm_satisfaction{"satisfaction":"-3"}
+      title: "-3"
+    - payload: /confirm_satisfaction{"satisfaction":"-2"}
+      title: "-2"
+    - payload: /confirm_satisfaction{"satisfaction":"-1"}
+      title: "-1"
     - payload: /confirm_satisfaction{"satisfaction":"0"}
-      title: "0 (I am very dissatisfied)"
+      title: "0"
     - payload: /confirm_satisfaction{"satisfaction":"1"}
       title: "1"
     - payload: /confirm_satisfaction{"satisfaction":"2"}
@@ -1642,12 +1803,32 @@ responses:
       title: "9"
     - payload: /confirm_satisfaction{"satisfaction":"10"}
       title: "10 (I am very satisfied)"
-    text: "How satisfied were you with the dialogue?"
+    text: "How satisfied or dissatisfied were you with the dialogue?"
 
   utter_commitment_1:
   - buttons:
+    - payload: /confirm_commitment_1{"commitment_1":"-10"}
+      title: "-10 (I strongly disagree)"
+    - payload: /confirm_commitment_1{"commitment_1":"-9"}
+      title: "-9"
+    - payload: /confirm_commitment_1{"commitment_1":"-8"}
+      title: "-8"
+    - payload: /confirm_commitment_1{"commitment_1":"-7"}
+      title: "-7"
+    - payload: /confirm_commitment_1{"commitment_1":"-6"}
+      title: "-6"
+    - payload: /confirm_commitment_1{"commitment_1":"-5"}
+      title: "-5"
+    - payload: /confirm_commitment_1{"commitment_1":"-4"}
+      title: "-4"
+    - payload: /confirm_commitment_1{"commitment_1":"-3"}
+      title: "-3"
+    - payload: /confirm_commitment_1{"commitment_1":"-2"}
+      title: "-2"
+    - payload: /confirm_commitment_1{"commitment_1":"-1"}
+      title: "-1"
     - payload: /confirm_commitment_1{"commitment_1":"0"}
-      title: "0 (I strongly disagree)"
+      title: "0"
     - payload: /confirm_commitment_1{"commitment_1":"1"}
       title: "1"
     - payload: /confirm_commitment_1{"commitment_1":"2"}
@@ -1668,12 +1849,32 @@ responses:
       title: "9"
     - payload: /confirm_commitment_1{"commitment_1":"10"}
       title: "10 (I strongly agree)"
-    text: "How much do you agree with the following statement: 'I am committing to being physically active by following the first two weeks of the plan, no matter what feels uncomfortable or challenging about that'?"
+    text: "How much do you agree or disagree with the following statement: 'I am committing to being physically active by following the first two weeks of the plan, no matter what feels uncomfortable or challenging about that'?"
 
   utter_commitment_f:
   - buttons:
+    - payload: /confirm_commitment_f{"commitment_f":"-10"}
+      title: "-10 (I strongly disagree)"
+    - payload: /confirm_commitment_f{"commitment_f":"-9"}
+      title: "-9"
+    - payload: /confirm_commitment_f{"commitment_f":"-8"}
+      title: "-8"
+    - payload: /confirm_commitment_f{"commitment_f":"-7"}
+      title: "-7"
+    - payload: /confirm_commitment_f{"commitment_f":"-6"}
+      title: "-6"
+    - payload: /confirm_commitment_f{"commitment_f":"-5"}
+      title: "-5"
+    - payload: /confirm_commitment_f{"commitment_f":"-4"}
+      title: "-4"
+    - payload: /confirm_commitment_f{"commitment_f":"-3"}
+      title: "-3"
+    - payload: /confirm_commitment_f{"commitment_f":"-2"}
+      title: "-2"
+    - payload: /confirm_commitment_f{"commitment_f":"-1"}
+      title: "-1"
     - payload: /confirm_commitment_f{"commitment_f":"0"}
-      title: "0 (I strongly disagree)"
+      title: "0"
     - payload: /confirm_commitment_f{"commitment_f":"1"}
       title: "1"
     - payload: /confirm_commitment_f{"commitment_f":"2"}
@@ -1694,12 +1895,12 @@ responses:
       title: "9"
     - payload: /confirm_commitment_f{"commitment_f":"10"}
       title: "10 (I strongly agree)"
-    text: "How much do you agree with the following statement: 'I am committing to being physically active by following the entire plan, no mater what feels uncomfortable or challenging about that'?"
+    text: "How much do you agree or disagree with the following statement: 'I am committing to being physically active by following the entire plan, no matter what feels uncomfortable or challenging about that'?"
 
   utter_confidence_goal:
   - buttons:
     - payload: /confirm_confidence_goal{"confidence_goal":"0"}
-      title: "0 (I am not confident at that I can reach my goal)"
+      title: "0 (I am not confident at all that I can reach my goal)"
     - payload: /confirm_confidence_goal{"confidence_goal":"1"}
       title: "1"
     - payload: /confirm_confidence_goal{"confidence_goal":"2"}
@@ -1719,20 +1920,22 @@ responses:
     - payload: /confirm_confidence_goal{"confidence_goal":"9"}
       title: "9"
     - payload: /confirm_confidence_goal{"confidence_goal":"10"}
-      title: "10 (I am sure that I can reach my goal)"
+      title: "10 (I am very confident that I can reach my goal)"
     text: "How confident are you that you can reach your goal of being able to take {goal} steps per day in six months from now?"
 
   utter_thank:
     - text: "Thank you for all your answers and for your time!"
 
+  utter_prolific_link:
+    - text: "Here is your completion link: ... ."
+
 
   ### End session
-  utter_email_reminder:
-    - text: "That's all for this session. I'll be sending you a message on Prolific right after this session to confirm that you have completed everything."
+  utter_post:
+    - text: "That's all for this session. You will soon get invited on Prolific to complete the post questionnaire."
 
 
-  utter_prolific_link:
-    - text: "Alright! Then here is your completion link: ... ."
+
 
 
   utter_goodbye:
@@ -1751,7 +1954,7 @@ responses:
 
 
   utter_default_close_session:
-  - text: "Please close this window and contact the researcher on prolific."
+  - text: "Please close this window and contact the researcher on Prolific."
 
 
   utter_error_close_session:
@@ -1759,7 +1962,7 @@ responses:
 
 
 session_config:
-  session_expiration_time: 33  # these are minutes (33 is max. time in Prolific for 6-minute study)
+  session_expiration_time: 56  # these are minutes (56 is max. time in Prolific for 15-minute study)
   carry_over_slots_to_new_session: false
 
 
@@ -1782,3 +1985,4 @@ actions:
 - action_save_action
 - action_save_goal_plans_and_reward
 - action_rearrange_db
+- action_check_dialogue_done
