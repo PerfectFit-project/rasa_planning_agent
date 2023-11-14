@@ -1,0 +1,10 @@
+cff-version: 1.1.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Stefan"
+  given-names: "Andrei"
+title: "Dyadic Physical Activity Planning with a Virtual Coach: Using Reinforcement Learning to Select Persuasive Strategies"
+version: 1.0
+doi: https://doi.org/10.5281/zenodo.10126244
+date-released: 2023-11-14
+url: "https://github.com/PerfectFit-project/rasa_planning_agent"
