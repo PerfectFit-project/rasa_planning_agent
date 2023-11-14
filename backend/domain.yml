@@ -1608,20 +1608,6 @@ responses:
   utter_thank_for_planning_explanation:
   - text: "I see. Thanks for sharing. Here is what I think planning can help with."
 
-  # utter_explain_planning_5:
-  # - text: "By creating a plan that is consistent across different weeks, it will be easier for you to form a habit of when you should go for a walk."
-
-  # utter_explain_planning_6:
-  # - text: "Besides this, the plan shows you what you will be able to achieve in the end, so you have an idea of the goal you are working towards."
-
-  # utter_explain_planning_7:
-  # - text: "Planning can also help you identify and deal with obstacles that might prevent you from going on your walks."
-
-  # utter_explain_planning_8:
-  # - text: "By anticipating these obstacles and devising strategies for overcoming them ahead of time, it will be easier to deal with them when they happen."
-
-
-
   utter_identify_barriers_1:
   - text: "That is good to know. Thank you. \n I think it might be useful to think of some barriers, or things that might stop or prevent you from taking walks regularly."
 
@@ -1649,20 +1635,6 @@ responses:
 
   utter_identify_barriers_5:
   - text: "Thank you for telling me!"
-
-  # utter_identify_barriers_7:
-  # - text: "Maybe you don't have shoes that are comfortable to take longer walks in."
-
-  # utter_identify_barriers_8:
-  # - text: "It could also be that you have young children to take care of and that leaves you with little time."
-
-  # utter_identify_barriers_9:
-  # - text: "All of these are barriers which could prevent you from taking a walk. Think if these apply to you specifically."
-
-  # utter_identify_barriers_10:
-  # - text: "You can also try to come up with some things that you know have been barriers in the past. Think about which of these barriers apply to you and let me know when you are ready to proceed."
-
-
 
   utter_deal_with_barriers_1:
   - text: "Thank you for telling me! \n We've previously thought of barriers which might prevent you from taking walks regularly."
@@ -1699,18 +1671,6 @@ responses:
 
   utter_deal_with_barriers_9:
   - text: "Great! Thank you for sharing!"
-
-  # utter_deal_with_barriers_10:
-  # - text: "In terms of energy, think back to when we talked about when you feel most energetic during the day. Aim to schedule walks at those times, since it will be easier for you that way."
-
-  # utter_deal_with_barriers_11:
-  # - text: "Try to go to the gym when it's a bit quieter if you don't like it when other people can see you doing physical activity. It is not absolutely necessary to go to a gym, especially if you're only taking walks. Try walking in a park nearby or simply on the sidewalk."
-
-  # utter_deal_with_barriers_12:
-  # - text: "Another common barrier is not having the right equipment. For walking in particular, the only thing you really need are shoes that are comfortable for you, so putting aside some money for that can be a relatively simple strategy."
-
-  # utter_deal_with_barriers_13:
-  # - text: "If you have children to take care of, it might be a good idea to take them on regular walks with you. That way you can fulfill your family obligations and make progress towards your goal."
 
   utter_show_testimonials_1:
   - text: "Thanks for letting me know. \n Seeing other people make plans and see how they succeed with regards to their goals is something that might help you."

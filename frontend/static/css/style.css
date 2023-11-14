@@ -34,7 +34,6 @@ body {
 }
 
 .chats {
-	/* display: none; */
 	/* Set height of chat area within window in fullscreen mode*/
 	height: 81%;
 	padding: 2px;
@@ -117,9 +116,6 @@ body {
 div.chats::-webkit-scrollbar {
 	overflow-y: hidden;
 	width: 0px;
-	/* remove scrollbar space /
-    background: transparent;
-    / optional: just make scrollbar invisible */
 }
 
 .clearfix {
@@ -128,12 +124,10 @@ div.chats::-webkit-scrollbar {
 }
 
 .botAvatar {
-/* 	border-radius: 50%; */
 	width: 1.5em;
 	height: 1.5em;
 	float: left;
 	margin-left: 5px;
-	/* border: 2px solid  #2ed59f ; */
 }
 
 .botMsg {
@@ -193,7 +187,6 @@ textarea-webkit-scrollbar {
 	height: 1.5em;
 	float: right;
 	margin-right: 5px;
-	/* border: 2px solid  #2ed59f ; */
 }
 
 .usrInput {
@@ -206,7 +199,6 @@ textarea-webkit-scrollbar {
 }
 
 .keypad {
-	/* display: none;  */
 	background: white;
 	height: 50px;
 	position: absolute;
@@ -495,9 +487,6 @@ div.content::-webkit-scrollbar {
 div.content_data::-webkit-scrollbar {
 	overflow-y: hidden;
 	width: 0px;
-	/* remove scrollbar space /
-    background: transparent;
-    / optional: just make scrollbar invisible */
 }
 
 
@@ -734,9 +723,7 @@ div.content_data::-webkit-scrollbar {
 	display: inline-block;
 	margin-bottom: 1px;
 	font-size: 15px;
-	/* font-weight: 600; */
 	padding: 5px;
-	/* color: #2ed59f; */
 	color: #ffffff;
 	cursor: pointer;
 }

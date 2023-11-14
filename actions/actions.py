@@ -236,9 +236,6 @@ def energy_levels(combination):
     
     energy_levels = {}
     
-    # for i in range(5):
-    #     energy_levels[f"{i}"] = 0
-    
     for [time, energy] in combination:
         
         if energy not in energy_levels:
@@ -626,10 +623,6 @@ class ActionSelectAction(Action):
                 # we want to make at most 2 changes to the initial plan and to not change the plan twice in a row
                 if last_action != "changes_to_plan" and changes_to_plan<=1:
                     possible_actions.append("changes_to_plan")
-                # # we want to avoid a situation where people change the plan, do a different action, change the plan again, and then end
-                # if changes_to_plan == 1 and number_actions == 2:
-                #     if "changes_to_plan" in possible_actions:
-                #         possible_actions.remove("changes_to_plan")
                 # we want to explain planning only once
                 if explain_planning == False:
                     possible_actions.append("explain_planning")
