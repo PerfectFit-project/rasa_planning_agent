@@ -1,10 +1,10 @@
 # Dyadic Physical Activity Planning with a Virtual Coach: Using Reinforcement Learning to Select Persuasive Strategies
 
-This github repository contains the code for the virtual coach Jamie, that is created for the thesis project titled "Dyadic Physical Activity Planning with a Virtual Coach: Using Reinforcement Learning to Select Persuasive Strategies." Jamie was used to gather data dring an observational study. Please refer to the [OSF pre-registration](https://doi.org/10.17605/OSF.IO/8ADP9) for more details on the observational study. For the code used to create a reinforcement learning model based on the data gathered, and for the code used for the analysis of this model, please refer to the [published data and code](https://doi.org/10.4121/2796f502-0610-4a7d-a8ee-ebc36639e0b1).
+This GitHub repository contains the code for the virtual coach Jamie, that is created for the thesis project titled "Dyadic Physical Activity Planning with a Virtual Coach: Using Reinforcement Learning to Select Persuasive Strategies." Jamie was used to gather data during an observational study. Please refer to the [OSF pre-registration](https://doi.org/10.17605/OSF.IO/8ADP9) for more details on the observational study. For the code used to create a reinforcement learning model based on the data gathered, and for the code used for the analysis of this model, please refer to the [published data and code](https://doi.org/10.4121/2796f502-0610-4a7d-a8ee-ebc36639e0b1). A demo video of the dialog can be found [here](https://youtu.be/2xC5D8EJ0iE).
 
 ## Dialogue flow
 
-In the observational study, people talked to the virtual code in a single session. During this session, the virtual coach first introduced itself and asked the person how they are feeling. Then, the person could pick a goal for walking, after which they were asked to indicate when they are free and how their energy levels change throughout the day. Using this information, an initial plan for taking walks was created. To gather the data needed for the reinforcement learning model, the virtual coach then asked three questions about the person's situation, composed on confidence in following the plan, perceived usefulness of planning, and attitude towards planning. Next, the virtual coach would use a random persuasive strategy and ask these questions again. This repeated until at least two persuasive strategies were used and until the person's confidence, perceived usefulness and attitude were high enough to assume that they would commit to the plan. Before ending the conversation, the virtual coach asked four more questions to gather the reward signal, composed on the person's satisfaction with the dialogue, their commitment ot the firts two weeks and to the entire plan, and their confidence in reaching the goal.
+In the observational study, people talked to the virtual code in a single session. During this session, the virtual coach first introduced itself and asked the person how they are feeling. Then, the person could pick a goal for walking, after which they were asked to indicate when they are free and how their energy levels change throughout the day. Using this information, an initial plan for taking walks was created. To gather the data needed for the reinforcement learning model, the virtual coach then asked three questions about the person's situation, namely confidence in following the plan, perceived usefulness of planning, and attitude towards planning. Next, the virtual coach would use a random persuasive strategy and ask these questions again. This repeated until at least two persuasive strategies were used and until the person's confidence, perceived usefulness and attitude were high enough to assume that they would commit to the plan. Before ending the conversation, the virtual coach asked four more questions to gather the reward signal, composed of the person's satisfaction with the dialogue, their commitment to the first two weeks and to the entire plan, and their confidence in reaching the goal.
 
 <img src = "Readme_images/dialogue.png" title="Dialogue flow.">
 
@@ -13,7 +13,7 @@ In the observational study, people talked to the virtual code in a single sessio
 
 ### Frontend
 
-The frontend is a html-page. Accessing the page via localhost requires to provide a user id and session number in the URL. For example, `localhost/?userid=1` opens the conversation for the user with id 1.
+The frontend is a html-page. Accessing the page via localhost requires providing a user id and session number in the URL. For example, `localhost/?userid=1` opens the conversation for the user with id 1.
 
 Files:
 - static/css/style.css contains the stylesheet for the html-page.
@@ -23,11 +23,11 @@ Files:
 
 ### Backend
 
-The backend is a combination of files that split the logic of what the chatbot should say, what internal actions should be taken and which variables to keep during the session.
+The backend is a combination of files that split the logic of what the chatbot should say, what internal actions should be taken, and which variables to keep during the session.
 
 Files:
 - data/rules.yml contains the rules of the chatbot, stating what to do when something is triggered by the user or chatbot itself.
-- models contains the trained models for the chatbot to use with all the rules, actions and other information.
+- models contains the trained models for the chatbot to use with all the rules, actions, and other information.
 - domain.yml contains the actual phrases of the chatbot and the variables that need to be tracked during the conversation.
 
 ### Actions
